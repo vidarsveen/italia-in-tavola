@@ -80,4 +80,5 @@ async def main():
             json.dump(manifest, open(manifest_path, 'w', encoding='utf-8'), indent=1)
     print('done')
 
-asyncio.run(main())
+if __name__ == '__main__':
+    asyncio.run(main())

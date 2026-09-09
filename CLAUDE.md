@@ -79,7 +79,12 @@ Debug URL parameters: `?instant` (skip font wait and camera tweens), `region=IT-
    headings "Nøkkelfakta", "I glasset: …", "Før du går videre", table rows Farge/Duft/Smak/Alkohol/Serveres/Ved bordet.
    Keep Italian names of wines, dishes and places untranslated.
    Write the Norwegian from the facts, not from the English sentence; see §4b below, and re-read it before
-   writing any Norwegian. All six Norwegian files were language-reviewed in September 2026 and every
+   writing any Norwegian. When the file is written, run the review skill on it: `/norsk-review <region>`
+   (instructions in `.claude/skills/norsk-review/SKILL.md`, helper `tools/review_no.py`: `--report` dumps EN and NO
+   side by side with lint hits, `--apply patch.json` applies exact replacements and re-checks structure, `--stale`
+   lists narrations whose spoken script no longer matches the text, `--narrate` regenerates them with a
+   truncation retry). After ANY edit to a reading, `python tools/review_no.py <region> --stale` tells you which
+   audio files are stale; never guess. All six Norwegian files were language-reviewed in September 2026 and every
    reading needed fixes, so the rules there are not optional.
 3. **Photos.** Commons free-text search often returns nothing for Italian phrases (it failed for Etna vineyards,
    arancini, Marsala and alberello). When it does, list a Commons category instead:
@@ -95,7 +100,8 @@ Debug URL parameters: `?instant` (skip font wait and camera tweens), `region=IT-
    About 10–12 photos per region; the hero of each lesson should be strong.
 4. **Wire it.** In `italia-course.html`: add `'IT-xx':'<region>'` to `ASSET_DIRS`; add three script tags after
    the previous region's: `content/<region>.js`, `content/<region>.no.js`, `assets/audio/<region>/manifest.js`.
-5. **Narration.** `python tools/narrate.py <region>` (≈2 min per lesson, run in the background; needs
+5. **Narration.** `python tools/review_no.py <region> --narrate` regenerates every stale file with a truncation
+   retry and re-encodes Opus (preferred). Underneath it is `python tools/narrate.py <region>` (≈2 min per lesson, run in the background; needs
    `edge-tts` and `imageio-ffmpeg`, install with `python -m pip install`). Voices: en-GB-SoniaNeural,
    nb-NO-PernilleNeural. Then `python tools/opus.py <region> 12`. Regenerate one file with `--only no-3`.
 6. **Build and test.** `python build.py` (writes dist/ and the audio `manifest.js` files), then §8 tests,

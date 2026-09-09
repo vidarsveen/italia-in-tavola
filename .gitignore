@@ -16,3 +16,6 @@ tools/test/ref.caf
 __pycache__/
 *.pyc
 .idea/
+
+# side-by-side dumps written by tools/review_no.py
+_review/
