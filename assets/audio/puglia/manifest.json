@@ -42,11 +42,11 @@
   "ogg_bytes": 593878
  },
  "no-3": {
-  "seconds": 172.3,
+  "seconds": 350.1,
   "voice": "nb-NO-PernilleNeural",
-  "bytes": 1033920,
-  "lo_bytes": 345032,
-  "ogg_bytes": 239092
+  "bytes": 2100672,
+  "lo_bytes": 700640,
+  "ogg_bytes": 485177
  },
  "no-4": {
   "seconds": 367.0,
