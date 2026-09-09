@@ -12,7 +12,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(ROOT, 'italia-course.html')
 OUT = os.path.join(ROOT, 'dist', 'italia-course.html')
 NL = chr(10)
-HOSTED_AUDIO = ['lazio']   # regions whose narration is inlined in the single-file page (16 MB ceiling).
+HOSTED_AUDIO = []   # regions whose narration is inlined in the single-file page (16 MB ceiling).
 # Piemonte was dropped when Campania was added: each region's Opus narration costs ~4.5 MB inlined, photos only ~0.8 MB.
 # Every region's full-quality narration is in site/ (tools/make_site.py); the hosted page offers the browser voice instead.
 

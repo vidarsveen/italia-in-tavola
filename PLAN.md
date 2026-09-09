@@ -101,6 +101,12 @@ narration. Emilia-Romagna's photos (about 1 MB inlined) will not fit beside Lazi
 is the point where `HOSTED_AUDIO` in build.py becomes empty and the hosted page relies on the browser voice
 everywhere; full narration stays in `site/`. Next: Emilia-Romagna, Puglia.
 
+## 6h. Status 2026-09-09, Emilia-Romagna and the live site
+
+The course now deploys to GitHub Pages (https://vidarsveen.github.io/italia-in-tavola/) from the public repo on every
+push; the artifact is a 10.4 MB preview with `HOSTED_AUDIO = []`. Emilia-Romagna (IT-45) complete: text EN/NO,
+19 photos, narration EN/NO. Eight regions done. Next: Puglia, then the remaining eleven in batches.
+
 ## 7. Suggested order of work
 
 1. Validate the Lazio reading format with a few learners on phones (this round).
