@@ -56,6 +56,18 @@ LINT = [
     (r'\bstamgjestene\b', '"regulars" in the sense of connoisseurs: «kjennerne»'),
     (r'\bgjør (det|den|dem) (ikke )?\w+ere\b', 'English "makes it X-er": check the comparative has a noun'),
     (r'\b(varmere|tidligere|rikere|rundere|modnere|mørkere|lettere|større)\.(?!\.)', 'comparative ending a sentence with nothing to attach to?'),
+    (r'\b(Vinteren|Sommeren|Høsten|Våren) bringer\b', '"winter brings": «Om vinteren kommer …»'),
+    (r'\bbetyr noe\b', '"matters": «betyr mye» / «spiller en rolle»'),
+    (r'\bskylder \w+ (et|en|ei)\b', '"owes X to": rewrite («… takket være …»)'),
+    (r'\ben bruk for\b', '"a use for": «noe å bruke … til»'),
+    (r'\bfor volum\b', '"for volume": «for å få mengde»'),
+    (r'\b(og|,) en (\w+) en\b', '"and a good one" calque: repeat the noun («og en god sfoglina»)'),
+    (r'\bi så lite som\b', '"as little as": «i bare»'),
+    (r'\bsagt å være\b', '"said to be": «angivelig» / «etter sigende»'),
+    (r'\bstrittende av\b', '"bristling with": «tett i tett med»'),
+    (r'\bI tiår\b', '"for decades": «I flere tiår»'),
+    (r'\bet (batteria|acetaia|osteria|trattoria|sfoglia)\b', 'these Italian nouns take «en» in Norwegian'),
+    (r'\bbuegang\b(?!e)', '«buegang» is a count noun: «bueganger» when plural'),
 ]
 
 def regions():
@@ -86,9 +98,16 @@ def lint(text):
             hits.append((m.start(), m.group(0), msg))
     return sorted(hits)
 
+def captions(region, lang):
+    f = f'{region}.js' if lang == 'en' else f'{region}.no.js'
+    src = open(os.path.join(ROOT, 'content', f), encoding='utf-8').read()
+    return [c.replace('\\"', '"') for c in re.findall(r'heroCaption:\s*"((?:[^"\\]|\\.)*)"', src)]
+
 def report(region):
     os.makedirs(OUT, exist_ok=True)
     EN, NO = lessons(region, 'en'), lessons(region, 'no')
+    for L, c in zip(EN, captions(region, 'en')): L['heroCaption'] = c
+    for L, c in zip(NO, captions(region, 'no')): L['heroCaption'] = c
     lines = [f'# Norwegian review dump: {region} ({code_of(region)})', '',
              'Read each NO block against its EN neighbour. Judge whether a Norwegian writer would have produced it.',
              'Lint hits are heuristics; decide each one. Fixes go in a patch JSON for `--apply`.', '']

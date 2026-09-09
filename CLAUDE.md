@@ -159,7 +159,11 @@ English in view; if it needs the English to parse, rewrite it.
    half-cooked, write «et halvt hardkokt egg».
 10. **Numbers and names.** Centuries as «1900-tallet», never «det tjuende århundret»; vintages as
     «1888-årgangen». Compounds are one word («enkelttradisjon», «alkoholstyrke», «sfogliaen», not
-    «sfoglia-en»). Watch for nynorsk plurals slipping in («buegangar» → «bueganger»).
+    «sfoglia-en»). Watch for nynorsk plurals slipping in («buegangar» → «bueganger»). «buegang» is a count noun
+    (62 km med bueganger); Italian loanwords like batteria, acetaia, osteria, trattoria take «en». More calques:
+    "winter brings" → «om vinteren kommer», "X matters" → «betyr mye», "owes X to" → «takket være», "and a good
+    one" → repeat the noun, "as little as" → «bare», "said to be" → «angivelig», "a wine of the year" → «en vin
+    som skal drikkes samme år».
 11. **«hvis» is not a relative pronoun** in running prose («en villa hvis mosaikker …»). Use «der», «med» or
     «som … til». Also avoid «pluss», «UNESCO-listet», «nådd via»; write «på verdensarvlisten», «som nås fra».
 
