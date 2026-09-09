@@ -355,7 +355,8 @@ const COURSE = {
    lessons:["Europe's highest vineyards","Alpine whites and mountain reds","Fontina and the table of the Alps","Castles of the Aosta valley"]},
  'IT-21':{name:'Piemonte', capital:'Torino', area:'North', color:'#7fa267', intro:"The foot of the mountains: fog-wrapped Langhe hills where Nebbiolo becomes Barolo and Barbaresco, white truffles from Alba, and a Turin café culture that gave the world vermouth and gianduja.",
    landmark:{name:'Mole Antonelliana, Turin', desc:'The 167 m spire that defines the Turin skyline, begun in 1863 as a synagogue and now the National Cinema Museum.', props:[['mole',45.07,7.69]]},
-   wines:[['Barolo','red','Barolo'],['Barbaresco','red','Barbaresco'],['Barbera d\'Asti','red','Barbera d\'Asti'],['Moscato d\'Asti','sparkling','Moscato d\'Asti'],['Gavi','white','Gavi']], pairing:'Barolo with brasato al Barolo, or a young Barbera with tajarin dressed in butter and shaved white truffle.',
+   vmp:'italia_piemonte',
+   wines:[['Barolo','red','italia_piemonte_barolo'],['Barbaresco','red','italia_piemonte_barbaresco'],['Barbera d\'Asti','red','italia_piemonte_barbera_d\'asti'],['Moscato d\'Asti','sparkling','italia_piemonte_moscato_d\'asti'],['Gavi','white','italia_piemonte_gavi_(cortese_di_gavi)']], pairing:'Barolo with brasato al Barolo, or a young Barbera with tajarin dressed in butter and shaved white truffle.',
    dishes:['White truffle of Alba','Tajarin','Agnolotti del plin','Bagna cauda','Vitello tonnato','Bonet'],
    lessons:["Nebbiolo and the Langhe hills","Barolo and Barbaresco, village by village","Truffles, tajarin and bagna cauda","Turin: vermouth, chocolate and the Mole"]},
  'IT-42':{name:'Liguria', capital:'Genova', area:'North', color:'#b7b06a', intro:"A thin crescent of coast squeezed between sea and mountain. Terraced vineyards hang above the Cinque Terre, basil grows in every window, and Genoa's port has traded spices and olive oil for a thousand years.",
@@ -450,11 +451,13 @@ const COURSE = {
    lessons:["An island of shepherds and vines","Cannonau and Vermentino","Porceddu, carasau and the pastoral table","Nuraghi: the Bronze Age towers"]},
 };
 
-// Vinmonopolet: a neutral link to the shop's own search page, filtered to Italy, so the list is always live.
-// Opt-in per wine: the third element of a wines[] entry is a search term VERIFIED to return real matches
-// (check with tools/vmpcheck.py). A wine with no third element gets no link, because Vinmonopolet's search is
-// fuzzy and several appellations are not stocked in Norway; a link to nothing is worse than no link.
-const vmpUrl = term => 'https://www.vinmonopolet.no/search?q=' + encodeURIComponent(term + ':relevance:mainCountry:italia');
+// Vinmonopolet: a neutral link to the shop's own search page, so the list of bottles is always current.
+// The link uses Vinmonopolet's own classification (mainDistrict = our region, mainSubDistrict = the appellation)
+// rather than a free-text search, which is fuzzy: "Barolo" as text also returns grappa and Barolo Chinato.
+// A region carries its district code in COURSE.vmp; the third element of a wines[] entry is the sub-district
+// code, listed by tools/vmpmap.py. A wine with no sub-district code links at region level, which is never empty.
+const vmpUrl = (district, sub) => 'https://www.vinmonopolet.no/search?q=' + encodeURIComponent(
+  ':relevance:mainCountry:italia:mainDistrict:' + district + (sub ? ':mainSubDistrict:' + sub : ''));
 const ORDER = ['IT-23','IT-21','IT-42','IT-25','IT-32','IT-34','IT-36','IT-45','IT-52','IT-55','IT-57','IT-62','IT-65','IT-67','IT-72','IT-75','IT-77','IT-78','IT-82','IT-88'];
 const AREAS = ['North','Centre','South','Islands'];
 const ASSET_DIRS = {'IT-62':'lazio','IT-21':'piemonte','IT-52':'toscana','IT-34':'veneto','IT-72':'campania','IT-82':'sicilia','IT-25':'lombardia','IT-45':'emiliaromagna','IT-75':'puglia','IT-32':'trentino','IT-36':'friuli','IT-42':'liguria'};
@@ -872,7 +875,7 @@ function select(code){
   sheet.querySelectorAll('ol.lessons li.readable').forEach(li => li.addEventListener('click', () => { location.hash = `#/${code}/${+li.dataset.i+1}`; }));
   sheet.querySelector('.landmark b').textContent = C.landmark.name;
   sheet.querySelector('.landmark span').textContent = C.landmark.desc;
-  sheet.querySelector('ul.wines').innerHTML = C.wines.map(([n,t,q]) => `<li><i class="${t}"></i><span>${n}</span><small>${T('wine.'+t)}</small>${q ? `<a class="vmp" href="${vmpUrl(q)}" target="_blank" rel="noopener" title="${T('vmpTitle')}">${T('vmp')}</a>` : ''}</li>`).join('');
+  sheet.querySelector('ul.wines').innerHTML = C.wines.map(([n,t,sub]) => `<li><i class="${t}"></i><span>${n}</span><small>${T('wine.'+t)}</small>${C.vmp ? `<a class="vmp" href="${vmpUrl(C.vmp, sub)}" target="_blank" rel="noopener" title="${T('vmpTitle')}">${T('vmp')}</a>` : ''}</li>`).join('');
   sheet.querySelector('.pair span').textContent = C.pairing;
   sheet.querySelector('.dishes').innerHTML = C.dishes.map(d => `<span>${d}</span>`).join('');
   sheet.querySelector('.body').scrollTop = 0;
