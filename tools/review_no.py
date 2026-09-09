@@ -45,7 +45,7 @@ LINT = [
     (r'\bikke så mye \w+ som\b', '"not so much X as Y" has no Norwegian form: rewrite'),
     (r'\ben av de \w+este \w+ å\b', '"one of the easiest wines to": rewrite («en vin det er lett å …»)'),
     (r', viktigere,', 'sentence adverb between commas: «og viktigst av alt:»'),
-    (r'\b(the|and|with|of|which|from)\b', 'English word leaked into the Norwegian text'),
+    (r'\b(the|with|of|which|from)\b|\band (?![,;.]| [a-zæøå]+,)\b', 'English word leaked into the Norwegian text (skips «and» = duck)'),
     (r'  +', 'double space'),
     (r' ,', 'space before comma'),
     (r'\bkunne aldri \w+en\b|\bhar aldri \w+en\b', 'adverb before the subject: «kunne vinlusen aldri»'),
@@ -68,6 +68,16 @@ LINT = [
     (r'\bI tiår\b', '"for decades": «I flere tiår»'),
     (r'\bet (batteria|acetaia|osteria|trattoria|sfoglia)\b', 'these Italian nouns take «en» in Norwegian'),
     (r'\bbuegang\b(?!e)', '«buegang» is a count noun: «bueganger» when plural'),
+    (r'(?:^|[.!?»] )(Kjør|Stå|Gå|Ta|Server|Se|Drikk|Smak|Åpne)\b[^.!?]{3,60}, og \w+', 'imperative-plus-«og» opener: make it conditional («Kjører du …, viker …»)'),
+    (r'(?:^|[.;] )[A-ZÆØÅ][a-zæøå]+(et|t|de) [a-zæøå]+ (blir|er|gir|smaker)\b', 'participle opener («Dyrket dårlig blir den …»): «Dyrkes den dårlig, blir …»'),
+    (r'\bvia\b', '«via» as "by way of": «gjennom», «over», «med»'),
+    (r'\buten varme\b', '"off the heat": «med kjelen av platen»'),
+    (r'\bBlek \w+gul\b|\bblek strågul\b', 'wine colour is «lys», «blek» is for faces'),
+    (r'\bgrillet rå\b|\btykk, rå\b', '"rare" steak: «lite stekt», not «rå»'),
+    (r'\bsalt (avslutning|lengde|preg)\b', '"savoury" is «smaksrik», not «salt», unless it really is salty'),
+    (r'\bbitte små\b', 'one word: «bittesmå»'),
+    (r'\ben bolle (suppe|ribollita|gryte)\b', 'a bowl of soup is «en skål»'),
+    (r'\bmoden rød kirsebær\b|\brød kirsebær\b', '«kirsebær» is neuter/plural: «røde kirsebær»'),
 ]
 
 def regions():

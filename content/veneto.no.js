@@ -36,8 +36,8 @@ window.READINGS_NO['IT-34'] = {
 <tr><th>Duft</th><td>Tørket kirsebær, fiken, rosin, sort pepper, bitter sjokolade, balsamico</td></tr>
 <tr><th>Smak</th><td>Full fylde, fløyelsaktig tekstur, modne tanniner, bittermandel i avslutningen, ofte noen gram sukker</td></tr>
 <tr><th>Alkohol</th><td>15–17 %</td></tr>
-<tr><th>Serveres</th><td>18 °C, dekantert; fra seks års alder, og heller etter hovedretten enn til den</td></tr>
-<tr><th>Ved bordet</th><td>Braisert okse eller hest, vilt, lagret Monte Veronese og Asiago, eller alene</td></tr></table></aside>
+<tr><th>Serveres</th><td>18 °C, dekantert; fra seks års alder, og gjerne etter hovedretten i stedet for til den</td></tr>
+<tr><th>Ved bordet</th><td>Braisert oksekjøtt eller hestekjøtt, vilt, lagret Monte Veronese og Asiago, eller alene</td></tr></table></aside>
 
 <h2>Vanlig Valpolicella og Bardolino</h2>
 <p>Ikke overse de utørkede vinene. Ung <strong>Valpolicella</strong> og <strong>Valpolicella Superiore</strong> er friske, med rød frukt og moderat alkohol, laget for pasta og spekemat og servert avkjølt. Over ryggen, på østbredden av Gardasjøen, lager de samme druene <strong>Bardolino</strong>, enda lettere, og <strong>Chiaretto</strong>, en blek rosé for dagene ved sjøen. Det er tørkedruevinene som får overskriftene, men de vanlige viser hvordan druene smaker før de har vært på loftet.</p>
@@ -65,14 +65,14 @@ window.READINGS_NO['IT-34'] = {
 <h2>Tre nivåer</h2>
 <aside class="facts"><h4>Slik leser du etiketten</h4><ul>
 <li><b>Prosecco DOC</b>: den store sonen, ni provinser i Veneto og Friuli, for det meste flat og maskinhøstet; over 600 millioner flasker i året. Treviso på etiketten betyr at druene kommer fra den provinsen.</li>
-<li><b>Conegliano Valdobbiadene Prosecco Superiore DOCG</b>: de opprinnelige åsene, femten kommuner, håndplukket; rundt 100 millioner flasker. <b>Rive</b> pluss et landsbynavn betyr én bratt enkeltvinmark; <b>Cartizze</b> er 107 hektar av de bratteste skråningene ved Valdobbiadene, sonens grand cru.</li>
+<li><b>Conegliano Valdobbiadene Prosecco Superiore DOCG</b>: de opprinnelige åsene, femten kommuner, håndplukket; rundt 100 millioner flasker. <b>Rive</b> fulgt av et landsbynavn betyr én bratt enkeltvinmark; <b>Cartizze</b> er 107 hektar av de bratteste skråningene ved Valdobbiadene, sonens grand cru.</li>
 <li><b>Asolo Prosecco DOCG</b>: en mindre åssone i sørvest, rundt byen Asolo.</li>
 </ul></aside>
 <p>Det er Superiore-åsene tittelen på leseteksten sikter til. Mellom Conegliano og Valdobbiadene reiser landskapet seg i bratte, smale rygger som drives for hånd på gresskledde terrasser kalt <em>ciglioni</em>; noen skråninger krever flere hundre arbeidstimer per hektar hvert år, fem ganger så mye som på sletten. Vinskolen i Conegliano, grunnlagt i 1876, var den første i Italia, og det var her Antonio Carpenè og etterfølgerne hans fant ut hvordan man kunne lage billig og ren musserende vin av Glera.</p>
 <figure data-img="cartizze"><figcaption>Cartizze-skråningen ved Valdobbiadene: hundre og sju hektar fordelt på godt over hundre dyrkere.</figcaption></figure>
 
 <h2>Tank, ikke flaske</h2>
-<p>Champagne får boblene sine fra en annengangsgjæring inne i hver flaske, og deretter måneder eller år på gjæren, noe som gir toner av brød og kjeks. Prosecco bruker <strong>Martinotti</strong>-metoden, patentert i Asti i 1895 og kjent i utlandet som Charmat: basisvinen gjærer på nytt i en lukket ståltank i noen uker og tappes under trykk. Det er billigere og raskere, og viktigst av alt: det bevarer druens friske frukt i stedet for å dekke den til med gjærpreg. Derfor smaker Prosecco av pære og eple heller enn ristet brød, og derfor skal den drikkes ung.</p>
+<p>Champagne får boblene sine fra en annengangsgjæring inne i hver flaske, og deretter måneder eller år på gjæren, noe som gir toner av brød og kjeks. Prosecco bruker <strong>Martinotti</strong>-metoden, patentert i Asti i 1895 og kjent i utlandet som Charmat: basisvinen gjærer på nytt i en lukket ståltank i noen uker og tappes under trykk. Det er billigere og raskere, og viktigst av alt: det bevarer druens friske frukt i stedet for å dekke den til med gjærpreg. Derfor smaker Prosecco av pære og eple og ikke av ristet brød, og derfor skal den drikkes ung.</p>
 <figure data-img="prosecco"><figcaption>Prosecco skjenkes ung og kald; boblene kommer fra noen uker i en trykksatt ståltank.</figcaption></figure>
 <p>Sødmeskalaen er fellen. <strong>Brut</strong> er tørr (under 12 gram sukker per liter). <strong>Extra Dry</strong>, den tradisjonelle stilen og den vanligste, er søtere enn Brut med 12–17 gram. <strong>Dry</strong> er enda søtere, 17–32 gram, og Cartizze lages som regel slik. Siden 2019 har DOCG-en også tillatt <strong>Sui lieviti</strong>, den gamle gårdsstilen som gjæres på nytt i flasken og får ligge uklar på bunnfallet, lokalt kjent som <em>col fondo</em>; og siden 2020 finnes det en <strong>Prosecco DOC Rosé</strong>, Glera med 10–15 % Pinot Noir.</p>
 
@@ -81,7 +81,7 @@ window.READINGS_NO['IT-34'] = {
 <tr><th>Duft</th><td>Grønt eple, pære, hvit fersken, akasieblomst</td></tr>
 <tr><th>Smak</th><td>Lett fylde, frisk syre, myk mousse, ren tørr avslutning</td></tr>
 <tr><th>Alkohol</th><td>11–12 %</td></tr>
-<tr><th>Serveres</th><td>6–8 °C, i et hvitvinsglass heller enn i en flute; drikkes innen to år</td></tr>
+<tr><th>Serveres</th><td>6–8 °C, i et hvitvinsglass, ikke i en flute; drikkes innen to år</td></tr>
 <tr><th>Ved bordet</th><td>Cicchetti, prosciutto, fritert sjømat, risi e bisi; grunnlaget i en Bellini og en spritz</td></tr></table></aside>
 
 <h2>Venetos andre hvitviner</h2>
@@ -104,7 +104,7 @@ window.READINGS_NO['IT-34'] = {
 <p class="lead">Venetianere setter seg ikke til lunsj, de beiter seg gjennom den. Fra sen formiddag fylles disken i de små barene kalt <strong>bàcari</strong> med fat med <strong>cicchetti</strong>: en brødskive med en skje pisket torsk, en fritert kjøttbolle, en sardin under en haug løk, et halvt hardkokt egg med en ansjos. Hver koster en euro eller to og spises i to munnfuller med en <em>ombra</em>, et lite glass vin. Så går du videre til neste bar. Det er Italias eldste hurtigmat og den beste innføringen i hvordan byen lager mat.</p>
 
 <h2>Ombra og bàcaro</h2>
-<p>Navnene er byens historie i miniatyr. En <strong>ombra</strong> er en skygge: vinselgerne på Piazza San Marco flyttet i sin tid bodene sine rundt på plassen gjennom dagen for å holde seg i skyggen av Campanilen, og et glass i skyggen ble ganske enkelt <em>un'ombra</em>. <strong>Bàcaro</strong> føres som regel tilbake til Bacchus via <em>far bàcara</em>, å slå seg løs. <strong>Cicchetto</strong> kommer fra latin <em>ciccus</em>, en bagatell. Bàcariene ligger tett rundt Rialto-markedet og i Cannaregio, de åpner tidlig og stenger tidlig, og vinen er en mugge Prosecco, Soave eller Raboso heller enn noe med etikett.</p>
+<p>Navnene er byens historie i miniatyr. En <strong>ombra</strong> er en skygge: vinselgerne på Piazza San Marco flyttet i sin tid bodene sine rundt på plassen gjennom dagen for å holde seg i skyggen av Campanilen, og et glass i skyggen ble ganske enkelt <em>un'ombra</em>. <strong>Bàcaro</strong> føres som regel tilbake til Bacchus via <em>far bàcara</em>, å slå seg løs. <strong>Cicchetto</strong> kommer fra latin <em>ciccus</em>, en bagatell. Bàcariene ligger tett rundt Rialto-markedet og i Cannaregio, de åpner tidlig og stenger tidlig, og vinen er en mugge Prosecco, Soave eller Raboso, ikke noe med etikett på.</p>
 <figure data-img="bacaro"><figcaption>Cantine del Vino già Schiavi i Dorsoduro, en av de mest kjente bàcariene: en vinhandel med en disk full av cicchetti og vin skjenket som ombra.</figcaption></figure>
 
 <h2>To retter som forklarer Venezia</h2>

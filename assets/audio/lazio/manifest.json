@@ -28,31 +28,31 @@
   "ogg_bytes": 516186
  },
  "no-1": {
-  "seconds": 383.2,
+  "seconds": 384.2,
   "voice": "nb-NO-PernilleNeural",
-  "bytes": 2299104,
-  "lo_bytes": 766736,
-  "ogg_bytes": 517481
+  "bytes": 2305296,
+  "lo_bytes": 768824,
+  "ogg_bytes": 519162
  },
  "no-2": {
-  "seconds": 326.4,
+  "seconds": 327.6,
   "voice": "nb-NO-PernilleNeural",
-  "bytes": 1958544,
-  "lo_bytes": 653264,
-  "ogg_bytes": 449349
+  "bytes": 1965312,
+  "lo_bytes": 655496,
+  "ogg_bytes": 450340
  },
  "no-3": {
-  "seconds": 365.9,
+  "seconds": 369.1,
   "voice": "nb-NO-PernilleNeural",
-  "bytes": 2195568,
-  "lo_bytes": 732248,
-  "ogg_bytes": 500740
+  "bytes": 2214720,
+  "lo_bytes": 738656,
+  "ogg_bytes": 505617
  },
  "no-4": {
-  "seconds": 352.1,
+  "seconds": 352.7,
   "voice": "nb-NO-PernilleNeural",
-  "bytes": 2112480,
-  "lo_bytes": 704528,
-  "ogg_bytes": 488926
+  "bytes": 2115936,
+  "lo_bytes": 705680,
+  "ogg_bytes": 487996
  }
 }

@@ -149,6 +149,8 @@ English in view; if it needs the English to parse, rewrite it.
    «på trefat», never «på tre»; «drikkeklar», «tåler lagring», «mer røykpreget» (not «røykere»); «pålegg»
    on a pizza, not «fyll»; «oksekjøtt», not «okse»; «garantert tradisjonell spesialitet» for TSG;
    «lagret den» for "laid it down"; «sterkvin», not «forsterket vin»; «opphøyd til DOCG», not «forfremmet»;
+   "off the heat" → «med kjelen av platen»; "rare" (steak) → «lite stekt»; "savoury" → «smaksrik», not «salt»;
+   wine colour is «lys», never «blek»; «røde kirsebær» (neuter plural); tripe is «trippa»/«kumage», not «innmat»;
    «De eoliske øyer», not «Liparøyene». «Pasta» means pasta, so "a paste of cheese" is «en jevn masse».
 9. **Stock calques to avoid.** "the villages to know" → «landsbyene man bør kjenne»; "as celebrated as
    anything" → «like berømte som noen»; "the locals" → «folk fra traktene»; "takes a white" → «vil ha en
