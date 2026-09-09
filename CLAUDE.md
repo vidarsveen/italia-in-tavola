@@ -12,8 +12,8 @@ illustrated, narrated readings in English and Norwegian (bokmål). Everything is
 and asset files; a build step produces a single-file version for the hosted preview.
 
 - Owner: Vidar (Norwegian). Both languages matter equally. Mobile first, always test on a phone viewport.
-- Done: Lazio (IT-62), Piemonte (IT-21), Toscana (IT-52), Veneto (IT-34), Campania (IT-72), Sicilia (IT-82), Lombardia (IT-25), Emilia-Romagna (IT-45), Puglia (IT-75): text EN+NO, photos, narration EN+NO.
-- Next: the remaining eleven in batches (suggested order: Trentino-Alto Adige, Friuli, Liguria, Umbria, Marche, Abruzzo, Sardegna, Calabria, Basilicata, Molise, Valle d'Aosta).
+- Done: Lazio (IT-62), Piemonte (IT-21), Toscana (IT-52), Veneto (IT-34), Campania (IT-72), Sicilia (IT-82), Lombardia (IT-25), Emilia-Romagna (IT-45), Puglia (IT-75), Trentino-Alto Adige (IT-32, content stem `trentino`): text EN+NO, photos, narration EN+NO.
+- Next: the remaining ten in batches (suggested order: Friuli, Liguria, Umbria, Marche, Abruzzo, Sardegna, Calabria, Basilicata, Molise, Valle d'Aosta).
 - Live site (the real course, full narration, no size limit): https://vidarsveen.github.io/italia-in-tavola/
   Source repo: https://github.com/vidarsveen/italia-in-tavola (public, branch `main`). Every push to `main` runs
   `.github/workflows/pages.yml`, which runs `tools/make_site.py` and publishes `site/` to GitHub Pages (2–3 min).
@@ -106,8 +106,8 @@ Debug URL parameters: `?instant` (skip font wait and camera tweens), `region=IT-
    nb-NO-PernilleNeural. Then `python tools/opus.py <region> 12`. Regenerate one file with `--only no-3`.
 6. **Build and test.** `python build.py` (writes dist/ and the audio `manifest.js` files), then §8 tests,
    then `python tools/make_site.py`.
-7. **Hosted size.** `dist/italia-course.html` must stay under 16 MB; it is at 11.8 MB after Puglia (nine regions
-   of photos, `HOSTED_AUDIO = []`, so no narration is inlined and every region uses the browser voice there). The arithmetic that matters: one region's Opus narration costs about
+7. **Hosted size.** `dist/italia-course.html` must stay under 16 MB; it is at 7.9 MB after Trentino-Alto Adige (ten regions of photos re-encoded by build.py to 620 px, quality 45,
+   see PREVIEW_PX/PREVIEW_Q; `HOSTED_AUDIO = []`, so no narration is inlined and every region uses the browser voice there). The arithmetic that matters: one region's Opus narration costs about
    4.5 MB inlined, its photos only about 0.8 MB, so narration is what to cut. `HOSTED_AUDIO` in build.py was
    ['lazio','piemonte'] and became ['lazio'] when Campania was added. Encode photos at 720 px, JPEG quality 38–62,
    about 40 KB each. build.py inlines every .jpg in every `assets/<region>/` folder, referenced or not, so keep
@@ -165,7 +165,8 @@ English in view; if it needs the English to parse, rewrite it.
     (62 km med bueganger); Italian loanwords like batteria, acetaia, osteria, trattoria take «en». More calques:
     "winter brings" → «om vinteren kommer», "X matters" → «betyr mye», "owes X to" → «takket være», "and a good
     one" → repeat the noun, "as little as" → «bare», "said to be" → «angivelig», "a wine of the year" → «en vin
-    som skal drikkes samme år».
+    som skal drikkes samme år», "ages for decades" → «kan lagres i tiår», "cheap for what it is" → «rimelig i
+   forhold til kvaliteten», "natural end" → «naturlig følge», "the locals" → «folk her»; a statute is «statutt».
 11. **«hvis» is not a relative pronoun** in running prose («en villa hvis mosaikker …»). Use «der», «med» or
     «som … til». Also avoid «pluss», «UNESCO-listet», «nådd via»; write «på verdensarvlisten», «som nås fra».
 

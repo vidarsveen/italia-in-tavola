@@ -78,6 +78,15 @@ LINT = [
     (r'\bbitte små\b', 'one word: «bittesmå»'),
     (r'\ben bolle (suppe|ribollita|gryte)\b', 'a bowl of soup is «en skål»'),
     (r'\bmoden rød kirsebær\b|\brød kirsebær\b', '«kirsebær» is neuter/plural: «røde kirsebær»'),
+    (r'\bhvis (familie|navn|eier|vin|druer)\b', '«hvis» as relative pronoun: rewrite with «og» or «som»'),
+    (r'\bdens (symbol|navn|hjem)\b', 'English possessive: «og symbol», «og navn»'),
+    (r'\bmest stabile\b', '"most consistent" (wine): «mest pålitelige»'),
+    (r'\ben stekepanne med\b', '"a fry-up of": «en pannerett med»'),
+    (r'\bautonomistatus\b', 'a statute is «statutt»: «autonomistatutt»'),
+    (r'\bbillig for det (den|de) er\b', '"cheap for what it is": «rimelig i forhold til kvaliteten»'),
+    (r'\bnaturlige enden\b', '"natural end": «naturlig følge»'),
+    (r'\bde lokale\b', '"the locals": «folk her» / «folk fra traktene»'),
+    (r'\bsom lagres i (tiår|tjue år|flere tiår)\b', '"ages for decades": «kan lagres i …»'),
 ]
 
 def regions():

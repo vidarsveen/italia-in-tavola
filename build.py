@@ -39,8 +39,19 @@ def inline_script(m):
     return '<script>' + NL + open(path, encoding='utf-8').read() + NL + '</script>'
 html = re.sub(r'<script src="((?:content|assets)/[\w./-]+\.js)"></script>', inline_script, html)
 
+PREVIEW_PX, PREVIEW_Q = 620, 45   # photos are re-encoded smaller for the single-file preview (16 MB cap); site/ keeps the originals
+
 def b64(path, mime):
-    return f'data:{mime};base64,' + base64.b64encode(open(path, 'rb').read()).decode('ascii')
+    data = open(path, 'rb').read()
+    if mime == 'image/jpeg':
+        from PIL import Image
+        import io as _io
+        im = Image.open(_io.BytesIO(data)).convert('RGB')
+        if max(im.size) > PREVIEW_PX:
+            im.thumbnail((PREVIEW_PX, PREVIEW_PX))
+        buf = _io.BytesIO(); im.save(buf, 'JPEG', quality=PREVIEW_Q, optimize=True, progressive=True)
+        if buf.tell() < len(data): data = buf.getvalue()
+    return f'data:{mime};base64,' + base64.b64encode(data).decode('ascii')
 
 images = {}
 for d in os.listdir(os.path.join(ROOT, 'assets')):

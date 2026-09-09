@@ -32,7 +32,7 @@ steps per frame (used for automated testing).
 A mobile-first 3D relief map of Italy that works as the navigation for a course on Italian regions, wine and food.
 Real terrain from 300 m elevation data (AWS Terrain Tiles), a baked shaded-relief texture, real region boundaries
 (simplified from the openpolis ISTAT GeoJSON) drawn as a cased cartographic layer, a pin per region at the overview
-and a landmark model when a region is focused. Lazio, Piemonte, Toscana, Veneto, Campania, Sicilia, Lombardia, Emilia-Romagna and Puglia are fully built out with four illustrated, narrated readings each in English and Norwegian; the other 11
+and a landmark model when a region is focused. Lazio, Piemonte, Toscana, Veneto, Campania, Sicilia, Lombardia, Emilia-Romagna, Puglia and Trentino-Alto Adige are fully built out with four illustrated, narrated readings each in English and Norwegian; the other 10
 regions have module summaries with lesson titles. See `PLAN.md` for the roadmap from prototype to production.
 
 ## Files
@@ -40,7 +40,7 @@ regions have module summaries with lesson titles. See `PLAN.md` for the roadmap 
 | Path | What it is |
 | --- | --- |
 | `italia-course.html` | the app (map, region sheet, reader, routing). Loads `content/*.js` and `assets/` at runtime. |
-| `content/<region>.js` | reading content per region (English): four lessons, photo captions, credits. Lazio, Piemonte, Toscana, Veneto, Campania, Sicilia, Lombardia, Emilia-Romagna and Puglia so far. |
+| `content/<region>.js` | reading content per region (English): four lessons, photo captions, credits. Lazio, Piemonte, Toscana, Veneto, Campania, Sicilia, Lombardia, Emilia-Romagna, Puglia and Trentino-Alto Adige so far. |
 | `content/<region>.no.js` | the same readings in Norwegian (bokmål). |
 | `content/course.no.js` | Norwegian region summaries (intro, landmark, pairing, lesson titles) for all 20 regions. |
 | `assets/<region>/*.jpg` | photographs (Wikimedia Commons, CC / public domain), `credits.json` lists author and licence. |

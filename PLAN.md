@@ -113,6 +113,12 @@ Puglia (IT-75) complete: text EN/NO, 19 photos, narration EN/NO. Nine regions do
 inlined audio, so about 1.2 MB of photos per region leaves room for the remaining eleven only if photos are
 encoded a little smaller (about 0.6 MB per region: 620 px, quality 45). Next: the remaining eleven.
 
+## 6j. Status 2026-09-09, Trentino-Alto Adige
+
+build.py now re-encodes photos for the preview (620 px, q45), so the artifact is 7.9 MB with ten regions and all
+twenty will fit. The Norwegian review skill (`/norsk-review`, tools/review_no.py) is part of the recipe and has
+been run on all ten regions. Trentino-Alto Adige (IT-32) complete. Ten regions done; ten to go.
+
 ## 7. Suggested order of work
 
 1. Validate the Lazio reading format with a few learners on phones (this round).
