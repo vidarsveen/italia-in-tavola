@@ -107,6 +107,12 @@ The course now deploys to GitHub Pages (https://vidarsveen.github.io/italia-in-t
 push; the artifact is a 10.4 MB preview with `HOSTED_AUDIO = []`. Emilia-Romagna (IT-45) complete: text EN/NO,
 19 photos, narration EN/NO. Eight regions done. Next: Puglia, then the remaining eleven in batches.
 
+## 6i. Status 2026-09-09, Puglia
+
+Puglia (IT-75) complete: text EN/NO, 19 photos, narration EN/NO. Nine regions done; preview 11.8 MB with no
+inlined audio, so about 1.2 MB of photos per region leaves room for the remaining eleven only if photos are
+encoded a little smaller (about 0.6 MB per region: 620 px, quality 45). Next: the remaining eleven.
+
 ## 7. Suggested order of work
 
 1. Validate the Lazio reading format with a few learners on phones (this round).
