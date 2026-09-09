@@ -119,6 +119,12 @@ build.py now re-encodes photos for the preview (620 px, q45), so the artifact is
 twenty will fit. The Norwegian review skill (`/norsk-review`, tools/review_no.py) is part of the recipe and has
 been run on all ten regions. Trentino-Alto Adige (IT-32) complete. Ten regions done; ten to go.
 
+## 6k. Status 2026-09-09, Friuli-Venezia Giulia and Liguria
+
+Built as a pair by two parallel workers (each region end to end, including the Norwegian review and narration), with
+the parent pre-wiring both into italia-course.html and doing build, tests, docs and push. Twelve regions done.
+Next pairs: Umbria + Marche, Abruzzo + Sardegna, Calabria + Basilicata, Molise + Valle d'Aosta.
+
 ## 7. Suggested order of work
 
 1. Validate the Lazio reading format with a few learners on phones (this round).

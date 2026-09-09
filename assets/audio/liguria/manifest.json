@@ -1,0 +1,58 @@
+{
+ "en-1": {
+  "seconds": 387.9,
+  "voice": "en-GB-SoniaNeural",
+  "bytes": 2327616,
+  "lo_bytes": 776240,
+  "ogg_bytes": 569638
+ },
+ "en-2": {
+  "seconds": 344.4,
+  "voice": "en-GB-SoniaNeural",
+  "bytes": 2066112,
+  "lo_bytes": 689120,
+  "ogg_bytes": 505970
+ },
+ "en-3": {
+  "seconds": 392.7,
+  "voice": "en-GB-SoniaNeural",
+  "bytes": 2356128,
+  "lo_bytes": 785744,
+  "ogg_bytes": 576470
+ },
+ "en-4": {
+  "seconds": 378.2,
+  "voice": "en-GB-SoniaNeural",
+  "bytes": 2269152,
+  "lo_bytes": 756800,
+  "ogg_bytes": 557265
+ },
+ "no-1": {
+  "seconds": 379.2,
+  "voice": "nb-NO-PernilleNeural",
+  "bytes": 2275200,
+  "lo_bytes": 758816,
+  "ogg_bytes": 525910
+ },
+ "no-2": {
+  "seconds": 342.3,
+  "voice": "nb-NO-PernilleNeural",
+  "bytes": 2053728,
+  "lo_bytes": 684944,
+  "ogg_bytes": 474393
+ },
+ "no-3": {
+  "seconds": 380.4,
+  "voice": "nb-NO-PernilleNeural",
+  "bytes": 2282544,
+  "lo_bytes": 761264,
+  "ogg_bytes": 531813
+ },
+ "no-4": {
+  "seconds": 372.2,
+  "voice": "nb-NO-PernilleNeural",
+  "bytes": 2233296,
+  "lo_bytes": 744848,
+  "ogg_bytes": 521148
+ }
+}

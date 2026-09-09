@@ -19,3 +19,5 @@ __pycache__/
 
 # side-by-side dumps written by tools/review_no.py
 _review/
+# photo candidates downloaded by tools/commons.py
+_photos/
