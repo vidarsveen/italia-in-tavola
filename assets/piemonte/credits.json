@@ -1,0 +1,72 @@
+{
+ "langhe": {
+  "artist": "Phalaenopsis Aphrodite from Italy",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Langhe.jpg"
+ },
+ "lamorra": {
+  "artist": "Neq00",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Vigneti_a_La_Morra.jpg"
+ },
+ "nebbiolo": {
+  "artist": "Hanna",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Close_up_of_Nebbiolo_cluster_in_Italy.jpg"
+ },
+ "serralunga": {
+  "artist": "Tiziana Mercurio",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Castello_di_Serralunga_d'Alba.jpg"
+ },
+ "barolo": {
+  "artist": "HReuter",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:1991_Barolo_(Pio_Cesare)_0059.jpg"
+ },
+ "barolo-village": {
+  "artist": "Georgius LXXXIX",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Barolo_veduta.JPG"
+ },
+ "truffle": {
+  "artist": "Marco Plassio",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Tuber_magnatum.jpg"
+ },
+ "tajarin": {
+  "artist": "Popo le Chien",
+  "license": "CC0",
+  "source": "https://commons.wikimedia.org/wiki/File:Tajarin.jpg"
+ },
+ "bagnacauda": {
+  "artist": "Lombroso",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Bagna_càuda_(2016-01-30).jpg"
+ },
+ "vitello": {
+  "artist": "Adrian Michael",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Vitello_tonnato_2020.jpeg"
+ },
+ "mole": {
+  "artist": "Caulfield",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Mole_Antonelliana_2016.jpg"
+ },
+ "sancarlo": {
+  "artist": "Benjamin Smith",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Torino_-_Piazza_San_Carlo_-_1.jpg"
+ },
+ "bicerin": {
+  "artist": "Gartxoak",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Bicerin_a_Torino.jpg"
+ },
+ "gianduiotti": {
+  "artist": "Clop",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Gianduiotti.jpg"
+ }
+}

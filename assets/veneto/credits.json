@@ -1,0 +1,72 @@
+{
+ "appassimento": {
+  "artist": "Gyozvr",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Amarone_drying_racks_at_Tenuta_Santa_Maria_di_Gaetano_Bertani.jpeg"
+ },
+ "valpolicella": {
+  "artist": "Adert",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Vallata_di_Negrar_da_Torbe.jpg"
+ },
+ "valdobbiadene": {
+  "artist": "Patafisik",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Tra_le_vigne_di_Collagù_-_wikiraduno_Alle_colline_del_prosecco_abc_04.jpg"
+ },
+ "cartizze": {
+  "artist": "Civvì",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Pentagono_del_Cartizze_01.jpg"
+ },
+ "glera": {
+  "artist": "Ursula Brühl, Julius Kühn-Institut (JKI)",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:VIVC9741_GLERA_Cluster_in_the_field_17055.jpg"
+ },
+ "prosecco": {
+  "artist": "Jeff Kubina",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Waiter_pouring_Zardetto_sparkling_Prosecco.jpg"
+ },
+ "cicchetti": {
+  "artist": "Benreis",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Cicchetti_Venezia_(1).jpg"
+ },
+ "bacaro": {
+  "artist": "Tim Sackton",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:\"_05_-_ITALY_-_un_bacaro_a_Venezia_Osteria_appetizers_restaurant_in_Venice_wine_enoteca.jpg"
+ },
+ "baccala": {
+  "artist": "Benreis",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Baccalà_mantecato_con_polenta_La_Nuova_Perla.jpg"
+ },
+ "sarde": {
+  "artist": "Benoît Prieur",
+  "license": "CC0",
+  "source": "https://commons.wikimedia.org/wiki/File:Sarde_in_saor_dans_un_restaurant_vénitien_(décembre_2022).JPG"
+ },
+ "tiramisu": {
+  "artist": "Sharon Chen",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Classic_Italian_Tiramisu-3_(29989504485).jpg"
+ },
+ "sanmarco": {
+  "artist": "Wolfgang Moroder",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Procuratie_nuove_e_Campanile_di_San_Marco_a_Venezia.jpg"
+ },
+ "rialto": {
+  "artist": "Martin Falbisoner",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Canal_Grande_and_Ponte_di_Rialto,_Venice_-_September_2017.jpg"
+ },
+ "arsenale": {
+  "artist": "Wolfgang Moroder",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Arsenale_ingresso_Venezia_notte.jpg"
+ }
+}

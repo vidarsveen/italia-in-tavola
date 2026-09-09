@@ -1,0 +1,82 @@
+{
+ "etnavines": {
+  "artist": "Neil Weightman",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Etna_Wine_Agriturismo,_Passopisciaro,_Sicily,_Italy._Field_blend.jpg"
+ },
+ "etna": {
+  "artist": "The Cosmonaut",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Summit_craters_of_Mount_Etna_seen_from_Piano_del_Lago.jpg"
+ },
+ "alberello": {
+  "artist": "Neil Weightman",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Etna_Wine_Agriturismo,_Passopisciaro,_Sicily,_Italy.jpg"
+ },
+ "neroavola": {
+  "artist": "Rino Porrovecchio from Palermo, Italy",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Vigneto_a_Mazara_del_Vallo_1_-_Flickr_-_Rino_Porrovecchio.jpg"
+ },
+ "vittoria": {
+  "artist": "Fabio Ingrosso",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Porto_Palo,_vendemmia_sul_mare_di_Cantine_Settesoli.jpg"
+ },
+ "marsala": {
+  "artist": "Michal Osmenda from Brussels, Belgium",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Florio_winery_shop_(4894788134).jpg"
+ },
+ "arancini": {
+  "artist": "G. Melfi",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Arancini_002.jpg"
+ },
+ "caponata": {
+  "artist": "Auregann",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Caponata_nissena.jpg"
+ },
+ "mercato": {
+  "artist": "trolvag",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Mercato_Vucciria_-_panoramio_(2).jpg"
+ },
+ "cannoli": {
+  "artist": "OppidumNissenae",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Cannoli_tipo_mignon_con_ripieno_04.jpg"
+ },
+ "granita": {
+  "artist": "Giovanni.grasso",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Granita_ai_gusti_mandorla_e_cioccolato_con_brioche_siciliana.jpg"
+ },
+ "agrigento": {
+  "artist": "Mboesch",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Valle-dei-templi-tempio-della-concordia-c.JPG"
+ },
+ "segesta": {
+  "artist": "Aritrek",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Tempio_di_Segesta_2026.jpg"
+ },
+ "monreale": {
+  "artist": "Peppe64",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Sicilia_Duomo_di_Monreale_interno.jpg"
+ },
+ "noto": {
+  "artist": "Ruggero Poggianella",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Modica,_Duomo_di_San_Giorgio.jpg"
+ },
+ "taormina": {
+  "artist": "Radek Kucharski from Warsaw, Poland",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Teatro_Antico_di_Taormina_(44895386195).jpg"
+ }
+}

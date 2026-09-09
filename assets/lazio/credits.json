@@ -1,0 +1,122 @@
+{
+ "colosseum": {
+  "file": "Colosseum of Rome and Roman forum.jpg",
+  "artist": "Wilfredor",
+  "license": "CC0",
+  "source": "https://commons.wikimedia.org/wiki/File:Colosseum_of_Rome_and_Roman_forum.jpg",
+  "w": 1200,
+  "h": 710
+ },
+ "colosseum-arches": {
+  "file": "Colosseum-Rome-May-2009.jpg",
+  "artist": "Acediscovery",
+  "license": "CC BY 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Colosseum-Rome-May-2009.jpg",
+  "w": 1000,
+  "h": 718
+ },
+ "carciofi": {
+  "file": "Carciofi alla giudia 1.jpg",
+  "artist": "Mooonswimmer",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Carciofi_alla_giudia_1.jpg",
+  "w": 1000,
+  "h": 1107
+ },
+ "suppli": {
+  "file": "Supplì al telefono.jpg",
+  "artist": "Krista",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Supplì_al_telefono.jpg",
+  "w": 1000,
+  "h": 667
+ },
+ "cannellino": {
+  "file": "Frascati Cannellino Grape.jpg",
+  "artist": "Mamilius",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Frascati_Cannellino_Grape.jpg",
+  "w": 1033,
+  "h": 560
+ },
+ "aldobrandini": {
+  "file": "Villa Aldobrandini (Frascati).jpg",
+  "artist": "Livioandronico2013",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Villa_Aldobrandini_(Frascati).jpg",
+  "w": 1100,
+  "h": 591
+ },
+ "albano": {
+  "file": "Castel Gandolfo e lago Albano 2 - panorama.jpg",
+  "artist": "Deblu68",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Castel_Gandolfo_e_lago_Albano_2_-_panorama.jpg",
+  "w": 1100,
+  "h": 701
+ },
+ "olevano": {
+  "file": "I tetti di Olevano Romano - panoramio.jpg",
+  "artist": "pietro scerrato",
+  "license": "CC BY 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:I_tetti_di_Olevano_Romano_-_panoramio.jpg",
+  "w": 1100,
+  "h": 825
+ },
+ "cesanese": {
+  "file": "Bottiglie Vini Raimondo Cesanese di Affile DOC 2003.jpg",
+  "artist": "Stowriter",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Bottiglie_Vini_Raimondo_Cesanese_di_Affile_DOC_2003.jpg",
+  "w": 900,
+  "h": 779
+ },
+ "abbacchio": {
+  "file": "Abbacchio Pasquale.jpg",
+  "artist": "masolino / Tommaso Passi",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Abbacchio_Pasquale.jpg",
+  "w": 1000,
+  "h": 750
+ },
+ "carbonara": {
+  "file": "Espaguetis carbonara.jpg",
+  "artist": "Javier Somoza",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Espaguetis_carbonara.jpg",
+  "w": 1200,
+  "h": 799
+ },
+ "amatriciana": {
+  "file": "Bucatini amatriciana Roma 2019.jpg",
+  "artist": "Blackcat",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Bucatini_amatriciana_Roma_2019.jpg",
+  "w": 1000,
+  "h": 628
+ },
+ "cacio": {
+  "file": "Spaghetto cacio e pepe Roma 2018.jpg",
+  "artist": "Blackcat",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Spaghetto_cacio_e_pepe_Roma_2018.jpg",
+  "w": 1000,
+  "h": 597
+ },
+ "guanciale": {
+  "file": "Guanciale artigianale.jpg",
+  "artist": "Jill and Jamie",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Guanciale_artigianale.jpg",
+  "w": 857,
+  "h": 1195
+ },
+ "pecorino": {
+  "file": "Pecorino romano cheese.jpg",
+  "artist": "Jon Sullivan",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Pecorino_romano_cheese.jpg",
+  "w": 1000,
+  "h": 750
+ }
+}

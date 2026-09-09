@@ -1,0 +1,1056 @@
+<title>Italia in Tavola</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,50&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --sea:#173d5c; --ink:#1a222c; --line:rgba(242,236,226,.14);
+    --paper:#f2ece2; --paper-dim:rgba(242,236,226,.66); --paper-faint:rgba(242,236,226,.42);
+    --wine:#a63d55; --wine-deep:#7d2b41; --olive:#9aa86a; --gold:#d9b46a;
+    --page:#f4f2ee; --page-2:#e9e5dd; --text:#1e232b; --text-dim:#5a6069; --text-faint:#8a9099; --rule:#d9d4ca;
+    --serif:"Fraunces", Georgia, "Times New Roman", serif;
+    --sans:"Manrope", "Segoe UI", system-ui, sans-serif;
+    --sheet-peek:96px; --safe-b:env(safe-area-inset-bottom, 0px);
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; height:100%; overflow:hidden; background:var(--sea); color:var(--paper); font-family:var(--sans); font-size:14px; -webkit-text-size-adjust:100%; }
+  button{ font:inherit; }
+  canvas.gl{ position:fixed; inset:0; display:block; z-index:0; touch-action:none; }
+  #ui{ position:fixed; inset:0; z-index:5; pointer-events:none; }
+  #ui > *{ pointer-events:auto; }
+  .glass{ background:rgba(26,34,44,.86); border:1px solid var(--line); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); box-shadow:0 12px 40px rgba(6,14,24,.35); }
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+
+  /* ---------- top bar */
+  #top{ position:absolute; left:0; right:0; top:0; padding:calc(10px + env(safe-area-inset-top,0px)) 14px 8px; display:flex; align-items:center; justify-content:space-between; gap:10px; pointer-events:none;
+    background:linear-gradient(rgba(23,61,92,.85), rgba(23,61,92,0)); }
+  #top h1{ font-family:var(--serif); font-weight:400; font-variation-settings:"opsz" 96, "SOFT" 60; font-size:24px; margin:0; letter-spacing:-.01em; text-shadow:0 2px 12px rgba(0,0,0,.35); line-height:1; }
+  #top h1 em{ font-style:italic; color:var(--gold); }
+  #top .sub{ display:none; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--paper-dim); }
+  #prog{ pointer-events:auto; display:flex; align-items:center; gap:8px; padding:6px 10px; border-radius:20px; font-size:12px; font-variant-numeric:tabular-nums; }
+  #prog .bar{ width:56px; height:4px; background:rgba(255,255,255,.14); border-radius:2px; overflow:hidden; }
+  #lang{ display:flex; border-radius:20px; overflow:hidden; pointer-events:auto; }
+  #lang button{ background:none; border:0; color:var(--paper-dim); padding:6px 9px; font-size:11px; letter-spacing:.08em; cursor:pointer; min-height:32px; }
+  #lang button.on{ background:rgba(255,255,255,.16); color:var(--paper); font-weight:700; }
+  #prog .bar i{ display:block; height:100%; width:0; background:linear-gradient(90deg,var(--olive),var(--gold)); transition:width .5s ease; }
+
+  /* ---------- region list: strip on phones, rail on wide screens */
+  #rail{ position:absolute; left:0; right:0; bottom:calc(var(--sheet-peek) + var(--safe-b) + 8px); display:flex; gap:6px; overflow-x:auto; padding:6px 12px; scrollbar-width:none; -webkit-overflow-scrolling:touch; scroll-snap-type:x proximity; }
+  #rail::-webkit-scrollbar{ display:none; }
+  #rail h4{ display:none; }
+  #rail button.r{ flex:none; display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:20px; border:1px solid var(--line); background:rgba(26,34,44,.86); color:var(--paper); cursor:pointer; scroll-snap-align:start; white-space:nowrap; min-height:40px; }
+  #rail button.r.active{ border-color:var(--wine); background:rgba(166,61,85,.35); }
+  #rail button.r .sw{ width:9px; height:9px; border-radius:2px; flex:none; }
+  #rail button.r .nm{ font-size:13px; }
+  #rail button.r .dots{ display:flex; gap:3px; }
+  #rail button.r .dots i{ width:4px; height:4px; border-radius:50%; background:rgba(255,255,255,.22); }
+  #rail button.r .dots i.on{ background:var(--olive); }
+  #rail.hidden{ display:none; }
+
+  /* ---------- region sheet (bottom sheet on phones, side panel on wide screens) */
+  #sheet{ position:absolute; left:0; right:0; bottom:0; height:calc(var(--sheet-peek) + var(--safe-b)); border-radius:18px 18px 0 0; display:flex; flex-direction:column; overflow:hidden;
+    transform:translateY(105%); transition:transform .4s cubic-bezier(.2,.7,.2,1), height .4s cubic-bezier(.2,.7,.2,1); }
+  #sheet.peek{ transform:none; height:calc(var(--sheet-peek) + var(--safe-b)); }
+  #sheet.half{ transform:none; height:56vh; }
+  #sheet.full{ transform:none; height:90vh; }
+  @supports (height: 1dvh){ #sheet.half{ height:56dvh; } #sheet.full{ height:90dvh; } }
+  #sheet .grip{ width:40px; height:4px; border-radius:2px; background:rgba(255,255,255,.28); margin:8px auto 0; }
+  #sheet .head{ padding:6px 18px 12px; border-bottom:1px solid var(--line); position:relative; cursor:pointer; touch-action:none; user-select:none; -webkit-user-select:none; }
+  #sheet .eyebrow{ font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); display:flex; gap:10px; align-items:center; }
+  #sheet .eyebrow .sw{ width:9px; height:9px; border-radius:2px; }
+  #sheet h2{ font-family:var(--serif); font-weight:400; font-variation-settings:"opsz" 96, "SOFT" 40; font-size:30px; line-height:1; margin:6px 0 4px; letter-spacing:-.015em; text-wrap:balance; }
+  #sheet .cap{ color:var(--paper-dim); font-size:12.5px; }
+  #sheet .cap b{ color:var(--paper); font-weight:600; }
+  #sheet .close{ position:absolute; right:12px; top:8px; width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:rgba(255,255,255,.04); color:var(--paper); cursor:pointer; font-size:18px; line-height:1; }
+  #sheet .body{ overflow:auto; padding:6px 18px 24px; flex:1; scrollbar-width:thin; scrollbar-color:rgba(255,255,255,.2) transparent; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
+  #sheet p.intro{ font-size:14px; line-height:1.6; color:var(--paper-dim); margin:12px 0 4px; max-width:62ch; }
+  #sheet section{ margin-top:18px; }
+  #sheet section h3{ font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--paper-faint); margin:0 0 8px; font-weight:600; display:flex; align-items:center; gap:10px; }
+  #sheet section h3::after{ content:""; flex:1; height:1px; background:var(--line); }
+  ol.lessons{ list-style:none; margin:0; padding:0; display:grid; gap:6px; counter-reset:l; }
+  ol.lessons li{ display:grid; grid-template-columns:26px 1fr auto; gap:10px; align-items:center; padding:10px 12px; border-radius:8px; background:rgba(255,255,255,.05); border:1px solid transparent; cursor:pointer; min-height:48px; }
+  ol.lessons li.readable:hover{ border-color:rgba(255,255,255,.18); }
+  ol.lessons li::before{ counter-increment:l; content:counter(l); font-family:var(--serif); color:var(--paper-faint); font-size:17px; text-align:center; }
+  ol.lessons li.done::before{ content:"✓"; color:var(--olive); font-family:var(--sans); font-weight:700; font-size:14px; }
+  ol.lessons li .t{ font-size:14px; line-height:1.3; }
+  ol.lessons li .m{ display:block; font-size:11px; color:var(--paper-faint); margin-top:2px; letter-spacing:.04em; }
+  ol.lessons li .go{ font-size:18px; color:var(--gold); }
+  ol.lessons li.soon{ opacity:.55; cursor:default; }
+  ol.lessons li.soon .go{ display:none; }
+  .landmark{ display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:start; }
+  .landmark .ico{ width:44px; height:44px; border-radius:8px; background:rgba(255,255,255,.06); border:1px solid var(--line); display:grid; place-items:center; font-family:var(--serif); font-size:20px; color:var(--gold); }
+  .landmark b{ display:block; font-size:14px; }
+  .landmark span{ color:var(--paper-dim); font-size:12.5px; line-height:1.5; }
+  ul.wines{ list-style:none; margin:0; padding:0; display:grid; gap:6px; }
+  ul.wines li{ display:grid; grid-template-columns:12px 1fr auto; gap:10px; align-items:center; padding:8px 10px; border-radius:6px; background:rgba(255,255,255,.04); }
+  ul.wines li i{ width:12px; height:12px; border-radius:50%; }
+  ul.wines li i.red{ background:#7d2b41; box-shadow:inset 0 0 0 2px #a63d55; }
+  ul.wines li i.white{ background:#e9dc9a; box-shadow:inset 0 0 0 2px #cdbb6b; }
+  ul.wines li i.rose{ background:#e8a1a8; }
+  ul.wines li i.sparkling{ background:#f1e7b8; box-shadow:0 0 0 2px rgba(241,231,184,.35); }
+  ul.wines li i.sweet{ background:#c88a3c; }
+  ul.wines li span{ font-size:13px; }
+  ul.wines li small{ font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--paper-faint); }
+  .dishes{ display:flex; flex-wrap:wrap; gap:6px; }
+  .dishes span{ font-size:12.5px; padding:6px 10px; border-radius:20px; border:1px solid var(--line); }
+  .pair{ margin-top:10px; padding:10px 12px; border-left:2px solid var(--wine); background:rgba(166,61,85,.12); font-size:12.5px; line-height:1.5; border-radius:0 6px 6px 0; }
+  .pair b{ color:var(--gold); font-weight:600; letter-spacing:.08em; font-size:10.5px; text-transform:uppercase; display:block; margin-bottom:2px; }
+  #sheet .nav{ display:flex; justify-content:space-between; gap:10px; padding:10px 18px calc(10px + var(--safe-b)); border-top:1px solid var(--line); }
+  #sheet .nav button{ font-size:13px; padding:10px 14px; border-radius:8px; border:1px solid var(--line); background:rgba(255,255,255,.04); color:var(--paper); cursor:pointer; min-height:44px; }
+  #sheet .nav button.primary{ background:var(--wine); border-color:var(--wine); }
+
+  /* ---------- reader (full screen, light page) */
+  #reader{ position:fixed; inset:0; z-index:20; background:var(--page); color:var(--text); display:none; flex-direction:column; }
+  #reader.open{ display:flex; }
+  #reader .rbar{ flex:none; display:flex; align-items:center; gap:10px; padding:calc(8px + env(safe-area-inset-top,0px)) 12px 8px; background:var(--page); border-bottom:1px solid var(--rule); position:relative; }
+  #reader .rbar .back{ display:flex; align-items:center; gap:6px; padding:8px 12px 8px 8px; border-radius:20px; border:1px solid var(--rule); background:#fff; color:var(--text); cursor:pointer; min-height:40px; font-weight:600; font-size:13px; }
+  #reader .rbar .rk{ margin-left:auto; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-faint); white-space:nowrap; }
+  #reader .rbar .rprog{ position:absolute; left:0; right:0; bottom:-1px; height:3px; background:transparent; }
+  #reader .rbar .rprog i{ display:block; height:100%; width:0; background:var(--wine); }
+  #reader .rscroll{ flex:1; overflow:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
+  #reader article{ max-width:700px; margin:0 auto; padding:0 0 60px; }
+  .rhead{ padding:26px 20px 6px; }
+  .rhead .kicker{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--wine); margin:0 0 10px; font-weight:600; }
+  .rhead h1{ font-family:var(--serif); font-weight:400; font-variation-settings:"opsz" 144, "SOFT" 30; font-size:clamp(32px, 8vw, 46px); line-height:1.02; letter-spacing:-.02em; margin:0 0 12px; text-wrap:balance; }
+  .rhead .summary{ font-size:17px; line-height:1.5; color:var(--text-dim); margin:0; }
+  .rhead .region{ display:inline-flex; align-items:center; gap:8px; margin-top:14px; font-size:12px; color:var(--text-dim); }
+  .rhead .region i{ width:10px; height:10px; border-radius:2px; }
+  figure{ margin:22px 0; }
+  figure.hero{ margin:18px 0 8px; }
+  figure img{ display:block; width:100%; height:auto; border-radius:0; background:var(--page-2); }
+  figcaption{ padding:8px 20px 0; font-size:12.5px; line-height:1.5; color:var(--text-dim); }
+  figcaption .credit{ display:block; font-size:11px; color:var(--text-faint); margin-top:2px; }
+  figcaption .credit a{ color:inherit; }
+  .rbody{ padding:8px 20px 0; font-size:17px; line-height:1.68; }
+  .rbody > *{ max-width:66ch; }
+  .rbody p{ margin:0 0 1.15em; }
+  .rbody p.lead{ font-size:19px; line-height:1.55; color:var(--text); }
+  .rbody p.lead::first-letter{ font-family:var(--serif); font-size:3.1em; float:left; line-height:.85; padding:.08em .12em 0 0; color:var(--wine); font-weight:500; }
+  .rbody h2{ font-family:var(--serif); font-weight:500; font-variation-settings:"opsz" 72, "SOFT" 30; font-size:26px; line-height:1.15; letter-spacing:-.01em; margin:1.6em 0 .5em; text-wrap:balance; }
+  .rbody strong{ font-weight:700; }
+  .rbody ul{ padding-left:1.2em; margin:0 0 1.15em; }
+  .rbody li{ margin:0 0 .5em; }
+  .rbody figure{ margin:24px -20px; max-width:none; }
+  .rbody figure img{ border-radius:0; }
+  aside.facts, aside.tasting{ background:#fff; border:1px solid var(--rule); border-radius:10px; padding:16px 18px; margin:22px 0; font-size:15px; }
+  aside h4, .recap h4{ margin:0 0 8px; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--wine); font-weight:700; }
+  aside.facts ul{ margin:0; padding-left:1.1em; }
+  aside.facts li{ margin:0 0 .4em; line-height:1.5; }
+  aside.tasting table{ width:100%; border-collapse:collapse; font:inherit; font-size:14.5px; color:var(--text); }
+  aside.tasting th{ text-align:left; font-weight:600; color:var(--text-dim); padding:6px 10px 6px 0; vertical-align:top; width:34%; border-bottom:1px solid var(--rule); font-size:12px; letter-spacing:.06em; text-transform:uppercase; }
+  aside.tasting td{ padding:6px 0; border-bottom:1px solid var(--rule); line-height:1.45; }
+  aside.tasting tr:last-child th, aside.tasting tr:last-child td{ border-bottom:0; }
+  .recap{ margin:28px 0 0; padding:18px 20px; border-left:3px solid var(--olive); background:var(--page-2); border-radius:0 10px 10px 0; font-size:15px; }
+  .recap ul{ margin:0; padding-left:1.1em; }
+  .recap li{ margin:0 0 .4em; line-height:1.5; }
+  .listen{ display:inline-flex; align-items:center; gap:8px; margin:16px 0 0; padding:10px 16px 10px 12px; border-radius:24px; border:1px solid var(--rule); background:#fff; color:var(--text); font-weight:600; font-size:14px; cursor:pointer; min-height:44px; }
+  .listen:hover{ border-color:var(--wine); }
+  .listen i{ width:26px; height:26px; border-radius:50%; background:var(--wine); color:#fff; display:grid; place-items:center; font-size:11px; font-style:normal; }
+  .listen small{ color:var(--text-faint); font-weight:500; }
+  .rplayer{ flex:none; display:none; border-top:1px solid var(--rule); background:#fff; padding:10px 14px calc(10px + var(--safe-b)); box-shadow:0 -8px 30px rgba(20,25,40,.08); }
+  .rplayer.on{ display:block; }
+  .rplayer .row{ display:flex; align-items:center; gap:10px; }
+  .rplayer .row + .row{ margin-top:6px; justify-content:space-between; }
+  .rplayer button{ border:1px solid var(--rule); background:#fff; color:var(--text); border-radius:20px; min-height:36px; padding:0 12px; font-size:12px; font-weight:600; cursor:pointer; }
+  .rplayer .pp{ width:44px; height:44px; border-radius:50%; background:var(--wine); border-color:var(--wine); color:#fff; font-size:15px; padding:0; flex:none; }
+  .rplayer .scrub{ flex:1; -webkit-appearance:none; appearance:none; height:4px; border-radius:2px; background:linear-gradient(90deg, var(--wine) var(--p,0%), var(--rule) var(--p,0%)); outline:none; }
+  .rplayer .scrub::-webkit-slider-thumb{ -webkit-appearance:none; width:16px; height:16px; border-radius:50%; background:var(--wine); border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.3); }
+  .rplayer .scrub::-moz-range-thumb{ width:16px; height:16px; border-radius:50%; background:var(--wine); border:2px solid #fff; }
+  .rplayer .time{ font-size:12px; color:var(--text-dim); font-variant-numeric:tabular-nums; white-space:nowrap; min-width:82px; text-align:right; }
+  .rplayer .meta{ font-size:11px; color:var(--text-faint); letter-spacing:.04em; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .rplayer .x{ border:0; color:var(--text-faint); font-size:18px; }
+  .rfoot{ padding:28px 20px 0; }
+  .rfoot .done{ width:100%; padding:14px; border-radius:10px; border:2px solid var(--wine); background:var(--wine); color:#fff; font-weight:700; font-size:15px; cursor:pointer; min-height:48px; }
+  .rfoot .done.is-done{ background:#fff; color:var(--olive); border-color:var(--olive); }
+  .rnext{ margin-top:18px; display:grid; grid-template-columns:1fr; gap:10px; }
+  .rnext a{ display:block; text-decoration:none; color:var(--text); background:#fff; border:1px solid var(--rule); border-radius:10px; padding:14px 16px; }
+  .rnext a small{ display:block; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-faint); margin-bottom:4px; }
+  .rnext a b{ font-family:var(--serif); font-weight:500; font-size:19px; }
+  .rfoot details{ margin-top:22px; font-size:12px; color:var(--text-faint); }
+  .rfoot details ul{ padding-left:1.1em; }
+  .rfoot details a{ color:var(--text-dim); }
+  .soon{ padding:30px 20px; }
+  .soon p{ font-size:16px; line-height:1.6; color:var(--text-dim); }
+
+  /* ---------- tooltip + hints */
+  #tip{ position:absolute; left:0; top:0; padding:6px 10px; border-radius:6px; font-size:12px; white-space:nowrap; pointer-events:none !important; opacity:0; transition:opacity .15s; display:none; }
+  #tip.show{ opacity:1; }
+  #tip b{ font-family:var(--serif); font-size:14px; font-weight:500; display:block; }
+  #tip span{ color:var(--paper-dim); }
+  #hint{ position:absolute; left:12px; right:12px; top:calc(56px + env(safe-area-inset-top,0px)); text-align:center; padding:8px 14px; border-radius:20px; font-size:12px; color:var(--paper-dim); transition:opacity .6s; }
+  #hint.fade{ opacity:0; pointer-events:none; }
+  #sheet.half ~ #homeBtn, #sheet.full ~ #homeBtn{ display:none; }
+  #homeBtn{ position:absolute; right:12px; bottom:calc(var(--sheet-peek) + var(--safe-b) + 62px); width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:rgba(26,34,44,.86); color:var(--paper); cursor:pointer; font-size:16px; }
+  #labels{ position:absolute; inset:0; pointer-events:none !important; overflow:hidden; }
+  #labels .lbl{ position:absolute; left:0; top:0; font-family:var(--serif); font-weight:500; font-variation-settings:"opsz" 48, "SOFT" 30; color:#fff; letter-spacing:.02em; white-space:nowrap;
+    text-shadow:0 0 3px rgba(20,25,35,.95), 0 0 6px rgba(20,25,35,.8), 0 1px 2px rgba(0,0,0,.9); transition:opacity .3s; }
+  #labels .lbl.dim{ opacity:.45; }
+  #tiltBtn{ position:absolute; right:12px; bottom:calc(var(--sheet-peek) + var(--safe-b) + 108px); width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:rgba(26,34,44,.86); color:var(--paper); cursor:pointer; font-size:16px; }
+  #sheet.half ~ #tiltBtn, #sheet.full ~ #tiltBtn{ display:none; }
+  #loading{ position:fixed; inset:0; z-index:30; background:var(--sea); display:grid; place-items:center; font-family:var(--serif); font-size:20px; color:var(--paper-dim); transition:opacity .6s; padding:20px; text-align:center; }
+  #loading.gone{ opacity:0; pointer-events:none; }
+
+  /* ---------- wide screens */
+  @media (min-width:900px){
+    #top{ padding:18px 20px; background:none; justify-content:flex-start; gap:14px; align-items:baseline; right:440px; }
+    #top h1{ font-size:30px; }
+    #top .sub{ display:inline; }
+    #prog{ margin-left:auto; }
+    #rail{ left:20px; right:auto; top:78px; bottom:20px; width:236px; border-radius:10px; flex-direction:column; gap:0; overflow:auto; padding:6px 0 10px; scrollbar-width:thin; scroll-snap-type:none;
+      background:rgba(26,34,44,.86); border:1px solid var(--line); backdrop-filter:blur(10px); }
+    #rail h4{ display:block; margin:10px 16px 4px; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--paper-faint); font-weight:600; }
+    #rail button.r{ width:100%; border:0; border-left:2px solid transparent; border-radius:0; background:none; padding:7px 16px; min-height:0; }
+    #rail button.r:hover, #rail button.r.hover{ background:rgba(255,255,255,.06); }
+    #rail button.r.active{ border-left-color:var(--wine); background:rgba(166,61,85,.16); }
+    #rail button.r .nm{ flex:1; font-size:13.5px; }
+    #sheet{ left:auto; right:20px; top:18px; bottom:20px; height:auto; width:400px; border-radius:12px; transform:translateX(30px); opacity:0; pointer-events:none !important; transition:transform .45s cubic-bezier(.2,.7,.2,1), opacity .35s; }
+    #sheet.peek, #sheet.half, #sheet.full{ transform:none; opacity:1; height:auto; pointer-events:auto !important; }
+    #sheet .grip{ display:none; }
+    #sheet .head{ padding:18px 22px 14px; cursor:default; }
+    #sheet h2{ font-size:36px; }
+    #sheet .body{ padding:6px 22px 20px; }
+    #sheet .nav{ padding:12px 22px; }
+    #tip{ display:block; }
+    #hint{ left:50%; right:auto; top:auto; bottom:18px; transform:translateX(-50%); white-space:nowrap; }
+    #homeBtn{ right:20px; bottom:20px; display:block; }
+    #tiltBtn{ right:20px; bottom:66px; display:block; }
+    #sheet.peek ~ #tiltBtn, #sheet.half ~ #tiltBtn, #sheet.full ~ #tiltBtn{ right:430px; }
+    #sheet.peek ~ #homeBtn, #sheet.half ~ #homeBtn, #sheet.full ~ #homeBtn{ right:430px; }
+    .rhead{ padding:44px 24px 8px; }
+    .rbody{ padding:8px 24px 0; }
+    .rbody figure{ margin:28px 0; }
+    .rbody figure img{ border-radius:8px; }
+    figure.hero img{ border-radius:8px; }
+    figure.hero{ margin:22px 24px 8px; }
+    figcaption{ padding:8px 4px 0; }
+    .rfoot{ padding:28px 24px 0; }
+    .rnext{ grid-template-columns:1fr 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce){ #sheet, #reader, #prog .bar i{ transition:none; } }
+</style>
+
+<div id="loading" data-t="loading">Preparing the map of Italy…</div>
+<div id="ui">
+  <div id="top"><h1>Italia <em>in Tavola</em></h1><span class="sub" data-t="sub">A course in twenty regions · wine &amp; food</span>
+    <div id="prog" class="glass"><span><b id="pDone">0</b>/<span id="pTotal">80</span></span><div class="bar"><i id="pBar"></i></div></div>
+    <div id="lang" class="glass" role="group" aria-label="Language"><button type="button" data-lang="en">EN</button><button type="button" data-lang="no">NO</button></div></div>
+  <div id="hint" class="glass" data-t="hint">Tap a region or landmark · drag to orbit · pinch to zoom</div>
+  <div id="labels" aria-hidden="true"></div>
+  <nav id="rail" aria-label="Regions"></nav>
+  <aside id="sheet" class="glass" aria-live="polite">
+    <div class="grip"></div>
+    <div class="head">
+      <div class="eyebrow"><i class="sw"></i><span class="area"></span></div>
+      <h2></h2>
+      <div class="cap"></div>
+      <button class="close" title="Close" aria-label="Close panel">×</button>
+    </div>
+    <div class="body">
+      <p class="intro"></p>
+      <section><h3 data-t="lessons">Lessons</h3><ol class="lessons"></ol></section>
+      <section><h3 data-t="landmark">Landmark</h3><div class="landmark"><div class="ico">◆</div><div><b></b><span></span></div></div></section>
+      <section><h3 data-t="wines">Wines to know</h3><ul class="wines"></ul><div class="pair"><b data-t="pairing">Classic pairing</b><span></span></div></section>
+      <section><h3 data-t="table">At the table</h3><div class="dishes"></div></section>
+    </div>
+    <div class="nav"><button id="prevBtn" data-t="prev">← Previous</button><button id="nextBtn" class="primary" data-t="next">Next region →</button></div>
+  </aside>
+  <button id="homeBtn" title="Whole of Italy" aria-label="Show all of Italy">⌂</button>
+  <button id="tiltBtn" title="Tilt" aria-label="Tilt the map">◭</button>
+  <div id="tip" class="glass"><b></b><span></span></div>
+</div>
+<div id="reader" role="dialog" aria-modal="true">
+  <div class="rbar"><button class="back">‹ <span>Region</span></button><span class="rk"></span><div class="rprog"><i></i></div></div>
+  <div class="rscroll"><article></article></div>
+  <div class="rplayer" aria-label="Audio player">
+    <div class="row"><button class="pp" type="button" aria-label="Play">▶</button><input class="scrub" type="range" min="0" max="1000" value="0" aria-label="Position"><span class="time">0:00 / 0:00</span></div>
+    <div class="row"><span class="meta"></span><button class="back15" type="button">−15 s</button><button class="rate" type="button">1×</button><button class="fwd15" type="button">+15 s</button><button class="x" type="button" aria-label="Close player">×</button></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>if(!window.THREE){document.write('<script src="three.min.js"><\/script>');}</script>
+<script>
+const REGIONS = [{"name":"Piemonte","code":"IT-21","c":[8.04,45.09],"rings":[[[7.136,45.28],[7.11,45.327],[7.164,45.361],[7.186,45.403],[7.1,45.456],[7.134,45.515],[7.144,45.478],[7.223,45.47],[7.269,45.515],[7.377,45.517],[7.489,45.583],[7.566,45.592],[7.609,45.563],[7.733,45.55],[7.828,45.597],[7.901,45.592],[7.897,45.613],[7.94,45.644],[7.905,45.685],[7.937,45.724],[7.864,45.79],[7.878,45.973],[7.906,45.994],[7.989,45.996],[8.033,46.047],[8.033,46.098],[8.108,46.112],[8.15,46.141],[8.165,46.182],[8.139,46.226],[8.08,46.261],[8.138,46.302],[8.203,46.304],[8.263,46.364],[8.315,46.381],[8.317,46.397],[8.291,46.407],[8.306,46.426],[8.447,46.463],[8.466,46.443],[8.469,46.365],[8.465,46.334],[8.428,46.298],[8.456,46.264],[8.444,46.25],[8.533,46.217],[8.602,46.154],[8.612,46.121],[8.715,46.098],[8.705,46.082],[8.729,46.029],[8.572,45.901],[8.595,45.834],[8.556,45.8],[8.556,45.775],[8.595,45.73],[8.653,45.714],[8.641,45.677],[8.681,45.676],[8.67,45.661],[8.688,45.637],[8.659,45.638],[8.703,45.6],[8.693,45.578],[8.713,45.52],[8.787,45.486],[8.843,45.394],[8.719,45.378],[8.76,45.352],[8.691,45.293],[8.665,45.293],[8.625,45.352],[8.553,45.361],[8.526,45.342],[8.538,45.317],[8.498,45.292],[8.535,45.278],[8.543,45.253],[8.522,45.249],[8.556,45.241],[8.529,45.24],[8.544,45.234],[8.523,45.222],[8.548,45.204],[8.525,45.198],[8.581,45.202],[8.543,45.173],[8.612,45.128],[8.609,45.107],[8.646,45.075],[8.635,45.041],[8.659,45.018],[8.71,45.038],[8.772,45.007],[8.796,45.036],[8.887,45.06],[8.917,44.988],[8.961,44.987],[8.978,44.967],[8.97,44.944],[9.001,44.908],[9.055,44.889],[9.07,44.865],[9.049,44.85],[9.072,44.817],[9.161,44.815],[9.172,44.772],[9.214,44.752],[9.205,44.599],[9.135,44.574],[9.073,44.624],[9.047,44.615],[9.015,44.666],[8.931,44.676],[8.883,44.639],[8.908,44.614],[8.918,44.561],[8.827,44.562],[8.788,44.489],[8.767,44.492],[8.768,44.525],[8.714,44.581],[8.624,44.586],[8.601,44.568],[8.614,44.546],[8.576,44.509],[8.471,44.522],[8.449,44.497],[8.416,44.512],[8.36,44.465],[8.349,44.486],[8.253,44.529],[8.198,44.471],[8.222,44.433],[8.206,44.404],[8.15,44.385],[8.145,44.347],[8.106,44.332],[8.102,44.301],[8.076,44.314],[8.061,44.3],[8.091,44.275],[8.063,44.253],[8.081,44.241],[8.065,44.217],[8.095,44.197],[8.092,44.175],[8.068,44.145],[8.012,44.156],[7.98,44.138],[8.011,44.122],[8.007,44.103],[7.884,44.105],[7.764,44.141],[7.724,44.124],[7.732,44.084],[7.759,44.084],[7.723,44.061],[7.667,44.13],[7.673,44.177],[7.636,44.177],[7.619,44.149],[7.428,44.13],[7.423,44.113],[7.355,44.118],[7.341,44.146],[7.278,44.142],[7.187,44.201],[7.008,44.236],[6.996,44.28],[6.887,44.362],[6.893,44.42],[6.948,44.43],[6.876,44.481],[6.855,44.533],[6.933,44.573],[6.938,44.603],[6.968,44.62],[6.948,44.653],[6.962,44.677],[7.075,44.69],[7.031,44.729],[7.002,44.791],[7.024,44.823],[6.932,44.863],[6.913,44.845],[6.871,44.85],[6.751,44.906],[6.76,44.934],[6.743,44.936],[6.766,44.962],[6.74,44.99],[6.746,45.013],[6.671,45.024],[6.662,45.071],[6.627,45.103],[6.68,45.14],[6.74,45.137],[6.769,45.16],[6.848,45.127],[6.894,45.137],[6.894,45.169],[6.947,45.17],[6.963,45.205],[7.003,45.22],[7.077,45.214],[7.135,45.254],[7.136,45.28]]]},{"name":"Valle d'Aosta","code":"IT-23","c":[7.35,45.74],"rings":[[[7.735,45.924],[7.751,45.94],[7.8,45.917],[7.821,45.927],[7.864,45.916],[7.876,45.862],[7.864,45.84],[7.873,45.826],[7.862,45.82],[7.864,45.79],[7.895,45.753],[7.929,45.742],[7.937,45.724],[7.905,45.685],[7.94,45.644],[7.897,45.613],[7.9,45.591],[7.849,45.602],[7.796,45.586],[7.733,45.55],[7.719,45.559],[7.676,45.552],[7.634,45.571],[7.609,45.563],[7.6,45.578],[7.566,45.592],[7.532,45.577],[7.489,45.583],[7.377,45.517],[7.359,45.526],[7.321,45.514],[7.269,45.515],[7.264,45.499],[7.223,45.47],[7.16,45.487],[7.143,45.478],[7.138,45.516],[7.122,45.506],[7.104,45.467],[7.048,45.472],[7.055,45.494],[7.0,45.505],[7.004,45.52],[6.99,45.531],[6.995,45.576],[6.978,45.589],[6.997,45.641],[6.969,45.655],[6.925,45.649],[6.902,45.681],[6.893,45.676],[6.848,45.69],[6.813,45.723],[6.817,45.74],[6.805,45.754],[6.802,45.782],[6.812,45.806],[6.805,45.817],[6.818,45.833],[6.843,45.842],[6.865,45.833],[6.88,45.85],[6.897,45.843],[6.942,45.849],[6.955,45.861],[6.99,45.868],[7.004,45.899],[7.033,45.921],[7.057,45.914],[7.102,45.859],[7.156,45.879],[7.19,45.859],[7.221,45.89],[7.257,45.889],[7.294,45.922],[7.324,45.91],[7.344,45.915],[7.386,45.897],[7.442,45.93],[7.474,45.936],[7.478,45.953],[7.502,45.961],[7.541,45.956],[7.546,45.985],[7.57,45.988],[7.589,45.971],[7.664,45.976],[7.681,45.957],[7.71,45.948],[7.718,45.925],[7.735,45.924]]]},{"name":"Liguria","code":"IT-42","c":[8.78,44.29],"rings":[[[7.552,43.894],[7.567,43.944],[7.649,43.974],[7.67,43.998],[7.663,44.029],[7.759,44.084],[7.718,44.104],[7.728,44.127],[7.764,44.141],[7.884,44.105],[8.005,44.102],[8.012,44.12],[7.985,44.143],[8.071,44.147],[8.095,44.197],[8.065,44.217],[8.081,44.24],[8.063,44.253],[8.091,44.275],[8.061,44.3],[8.076,44.314],[8.102,44.301],[8.106,44.332],[8.145,44.347],[8.15,44.385],[8.206,44.404],[8.222,44.433],[8.196,44.465],[8.223,44.486],[8.226,44.515],[8.253,44.529],[8.349,44.486],[8.36,44.465],[8.416,44.512],[8.449,44.497],[8.471,44.522],[8.576,44.509],[8.614,44.546],[8.601,44.568],[8.624,44.586],[8.721,44.58],[8.75,44.527],[8.768,44.525],[8.767,44.492],[8.788,44.489],[8.827,44.562],[8.918,44.561],[8.908,44.614],[8.883,44.639],[8.931,44.676],[9.015,44.666],[9.047,44.615],[9.073,44.624],[9.138,44.574],[9.245,44.62],[9.246,44.599],[9.3,44.608],[9.347,44.58],[9.381,44.577],[9.406,44.601],[9.423,44.575],[9.491,44.559],[9.497,44.483],[9.469,44.482],[9.438,44.419],[9.479,44.409],[9.559,44.439],[9.655,44.412],[9.675,44.365],[9.706,44.366],[9.729,44.328],[9.853,44.27],[9.857,44.234],[9.875,44.224],[9.865,44.181],[9.909,44.21],[9.934,44.197],[9.893,44.167],[9.973,44.167],[9.987,44.097],[10.024,44.119],[10.07,44.092],[10.019,44.044],[9.978,44.035],[9.836,44.11],[9.813,44.101],[9.852,44.06],[9.833,44.049],[9.668,44.142],[9.635,44.134],[9.606,44.171],[9.488,44.239],[9.403,44.252],[9.377,44.29],[9.235,44.348],[9.214,44.334],[9.218,44.299],[9.152,44.317],[9.154,44.349],[9.099,44.372],[8.931,44.396],[8.919,44.414],[8.918,44.398],[8.744,44.427],[8.451,44.288],[8.44,44.27],[8.456,44.258],[8.416,44.221],[8.425,44.195],[8.269,44.139],[8.23,44.088],[8.226,44.043],[8.163,43.993],[8.174,43.955],[8.071,43.891],[7.833,43.816],[7.7,43.799],[7.673,43.776],[7.531,43.784],[7.495,43.862],[7.552,43.894]]]},{"name":"Lombardia","code":"IT-25","c":[9.74,45.56],"rings":[[[8.58,45.752],[8.552,45.788],[8.595,45.834],[8.572,45.901],[8.726,46.018],[8.706,46.085],[8.743,46.122],[8.852,46.076],[8.786,45.989],[8.894,45.958],[8.893,45.931],[8.942,45.87],[8.912,45.83],[8.95,45.843],[9.034,45.823],[9.089,45.901],[9.019,45.929],[9.014,45.96],[8.989,45.971],[9.028,45.994],[9.009,46.036],[9.078,46.065],[9.09,46.088],[9.072,46.12],[9.184,46.172],[9.221,46.23],[9.248,46.234],[9.3,46.327],[9.277,46.369],[9.281,46.41],[9.247,46.436],[9.278,46.462],[9.282,46.497],[9.362,46.51],[9.41,46.467],[9.461,46.507],[9.462,46.376],[9.496,46.364],[9.549,46.302],[9.704,46.291],[9.737,46.351],[9.777,46.335],[9.906,46.381],[9.925,46.366],[9.953,46.379],[9.996,46.351],[9.981,46.324],[9.997,46.284],[10.056,46.264],[10.047,46.229],[10.124,46.224],[10.176,46.258],[10.106,46.331],[10.166,46.407],[10.131,46.432],[10.08,46.421],[10.041,46.444],[10.053,46.463],[10.044,46.538],[10.101,46.583],[10.102,46.611],[10.24,46.635],[10.256,46.608],[10.244,46.578],[10.282,46.572],[10.296,46.55],[10.419,46.551],[10.476,46.496],[10.555,46.489],[10.622,46.448],[10.631,46.402],[10.606,46.379],[10.519,46.355],[10.578,46.302],[10.56,46.285],[10.585,46.245],[10.541,46.189],[10.565,46.167],[10.548,46.116],[10.483,46.057],[10.484,46.024],[10.453,45.989],[10.487,45.971],[10.485,45.945],[10.509,45.924],[10.49,45.885],[10.503,45.83],[10.544,45.818],[10.526,45.806],[10.533,45.788],[10.641,45.802],[10.656,45.832],[10.696,45.84],[10.84,45.833],[10.628,45.602],[10.648,45.449],[10.624,45.444],[10.647,45.441],[10.644,45.418],[10.665,45.428],[10.719,45.406],[10.698,45.379],[10.715,45.368],[10.687,45.343],[10.715,45.334],[10.706,45.316],[10.73,45.316],[10.737,45.287],[10.783,45.315],[10.847,45.257],[10.937,45.233],[10.935,45.214],[10.997,45.187],[10.994,45.152],[11.049,45.151],[11.029,45.123],[11.073,45.099],[11.127,45.103],[11.146,45.126],[11.203,45.112],[11.178,45.097],[11.175,45.06],[11.24,45.043],[11.266,45.056],[11.274,45.018],[11.427,44.95],[11.309,44.96],[11.272,44.938],[11.246,44.951],[11.152,44.933],[11.072,44.962],[10.997,44.955],[10.89,44.912],[10.745,44.949],[10.727,44.992],[10.695,44.962],[10.687,44.987],[10.628,44.924],[10.52,44.913],[10.436,44.943],[10.406,44.984],[10.359,44.966],[10.211,45.034],[10.158,45.044],[10.106,45.022],[10.082,45.047],[10.05,45.041],[10.022,45.076],[10.029,45.096],[9.985,45.133],[9.918,45.1],[9.923,45.136],[9.881,45.127],[9.897,45.081],[9.838,45.096],[9.824,45.053],[9.758,45.113],[9.75,45.078],[9.715,45.058],[9.635,45.084],[9.629,45.132],[9.587,45.1],[9.549,45.133],[9.536,45.122],[9.551,45.091],[9.533,45.079],[9.499,45.104],[9.411,45.083],[9.371,45.048],[9.376,45.02],[9.322,44.944],[9.285,44.932],[9.277,44.896],[9.342,44.867],[9.363,44.822],[9.285,44.767],[9.333,44.735],[9.308,44.706],[9.325,44.69],[9.259,44.68],[9.235,44.716],[9.242,44.687],[9.2,44.686],[9.214,44.752],[9.172,44.772],[9.161,44.815],[9.072,44.817],[9.049,44.85],[9.07,44.865],[9.055,44.889],[9.001,44.908],[8.97,44.944],[8.978,44.967],[8.961,44.987],[8.917,44.988],[8.887,45.06],[8.796,45.036],[8.772,45.007],[8.71,45.038],[8.659,45.018],[8.635,45.041],[8.646,45.075],[8.609,45.107],[8.612,45.128],[8.543,45.173],[8.581,45.202],[8.525,45.198],[8.548,45.204],[8.523,45.222],[8.544,45.234],[8.529,45.24],[8.556,45.241],[8.522,45.249],[8.543,45.253],[8.535,45.278],[8.498,45.292],[8.538,45.317],[8.526,45.342],[8.553,45.361],[8.625,45.352],[8.665,45.293],[8.691,45.293],[8.76,45.352],[8.719,45.378],[8.843,45.394],[8.787,45.486],[8.713,45.52],[8.693,45.578],[8.703,45.6],[8.659,45.638],[8.688,45.637],[8.67,45.661],[8.681,45.676],[8.641,45.677],[8.652,45.716],[8.596,45.729],[8.58,45.752]]]},{"name":"Trentino-Alto Adige","code":"IT-32","c":[11.32,46.37],"rings":[[[12.014,46.551],[11.998,46.533],[11.968,46.545],[11.828,46.509],[11.813,46.478],[11.879,46.47],[11.888,46.442],[11.85,46.434],[11.835,46.366],[11.82,46.377],[11.774,46.358],[11.832,46.323],[11.841,46.27],[11.885,46.279],[11.892,46.253],[11.929,46.249],[11.91,46.224],[11.962,46.199],[11.951,46.17],[11.929,46.176],[11.89,46.12],[11.685,46.094],[11.705,46.047],[11.666,46.036],[11.69,45.989],[11.676,45.966],[11.588,45.969],[11.577,46.007],[11.511,46.012],[11.447,45.981],[11.374,45.984],[11.382,45.948],[11.358,45.944],[11.349,45.91],[11.301,45.935],[11.304,45.918],[11.258,45.921],[11.24,45.857],[11.189,45.814],[11.203,45.783],[11.174,45.787],[11.178,45.738],[11.132,45.693],[11.012,45.716],[10.968,45.68],[10.972,45.702],[10.943,45.673],[10.922,45.68],[10.926,45.699],[10.844,45.719],[10.885,45.775],[10.873,45.788],[10.888,45.812],[10.826,45.838],[10.656,45.832],[10.644,45.803],[10.554,45.784],[10.526,45.806],[10.543,45.818],[10.502,45.83],[10.49,45.887],[10.509,45.924],[10.485,45.945],[10.487,45.971],[10.453,45.977],[10.453,45.991],[10.484,46.024],[10.483,46.057],[10.548,46.116],[10.565,46.167],[10.541,46.189],[10.585,46.249],[10.56,46.285],[10.58,46.299],[10.563,46.327],[10.516,46.346],[10.631,46.402],[10.6,46.469],[10.458,46.511],[10.492,46.615],[10.446,46.641],[10.403,46.636],[10.393,46.655],[10.388,46.687],[10.418,46.716],[10.402,46.734],[10.442,46.753],[10.425,46.789],[10.473,46.857],[10.554,46.84],[10.668,46.876],[10.763,46.823],[10.73,46.788],[10.786,46.796],[10.883,46.763],[11.022,46.765],[11.042,46.803],[11.083,46.822],[11.072,46.85],[11.096,46.912],[11.165,46.941],[11.165,46.965],[11.319,46.992],[11.406,46.965],[11.479,47.011],[11.538,46.984],[11.624,47.012],[11.747,46.969],[11.932,47.038],[12.187,47.092],[12.24,47.068],[12.205,47.027],[12.121,47.007],[12.132,46.963],[12.168,46.938],[12.144,46.914],[12.189,46.906],[12.216,46.874],[12.241,46.89],[12.274,46.883],[12.307,46.84],[12.283,46.815],[12.284,46.783],[12.357,46.775],[12.384,46.717],[12.478,46.68],[12.38,46.643],[12.385,46.623],[12.26,46.629],[12.192,46.595],[12.194,46.62],[12.068,46.675],[12.066,46.627],[12.014,46.551]]]},{"name":"Veneto","code":"IT-34","c":[11.85,45.75],"rings":[[[10.635,45.535],[10.631,45.61],[10.84,45.833],[10.888,45.812],[10.873,45.788],[10.885,45.775],[10.844,45.719],[10.926,45.699],[10.912,45.688],[10.937,45.673],[11.012,45.716],[11.125,45.69],[11.178,45.738],[11.174,45.787],[11.203,45.783],[11.189,45.814],[11.24,45.857],[11.258,45.921],[11.304,45.918],[11.301,45.935],[11.349,45.91],[11.358,45.944],[11.382,45.948],[11.374,45.984],[11.447,45.981],[11.511,46.012],[11.577,46.007],[11.588,45.969],[11.676,45.966],[11.69,45.989],[11.666,46.036],[11.705,46.047],[11.685,46.094],[11.892,46.12],[11.962,46.199],[11.91,46.224],[11.929,46.249],[11.892,46.253],[11.885,46.279],[11.835,46.274],[11.832,46.323],[11.774,46.358],[11.82,46.377],[11.835,46.366],[11.85,46.434],[11.888,46.442],[11.879,46.47],[11.81,46.485],[11.851,46.518],[11.968,46.545],[11.998,46.533],[12.047,46.585],[12.068,46.675],[12.194,46.62],[12.192,46.595],[12.26,46.629],[12.385,46.623],[12.38,46.643],[12.478,46.68],[12.567,46.651],[12.686,46.656],[12.732,46.634],[12.62,46.544],[12.63,46.501],[12.662,46.468],[12.53,46.464],[12.499,46.412],[12.455,46.392],[12.463,46.369],[12.417,46.355],[12.41,46.331],[12.355,46.32],[12.323,46.273],[12.356,46.231],[12.446,46.208],[12.447,46.18],[12.495,46.15],[12.485,46.107],[12.399,46.041],[12.427,45.996],[12.426,45.948],[12.506,45.923],[12.559,45.826],[12.594,45.815],[12.606,45.838],[12.669,45.791],[12.78,45.854],[12.809,45.82],[12.861,45.851],[12.89,45.82],[12.921,45.831],[12.929,45.817],[12.961,45.847],[12.993,45.815],[12.978,45.814],[12.992,45.798],[12.978,45.788],[13.006,45.766],[13.008,45.725],[13.029,45.736],[13.063,45.657],[13.102,45.641],[12.913,45.614],[12.428,45.419],[12.402,45.429],[12.361,45.396],[12.298,45.246],[12.315,45.234],[12.306,45.195],[12.335,45.164],[12.334,45.089],[12.555,44.966],[12.51,44.927],[12.466,44.844],[12.398,44.793],[12.355,44.815],[12.341,44.85],[12.294,44.86],[12.282,44.941],[12.225,44.923],[12.171,44.942],[12.144,44.928],[12.113,44.96],[12.047,44.977],[11.805,44.977],[11.746,44.957],[11.734,44.927],[11.62,44.888],[11.532,44.937],[11.427,44.93],[11.422,44.964],[11.274,45.018],[11.266,45.056],[11.24,45.043],[11.175,45.06],[11.178,45.097],[11.203,45.112],[11.146,45.126],[11.127,45.103],[11.073,45.099],[11.029,45.123],[11.049,45.151],[10.994,45.152],[10.997,45.187],[10.935,45.214],[10.937,45.233],[10.847,45.257],[10.783,45.315],[10.728,45.291],[10.731,45.315],[10.706,45.316],[10.715,45.334],[10.686,45.354],[10.715,45.368],[10.698,45.379],[10.716,45.415],[10.644,45.418],[10.647,45.441],[10.624,45.444],[10.648,45.449],[10.635,45.535]]]},{"name":"Friuli-Venezia Giulia","code":"IT-36","c":[13.17,46.05],"rings":[[[13.517,46.383],[13.439,46.36],[13.447,46.33],[13.376,46.298],[13.422,46.234],[13.411,46.212],[13.484,46.225],[13.552,46.209],[13.567,46.186],[13.646,46.188],[13.664,46.171],[13.572,46.089],[13.501,46.062],[13.507,46.032],[13.476,46.006],[13.541,45.965],[13.59,45.99],[13.642,45.984],[13.636,45.934],[13.59,45.888],[13.574,45.843],[13.603,45.804],[13.671,45.798],[13.796,45.743],[13.858,45.666],[13.919,45.634],[13.839,45.582],[13.723,45.595],[13.731,45.609],[13.807,45.607],[13.747,45.639],[13.769,45.653],[13.753,45.68],[13.631,45.768],[13.562,45.778],[13.533,45.805],[13.545,45.793],[13.53,45.788],[13.548,45.783],[13.517,45.744],[13.553,45.725],[13.465,45.707],[13.433,45.679],[13.343,45.681],[13.246,45.72],[13.152,45.701],[13.101,45.643],[13.063,45.657],[13.029,45.736],[13.008,45.725],[13.006,45.766],[12.978,45.788],[12.992,45.798],[12.978,45.814],[12.993,45.815],[12.961,45.847],[12.929,45.817],[12.921,45.831],[12.89,45.82],[12.861,45.851],[12.809,45.82],[12.78,45.854],[12.67,45.791],[12.606,45.838],[12.594,45.815],[12.559,45.826],[12.506,45.923],[12.426,45.947],[12.427,45.996],[12.399,46.041],[12.485,46.107],[12.495,46.15],[12.447,46.18],[12.446,46.208],[12.405,46.208],[12.402,46.229],[12.356,46.231],[12.321,46.265],[12.355,46.32],[12.41,46.331],[12.417,46.355],[12.463,46.369],[12.455,46.392],[12.499,46.412],[12.53,46.464],[12.662,46.468],[12.63,46.501],[12.629,46.561],[12.762,46.648],[12.831,46.631],[12.847,46.606],[13.094,46.599],[13.233,46.554],[13.321,46.552],[13.373,46.579],[13.425,46.558],[13.504,46.566],[13.518,46.547],[13.714,46.523],[13.689,46.44],[13.599,46.439],[13.57,46.402],[13.517,46.383]]]},{"name":"Emilia-Romagna","code":"IT-45","c":[10.92,44.52],"rings":[[[9.333,44.735],[9.285,44.767],[9.363,44.822],[9.342,44.867],[9.277,44.896],[9.285,44.932],[9.322,44.944],[9.376,45.02],[9.371,45.048],[9.411,45.083],[9.499,45.104],[9.533,45.079],[9.551,45.091],[9.536,45.122],[9.549,45.133],[9.587,45.1],[9.629,45.132],[9.635,45.084],[9.715,45.058],[9.75,45.078],[9.758,45.113],[9.824,45.053],[9.838,45.096],[9.897,45.081],[9.881,45.127],[9.923,45.136],[9.918,45.1],[9.985,45.133],[10.029,45.096],[10.022,45.076],[10.05,45.041],[10.082,45.047],[10.093,45.024],[10.161,45.044],[10.211,45.034],[10.355,44.966],[10.408,44.984],[10.438,44.942],[10.567,44.908],[10.628,44.924],[10.687,44.987],[10.695,44.962],[10.727,44.992],[10.745,44.949],[10.89,44.912],[10.997,44.955],[11.076,44.962],[11.152,44.933],[11.246,44.951],[11.272,44.938],[11.323,44.961],[11.426,44.952],[11.429,44.929],[11.532,44.937],[11.617,44.888],[11.734,44.927],[11.746,44.957],[11.806,44.977],[12.047,44.977],[12.113,44.96],[12.144,44.928],[12.171,44.942],[12.225,44.923],[12.276,44.943],[12.295,44.927],[12.282,44.91],[12.294,44.86],[12.341,44.85],[12.355,44.815],[12.398,44.793],[12.322,44.789],[12.385,44.79],[12.317,44.841],[12.286,44.84],[12.258,44.815],[12.285,44.818],[12.241,44.712],[12.281,44.596],[12.289,44.464],[12.357,44.271],[12.393,44.212],[12.516,44.105],[12.688,43.987],[12.751,43.969],[12.729,43.922],[12.734,43.87],[12.682,43.853],[12.675,43.825],[12.624,43.821],[12.589,43.886],[12.543,43.865],[12.494,43.88],[12.492,43.918],[12.516,43.942],[12.507,43.991],[12.405,43.956],[12.408,43.903],[12.463,43.89],[12.446,43.871],[12.401,43.873],[12.388,43.817],[12.286,43.795],[12.284,43.765],[12.209,43.755],[12.195,43.732],[12.165,43.761],[12.077,43.741],[11.987,43.762],[11.91,43.813],[11.842,43.808],[11.71,43.877],[11.717,43.922],[11.684,43.935],[11.691,43.956],[11.646,43.991],[11.749,44.124],[11.682,44.123],[11.653,44.101],[11.585,44.112],[11.615,44.158],[11.516,44.158],[11.455,44.194],[11.451,44.221],[11.421,44.239],[11.381,44.2],[11.341,44.204],[11.281,44.156],[11.196,44.151],[11.26,44.116],[11.245,44.097],[11.155,44.112],[11.049,44.09],[11.002,44.112],[11.006,44.139],[10.91,44.063],[10.892,44.092],[10.849,44.098],[10.754,44.154],[10.644,44.16],[10.624,44.12],[10.593,44.115],[10.525,44.157],[10.485,44.223],[10.431,44.227],[10.377,44.267],[10.307,44.284],[10.254,44.269],[10.145,44.353],[10.098,44.346],[10.008,44.39],[9.989,44.404],[10.004,44.437],[9.97,44.465],[9.82,44.466],[9.756,44.405],[9.76,44.39],[9.675,44.365],[9.655,44.412],[9.601,44.437],[9.479,44.409],[9.438,44.419],[9.469,44.482],[9.497,44.483],[9.491,44.559],[9.423,44.575],[9.406,44.601],[9.381,44.577],[9.3,44.608],[9.246,44.599],[9.246,44.62],[9.2,44.615],[9.2,44.686],[9.242,44.687],[9.235,44.716],[9.259,44.68],[9.325,44.69],[9.308,44.706],[9.333,44.735]]]},{"name":"Marche","code":"IT-57","c":[12.87,43.33],"rings":[[[12.501,43.52],[12.459,43.516],[12.438,43.538],[12.395,43.509],[12.37,43.532],[12.333,43.524],[12.313,43.545],[12.367,43.577],[12.371,43.611],[12.259,43.589],[12.225,43.594],[12.19,43.633],[12.248,43.667],[12.245,43.681],[12.293,43.685],[12.308,43.73],[12.316,43.678],[12.336,43.678],[12.33,43.708],[12.371,43.709],[12.284,43.765],[12.285,43.793],[12.388,43.817],[12.401,43.873],[12.446,43.871],[12.47,43.897],[12.541,43.865],[12.589,43.886],[12.624,43.821],[12.675,43.825],[12.682,43.853],[12.734,43.87],[12.729,43.922],[12.752,43.97],[12.907,43.923],[13.286,43.679],[13.454,43.611],[13.484,43.608],[13.507,43.631],[13.576,43.569],[13.626,43.55],[13.624,43.502],[13.814,43.169],[13.916,42.895],[13.707,42.849],[13.699,42.823],[13.664,42.807],[13.624,42.817],[13.575,42.801],[13.535,42.817],[13.493,42.737],[13.448,42.732],[13.438,42.699],[13.393,42.687],[13.284,42.74],[13.254,42.721],[13.188,42.734],[13.195,42.762],[13.241,42.763],[13.264,42.808],[13.236,42.867],[13.211,42.841],[13.163,42.832],[13.112,42.889],[13.052,42.92],[13.001,42.909],[12.976,42.87],[12.977,42.926],[12.896,42.965],[12.908,42.985],[12.888,43.01],[12.907,43.035],[12.89,43.059],[12.897,43.093],[12.881,43.121],[12.843,43.122],[12.833,43.139],[12.863,43.167],[12.864,43.209],[12.837,43.218],[12.829,43.261],[12.789,43.283],[12.794,43.334],[12.747,43.39],[12.781,43.415],[12.766,43.427],[12.772,43.457],[12.735,43.464],[12.709,43.426],[12.663,43.437],[12.619,43.417],[12.501,43.52]]]},{"name":"Toscana","code":"IT-52","c":[11.18,43.51],"rings":[[[9.898,44.164],[9.934,44.197],[9.891,44.208],[9.865,44.181],[9.875,44.224],[9.857,44.234],[9.853,44.27],[9.769,44.302],[9.711,44.364],[9.687,44.366],[9.76,44.39],[9.756,44.405],[9.82,44.466],[9.855,44.471],[9.971,44.464],[10.005,44.437],[9.989,44.404],[10.002,44.394],[10.098,44.346],[10.145,44.353],[10.254,44.269],[10.307,44.284],[10.377,44.267],[10.431,44.227],[10.485,44.223],[10.525,44.157],[10.592,44.116],[10.624,44.12],[10.641,44.16],[10.752,44.155],[10.902,44.086],[10.905,44.063],[11.006,44.139],[11.002,44.112],[11.049,44.09],[11.155,44.112],[11.247,44.098],[11.26,44.116],[11.196,44.151],[11.281,44.156],[11.341,44.204],[11.381,44.2],[11.421,44.239],[11.451,44.221],[11.455,44.194],[11.516,44.158],[11.615,44.158],[11.585,44.112],[11.653,44.101],[11.682,44.123],[11.753,44.121],[11.646,43.991],[11.691,43.956],[11.684,43.935],[11.717,43.922],[11.71,43.877],[11.732,43.863],[11.842,43.808],[11.91,43.813],[11.953,43.776],[12.07,43.741],[12.16,43.762],[12.195,43.732],[12.209,43.755],[12.284,43.765],[12.371,43.709],[12.33,43.708],[12.336,43.678],[12.316,43.678],[12.308,43.73],[12.293,43.685],[12.245,43.681],[12.233,43.656],[12.186,43.642],[12.214,43.611],[12.153,43.529],[12.103,43.53],[12.091,43.511],[12.143,43.47],[12.025,43.416],[12.034,43.4],[12.077,43.402],[12.077,43.366],[12.125,43.358],[12.133,43.293],[12.177,43.282],[12.195,43.314],[12.224,43.296],[12.092,43.236],[12.043,43.251],[12.023,43.187],[11.925,43.149],[11.924,43.075],[11.94,43.053],[11.957,43.069],[11.982,43.051],[11.933,42.908],[11.959,42.871],[11.929,42.869],[11.895,42.834],[11.815,42.823],[11.807,42.795],[11.774,42.821],[11.753,42.802],[11.746,42.786],[11.819,42.745],[11.802,42.707],[11.78,42.705],[11.809,42.653],[11.75,42.64],[11.736,42.607],[11.71,42.61],[11.644,42.567],[11.579,42.567],[11.586,42.542],[11.561,42.517],[11.616,42.488],[11.618,42.436],[11.489,42.439],[11.45,42.378],[11.242,42.418],[11.21,42.409],[11.19,42.365],[11.153,42.361],[11.098,42.393],[11.089,42.427],[11.105,42.448],[11.123,42.435],[11.173,42.444],[11.192,42.501],[11.179,42.538],[11.157,42.563],[11.123,42.558],[11.085,42.627],[11.014,42.657],[10.952,42.737],[10.731,42.802],[10.773,42.831],[10.787,42.888],[10.774,42.909],[10.646,42.953],[10.561,42.951],[10.543,42.921],[10.498,42.932],[10.483,42.988],[10.516,42.999],[10.537,43.084],[10.526,43.24],[10.502,43.29],[10.457,43.325],[10.425,43.399],[10.33,43.474],[10.293,43.547],[10.32,43.584],[10.294,43.561],[10.27,43.677],[10.278,43.738],[10.239,43.872],[10.144,43.975],[10.019,44.044],[10.066,44.101],[10.019,44.119],[9.993,44.093],[9.973,44.167],[9.898,44.164]],[[10.265,42.745],[10.238,42.748],[10.237,42.726],[10.2,42.736],[10.134,42.735],[10.104,42.768],[10.105,42.789],[10.125,42.803],[10.185,42.811],[10.242,42.787],[10.248,42.799],[10.265,42.8],[10.275,42.818],[10.264,42.83],[10.329,42.818],[10.314,42.807],[10.346,42.797],[10.361,42.803],[10.362,42.818],[10.411,42.873],[10.442,42.848],[10.429,42.816],[10.434,42.775],[10.386,42.759],[10.41,42.754],[10.407,42.747],[10.431,42.736],[10.432,42.713],[10.382,42.715],[10.358,42.758],[10.345,42.764],[10.318,42.76],[10.326,42.745],[10.32,42.736],[10.309,42.759],[10.291,42.753],[10.287,42.736],[10.265,42.745]]]},{"name":"Umbria","code":"IT-55","c":[12.51,42.98],"rings":[[[13.158,42.654],[13.118,42.658],[13.063,42.623],[13.024,42.639],[13.004,42.615],[12.881,42.609],[12.893,42.563],[12.711,42.501],[12.742,42.471],[12.673,42.442],[12.621,42.468],[12.606,42.404],[12.526,42.364],[12.511,42.404],[12.451,42.397],[12.464,42.429],[12.414,42.426],[12.414,42.455],[12.43,42.458],[12.412,42.468],[12.421,42.493],[12.39,42.498],[12.351,42.474],[12.289,42.495],[12.307,42.497],[12.275,42.509],[12.275,42.56],[12.239,42.572],[12.248,42.597],[12.229,42.611],[12.243,42.628],[12.204,42.66],[12.161,42.677],[12.124,42.649],[12.107,42.665],[12.03,42.643],[11.941,42.683],[11.949,42.696],[11.926,42.705],[11.979,42.765],[11.927,42.781],[11.892,42.843],[11.959,42.871],[11.933,42.908],[11.982,43.051],[11.957,43.069],[11.936,43.056],[11.913,43.128],[11.94,43.159],[12.023,43.187],[12.034,43.246],[12.092,43.236],[12.224,43.296],[12.195,43.314],[12.177,43.282],[12.133,43.293],[12.124,43.359],[12.074,43.369],[12.077,43.402],[12.031,43.404],[12.032,43.424],[12.143,43.47],[12.092,43.501],[12.095,43.522],[12.153,43.529],[12.214,43.611],[12.227,43.594],[12.298,43.586],[12.356,43.617],[12.371,43.611],[12.367,43.577],[12.313,43.544],[12.333,43.524],[12.37,43.532],[12.395,43.509],[12.432,43.537],[12.459,43.516],[12.484,43.527],[12.619,43.417],[12.663,43.437],[12.709,43.426],[12.735,43.464],[12.772,43.457],[12.766,43.427],[12.781,43.415],[12.747,43.39],[12.794,43.334],[12.789,43.283],[12.829,43.261],[12.837,43.218],[12.864,43.209],[12.863,43.167],[12.833,43.139],[12.843,43.122],[12.881,43.121],[12.897,43.093],[12.89,43.059],[12.907,43.035],[12.888,43.01],[12.908,42.985],[12.896,42.965],[12.977,42.926],[12.976,42.87],[13.001,42.909],[13.055,42.919],[13.112,42.889],[13.154,42.835],[13.211,42.841],[13.235,42.868],[13.248,42.849],[13.264,42.809],[13.246,42.768],[13.195,42.761],[13.191,42.71],[13.158,42.654]]]},{"name":"Lazio","code":"IT-62","c":[12.79,42.16],"rings":[[[11.811,42.807],[11.847,42.838],[11.904,42.832],[11.927,42.781],[11.979,42.765],[11.926,42.704],[12.03,42.643],[12.107,42.665],[12.124,42.649],[12.161,42.677],[12.204,42.66],[12.243,42.628],[12.229,42.611],[12.248,42.597],[12.239,42.572],[12.275,42.56],[12.275,42.509],[12.307,42.497],[12.289,42.495],[12.351,42.474],[12.39,42.498],[12.421,42.493],[12.412,42.468],[12.43,42.458],[12.414,42.455],[12.414,42.426],[12.464,42.429],[12.451,42.397],[12.511,42.404],[12.526,42.364],[12.606,42.404],[12.621,42.468],[12.673,42.442],[12.742,42.471],[12.711,42.501],[12.893,42.563],[12.89,42.614],[12.93,42.603],[13.011,42.617],[13.024,42.639],[13.059,42.623],[13.118,42.658],[13.147,42.647],[13.174,42.666],[13.189,42.734],[13.254,42.721],[13.279,42.741],[13.318,42.723],[13.358,42.694],[13.349,42.669],[13.408,42.643],[13.394,42.591],[13.293,42.57],[13.191,42.588],[13.156,42.54],[13.178,42.479],[13.116,42.444],[13.194,42.389],[13.153,42.357],[13.226,42.319],[13.243,42.269],[13.38,42.18],[13.249,42.127],[13.195,42.158],[13.087,42.178],[13.086,42.144],[13.031,42.122],[13.027,42.05],[13.055,42.016],[13.101,42.008],[13.105,42.026],[13.364,41.925],[13.383,41.901],[13.359,41.869],[13.38,41.817],[13.417,41.835],[13.572,41.754],[13.631,41.783],[13.649,41.811],[13.706,41.787],[13.73,41.799],[13.767,41.749],[13.813,41.754],[13.919,41.718],[13.988,41.655],[14.011,41.608],[13.999,41.574],[14.026,41.555],[14.005,41.539],[14.028,41.524],[13.973,41.494],[13.993,41.482],[13.978,41.462],[13.861,41.417],[13.885,41.4],[13.871,41.365],[13.89,41.297],[13.828,41.281],[13.834,41.255],[13.772,41.242],[13.762,41.223],[13.706,41.254],[13.618,41.26],[13.574,41.24],[13.571,41.218],[13.589,41.21],[13.575,41.204],[13.29,41.297],[13.173,41.276],[13.094,41.225],[13.057,41.224],[12.976,41.34],[12.901,41.392],[12.84,41.414],[12.764,41.41],[12.684,41.453],[12.618,41.446],[12.44,41.638],[12.353,41.695],[12.235,41.739],[12.256,41.746],[12.222,41.744],[12.203,41.83],[12.141,41.915],[11.915,42.039],[11.835,42.029],[11.807,42.08],[11.76,42.112],[11.739,42.171],[11.664,42.269],[11.562,42.335],[11.45,42.378],[11.489,42.439],[11.618,42.436],[11.616,42.488],[11.561,42.517],[11.586,42.542],[11.579,42.567],[11.644,42.567],[11.71,42.61],[11.736,42.607],[11.75,42.64],[11.805,42.644],[11.78,42.705],[11.802,42.707],[11.819,42.745],[11.746,42.786],[11.769,42.82],[11.806,42.795],[11.811,42.807]]]},{"name":"Campania","code":"IT-72","c":[14.82,40.87],"rings":[[[14.087,41.46],[14.121,41.507],[14.165,41.479],[14.172,41.499],[14.241,41.497],[14.327,41.453],[14.477,41.419],[14.505,41.382],[14.566,41.392],[14.603,41.364],[14.666,41.407],[14.748,41.408],[14.785,41.452],[14.864,41.426],[15.008,41.486],[15.032,41.453],[15.101,41.43],[15.087,41.407],[15.098,41.391],[15.058,41.372],[15.072,41.332],[15.131,41.317],[15.149,41.28],[15.201,41.286],[15.279,41.243],[15.246,41.236],[15.262,41.198],[15.224,41.182],[15.211,41.149],[15.283,41.097],[15.366,41.085],[15.396,41.107],[15.548,41.053],[15.568,40.976],[15.527,40.908],[15.468,40.89],[15.461,40.867],[15.354,40.883],[15.378,40.868],[15.377,40.836],[15.335,40.835],[15.381,40.811],[15.366,40.8],[15.388,40.793],[15.381,40.724],[15.504,40.664],[15.449,40.609],[15.539,40.568],[15.539,40.488],[15.663,40.392],[15.701,40.384],[15.727,40.315],[15.806,40.273],[15.796,40.222],[15.731,40.199],[15.701,40.161],[15.706,40.118],[15.652,40.079],[15.676,40.055],[15.645,40.043],[15.625,40.074],[15.524,40.072],[15.42,39.99],[15.355,40.0],[15.315,40.032],[15.271,40.022],[15.285,40.036],[15.271,40.074],[15.133,40.171],[15.035,40.172],[14.991,40.219],[14.91,40.244],[14.944,40.278],[14.945,40.336],[14.995,40.354],[14.999,40.388],[14.894,40.566],[14.791,40.664],[14.749,40.678],[14.689,40.634],[14.625,40.648],[14.528,40.607],[14.486,40.627],[14.325,40.569],[14.339,40.626],[14.4,40.638],[14.404,40.656],[14.478,40.695],[14.449,40.753],[14.4,40.758],[14.27,40.843],[14.223,40.829],[14.19,40.794],[14.161,40.793],[14.162,40.815],[14.105,40.831],[14.072,40.818],[14.089,40.778],[14.039,40.792],[14.047,40.85],[14.016,40.929],[13.922,41.026],[13.832,41.167],[13.762,41.223],[13.772,41.242],[13.834,41.255],[13.828,41.281],[13.89,41.297],[13.871,41.365],[13.885,41.4],[13.863,41.419],[13.975,41.463],[14.007,41.452],[14.001,41.431],[14.042,41.393],[14.111,41.386],[14.106,41.422],[14.078,41.447],[14.087,41.46]],[[13.954,40.707],[13.954,40.701],[13.94,40.707],[13.924,40.698],[13.873,40.698],[13.853,40.71],[13.861,40.718],[13.855,40.737],[13.868,40.751],[13.862,40.757],[13.955,40.74],[13.965,40.717],[13.954,40.707]]]},{"name":"Abruzzo","code":"IT-65","c":[13.79,42.14],"rings":[[[13.941,41.688],[13.892,41.735],[13.767,41.749],[13.73,41.799],[13.706,41.787],[13.649,41.811],[13.631,41.783],[13.572,41.754],[13.417,41.835],[13.38,41.817],[13.359,41.869],[13.383,41.901],[13.365,41.924],[13.105,42.026],[13.101,42.008],[13.055,42.016],[13.019,42.074],[13.031,42.122],[13.086,42.144],[13.087,42.178],[13.195,42.158],[13.249,42.127],[13.38,42.18],[13.243,42.269],[13.226,42.319],[13.153,42.357],[13.194,42.389],[13.116,42.444],[13.178,42.479],[13.156,42.54],[13.191,42.588],[13.293,42.57],[13.382,42.581],[13.409,42.64],[13.349,42.669],[13.359,42.696],[13.437,42.699],[13.448,42.732],[13.493,42.737],[13.535,42.817],[13.575,42.801],[13.624,42.817],[13.664,42.807],[13.699,42.823],[13.707,42.849],[13.908,42.895],[13.993,42.713],[14.109,42.563],[14.261,42.44],[14.421,42.355],[14.426,42.326],[14.51,42.252],[14.713,42.177],[14.718,42.106],[14.779,42.07],[14.762,42.045],[14.783,42.034],[14.724,42.0],[14.568,41.818],[14.49,41.761],[14.455,41.763],[14.442,41.841],[14.377,41.88],[14.343,41.863],[14.324,41.896],[14.284,41.911],[14.197,41.843],[14.147,41.827],[14.171,41.778],[14.201,41.768],[14.194,41.749],[14.172,41.766],[14.159,41.748],[14.121,41.745],[14.107,41.707],[14.094,41.738],[14.07,41.737],[14.053,41.702],[14.019,41.682],[13.941,41.688]]]},{"name":"Molise","code":"IT-67","c":[14.49,41.66],"rings":[[[14.419,41.435],[14.327,41.453],[14.284,41.472],[14.292,41.476],[14.279,41.486],[14.249,41.485],[14.241,41.497],[14.172,41.499],[14.165,41.479],[14.121,41.507],[14.082,41.465],[14.078,41.447],[14.106,41.422],[14.111,41.386],[14.085,41.4],[14.042,41.393],[14.027,41.417],[14.001,41.431],[14.007,41.452],[13.978,41.462],[13.993,41.482],[13.973,41.494],[13.995,41.513],[14.028,41.523],[14.005,41.539],[14.021,41.542],[14.026,41.556],[13.999,41.574],[14.011,41.608],[13.988,41.655],[13.941,41.688],[13.983,41.695],[14.019,41.682],[14.032,41.702],[14.053,41.702],[14.053,41.719],[14.07,41.737],[14.094,41.738],[14.107,41.707],[14.123,41.726],[14.115,41.735],[14.121,41.745],[14.159,41.748],[14.172,41.766],[14.179,41.749],[14.194,41.749],[14.201,41.768],[14.171,41.779],[14.165,41.807],[14.147,41.827],[14.156,41.837],[14.197,41.843],[14.227,41.875],[14.284,41.911],[14.304,41.893],[14.324,41.896],[14.343,41.863],[14.359,41.861],[14.361,41.875],[14.377,41.88],[14.379,41.866],[14.397,41.87],[14.442,41.841],[14.464,41.777],[14.455,41.763],[14.489,41.761],[14.53,41.788],[14.531,41.801],[14.55,41.815],[14.568,41.818],[14.598,41.851],[14.614,41.889],[14.664,41.916],[14.669,41.947],[14.724,42.0],[14.78,42.03],[14.762,42.045],[14.779,42.07],[14.892,42.024],[15.005,42.006],[15.004,41.992],[15.08,41.942],[15.138,41.928],[15.132,41.903],[15.141,41.879],[15.101,41.837],[15.117,41.799],[15.099,41.765],[15.117,41.749],[15.102,41.743],[15.121,41.721],[15.161,41.709],[15.117,41.694],[15.102,41.672],[15.09,41.682],[15.09,41.672],[15.05,41.657],[15.045,41.637],[15.026,41.635],[15.026,41.623],[14.964,41.643],[14.934,41.619],[14.946,41.61],[14.95,41.592],[14.937,41.527],[14.966,41.519],[15.008,41.486],[14.947,41.456],[14.885,41.445],[14.864,41.426],[14.843,41.427],[14.785,41.452],[14.771,41.442],[14.765,41.417],[14.748,41.408],[14.717,41.401],[14.7,41.411],[14.666,41.407],[14.662,41.394],[14.643,41.394],[14.603,41.364],[14.566,41.392],[14.551,41.379],[14.505,41.382],[14.489,41.391],[14.477,41.419],[14.419,41.435]]]},{"name":"Puglia","code":"IT-75","c":[16.5,40.94],"rings":[[[15.098,41.391],[15.098,41.434],[15.032,41.453],[15.023,41.477],[14.939,41.525],[14.95,41.592],[14.934,41.619],[14.964,41.643],[15.026,41.623],[15.05,41.657],[15.161,41.709],[15.121,41.721],[15.099,41.765],[15.117,41.799],[15.101,41.837],[15.141,41.879],[15.138,41.927],[15.406,41.901],[15.62,41.929],[15.701,41.914],[16.013,41.95],[16.086,41.94],[16.185,41.884],[16.176,41.86],[16.195,41.796],[16.144,41.742],[15.938,41.638],[15.949,41.62],[15.936,41.637],[15.902,41.616],[15.903,41.535],[15.957,41.462],[16.585,41.208],[16.852,41.13],[16.868,41.143],[16.88,41.122],[17.091,41.063],[17.302,40.958],[17.35,40.906],[17.478,40.83],[17.707,40.758],[17.839,40.691],[17.936,40.686],[17.976,40.663],[17.927,40.64],[18.014,40.642],[18.045,40.598],[18.037,40.564],[18.081,40.525],[18.235,40.448],[18.425,40.291],[18.52,40.107],[18.408,39.977],[18.391,39.819],[18.369,39.794],[18.266,39.836],[18.203,39.839],[18.086,39.901],[18.013,39.969],[17.993,40.0],[18.015,40.003],[18.017,40.032],[17.973,40.055],[18.004,40.071],[18.01,40.109],[17.925,40.184],[17.925,40.224],[17.895,40.251],[17.907,40.252],[17.861,40.284],[17.681,40.304],[17.508,40.295],[17.206,40.409],[17.247,40.438],[17.248,40.46],[17.113,40.52],[16.99,40.492],[16.861,40.4],[16.81,40.433],[16.803,40.457],[16.72,40.48],[16.736,40.511],[16.706,40.554],[16.728,40.601],[16.71,40.63],[16.727,40.688],[16.696,40.703],[16.725,40.714],[16.663,40.749],[16.653,40.736],[16.575,40.762],[16.568,40.737],[16.553,40.758],[16.531,40.745],[16.54,40.725],[16.501,40.762],[16.43,40.704],[16.4,40.707],[16.243,40.838],[16.202,40.918],[16.163,40.929],[16.121,40.898],[15.977,40.958],[15.972,40.972],[16.027,40.991],[16.04,41.034],[15.999,41.055],[15.978,41.093],[15.954,41.093],[15.954,41.109],[15.87,41.14],[15.804,41.111],[15.791,41.088],[15.586,41.098],[15.54,41.072],[15.543,41.056],[15.396,41.107],[15.366,41.085],[15.283,41.097],[15.208,41.156],[15.262,41.198],[15.246,41.236],[15.279,41.243],[15.201,41.286],[15.149,41.28],[15.131,41.317],[15.072,41.332],[15.058,41.372],[15.098,41.391]]]},{"name":"Basilicata","code":"IT-77","c":[16.06,40.51],"rings":[[[15.466,40.634],[15.504,40.664],[15.381,40.724],[15.388,40.793],[15.366,40.8],[15.381,40.811],[15.335,40.835],[15.377,40.836],[15.378,40.868],[15.354,40.883],[15.461,40.867],[15.468,40.89],[15.527,40.908],[15.568,40.976],[15.539,41.07],[15.56,41.088],[15.739,41.099],[15.768,41.083],[15.87,41.14],[15.954,41.109],[15.954,41.093],[15.978,41.093],[15.999,41.055],[16.04,41.034],[16.027,40.991],[15.972,40.972],[15.977,40.958],[16.121,40.898],[16.163,40.929],[16.202,40.918],[16.243,40.838],[16.4,40.707],[16.43,40.704],[16.501,40.762],[16.538,40.725],[16.537,40.753],[16.572,40.737],[16.568,40.758],[16.586,40.763],[16.653,40.736],[16.663,40.749],[16.725,40.714],[16.696,40.703],[16.727,40.688],[16.71,40.63],[16.728,40.601],[16.706,40.554],[16.736,40.511],[16.72,40.48],[16.803,40.457],[16.81,40.433],[16.867,40.398],[16.782,40.296],[16.733,40.203],[16.645,40.118],[16.587,40.133],[16.53,40.118],[16.421,40.144],[16.398,40.017],[16.34,39.937],[16.36,39.92],[16.351,39.899],[16.316,39.929],[16.267,39.935],[16.214,39.927],[16.215,39.896],[16.158,39.92],[16.138,39.901],[16.049,39.895],[16.007,39.957],[16.03,39.993],[15.978,39.984],[15.928,40.001],[15.898,39.982],[15.848,40.006],[15.774,39.962],[15.756,39.924],[15.675,40.03],[15.644,40.042],[15.676,40.055],[15.652,40.079],[15.706,40.118],[15.713,40.178],[15.795,40.221],[15.806,40.273],[15.727,40.315],[15.701,40.384],[15.663,40.392],[15.539,40.488],[15.539,40.568],[15.449,40.609],[15.466,40.634]]]},{"name":"Calabria","code":"IT-78","c":[16.32,39.22],"rings":[[[15.974,39.468],[15.925,39.527],[15.876,39.552],[15.816,39.68],[15.769,39.836],[15.792,39.86],[15.756,39.924],[15.774,39.961],[15.848,40.006],[15.898,39.982],[15.928,40.001],[15.978,39.984],[16.02,39.996],[16.034,39.983],[16.007,39.957],[16.049,39.895],[16.138,39.901],[16.158,39.92],[16.215,39.896],[16.214,39.927],[16.267,39.935],[16.316,39.929],[16.351,39.899],[16.36,39.92],[16.34,39.937],[16.398,40.017],[16.421,40.144],[16.53,40.118],[16.627,40.13],[16.644,40.117],[16.606,40.08],[16.599,40.04],[16.628,39.959],[16.489,39.796],[16.492,39.752],[16.529,39.724],[16.518,39.668],[16.619,39.622],[16.77,39.621],[16.867,39.539],[17.022,39.484],[17.081,39.422],[17.157,39.401],[17.11,39.309],[17.107,39.251],[17.148,39.206],[17.108,39.107],[17.146,39.047],[17.207,39.028],[17.166,38.997],[17.169,38.955],[17.094,38.893],[17.083,38.913],[17.022,38.906],[16.986,38.937],[16.951,38.938],[16.791,38.901],[16.615,38.819],[16.535,38.713],[16.559,38.681],[16.58,38.502],[16.564,38.42],[16.467,38.341],[16.318,38.288],[16.165,38.136],[16.143,38.029],[16.064,37.926],[15.764,37.916],[15.678,37.954],[15.637,38.006],[15.657,38.04],[15.631,38.102],[15.656,38.135],[15.633,38.222],[15.794,38.28],[15.876,38.422],[15.908,38.445],[15.911,38.473],[15.892,38.445],[15.931,38.547],[15.827,38.619],[15.836,38.645],[15.986,38.723],[16.139,38.72],[16.189,38.756],[16.22,38.839],[16.216,38.925],[16.158,38.95],[16.099,39.029],[16.066,39.141],[16.052,39.295],[15.974,39.468]]]},{"name":"Sicilia","code":"IT-82","c":[14.21,37.63],"rings":[[[12.908,38.025],[13.078,38.088],[13.053,38.137],[13.105,38.19],[13.191,38.169],[13.315,38.225],[13.366,38.182],[13.375,38.129],[13.363,38.13],[13.384,38.109],[13.443,38.095],[13.507,38.119],[13.538,38.113],[13.536,38.067],[13.565,38.04],[13.745,37.97],[14.023,38.041],[14.065,38.019],[14.146,38.027],[14.288,38.007],[14.427,38.041],[14.522,38.042],[14.636,38.073],[14.749,38.166],[14.787,38.152],[14.915,38.192],[14.973,38.152],[15.047,38.149],[15.097,38.121],[15.211,38.186],[15.241,38.244],[15.225,38.27],[15.252,38.252],[15.241,38.217],[15.293,38.206],[15.429,38.242],[15.541,38.301],[15.653,38.268],[15.582,38.245],[15.558,38.197],[15.575,38.193],[15.494,38.075],[15.214,37.756],[15.218,37.708],[15.175,37.633],[15.177,37.576],[15.115,37.531],[15.086,37.482],[15.1,37.317],[15.189,37.282],[15.206,37.293],[15.256,37.241],[15.224,37.239],[15.232,37.198],[15.213,37.247],[15.186,37.236],[15.185,37.195],[15.206,37.153],[15.244,37.146],[15.22,37.143],[15.237,37.115],[15.296,37.107],[15.297,37.058],[15.275,37.062],[15.276,37.039],[15.303,37.043],[15.337,37.007],[15.275,37.007],[15.262,36.974],[15.214,36.964],[15.153,36.914],[15.096,36.796],[15.138,36.682],[15.08,36.648],[15.018,36.702],[14.957,36.694],[14.877,36.731],[14.781,36.704],[14.691,36.721],[14.588,36.777],[14.493,36.787],[14.46,36.815],[14.444,36.87],[14.383,36.956],[14.259,37.058],[14.078,37.11],[13.894,37.098],[13.824,37.144],[13.75,37.149],[13.662,37.194],[13.644,37.226],[13.556,37.285],[13.448,37.296],[13.272,37.391],[13.168,37.492],[13.02,37.496],[12.963,37.563],[12.918,37.577],[12.663,37.566],[12.604,37.642],[12.518,37.661],[12.476,37.699],[12.47,37.747],[12.425,37.801],[12.462,37.817],[12.486,37.874],[12.459,37.908],[12.52,38.009],[12.493,38.016],[12.57,38.069],[12.645,38.079],[12.661,38.112],[12.71,38.109],[12.737,38.139],[12.716,38.173],[12.732,38.19],[12.768,38.18],[12.811,38.081],[12.908,38.025]],[[11.955,36.839],[11.989,36.823],[12.013,36.825],[12.046,36.801],[12.055,36.775],[12.047,36.75],[12.023,36.734],[11.982,36.744],[11.927,36.803],[11.928,36.825],[11.955,36.839]]]},{"name":"Sardegna","code":"IT-88","c":[8.98,40.11],"rings":[[[8.368,40.496],[8.338,40.5],[8.295,40.593],[8.203,40.569],[8.22,40.601],[8.196,40.618],[8.164,40.56],[8.15,40.586],[8.144,40.624],[8.187,40.639],[8.205,40.68],[8.133,40.731],[8.219,40.87],[8.222,40.892],[8.176,40.935],[8.202,40.973],[8.236,40.949],[8.239,40.903],[8.302,40.851],[8.385,40.851],[8.35,40.84],[8.496,40.821],[8.591,40.843],[8.7,40.915],[8.79,40.922],[8.866,40.987],[8.882,41.028],[8.929,41.043],[9.012,41.124],[9.108,41.134],[9.121,41.155],[9.159,41.161],[9.167,41.229],[9.144,41.247],[9.165,41.236],[9.235,41.258],[9.28,41.229],[9.277,41.193],[9.288,41.219],[9.29,41.193],[9.32,41.203],[9.332,41.185],[9.363,41.208],[9.37,41.183],[9.423,41.177],[9.406,41.157],[9.443,41.135],[9.441,41.105],[9.467,41.143],[9.519,41.143],[9.522,41.157],[9.537,41.14],[9.526,41.134],[9.546,41.134],[9.54,41.114],[9.567,41.116],[9.505,41.009],[9.561,41.038],[9.555,41.004],[9.594,41.022],[9.664,40.994],[9.611,41.003],[9.585,40.986],[9.575,40.928],[9.527,40.933],[9.502,40.913],[9.561,40.921],[9.589,40.9],[9.644,40.92],[9.618,40.889],[9.654,40.88],[9.665,40.853],[9.727,40.843],[9.686,40.835],[9.692,40.811],[9.671,40.785],[9.718,40.751],[9.716,40.709],[9.75,40.678],[9.752,40.601],[9.828,40.528],[9.764,40.391],[9.682,40.337],[9.624,40.252],[9.63,40.19],[9.657,40.142],[9.736,40.077],[9.687,39.984],[9.687,39.948],[9.716,39.93],[9.682,39.901],[9.697,39.853],[9.67,39.786],[9.676,39.711],[9.647,39.652],[9.658,39.58],[9.632,39.504],[9.645,39.461],[9.598,39.352],[9.604,39.32],[9.634,39.299],[9.582,39.265],[9.563,39.198],[9.579,39.176],[9.562,39.138],[9.521,39.118],[9.524,39.095],[9.503,39.131],[9.438,39.122],[9.322,39.204],[9.213,39.227],[9.167,39.206],[9.161,39.182],[9.111,39.214],[9.039,39.173],[9.009,39.123],[9.017,39.087],[9.054,39.085],[9.025,39.081],[9.046,39.056],[9.027,39.001],[8.855,38.876],[8.806,38.9],[8.801,38.884],[8.782,38.912],[8.72,38.937],[8.664,38.913],[8.67,38.897],[8.648,38.89],[8.658,38.871],[8.64,38.865],[8.646,38.894],[8.608,38.893],[8.619,38.949],[8.587,38.956],[8.566,38.997],[8.575,39.032],[8.531,39.059],[8.468,39.055],[8.442,38.968],[8.405,38.961],[8.351,39.098],[8.37,39.114],[8.38,39.1],[8.426,39.109],[8.467,39.057],[8.488,39.085],[8.466,39.119],[8.44,39.115],[8.437,39.156],[8.414,39.172],[8.411,39.15],[8.399,39.194],[8.369,39.216],[8.437,39.29],[8.42,39.333],[8.373,39.374],[8.413,39.428],[8.382,39.457],[8.471,39.599],[8.45,39.633],[8.444,39.758],[8.46,39.768],[8.503,39.714],[8.545,39.795],[8.546,39.86],[8.569,39.864],[8.492,39.91],[8.466,39.904],[8.435,39.858],[8.432,39.887],[8.399,39.904],[8.394,39.98],[8.414,40.017],[8.377,40.036],[8.454,40.051],[8.493,40.087],[8.456,40.177],[8.484,40.274],[8.459,40.318],[8.383,40.339],[8.402,40.409],[8.368,40.496]],[[8.319,41.121],[8.323,41.106],[8.348,41.09],[8.335,41.079],[8.339,41.061],[8.326,41.054],[8.281,41.065],[8.235,41.024],[8.248,41.027],[8.264,41.001],[8.258,40.989],[8.21,40.988],[8.218,40.993],[8.211,41.004],[8.23,41.023],[8.22,41.029],[8.22,41.041],[8.245,41.047],[8.265,41.072],[8.284,41.075],[8.276,41.105],[8.305,41.106],[8.319,41.121]],[[8.309,39.188],[8.306,39.103],[8.279,39.096],[8.248,39.108],[8.252,39.129],[8.221,39.145],[8.227,39.161],[8.309,39.188]]]}];
+
+</script>
+<!--__IMAGES__-->
+<!--__CONTENT__--><script src="content/lazio.js"></script>
+<script src="content/course.no.js"></script>
+<script src="content/lazio.no.js"></script>
+<script src="assets/audio/lazio/manifest.js"></script>
+<script src="content/piemonte.js"></script>
+<script src="content/piemonte.no.js"></script>
+<script src="assets/audio/piemonte/manifest.js"></script>
+<script src="content/toscana.js"></script>
+<script src="content/toscana.no.js"></script>
+<script src="assets/audio/toscana/manifest.js"></script>
+<script src="content/veneto.js"></script>
+<script src="content/veneto.no.js"></script>
+<script src="assets/audio/veneto/manifest.js"></script>
+<script src="content/campania.js"></script>
+<script src="content/campania.no.js"></script>
+<script src="assets/audio/campania/manifest.js"></script>
+<script src="content/sicilia.js"></script>
+<script src="content/sicilia.no.js"></script>
+<script src="assets/audio/sicilia/manifest.js"></script>
+<script src="content/lombardia.js"></script>
+<script src="content/lombardia.no.js"></script>
+<script src="assets/audio/lombardia/manifest.js"></script>
+<script>
+(function(){
+'use strict';
+if(!window.THREE){ document.getElementById('loading').textContent='Could not load Three.js (check your internet connection).'; return; }
+const MOBILE = () => window.innerWidth < 900;
+
+// ============================================================ LANGUAGE
+const I18N = {
+ en:{ sub:'A course in twenty regions · wine & food', hint:'Tap a region or a pin · drag to pan · pinch to zoom · ◭ tilts', loading:'Preparing the map of Italy…', lessons:'Lessons', landmark:'Landmark', wines:'Wines to know', table:'At the table', pairing:'Classic pairing', prev:'← Previous', next:'Next region →', capital:'Capital', module:'Module', of:'of', readings:'readings', min:'min', soonShort:'readings coming soon', minRead:'min read', soon:'Reading coming soon', reading:'Reading', notWritten:'This reading is not written yet.',
+   soonPara:n=>`The Lazio module shows the reading format the course will use: a 6–8 minute illustrated essay with key facts, a tasting table for wine lessons and a short recap. ${n}'s readings will follow the same pattern.`,
+   backTo:'Back to', seeFinished:'See the finished module', lazioR1:'Lazio, reading 1', nextReading:'Next reading', nextRegion:'Next region', mark:'Mark as read', marked:'✓ Marked as read', credits:'Photo credits', photo:'Photo', via:'via Wikimedia Commons', close:'Close', home:'Show all of Italy', listen:'Listen', listenBrowser:'Listen with the browser voice', narrated:'Narrated by an AI voice', browserVoice:'Browser voice', noVoice:'No voice available on this device',
+   'area.North':'North','area.Centre':'Centre','area.South':'South','area.Islands':'Islands','wine.red':'red','wine.white':'white','wine.rose':'rosé','wine.sparkling':'sparkling','wine.sweet':'sweet' },
+ no:{ sub:'Et kurs i tjue regioner · vin og mat', hint:'Trykk på en region eller en nål · dra for å flytte · knip for å zoome · ◭ vipper', loading:'Forbereder kartet over Italia …', lessons:'Leksjoner', landmark:'Landemerke', wines:'Viner å kjenne til', table:'Ved bordet', pairing:'Klassisk kombinasjon', prev:'← Forrige', next:'Neste region →', capital:'Hovedstad', module:'Modul', of:'av', readings:'lesetekster', min:'min', soonShort:'lesetekster kommer', minRead:'min lesetid', soon:'Lesetekst kommer', reading:'Lesetekst', notWritten:'Denne leseteksten er ikke skrevet ennå.',
+   soonPara:n=>`Lazio-modulen viser leseformatet kurset skal bruke: et illustrert essay på 6–8 minutter med nøkkelfakta, en smakstabell for vinleksjonene og en kort oppsummering. Lesetekstene for ${n} følger samme mønster.`,
+   backTo:'Tilbake til', seeFinished:'Se den ferdige modulen', lazioR1:'Lazio, lesetekst 1', nextReading:'Neste lesetekst', nextRegion:'Neste region', mark:'Merk som lest', marked:'✓ Merket som lest', credits:'Fotokreditering', photo:'Foto', via:'via Wikimedia Commons', close:'Lukk', home:'Vis hele Italia', listen:'Lytt', listenBrowser:'Lytt med nettleserstemme', narrated:'Lest inn av en KI-stemme', browserVoice:'Nettleserstemme', noVoice:'Ingen stemme tilgjengelig på denne enheten',
+   'area.North':'Nord','area.Centre':'Midt-Italia','area.South':'Sør','area.Islands':'Øyene','wine.red':'rød','wine.white':'hvit','wine.rose':'rosé','wine.sparkling':'musserende','wine.sweet':'søt' }
+};
+let lang = (()=>{ const q = new URLSearchParams(location.search).get('lang'); if(q && I18N[q]) return q; try{ const s = localStorage.getItem('iit-lang'); if(s && I18N[s]) return s; }catch(e){} return /^(nb|nn|no)/i.test(navigator.language||'') ? 'no' : 'en'; })();
+const T = k => { const v = I18N[lang][k] !== undefined ? I18N[lang][k] : I18N.en[k]; return v === undefined ? k : v; };
+function course(code){ const c = COURSE[code]; const t = lang !== 'en' && window.COURSE_NO && window.COURSE_NO[code]; if(!t) return c; return Object.assign({}, c, t, {landmark: Object.assign({}, c.landmark, t.landmark || {})}); }
+function readingsFor(code){ return (lang !== 'en' && window.READINGS_NO && window.READINGS_NO[code]) || (window.READINGS || {})[code]; }
+function applyLang(){
+  document.documentElement.lang = lang === 'no' ? 'nb' : 'en';
+  document.querySelectorAll('[data-t]').forEach(e => { e.textContent = T(e.dataset.t); });
+  document.querySelectorAll('#rail h4[data-area]').forEach(h => { h.textContent = T('area.'+h.dataset.area); });
+  document.querySelectorAll('#lang button').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
+  const c = document.querySelector('#sheet .close'); if(c){ c.title = T('close'); c.setAttribute('aria-label', T('close')); }
+  const h = document.getElementById('homeBtn'); if(h){ h.title = T('home'); h.setAttribute('aria-label', T('home')); }
+  try{ localStorage.setItem('iit-lang', lang); }catch(e){}
+}
+document.querySelectorAll('#lang button').forEach(b => b.addEventListener('click', () => { if(b.dataset.lang === lang) return; lang = b.dataset.lang; applyLang(); if(typeof route === 'function') route(); }));
+
+// ============================================================ COURSE SUMMARIES (one entry per region)
+const COURSE = {
+ 'IT-23':{name:"Valle d'Aosta", capital:'Aosta', area:'North', color:'#8fae7a', intro:"Italy's smallest region climbs from the Dora Baltea river to the Matterhorn and Mont Blanc. Vines cling to terraces at up to 1,200 metres, and the kitchen is built on butter, rye bread and mountain cheese.",
+   landmark:{name:'Castello di Fénis & the Matterhorn', desc:'A fairy-tale medieval castle guarding the valley, with the Cervino (Matterhorn) rising to 4,478 m at its head.', props:[['aosta',45.80,7.55]]},
+   wines:[['Blanc de Morgex et de La Salle','white'],['Petite Arvine','white'],['Fumin','red'],['Torrette','red']], pairing:'A glass of Torrette alongside carbonada, the slow beef stew served over polenta.',
+   dishes:['Fontina DOP','Carbonada','Polenta concia','Lardo di Arnad','Seupa à la Vapelenentse'],
+   lessons:["Europe's highest vineyards","Alpine whites and mountain reds","Fontina and the table of the Alps","Castles of the Aosta valley"]},
+ 'IT-21':{name:'Piemonte', capital:'Torino', area:'North', color:'#7fa267', intro:"The foot of the mountains: fog-wrapped Langhe hills where Nebbiolo becomes Barolo and Barbaresco, white truffles from Alba, and a Turin café culture that gave the world vermouth and gianduja.",
+   landmark:{name:'Mole Antonelliana, Turin', desc:'The 167 m spire that defines the Turin skyline, begun in 1863 as a synagogue and now the National Cinema Museum.', props:[['mole',45.07,7.69]]},
+   wines:[['Barolo','red'],['Barbaresco','red'],['Barbera d\'Asti','red'],['Moscato d\'Asti','sparkling'],['Gavi','white']], pairing:'Barolo with brasato al Barolo, or a young Barbera with tajarin dressed in butter and shaved white truffle.',
+   dishes:['White truffle of Alba','Tajarin','Agnolotti del plin','Bagna cauda','Vitello tonnato','Bonet'],
+   lessons:["Nebbiolo and the Langhe hills","Barolo and Barbaresco, village by village","Truffles, tajarin and bagna cauda","Turin: vermouth, chocolate and the Mole"]},
+ 'IT-42':{name:'Liguria', capital:'Genova', area:'North', color:'#b7b06a', intro:"A thin crescent of coast squeezed between sea and mountain. Terraced vineyards hang above the Cinque Terre, basil grows in every window, and Genoa's port has traded spices and olive oil for a thousand years.",
+   landmark:{name:'Lanterna di Genova & the Cinque Terre', desc:'The 77 m lighthouse has guided ships into Genoa since 1543; to the east, five pastel villages cling to the cliffs.', props:[['lanterna',44.40,8.90]]},
+   wines:[['Vermentino','white'],['Pigato','white'],['Rossese di Dolceacqua','red'],['Sciacchetrà','sweet']], pairing:'Chilled Vermentino with trofie al pesto, or Sciacchetrà with a slice of pandolce after dinner.',
+   dishes:['Pesto alla genovese','Focaccia di Recco','Trofie','Farinata','Pansoti con salsa di noci'],
+   lessons:["Vines on the cliffs","Vermentino, Pigato and the sea","Pesto, focaccia and the olive","Genoa: a maritime republic's kitchen"]},
+ 'IT-25':{name:'Lombardia', capital:'Milano', area:'North', color:'#93b070', intro:"Italy's economic engine is also a land of rice paddies, alpine lakes and Franciacorta's traditional-method sparkling wine. Milan's cooking is rich with butter, saffron and bone marrow.",
+   landmark:{name:'Duomo di Milano', desc:'Six centuries in the making, the marble cathedral bristles with 135 spires and 3,400 statues, crowned by the golden Madonnina.', props:[['duomo',45.46,9.19]]},
+   wines:[['Franciacorta','sparkling'],['Valtellina Superiore (Nebbiolo)','red'],['Lugana','white'],['Oltrepò Pavese Pinot Nero','red']], pairing:'Franciacorta Satèn with risotto alla milanese; Sforzato di Valtellina with pizzoccheri.',
+   dishes:['Risotto alla milanese','Cotoletta alla milanese','Ossobuco','Pizzoccheri','Panettone','Gorgonzola'],
+   lessons:["Franciacorta: Italy's answer to Champagne","Nebbiolo in the Alps: Valtellina","Saffron risotto and the Milanese table","The Duomo and the city of design"]},
+ 'IT-32':{name:'Trentino-Alto Adige', capital:'Trento', area:'North', color:'#a5bf92', intro:"Two cultures share one alpine region: Italian-speaking Trentino and German-speaking Südtirol. Aromatic whites grow beneath the pale Dolomite peaks, and speck, dumplings and strudel come from the Austrian side of the pantry.",
+   landmark:{name:'The Dolomites', desc:'Pale limestone towers that glow pink at sunset, a UNESCO World Heritage site rising above vineyards and apple orchards.', props:[['dolomites',46.45,11.85]]},
+   wines:[['Gewürztraminer','white'],['Pinot Grigio','white'],['Lagrein','red'],['Teroldego Rotaliano','red'],['Trentodoc','sparkling']], pairing:'Gewürztraminer with speck and Alto Adige cheeses; Lagrein with venison and canederli.',
+   dishes:['Canederli','Speck Alto Adige','Apfelstrudel','Polenta with mushrooms','Schlutzkrapfen'],
+   lessons:["Vineyards between two cultures","Gewürztraminer, Lagrein and the aromatic north","Speck, dumplings and strudel","The Dolomites: mountains of stone and light"]},
+ 'IT-34':{name:'Veneto', capital:'Venezia', area:'North', color:'#86a86a', intro:"From Venice's lagoon to Verona's amphitheatre, Veneto is Italy's largest wine producer. Prosecco fizzes in the hills of Valdobbiadene while Amarone is made from grapes dried on straw mats.",
+   landmark:{name:'Venice: Campanile di San Marco', desc:'The 99 m bell tower over Piazza San Marco, rebuilt in 1912 after the original collapsed; gondolas glide past below.', props:[['venice',45.43,12.34]]},
+   wines:[['Amarone della Valpolicella','red'],['Prosecco Superiore','sparkling'],['Soave Classico','white'],['Valpolicella Ripasso','red'],['Bardolino','red']], pairing:'Soave with risi e bisi; Amarone with aged Asiago or a long-braised pastissada de caval.',
+   dishes:['Risi e bisi','Baccalà mantecato','Sarde in saor','Bigoli in salsa','Tiramisù','Cicchetti'],
+   lessons:["Valpolicella and the art of appassimento","Prosecco: from hills to glass","Cicchetti and the Venetian bàcaro","Venice: a republic built on trade"]},
+ 'IT-36':{name:'Friuli-Venezia Giulia', capital:'Trieste', area:'North', color:'#9db37c', intro:"Where Italy meets Slovenia and Austria. Friuli's white wines are among the country's finest, San Daniele cures its prosciutto in alpine-sea breezes, and Trieste's cafés still feel Habsburg.",
+   landmark:{name:'Castello di Miramare, Trieste', desc:'A white castle built in 1860 for Archduke Maximilian on a rocky headland above the Adriatic.', props:[['miramare',45.70,13.71]]},
+   wines:[['Friulano','white'],['Ribolla Gialla','white'],['Pinot Grigio (Collio)','white'],['Refosco dal Peduncolo Rosso','red'],['Picolit','sweet']], pairing:'Friulano with prosciutto di San Daniele; Refosco with frico and polenta.',
+   dishes:['Prosciutto di San Daniele','Frico','Jota','Montasio','Gubana'],
+   lessons:["Collio and the great Italian whites","Friulano, Ribolla and orange wine","San Daniele, frico and the Carnic kitchen","Trieste: coffee, Habsburgs and the bora"]},
+ 'IT-45':{name:'Emilia-Romagna', capital:'Bologna', area:'North', color:'#c2b06a', intro:"Italy's food valley. Parmigiano Reggiano, prosciutto di Parma, balsamic vinegar of Modena and fresh egg pasta all come from the flat Po plain, washed down with fizzy, cheerful Lambrusco.",
+   landmark:{name:'The Two Towers, Bologna', desc:'Asinelli (97 m) and its leaning neighbour Garisenda, medieval family towers that still dominate the porticoed city.', props:[['towers',44.49,11.34]]},
+   wines:[['Lambrusco di Sorbara','sparkling'],['Lambrusco Grasparossa','sparkling'],['Sangiovese di Romagna','red'],['Albana di Romagna','white'],['Pignoletto','sparkling']], pairing:'Dry Lambrusco with a board of salumi and Parmigiano; Sangiovese di Romagna with tagliatelle al ragù.',
+   dishes:['Tagliatelle al ragù','Tortellini in brodo','Parmigiano Reggiano','Prosciutto di Parma','Aceto balsamico','Piadina'],
+   lessons:["Lambrusco, properly understood","Sangiovese on the Romagna side","Parmigiano, prosciutto and balsamic: three protected treasures","Bologna la Grassa and the sfoglia"]},
+ 'IT-52':{name:'Toscana', capital:'Firenze', area:'Centre', color:'#c9ad5c', intro:"Cypress-lined hills, Renaissance cities and Sangiovese in every form: Chianti Classico, Brunello di Montalcino, Vino Nobile. The cooking is peasant-proud: bread, beans, olive oil and a thick Florentine steak.",
+   landmark:{name:'Leaning Tower of Pisa & Brunelleschi\'s Dome', desc:'Pisa\'s bell tower has leaned since the 1170s; in Florence, Brunelleschi\'s 1436 dome still crowns the largest brick dome ever built.', props:[['pisa',43.72,10.40],['florence',43.77,11.25]]},
+   wines:[['Chianti Classico','red'],['Brunello di Montalcino','red'],['Vino Nobile di Montepulciano','red'],['Bolgheri (Super Tuscan)','red'],['Vernaccia di San Gimignano','white'],['Vin Santo','sweet']], pairing:'Chianti Classico with bistecca alla fiorentina; Vin Santo with cantucci for dunking.',
+   dishes:['Bistecca alla fiorentina','Ribollita','Pappa al pomodoro','Pici cacio e pepe','Lampredotto','Cantucci'],
+   lessons:["Sangiovese: one grape, many faces","Chianti Classico and the black rooster","Brunello, Nobile and the Super Tuscans","Bread, beans and the Florentine steak"]},
+ 'IT-55':{name:'Umbria', capital:'Perugia', area:'Centre', color:'#a8a85a', intro:"The green heart of Italy, the only landlocked region in the peninsula. Assisi and Orvieto crown its hills, black truffles hide near Norcia, and Sagrantino is one of Italy's most tannic reds.",
+   landmark:{name:'Basilica di San Francesco, Assisi', desc:'Two stacked churches built from 1228 over the tomb of St Francis, frescoed by Giotto and Cimabue.', props:[['assisi',43.07,12.62]]},
+   wines:[['Sagrantino di Montefalco','red'],['Orvieto Classico','white'],['Montefalco Rosso','red'],['Grechetto','white']], pairing:'Sagrantino with roast lamb or aged pecorino; Orvieto with strangozzi al tartufo nero.',
+   dishes:['Black truffle of Norcia','Porchetta','Strangozzi','Lentils of Castelluccio','Torta al testo','Norcia salumi'],
+   lessons:["The landlocked vineyard","Sagrantino: Italy's most tannic red","Norcia: truffles, salumi and the norcino","Assisi and the hill towns"]},
+ 'IT-57':{name:'Marche', capital:'Ancona', area:'Centre', color:'#d1b878', intro:"Adriatic beaches, the Sibillini mountains and Renaissance Urbino. Verdicchio is one of Italy's great age-worthy whites, and the coast cooks a thirteen-fish brodetto.",
+   landmark:{name:'Palazzo Ducale, Urbino', desc:'The Renaissance palace of Duke Federico da Montefeltro, its twin slender towers rising above the walled hill town.', props:[['urbino',43.72,12.64]]},
+   wines:[['Verdicchio dei Castelli di Jesi','white'],['Verdicchio di Matelica','white'],['Rosso Conero','red'],['Lacrima di Morro d\'Alba','red']], pairing:'Verdicchio with brodetto all\'anconetana; Rosso Conero with vincisgrassi.',
+   dishes:['Olive all\'ascolana','Brodetto','Vincisgrassi','Ciauscolo','Crescia'],
+   lessons:["Verdicchio: a white that ages like a red","Montepulciano on the Conero","Ascoli olives and the Adriatic brodetto","Urbino and the ideal city"]},
+ 'IT-62':{name:'Lazio', capital:'Roma', area:'Centre', color:'#c99d5c', intro:"Rome sits at the centre: the Colosseum, the Forum and a cucina povera of pecorino, guanciale and pasta that became the world's favourite. In the Castelli Romani hills, Frascati has been the city's white wine for centuries.",
+   landmark:{name:'The Colosseum, Rome', desc:'The Flavian Amphitheatre, completed in AD 80, seated some 50,000 spectators for games and spectacles.', props:[['colosseum',41.89,12.49]]},
+   wines:[['Frascati Superiore','white'],['Cesanese del Piglio','red'],['Est! Est!! Est!!! di Montefiascone','white'],['Aleatico di Gradoli','sweet']], pairing:'Frascati with carciofi alla giudia; Cesanese with abbacchio alla romana or amatriciana.',
+   dishes:['Carbonara','Cacio e pepe','Amatriciana','Saltimbocca alla romana','Carciofi alla giudia','Supplì'],
+   lessons:["The Castelli Romani and Frascati","Cesanese: Lazio's forgotten red","The four Roman pastas","Rome: the Colosseum and the eternal table"]},
+ 'IT-65':{name:'Abruzzo', capital:"L'Aquila", area:'Centre', color:'#b09e68', intro:"Mountain wilderness above, Adriatic below. Bears and wolves roam the Gran Sasso national park, shepherds grill arrosticini over charcoal, and Montepulciano d'Abruzzo is the everyday red of half the country.",
+   landmark:{name:'Rocca Calascio & the Gran Sasso', desc:'A 10th-century fortress at 1,460 m, the highest in the Apennines, beneath the 2,912 m Corno Grande.', props:[['calascio',42.33,13.70]]},
+   wines:[['Montepulciano d\'Abruzzo','red'],['Cerasuolo d\'Abruzzo','rose'],['Trebbiano d\'Abruzzo','white'],['Pecorino','white']], pairing:'Cerasuolo with arrosticini straight from the grill; Montepulciano with spaghetti alla chitarra e pallottine.',
+   dishes:['Arrosticini','Spaghetti alla chitarra','Brodetto alla vastese','Pecorino di Farindola','Confetti di Sulmona'],
+   lessons:["Montepulciano: the grape, not the town","Cerasuolo and the Adriatic rosé","Arrosticini and the shepherd's kitchen","Gran Sasso and the hill fortresses"]},
+ 'IT-67':{name:'Molise', capital:'Campobasso', area:'South', color:'#c7a56a', intro:"Italy's youngest and least-visited region, split from Abruzzo in 1963. Ancient sheep-droving tracks (tratturi) cross its hills, Tintilia is its native red grape, and the cheeses are caciocavallo and scamorza.",
+   landmark:{name:'Castello Monforte, Campobasso', desc:'A Norman-era castle rebuilt in 1458, watching over the regional capital and the tratturi below.', props:[['monforte',41.56,14.66]]},
+   wines:[['Tintilia del Molise','red'],['Biferno Rosso','red'],['Molise Falanghina','white']], pairing:'Tintilia with cavatelli al ragù di agnello and a wedge of caciocavallo.',
+   dishes:['Cavatelli','Caciocavallo di Agnone','Pampanella','Scamorza','Ventricina'],
+   lessons:["A region rediscovered","Tintilia: a grape saved from extinction","Caciocavallo and the transhumance routes","Campobasso and the hill villages"]},
+ 'IT-72':{name:'Campania', capital:'Napoli', area:'South', color:'#cf9358', intro:"Naples invented pizza, Vesuvius buried Pompeii, and the volcanic soils grow ancient grapes: Aglianico for Taurasi, Fiano and Greco for whites. Buffalo mozzarella, San Marzano tomatoes and lemons complete the picture.",
+   landmark:{name:'Mount Vesuvius & Pompeii', desc:'The volcano whose AD 79 eruption preserved Pompeii still looms over the Bay of Naples; its slopes grow Lacryma Christi.', props:[['vesuvius',40.82,14.43]]},
+   wines:[['Taurasi (Aglianico)','red'],['Fiano di Avellino','white'],['Greco di Tufo','white'],['Lacryma Christi del Vesuvio','red'],['Falanghina','white']], pairing:'Falanghina with pizza margherita and fried seafood; Taurasi with ragù napoletano.',
+   dishes:['Pizza napoletana','Mozzarella di bufala','Ragù napoletano','Sfogliatella','Pasta e patate','Limoncello'],
+   lessons:["Volcanic soils and ancient grapes","Taurasi, Fiano and Greco","Pizza, mozzarella and the Neapolitan table","Vesuvius, Pompeii and the Amalfi coast"]},
+ 'IT-75':{name:'Puglia', capital:'Bari', area:'South', color:'#d8b06e', intro:"The heel of the boot is a sun-baked plain of olive trees (40% of Italy's oil), whitewashed trulli, and Primitivo and Negroamaro vines. Burrata was invented here, and pasta is shaped by hand into little ears.",
+   landmark:{name:'Trulli of Alberobello & Castel del Monte', desc:'Conical dry-stone houses, over 1,500 of them in Alberobello, and Frederick II\'s mysterious octagonal castle of 1240.', props:[['trulli',40.78,17.24],['castel',41.08,16.27]]},
+   wines:[['Primitivo di Manduria','red'],['Salice Salentino (Negroamaro)','red'],['Nero di Troia','red'],['Rosato del Salento','rose'],['Verdeca','white']], pairing:'Salento rosato with orecchiette con cime di rapa; Primitivo with braciole and grilled lamb.',
+   dishes:['Orecchiette con cime di rapa','Burrata','Focaccia barese','Taralli','Bombette','Panzerotti'],
+   lessons:["Olives, sun and the Salento","Primitivo and Negroamaro","Orecchiette, burrata and the bread of Altamura","Trulli, castles and the Adriatic"]},
+ 'IT-77':{name:'Basilicata', capital:'Potenza', area:'South', color:'#b98f5e', intro:"Rugged, mountainous and once desperately poor, Basilicata is now known for Matera's cave city and Aglianico del Vulture, grown on an extinct volcano. Crunchy dried peppers season almost everything.",
+   landmark:{name:'Sassi di Matera', desc:'Cave dwellings carved into a limestone ravine, inhabited for 9,000 years and a UNESCO site since 1993.', props:[['matera',40.67,16.61]]},
+   wines:[['Aglianico del Vulture','red'],['Matera DOC Primitivo','red'],['Grottino di Roccanova','red']], pairing:'Aglianico del Vulture with lucanica sausage and pane di Matera rubbed with peperoni cruschi.',
+   dishes:['Peperoni cruschi','Pane di Matera','Lucanica','Lagane e ceci','Caciocavallo podolico'],
+   lessons:["Vulture: wine on a volcano","Aglianico, the Barolo of the south","Peperoni cruschi and the bread of Matera","Matera: the cave city"]},
+ 'IT-78':{name:'Calabria', capital:'Catanzaro', area:'South', color:'#cc945f', intro:"The toe of Italy, fiercely spicy and Greek in its roots. 'Nduja, red onions of Tropea, bergamot and liquorice all come from here, and Cirò is one of the oldest wines in the world.",
+   landmark:{name:'Tropea & Santa Maria dell\'Isola', desc:'A cliff-top town above white sand, with a Benedictine sanctuary perched on its own rock in the sea.', props:[['tropea',38.68,15.90]]},
+   wines:[['Cirò Rosso (Gaglioppo)','red'],['Cirò Bianco (Greco Bianco)','white'],['Greco di Bianco','sweet'],['Magliocco','red']], pairing:'Cirò Rosso with fileja and \'nduja; Greco di Bianco with fig and almond sweets.',
+   dishes:['\'Nduja','Cipolla rossa di Tropea','Fileja','Swordfish alla bagnarese','Bergamot','Liquorice of Rossano'],
+   lessons:["Magna Graecia and the oldest vineyard","Gaglioppo and Cirò","'Nduja, chilli and the Calabrian pantry","Tropea and the Costa degli Dei"]},
+ 'IT-82':{name:'Sicilia', capital:'Palermo', area:'Islands', color:'#dcb46a', intro:"The Mediterranean's largest island has been Greek, Arab, Norman and Spanish, and the kitchen shows it: couscous, citrus, pistachios, cannoli. Etna's volcanic vineyards make some of Italy's most exciting wines.",
+   landmark:{name:'Mount Etna & the Valley of the Temples', desc:'Europe\'s most active volcano (3,357 m) and, at Agrigento, the best-preserved Greek temples outside Greece.', props:[['etna',37.75,15.00],['temple',37.29,13.59]]},
+   wines:[['Etna Rosso (Nerello Mascalese)','red'],['Nero d\'Avola','red'],['Grillo','white'],['Marsala','sweet'],['Passito di Pantelleria','sweet'],['Cerasuolo di Vittoria','red']], pairing:'Etna Bianco with pasta alla Norma; Nero d\'Avola with grilled swordfish; Passito with cannoli.',
+   dishes:['Arancini','Pasta alla Norma','Caponata','Cannoli','Granita','Pasta con le sarde'],
+   lessons:["Etna: vines on a live volcano","Nero d'Avola, Grillo and Marsala","Arab Sicily: citrus, sugar and street food","Temples, Normans and the Baroque"]},
+ 'IT-88':{name:'Sardegna', capital:'Cagliari', area:'Islands', color:'#caa965', intro:"An island apart, with its own language and 7,000 Bronze-Age stone towers. Shepherds roast suckling pig, bake paper-thin carasau bread and make pecorino; Cannonau and Vermentino are its two great grapes.",
+   landmark:{name:'Nuraghe Su Nuraxi, Barumini', desc:'A 3,500-year-old stone fortress with a central tower and village, the finest of Sardinia\'s nuraghi.', props:[['nuraghe',39.70,9.00]]},
+   wines:[['Cannonau di Sardegna','red'],['Vermentino di Gallura','white'],['Carignano del Sulcis','red'],['Vernaccia di Oristano','sweet']], pairing:'Vermentino di Gallura with fregola ai frutti di mare; Cannonau with porceddu and pecorino sardo.',
+   dishes:['Porceddu','Pane carasau','Culurgiones','Fregola','Pecorino sardo','Seadas'],
+   lessons:["An island of shepherds and vines","Cannonau and Vermentino","Porceddu, carasau and the pastoral table","Nuraghi: the Bronze Age towers"]},
+};
+
+const ORDER = ['IT-23','IT-21','IT-42','IT-25','IT-32','IT-34','IT-36','IT-45','IT-52','IT-55','IT-57','IT-62','IT-65','IT-67','IT-72','IT-75','IT-77','IT-78','IT-82','IT-88'];
+const AREAS = ['North','Centre','South','Islands'];
+const ASSET_DIRS = {'IT-62':'lazio','IT-21':'piemonte','IT-52':'toscana','IT-34':'veneto','IT-72':'campania','IT-82':'sicilia','IT-25':'lombardia'};
+COURSE['IT-62'].landmark.props = [['rome',41.89,12.49]];
+COURSE['IT-62'].landmark.name = 'The Colosseum & St Peter\'s, Rome';
+const VINEYARDS = [[44.6,8.0],[45.6,10.0],[45.5,10.9],[45.9,12.2],[46.0,13.5],[44.7,10.9],[43.5,11.3],[43.05,11.5],[42.9,12.65],[43.4,13.1],[42.4,14.1],[41.0,14.95],[40.4,17.6],[40.95,15.65],[39.4,17.05],[37.8,15.05],[37.8,12.5],[41.0,9.3],[45.75,7.4],[46.55,11.2],[44.2,9.9],[42.1,11.8],[41.75,13.15]];
+const ALPS = [[45.9,6.95],[46.0,7.6],[46.2,8.2],[46.4,9.0],[46.5,9.9],[46.6,10.8],[46.8,11.8],[46.7,12.7],[46.45,13.5]];
+const APENNINES = [[44.35,9.3],[44.15,10.2],[43.95,10.9],[43.55,11.9],[43.15,12.7],[42.7,13.2],[42.45,13.6],[41.85,14.05],[41.45,14.5],[40.85,15.3],[40.3,15.8],[39.75,16.15],[39.25,16.45],[38.7,16.2],[38.1,15.75]];
+
+// ============================================================ PROJECTION (Web Mercator, matching the baked terrain)
+const TM = {"z": 8, "tileX0": 132, "tileY0": 88, "cropX": 68, "cropY": 388, "cropW": 2403, "cropH": 2751, "heightW": 512, "heightH": 586, "offset": 6000, "bounds": {"west": 6.0, "east": 19.2, "north": 47.5, "south": 36.3}, "maxElevation": 4673.0};
+const MERC_N = Math.pow(2, TM.z) * 256;
+const UNITS_H = 110;                                   // map height in world units
+const S = TM.cropH / UNITS_H;                          // zoom-8 pixels per world unit
+const UNITS_W = TM.cropW / S;
+const METRES_PER_UNIT = 40075016.686 * Math.cos(42*Math.PI/180) / MERC_N * S;
+const EXAG = 4.0;                                      // vertical exaggeration, as on printed relief maps
+function merc(lon, lat){
+  const x = (lon+180)/360*MERC_N - TM.tileX0*256 - TM.cropX;
+  const y = (1 - Math.log(Math.tan(lat*Math.PI/180) + 1/Math.cos(lat*Math.PI/180))/Math.PI)/2*MERC_N - TM.tileY0*256 - TM.cropY;
+  return [x, y];
+}
+const X = lon => merc(lon, 42)[0]/S - UNITS_W/2;
+const Z = lat => merc(12, lat)[1]/S - UNITS_H/2;
+const TOP = 0.02;
+let heightData = null, idData = null, idW = 0, idH = 0;
+function elevAt(x, z){
+  if(!heightData) return 0;
+  const u = (x + UNITS_W/2)/UNITS_W * (TM.heightW-1), v = (z + UNITS_H/2)/UNITS_H * (TM.heightH-1);
+  const i = Math.max(0, Math.min(TM.heightW-2, Math.floor(u))), j = Math.max(0, Math.min(TM.heightH-2, Math.floor(v)));
+  const fu = Math.min(1, Math.max(0, u-i)), fv = Math.min(1, Math.max(0, v-j)), W = TM.heightW;
+  const a = heightData[j*W+i], b = heightData[j*W+i+1], c = heightData[(j+1)*W+i], d = heightData[(j+1)*W+i+1];
+  return (a*(1-fu)+b*fu)*(1-fv) + (c*(1-fu)+d*fu)*fv;
+}
+const yAt = (x, z) => TOP + Math.max(0, elevAt(x, z)) * EXAG / METRES_PER_UNIT;
+const LABEL_POS = {'IT-62':[12.35,41.95],'IT-65':[13.95,42.3],'IT-55':[12.5,42.85],'IT-57':[13.1,43.4],'IT-77':[16.0,40.35],'IT-75':[16.8,41.05],'IT-67':[14.55,41.7],'IT-72':[15.1,40.75],'IT-45':[10.9,44.6],'IT-52':[11.1,43.35],'IT-21':[7.9,44.95],'IT-42':[8.5,44.4],'IT-34':[11.9,45.6],'IT-32':[11.3,46.5],'IT-36':[13.1,46.15],'IT-23':[7.3,45.75],'IT-25':[9.8,45.5],'IT-78':[16.4,39.1],'IT-82':[14.1,37.5],'IT-88':[9.0,40.0]};
+const FAMILY = {North:0x9fbf86, Centre:0xdcc07a, South:0xdd9668, Islands:0xe4cc86};
+const img = rel => (window.IMAGE_DATA && window.IMAGE_DATA[rel]) || rel;
+
+// ============================================================ RENDERER
+const renderer = new THREE.WebGLRenderer({antialias:true, powerPreference:'high-performance'});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0;
+renderer.domElement.className = 'gl';
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.fog = new THREE.Fog(0xb9cbd8, 220, 520);
+const camera = new THREE.PerspectiveCamera(42, window.innerWidth/window.innerHeight, 0.5, 1500);
+{
+  const g = new THREE.SphereGeometry(760, 32, 16);
+  const col = []; const pos = g.attributes.position; const top = new THREE.Color(0x5d88ab), hor = new THREE.Color(0xcad9e3);
+  for(let i=0;i<pos.count;i++){ const t = THREE.MathUtils.clamp(pos.getY(i)/760, 0, 1); const c = hor.clone().lerp(top, Math.pow(t, 0.6)); col.push(c.r,c.g,c.b); }
+  g.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
+  scene.add(new THREE.Mesh(g, new THREE.MeshBasicMaterial({vertexColors:true, side:THREE.BackSide, fog:false})));
+}
+scene.add(new THREE.HemisphereLight(0xdce8f2, 0x6a705a, 0.7));
+const sun = new THREE.DirectionalLight(0xfff3dc, 1.0); sun.position.set(-80, 120, -60); scene.add(sun);
+const backdrop = new THREE.Mesh(new THREE.PlaneGeometry(1600, 1600), new THREE.MeshBasicMaterial({color:0x1c4066}));
+backdrop.rotation.x = -Math.PI/2; backdrop.position.y = -0.05; scene.add(backdrop);
+
+// ============================================================ TERRAIN (heightmap mesh + baked relief + region overlay)
+const byCode = {};
+let terrain = null, terrainMat = null;
+function loadImage(src){ return new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = rej; im.src = src; }); }
+function ringPath(ctx, ring, w, h){ ctx.beginPath(); ring.forEach(([lo,la],i) => { const [mx,my] = merc(lo,la); const x = mx/TM.cropW*w, y = my/TM.cropH*h; i ? ctx.lineTo(x,y) : ctx.moveTo(x,y); }); ctx.closePath(); }
+async function buildTerrain(){
+  const [hImg, rImg] = await Promise.all([loadImage(img('assets/terrain/height.png')), loadImage(img('assets/terrain/relief.jpg'))]);
+  const hc = document.createElement('canvas'); hc.width = TM.heightW; hc.height = TM.heightH;
+  const hctx = hc.getContext('2d'); hctx.drawImage(hImg, 0, 0);
+  const px = hctx.getImageData(0, 0, hc.width, hc.height).data;
+  heightData = new Float32Array(hc.width*hc.height);
+  for(let k=0;k<heightData.length;k++) heightData[k] = px[k*4]*256 + px[k*4+1] - TM.offset;
+  // mesh
+  const cols = MOBILE() ? 224 : 448, rows = Math.round(cols*UNITS_H/UNITS_W);
+  const n = (cols+1)*(rows+1); const pos = new Float32Array(n*3), uv = new Float32Array(n*2); const idx = new Uint32Array(cols*rows*6);
+  for(let j=0;j<=rows;j++) for(let i=0;i<=cols;i++){ const k = j*(cols+1)+i; const x = -UNITS_W/2 + UNITS_W*i/cols, z = -UNITS_H/2 + UNITS_H*j/rows; pos[k*3]=x; pos[k*3+1]=yAt(x,z); pos[k*3+2]=z; uv[k*2]=i/cols; uv[k*2+1]=1-j/rows; }
+  let q = 0; for(let j=0;j<rows;j++) for(let i=0;i<cols;i++){ const a=j*(cols+1)+i, b=a+1, c=a+cols+1, d=c+1; idx[q++]=a; idx[q++]=c; idx[q++]=b; idx[q++]=b; idx[q++]=c; idx[q++]=d; }
+  const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.BufferAttribute(pos,3)); geo.setAttribute('uv', new THREE.BufferAttribute(uv,2)); geo.setIndex(new THREE.BufferAttribute(idx,1)); geo.computeVertexNormals();
+  // textures
+  const relief = new THREE.Texture(rImg); relief.encoding = THREE.sRGBEncoding; relief.anisotropy = renderer.capabilities.getMaxAnisotropy(); relief.needsUpdate = true;
+  const OW = 2048, OH = Math.round(OW*UNITS_H/UNITS_W);
+  const oc = document.createElement('canvas'); oc.width = OW; oc.height = OH; const octx = oc.getContext('2d');
+  for(const code of ORDER){ const R = REGIONS.find(r => r.code === code); octx.fillStyle = '#' + FAMILY[COURSE[code].area].toString(16).padStart(6,'0'); octx.globalAlpha = 0.14; for(const ring of R.rings){ ringPath(octx, ring, OW, OH); octx.fill(); } }
+  octx.globalAlpha = 1; octx.lineJoin = 'round'; octx.lineCap = 'round';
+  for(const [color, width] of [['rgba(255,255,255,0.6)', 7], ['rgba(58,46,36,0.9)', 2.4]]){ octx.strokeStyle = color; octx.lineWidth = width; for(const R of REGIONS){ for(const ring of R.rings){ ringPath(octx, ring, OW, OH); octx.stroke(); } } }
+  const overlay = new THREE.CanvasTexture(oc); overlay.encoding = THREE.sRGBEncoding; overlay.anisotropy = 4;
+  idW = 1024; idH = Math.round(idW*UNITS_H/UNITS_W);
+  const ic = document.createElement('canvas'); ic.width = idW; ic.height = idH; const ictx = ic.getContext('2d');
+  ORDER.forEach((code, k) => { const R = REGIONS.find(r => r.code === code); ictx.fillStyle = `rgb(${k+1},0,0)`; for(const ring of R.rings){ ringPath(ictx, ring, idW, idH); ictx.fill(); } });
+  idData = ictx.getImageData(0, 0, idW, idH).data;
+  const ids = new THREE.CanvasTexture(ic); ids.minFilter = ids.magFilter = THREE.NearestFilter; ids.generateMipmaps = false;
+  const palette = [new THREE.Color(0)]; for(const code of ORDER) palette.push(new THREE.Color(FAMILY[COURSE[code].area]).lerp(new THREE.Color(0xffffff), 0.35));
+  terrainMat = new THREE.ShaderMaterial({
+    uniforms:{ relief:{value:relief}, overlay:{value:overlay}, ids:{value:ids}, sel:{value:0}, hov:{value:0}, dim:{value:0}, palette:{value:palette}, lightDir:{value:new THREE.Vector3(-0.5,0.8,-0.35).normalize()}, fogColor:{value:scene.fog.color}, fogNear:{value:scene.fog.near}, fogFar:{value:scene.fog.far} },
+    vertexShader:`varying vec2 vUv; varying vec3 vN; varying float vFog; void main(){ vUv = uv; vN = normalMatrix * normal; vec4 mv = modelViewMatrix*vec4(position,1.0); vFog = -mv.z; gl_Position = projectionMatrix*mv; }`,
+    fragmentShader:`uniform sampler2D relief, overlay, ids; uniform float sel, hov, dim, fogNear, fogFar; uniform vec3 palette[${ORDER.length+1}]; uniform vec3 lightDir, fogColor;
+      varying vec2 vUv; varying vec3 vN; varying float vFog;
+      void main(){
+        vec3 col = texture2D(relief, vUv).rgb;
+        vec4 ov = texture2D(overlay, vUv);
+        float id = floor(texture2D(ids, vUv).r * 255.0 + 0.5);
+        if(id > 0.5){
+          vec3 rc = palette[int(id)];
+          float t = 0.0; if(abs(id - sel) < 0.5) t = 0.2; else if(abs(id - hov) < 0.5) t = 0.14;
+          col = mix(col, rc, t);
+          if(dim > 0.0 && abs(id - sel) > 0.5){ float g = dot(col, vec3(0.3, 0.59, 0.11)); col = mix(col, vec3(g) * 0.82, dim * 0.5); }
+        }
+        col = mix(col, ov.rgb, ov.a);
+        vec3 n = normalize(vN); vec3 l = normalize((viewMatrix * vec4(lightDir, 0.0)).xyz);
+        col *= 0.92 + 0.22 * max(dot(n, l), 0.0);
+        float edge = smoothstep(0.0, 0.05, vUv.x) * smoothstep(0.0, 0.05, 1.0 - vUv.x) * smoothstep(0.0, 0.05, vUv.y) * smoothstep(0.0, 0.05, 1.0 - vUv.y);
+        col = mix(vec3(0.11, 0.25, 0.4), col, edge);
+        col = mix(col, fogColor, smoothstep(fogNear, fogFar, vFog));
+        gl_FragColor = vec4(col, 1.0);
+      }`,
+  });
+  terrain = new THREE.Mesh(geo, terrainMat); scene.add(terrain);
+  // region centres and extents in world units
+  for(const R of REGIONS){ if(!COURSE[R.code]) continue; let minx=1e9,maxx=-1e9,minz=1e9,maxz=-1e9; for(const ring of R.rings) for(const [lo,la] of ring){ const x=X(lo), z=Z(la); minx=Math.min(minx,x); maxx=Math.max(maxx,x); minz=Math.min(minz,z); maxz=Math.max(maxz,z); }
+    const LP = LABEL_POS[R.code] || [R.c[0], R.c[1]]; const cx = X(LP[0]), cz = Z(LP[1]); byCode[R.code] = {code:R.code, data:COURSE[R.code], center:new THREE.Vector3(cx, yAt(cx,cz), cz), w:maxx-minx, h:maxz-minz, bbox:[minx,minz,maxx,maxz]}; }
+}
+// ============================================================ PRIMITIVES
+const mats = {};
+function mat(c, o){ const k = c+JSON.stringify(o||{}); return mats[k] || (mats[k] = new THREE.MeshStandardMaterial(Object.assign({color:c, roughness:0.85, metalness:0}, o||{}))); }
+function sh(m){ m.castShadow = true; m.receiveShadow = true; return m; }
+function box(w,h,d,c,x,y,z){ const m = new THREE.Mesh(new THREE.BoxGeometry(w,h,d), mat(c)); m.position.set(x,y+h/2,z); return sh(m); }
+function cyl(rt,rb,h,c,x,y,z,seg){ const m = new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,seg||16), mat(c)); m.position.set(x,y+h/2,z); return sh(m); }
+function cone(r,h,c,x,y,z,seg){ return cyl(0,r,h,c,x,y,z,seg); }
+function pyr(r,h,c,x,y,z){ const m = cone(r,h,c,x,y,z,4); m.rotation.y = Math.PI/4; return m; }
+function sph(r,c,x,y,z,ws,hs){ const m = new THREE.Mesh(new THREE.SphereGeometry(r, ws||16, hs||12), mat(c)); m.position.set(x,y,z); return sh(m); }
+function dome(r,c,x,y,z){ const m = new THREE.Mesh(new THREE.SphereGeometry(r, 18, 10, 0, Math.PI*2, 0, Math.PI/2), mat(c)); m.position.set(x,y,z); return sh(m); }
+function prism(w,h,d,c,x,y,z){ const s = new THREE.Shape(); s.moveTo(-w/2,0); s.lineTo(w/2,0); s.lineTo(0,h); s.closePath(); const g = new THREE.ExtrudeGeometry(s,{depth:d,bevelEnabled:false}); g.translate(0,0,-d/2); const m = new THREE.Mesh(g, mat(c)); m.position.set(x,y,z); return sh(m); }
+function peak(r,h,c,x,y,z,seg,snow){
+  const g = new THREE.CylinderGeometry(0, r, h, seg||7, 1);
+  const pos = g.attributes.position; const cols = [];
+  const base = new THREE.Color(c), white = new THREE.Color(0xf4f6f8);
+  for(let i=0;i<pos.count;i++){ const yy = pos.getY(i)/h + 0.5; const t = snow ? THREE.MathUtils.smoothstep(yy, 0.55, 0.75) : 0; const cc = base.clone().lerp(white, t); cols.push(cc.r,cc.g,cc.b); }
+  for(let i=0;i<pos.count;i++){ if(pos.getY(i) < 0){ const a = Math.atan2(pos.getZ(i), pos.getX(i)); const f = 1 + 0.18*Math.sin(a*3.1+x); pos.setX(i, pos.getX(i)*f); pos.setZ(i, pos.getZ(i)*f); } }
+  g.setAttribute('color', new THREE.Float32BufferAttribute(cols, 3)); g.computeVertexNormals();
+  const m = new THREE.Mesh(g, new THREE.MeshStandardMaterial({vertexColors:true, roughness:0.95, flatShading:true}));
+  m.position.set(x, y+h/2, z); m.rotation.y = x*0.7; return sh(m);
+}
+// elliptical ring or arc, extruded upwards from y=0 (used for the Colosseum)
+function ellipseRing(aO,bO,aI,bI,h,color,t0,t1){
+  const s = new THREE.Shape();
+  if(t1-t0 >= Math.PI*2-1e-3){ s.absellipse(0,0,aO,bO,0,Math.PI*2,false,0); if(aI>0){ const hole = new THREE.Path(); hole.absellipse(0,0,aI,bI,0,Math.PI*2,true,0); s.holes.push(hole); } }
+  else { const n = Math.max(12, Math.round(64*(t1-t0)/(Math.PI*2)));
+    for(let i=0;i<=n;i++){ const t=t0+(t1-t0)*i/n; const x=aO*Math.cos(t), y=bO*Math.sin(t); i? s.lineTo(x,y): s.moveTo(x,y); }
+    for(let i=n;i>=0;i--){ const t=t0+(t1-t0)*i/n; s.lineTo(aI*Math.cos(t), bI*Math.sin(t)); } s.closePath(); }
+  const g = new THREE.ExtrudeGeometry(s, {depth:h, bevelEnabled:false, curveSegments:64});
+  const m = new THREE.Mesh(g, mat(color)); m.rotation.x = -Math.PI/2; return sh(m);
+}
+
+// ============================================================ LANDMARK BUILDERS (local: +Y up, origin at ground)
+const B = {};
+B.aosta = g => {
+  g.add(box(1.2,0.9,1,0xcfc4ae,1.2,0,1)); for(const [x,z] of [[0.7,0.6],[1.7,0.6],[0.7,1.5],[1.7,1.5]]) { g.add(cyl(0.16,0.16,1.3,0xcfc4ae,x,0,z,10)); g.add(cone(0.2,0.3,0x6d5a4a,x,1.3,z,10)); } };
+B.mole = g => { g.add(box(1.4,1.4,1.4,0xc9bda6,0,0,0)); g.add(box(1.1,0.6,1.1,0xbdb09a,0,1.4,0)); const d = new THREE.Mesh(new THREE.CylinderGeometry(0.2,0.65,1.5,4), mat(0x8c8f98)); d.position.y = 2.75; d.rotation.y=Math.PI/4; g.add(sh(d));
+  g.add(cyl(0.1,0.16,0.5,0xc9bda6,0,3.5,0,8)); g.add(cyl(0.03,0.05,1.4,0xd9c9a0,0,4,0,6)); g.add(sph(0.08,0xd9b46a,0,5.45,0,8,6)); };
+B.lanterna = g => { g.add(box(1.3,0.5,1.3,0x9e9484,0,0,0)); g.add(box(0.7,1.8,0.7,0xd9d2c3,0,0.5,0)); g.add(box(0.5,1.5,0.5,0xd9d2c3,0,2.3,0)); g.add(cyl(0.22,0.22,0.35,0x333a44,0,3.8,0,8)); g.add(sph(0.16,0xfff0a8,0,4.0,0,8,6));
+  const cols=[0xe0a558,0xd86f5a,0xe9d17b,0xc96a7a,0xf0c9a0]; cols.forEach((c,i)=>{ g.add(box(0.45,0.7+((i*7)%3)*0.15,0.5,c,1.1+i*0.5,0,0.9)); }); };
+B.duomo = g => { g.add(box(2.6,1.0,1.7,0xe6ddcc,0,0,0)); g.add(prism(1.8,0.6,2.7,0xd9d0be,0,1,0).rotateY(Math.PI/2));
+  for(let i=0;i<14;i++){ const x=-1.15+ (i%7)*0.38, z = i<7? -0.75:0.75; g.add(cone(0.07,0.55+((i*3)%3)*0.15,0xe6ddcc,x,1.1,z,6)); }
+  g.add(cone(0.12,0.8,0xe6ddcc,0,1.55,0,6)); g.add(sph(0.09,0xe4b64a,0,2.42,0,8,6)); g.add(cone(0.09,0.5,0xe6ddcc,-1.25,1.05,0,6)); g.add(cone(0.09,0.5,0xe6ddcc,1.25,1.05,0,6)); };
+B.dolomites = g => { g.add(peak(1.1,1.7,0xd8cfc4,-0.9,0,0,5,false)); g.add(peak(0.85,2.0,0xcfc4b8,0.2,0,-0.3,5,false)); g.add(peak(0.65,1.3,0xd8cfc4,1.1,0,0.35,5,false)); g.add(cone(0.5,0.9,0x3f6b3c,-0.2,0,2.1,7)); g.add(cone(0.4,0.7,0x3f6b3c,1.4,0,2.2,7)); };
+B.venice = g => { g.add(box(0.6,3.2,0.6,0xb96a4b,0,0,0)); g.add(box(0.72,0.6,0.72,0xe7dfcd,0,3.2,0)); g.add(pyr(0.55,0.9,0x4f8a5c,0,3.8,0)); g.add(sph(0.08,0xe4b64a,0,4.75,0,8,6));
+  g.add(box(2.2,0.7,1.0,0xe4d9c2,-1.7,0,0.4)); g.add(dome(0.4,0x8c8f98,-1.7,0.7,0.4)); g.add(dome(0.3,0x8c8f98,-2.3,0.7,0.6)); g.add(dome(0.3,0x8c8f98,-1.1,0.7,0.6));
+  const gd = box(1.1,0.16,0.28,0x1d1d1f,1.6,-0.35,1.5); gd.rotation.y = 0.5; g.add(gd); g.add(cyl(0.02,0.02,0.6,0x1d1d1f,1.7,-0.3,1.5,4)); };
+B.miramare = g => { g.add(box(2.4,0.5,1.8,0x8f8a7c,0,-0.2,0)); g.add(box(1.7,1.0,1.1,0xf1ede4,0,0.3,0)); g.add(box(0.7,1.9,0.7,0xf1ede4,-0.6,0.3,-0.1)); g.add(pyr(0.5,0.4,0x8c8f98,-0.6,2.2,-0.1)); g.add(box(0.5,1.4,0.5,0xf1ede4,0.7,0.3,0.2)); g.add(pyr(0.38,0.35,0x8c8f98,0.7,1.7,0.2)); for(let i=0;i<4;i++) g.add(cone(0.18,0.7,0x3a6b3f,-1.5+i,0.3,1.2,7)); };
+B.towers = g => { g.add(box(0.6,4.2,0.6,0xb07a4f,-0.5,0,0)); g.add(box(0.7,0.25,0.7,0xb07a4f,-0.5,4.2,0)); const t = box(0.62,2.6,0.62,0xb98a5e,0.5,0,0.2); t.rotation.z = -0.07; g.add(t); g.add(box(1.8,0.6,1.4,0xd9b389,0.2,0,-1.0)); for(let i=0;i<5;i++) g.add(box(0.12,0.5,0.12,0xd9b389,-0.6+i*0.4,0,-0.25)); };
+B.pisa = g => { g.add(box(2.0,0.35,2.0,0xe9e4d8,0,0,0)); const t = new THREE.Group(); for(let i=0;i<7;i++){ t.add(cyl(0.42,0.42,0.42,0xf4efe4,0,i*0.46,0,18)); t.add(cyl(0.36,0.36,0.06,0xd7d0c2,0,i*0.46+0.42,0,18)); } t.add(cyl(0.34,0.34,0.4,0xf4efe4,0,3.22,0,18)); t.position.set(0,0.35,0); t.rotation.z = -0.1; g.add(t); };
+B.florence = g => { g.add(box(2.4,1.1,1.2,0xe6dfcf,0,0,0)); const oct = cyl(0.9,0.9,0.9,0xe6dfcf,0.3,1.1,0,8); g.add(oct); const d = new THREE.Mesh(new THREE.SphereGeometry(0.95, 8, 10, 0, Math.PI*2, 0, Math.PI/2), mat(0xb8543b, {flatShading:true})); d.position.set(0.3,2.0,0); g.add(sh(d)); g.add(cyl(0.16,0.16,0.4,0xe6dfcf,0.3,2.9,0,8)); g.add(sph(0.08,0xe4b64a,0.3,3.4,0,8,6)); g.add(box(0.42,2.6,0.42,0xf0e6d0,-1.5,0,0)); g.add(box(0.5,0.15,0.5,0xf0e6d0,-1.5,2.6,0)); };
+B.assisi = g => { g.add(box(3.0,0.7,1.6,0xa8957e,0,-0.35,0)); g.add(box(2.6,0.9,1.2,0xf1e4d2,0,0.35,0)); g.add(prism(1.3,0.4,2.6,0xb8543b,0,1.25,0).rotateY(Math.PI/2)); g.add(box(0.5,2.4,0.5,0xf1e4d2,1.5,0.35,-0.3)); g.add(pyr(0.36,0.4,0xb8543b,1.5,2.75,-0.3)); for(let i=0;i<6;i++) g.add(box(0.14,0.7,0.14,0xf1e4d2,-1.1+i*0.38,0.35,0.75)); };
+B.urbino = g => { g.add(box(2.0,1.3,1.3,0xd9c4a6,0,0,0)); g.add(box(2.2,0.35,0.9,0xd9c4a6,0,1.3,-0.1)); g.add(cyl(0.22,0.22,2.4,0xd9c4a6,-0.5,1.3,0.5,12)); g.add(cone(0.26,0.5,0x7c6a55,-0.5,3.7,0.5,12)); g.add(cyl(0.22,0.22,2.4,0xd9c4a6,0.5,1.3,0.5,12)); g.add(cone(0.26,0.5,0x7c6a55,0.5,3.7,0.5,12)); g.add(box(0.7,0.5,0.1,0xd9c4a6,0,1.3,0.55)); };
+B.colosseum = g => { const stone = 0xdcc9a3; const tall = new THREE.Mesh(new THREE.CylinderGeometry(1.6,1.6,1.7,40,1,true,0,Math.PI*1.45), mat(stone,{side:THREE.DoubleSide})); tall.position.y = 0.85; g.add(sh(tall)); const low = new THREE.Mesh(new THREE.CylinderGeometry(1.6,1.6,0.9,40,1,true,Math.PI*1.45,Math.PI*0.55), tall.material); low.position.y = 0.45; g.add(sh(low)); g.add(cyl(1.45,1.45,0.2,0xc9b68e,0,0,0,40)); const inner = new THREE.Mesh(new THREE.CylinderGeometry(1.15,1.15,0.7,32,1,true), tall.material); inner.position.y=0.35; g.add(inner);
+  for(let i=0;i<24;i++){ const a=i/24*Math.PI*2; const rows = a < Math.PI*1.45 ? 3 : 1; for(let r=0;r<rows;r++){ const w=box(0.16,0.3,0.08,0x5e4a33,0,0,0); w.position.set(Math.cos(a)*1.62, 0.25+r*0.52, Math.sin(a)*1.62); w.rotation.y=-a+Math.PI/2; g.add(w); } } };
+B.calascio = g => { g.add(cyl(1.4,1.7,0.5,0x8f8878,-0.9,0,-0.4,8)); g.add(box(1.0,0.8,0.8,0xc9bfae,-0.9,0.5,-0.4)); g.add(cyl(0.2,0.2,1.2,0xc9bfae,-1.3,0.5,-0.7,10)); g.add(cyl(0.2,0.2,1.2,0xc9bfae,-0.5,0.5,-0.1,10)); };
+B.monforte = g => { g.add(box(1.8,1.1,1.3,0xb8ad99,0,0,0)); for(const [x,z] of [[-0.8,-0.55],[0.8,-0.55],[-0.8,0.55],[0.8,0.55]]) g.add(cyl(0.22,0.24,1.6,0xb8ad99,x,0,z,10)); for(let i=0;i<5;i++) g.add(box(0.2,0.2,0.2,0xb8ad99,-0.6+i*0.3,1.1,-0.6)); };
+B.vesuvius = g => { g.add(cyl(0.7,0.9,0.4,0x3b3634,0,0,0,9)); const glow = sph(0.35,0xff5a2a,0,0.3,0,8,6); glow.material = new THREE.MeshStandardMaterial({color:0xff7a3a, emissive:0xff3b12, emissiveIntensity:1.5}); g.add(glow);
+  for(let i=0;i<5;i++) g.add(cyl(0.08,0.09,0.7,0xe9e0cf,-3.5+i*0.35,0,2.4,8)); g.add(box(1.7,0.12,0.3,0xe9e0cf,-2.8,0.7,2.4)); };
+B.trulli = g => { for(let i=0;i<4;i++){ const x = -1.2+i*0.8, z = (i%2)*0.6; g.add(cyl(0.42,0.44,0.7,0xf3efe6,x,0,z,14)); g.add(cone(0.48,0.9,0x7d7770,x,0.7,z,14)); g.add(sph(0.07,0xf3efe6,x,1.68,z,8,6)); } g.add(cone(0.35,0.7,0x4f7a44,2.0,0,-0.4,8)); g.add(cyl(0.06,0.08,0.4,0x6b4b2a,2.0,-0.1,-0.4,6)); };
+B.castel = g => { const oct = cyl(1.1,1.1,1.5,0xd8c7a6,0,0,0,8); g.add(oct); for(let i=0;i<8;i++){ const a = i/8*Math.PI*2+Math.PI/8; g.add(cyl(0.22,0.22,1.9,0xd8c7a6,Math.cos(a)*1.1,0,Math.sin(a)*1.1,8)); } };
+B.matera = g => { g.add(peak(2.6,1.6,0xc8b58e,0,-0.2,0,8,false)); const rnd = (i)=> (Math.sin(i*12.9898)*43758.5453)%1; for(let i=0;i<18;i++){ const a = i/18*Math.PI*2, r = 0.5+Math.abs(rnd(i))*1.3, h = 0.25+Math.abs(rnd(i+7))*0.5; const y = 1.25*(1-r/2.6)-0.05; g.add(box(0.36,h,0.3,0xe3d3ad,Math.cos(a)*r,y,Math.sin(a)*r)); } g.add(box(0.3,0.9,0.3,0xe3d3ad,0,1.2,0)); g.add(pyr(0.24,0.3,0xb08a5a,0,2.1,0)); };
+B.tropea = g => { g.add(box(2.2,1.4,1.4,0xc9b48f,-0.6,0,0)); for(let i=0;i<5;i++) g.add(box(0.36,0.4+(i%2)*0.25,0.5,[0xf2e6d0,0xe9d3a8,0xf5efe0,0xe6c9a0,0xf0e2cc][i],-1.4+i*0.4,1.4,0)); g.add(cyl(0.5,0.6,1.0,0xa8977a,1.4,0,0.6,8)); g.add(box(0.6,0.4,0.5,0xf1ebdd,1.4,1.0,0.6)); g.add(pyr(0.35,0.3,0x8c6a4a,1.4,1.4,0.6)); };
+B.etna = g => { g.add(cyl(0.5,0.7,0.35,0x2c2727,0,0,0,9)); const smoke = new THREE.Group(); for(let i=0;i<4;i++){ const s = sph(0.35+i*0.15,0xd8d8d8,0.2*i,0.5+i*0.5,0.1*i,10,8); s.material = new THREE.MeshStandardMaterial({color:0xe6e6e6, transparent:true, opacity:0.55-i*0.08}); s.castShadow=false; smoke.add(s);} g.add(smoke); g.userData.smoke = smoke; };
+B.temple = g => { g.add(box(3.0,0.35,1.7,0xd9c197,0,0,0)); g.add(box(2.7,0.25,1.4,0xd9c197,0,0.35,0)); for(let i=0;i<6;i++){ g.add(cyl(0.11,0.13,1.1,0xe3cc9f,-1.1+i*0.44,0.6,-0.5,10)); g.add(cyl(0.11,0.13,1.1,0xe3cc9f,-1.1+i*0.44,0.6,0.5,10)); } g.add(box(2.7,0.22,1.4,0xd9c197,0,1.7,0)); g.add(prism(1.5,0.45,2.7,0xd9c197,0,1.92,0).rotateY(Math.PI/2)); };
+B.nuraghe = g => { g.add(cyl(0.7,0.9,1.9,0x8c8070,0,0,0,12)); for(const [x,z] of [[-1,0.4],[0.9,0.6],[0.2,-1.1]]) g.add(cyl(0.4,0.55,1.1,0x8c8070,x,0,z,10)); g.add(cone(0.45,0.8,0x5f7a4a,1.9,0,-0.8,8)); g.add(cyl(0.07,0.09,0.5,0x6b4b2a,1.9,-0.1,-0.8,6)); };
+
+// --- Rome, high detail: Colosseum, St Peter's and the Castelli Romani crater
+B.rome = g => {
+  const trav = 0xe2d2ae, travDark = 0xc4b08a, inner = 0xa8946f, shadow = 0x6e5f47;
+  const a = 2.4, b = 2.0, wall = 0.34, tierH = 0.62, N = 44;
+  const t0 = 0.15*Math.PI, t1 = 1.35*Math.PI;          // arc where the outer wall still stands
+  const inArc = t => { let u = ((t % (2*Math.PI)) + 2*Math.PI) % (2*Math.PI); return u >= t0 && u <= t1; };
+  // base
+  const base = ellipseRing(a+0.35, b+0.35, 0, 0, 0.12, travDark, 0, Math.PI*2); base.position.y = -0.02; g.add(base);
+  // outer arcades: tier 0 all round, tiers 1-2 only on the standing arc
+  for(let tier=0; tier<3; tier++){
+    const y = tier*tierH + 0.1;
+    for(let i=0;i<N;i++){
+      const t = i/N*Math.PI*2; if(tier>0 && !inArc(t)) continue;
+      const ca = a-wall/2, cb = b-wall/2;
+      const p = box(0.15, 0.5, wall, tier===0? trav : travDark, ca*Math.cos(t), y, -cb*Math.sin(t)); p.rotation.y = Math.PI/2 + t; g.add(p);
+    }
+    const ring = ellipseRing(a+0.06, b+0.06, a-wall-0.05, b-wall-0.05, 0.12, trav, tier===0? 0 : t0, tier===0? Math.PI*2 : t1); ring.position.y = y+0.5; g.add(ring);
+  }
+  // attic storey with small windows
+  const attic = ellipseRing(a, b, a-wall, b-wall, 0.5, trav, t0, t1); attic.position.y = 3*tierH+0.1; g.add(attic);
+  for(let i=0;i<N;i++){ const t=i/N*Math.PI*2; if(i%3 || !inArc(t)) continue; const w = box(0.1,0.16,0.06,shadow,(a+0.01)*Math.cos(t), 3*tierH+0.3, -(b+0.01)*Math.sin(t)); w.rotation.y = Math.PI/2 + t; g.add(w); }
+  // inner wall (visible where the outer ring collapsed) and cavea steps
+  const innerWall = ellipseRing(a-0.62, b-0.62, a-0.9, b-0.9, 1.35, inner, 0, Math.PI*2); innerWall.position.y = 0.1; g.add(innerWall);
+  [[1.0,0.95],[1.3,0.7],[1.6,0.45]].forEach(([off,h]) => { const r = ellipseRing(a-off, b-off, a-off-0.3, b-off-0.3, h, travDark, 0, Math.PI*2); r.position.y = 0.1; g.add(r); });
+  // arena floor & hypogeum
+  const arena = ellipseRing(a-1.9, b-1.9, 0, 0, 0.1, shadow, 0, Math.PI*2); arena.position.y = 0.1; g.add(arena);
+  for(let i=0;i<3;i++){ const r = ellipseRing(a-1.95-i*0.13, b-1.95-i*0.13, a-2.0-i*0.13, b-2.0-i*0.13, 0.22, inner, 0, Math.PI*2); r.position.y = 0.2; g.add(r); }
+  g.add(box(0.05,0.22,1.9,inner,0,0.2,0)); g.add(box(1.0,0.22,0.05,inner,0,0.2,0));
+  // St Peter's basilica, colonnade and obelisk
+  const P = new THREE.Group(); P.position.set(-4.2, 0, 0.8); P.rotation.y = 0.4;
+  P.add(box(2.1,0.75,0.5,0xece2cc,0,0,1.0)); P.add(box(0.5,0.3,0.5,0xece2cc,-0.8,0.75,1.0)); P.add(box(0.5,0.3,0.5,0xece2cc,0.8,0.75,1.0));
+  P.add(box(1.5,0.6,1.5,0xe4dac2,0,0,0)); P.add(cyl(0.52,0.55,0.4,0xece2cc,0,0.6,0,18));
+  const d = new THREE.Mesh(new THREE.SphereGeometry(0.58, 20, 12, 0, Math.PI*2, 0, Math.PI/2), mat(0x8fa3a8)); d.position.set(0,1.0,0); d.scale.y = 1.12; P.add(sh(d));
+  for(let i=0;i<8;i++){ const rib = box(0.03,0.6,0.05,0xd9d9d2,0,0,0); const t=i/8*Math.PI*2; rib.position.set(Math.cos(t)*0.45, 1.3, Math.sin(t)*0.45); rib.rotation.y=-t; rib.rotation.z = Math.cos(t)*0.6; rib.rotation.x = -Math.sin(t)*0.6; P.add(rib); }
+  P.add(cyl(0.1,0.12,0.25,0xece2cc,0,1.62,0,10)); P.add(box(0.03,0.2,0.03,0xd9b46a,0,1.87,0)); P.add(box(0.12,0.03,0.03,0xd9b46a,0,1.98,0));
+  P.add(dome(0.22,0x8fa3a8,-0.55,0.6,-0.4)); P.add(dome(0.22,0x8fa3a8,0.55,0.6,-0.4));
+  for(const side of [-1,1]) for(let i=0;i<13;i++){ const t = Math.PI*0.1 + i/12*Math.PI*0.8; const x = side*1.6*Math.cos(t), z = 1.35 + 1.15*Math.sin(t); P.add(cyl(0.045,0.05,0.34,0xe6dcc4,x,0,z,8)); }
+  P.add(box(0.12,0.75,0.12,0xd9cfb6,0,0,2.3)); P.add(cone(0.06,0.12,0xd9b46a,0,0.75,2.3,4));
+  g.add(P);
+  for(let i=0;i<4;i++) g.add(cone(0.16,0.55,0x3a6b3f,-1.5+i*0.5,0,-3.2,7));
+};
+
+// ============================================================ LANDMARKS: pins at overview, models when a region is focused
+const landmarkGroups = [], pins = [], labelEls = {};
+function pinTexture(colorHex){
+  const c = document.createElement('canvas'); c.width = 64; c.height = 96; const x = c.getContext('2d');
+  x.shadowColor = 'rgba(0,0,0,0.35)'; x.shadowBlur = 6; x.shadowOffsetY = 3;
+  x.fillStyle = '#' + colorHex.toString(16).padStart(6,'0'); x.strokeStyle = 'rgba(40,30,22,0.9)'; x.lineWidth = 3;
+  x.beginPath(); x.moveTo(32, 90); x.bezierCurveTo(14, 60, 6, 48, 6, 32); x.arc(32, 32, 26, Math.PI, 0); x.bezierCurveTo(58, 48, 50, 60, 32, 90); x.closePath(); x.fill(); x.stroke();
+  x.shadowColor = 'transparent'; x.fillStyle = '#fff'; x.beginPath(); x.arc(32, 32, 10, 0, Math.PI*2); x.fill();
+  const t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; return t;
+}
+const pinTex = {}; for(const a in FAMILY) pinTex[a] = pinTexture(FAMILY[a]);
+function placeLandmarks(){
+  for(const code of ORDER){
+    const C = COURSE[code];
+    C.landmark.props.forEach(([b, lat, lon], k) => {
+      const x = X(lon), z = Z(lat), y = yAt(x, z);
+      const g = new THREE.Group(); B[b](g);
+      g.scale.setScalar(b === 'rome' ? 0.75 : 0.85); g.position.set(x, y - 0.02, z); g.rotation.y = 0.2;
+      g.userData = {code, name:C.landmark.name}; g.traverse(o => { if(o.isMesh) o.userData.code = code; });
+      g.visible = false; scene.add(g); landmarkGroups.push(g);
+      if(k === 0){ const sp = new THREE.Sprite(new THREE.SpriteMaterial({map:pinTex[C.area], depthTest:false, transparent:true})); sp.center.set(0.5, 0); sp.position.set(x, y + 0.05, z); sp.renderOrder = 10; sp.userData = {code, pin:true}; scene.add(sp); pins.push(sp); }
+    });
+  }
+  const box = document.getElementById('labels');
+  for(const code of ORDER){ const el = document.createElement('div'); el.className = 'lbl'; el.textContent = COURSE[code].name; box.appendChild(el); labelEls[code] = el; }
+}
+const _v = new THREE.Vector3();
+function updateOverlays(){
+  const dist = ctl.dist, fs = THREE.MathUtils.clamp(13.5 * Math.pow(150/dist, 0.55), 10, 21);
+  for(const code of ORDER){
+    const r = byCode[code]; if(!r) continue;
+    _v.copy(r.center).add(new THREE.Vector3(0, 0.4, 0)).project(camera);
+    const el = labelEls[code]; const on = _v.z < 1 && Math.abs(_v.x) < 1.1 && Math.abs(_v.y) < 1.1 && code !== selected;
+    el.style.display = on ? 'block' : 'none';
+    if(on){ el.style.transform = `translate(-50%,-50%) translate(${(_v.x*0.5+0.5)*window.innerWidth}px, ${(-_v.y*0.5+0.5)*window.innerHeight}px)`; el.style.fontSize = fs + 'px'; el.classList.toggle('dim', !!selected); }
+  }
+  const pinScale = dist * 0.032;
+  for(const p of pins){ const focused = p.userData.code === selected && dist < 75; p.visible = !focused; p.scale.set(pinScale*0.67, pinScale, 1); }
+  for(const g of landmarkGroups) g.visible = g.userData.code === selected && dist < 75;
+}
+// ============================================================ CAMERA
+const PORTRAIT = () => window.innerHeight > window.innerWidth;
+const HOME = () => ({ target:new THREE.Vector3(PORTRAIT() ? 9 : 0, TOP, PORTRAIT() ? 3 : 2), dist: PORTRAIT() ? 268 : (MOBILE() ? 120 : 132), theta:0, phi: PORTRAIT() ? 0.3 : 0.42 });
+const ctl = Object.assign({ tTarget:null, tStart:0, tDur:1.2, from:null }, HOME());
+function applyCamera(){
+  const p = ctl.phi, t = ctl.theta, d = ctl.dist;
+  camera.position.set(ctl.target.x + d*Math.sin(p)*Math.sin(t), ctl.target.y + d*Math.cos(p), ctl.target.z + d*Math.sin(p)*Math.cos(t));
+  camera.lookAt(ctl.target);
+}
+function flyTo(target, dist, theta, phi){
+  ctl.from = {target:ctl.target.clone(), dist:ctl.dist, theta:ctl.theta, phi:ctl.phi};
+  ctl.tTarget = target.clone(); ctl.tDist = dist; ctl.tTheta = theta==null? ctl.theta : theta; ctl.tPhi = phi==null? ctl.phi : phi; ctl.tStart = performance.now();
+}
+function frameRegion(code){
+  const r = byCode[code]; if(!r) return;
+  const aspect = window.innerWidth/window.innerHeight, fov = 0.77;
+  const free = MOBILE() ? 0.5 : 0.85;                  // share of the screen height not covered by the sheet / panel
+  const dist = THREE.MathUtils.clamp(Math.max(r.h/(fov*free*0.85), r.w/(fov*aspect*(MOBILE()?0.9:0.62))), 18, 120);
+  const target = r.center.clone(); target.y = TOP;
+  if(MOBILE()) target.z += dist*fov*0.24; else target.x += dist*fov*aspect*0.18;
+  flyTo(target, dist, 0, MOBILE() ? 0.42 : 0.5);
+}
+const el = renderer.domElement;
+let drag=null, moved=0, pointers = new Map(), pinch = null;
+el.addEventListener('pointerdown', e => { pointers.set(e.pointerId, e); if(pointers.size===1){ drag = {x:e.clientX, y:e.clientY, b:e.button, shift:e.shiftKey}; moved = 0; } else if(pointers.size===2){ const [p1,p2] = [...pointers.values()]; pinch = Math.hypot(p1.clientX-p2.clientX, p1.clientY-p2.clientY); drag = null; } el.setPointerCapture(e.pointerId); });
+el.addEventListener('pointermove', e => {
+  if(pointers.has(e.pointerId)) pointers.set(e.pointerId, e);
+  if(pointers.size===2 && pinch){ const [p1,p2] = [...pointers.values()]; const d = Math.hypot(p1.clientX-p2.clientX, p1.clientY-p2.clientY); ctl.dist = THREE.MathUtils.clamp(ctl.dist * pinch/d, 10, 240); pinch = d; ctl.tTarget = null; return; }
+  if(drag){
+    const dx = e.clientX-drag.x, dy = e.clientY-drag.y; drag.x = e.clientX; drag.y = e.clientY; moved += Math.abs(dx)+Math.abs(dy);
+    ctl.tTarget = null;
+    const pan = drag.b === 0 && !drag.shift && !e.altKey;
+    if(pan){ // one finger / left drag pans the map; alt or right drag orbits
+      const s = ctl.dist*0.0014; const right = new THREE.Vector3(Math.cos(ctl.theta),0,-Math.sin(ctl.theta)); const fwd = new THREE.Vector3(-Math.sin(ctl.theta),0,-Math.cos(ctl.theta));
+      ctl.target.addScaledVector(right, -dx*s).addScaledVector(fwd, dy*s);
+      ctl.target.x = THREE.MathUtils.clamp(ctl.target.x, -UNITS_W/2, UNITS_W/2); ctl.target.z = THREE.MathUtils.clamp(ctl.target.z, -UNITS_H/2, UNITS_H/2);
+    } else { ctl.theta -= dx*0.005; ctl.phi = THREE.MathUtils.clamp(ctl.phi - dy*0.004, 0.12, 1.25); }
+  } else if(e.pointerType==='mouse') hover(e);
+});
+function endPointer(e){ pointers.delete(e.pointerId); if(pointers.size<2) pinch = null; if(drag && moved < 8) click(e); drag = null; }
+el.addEventListener('pointerup', endPointer); el.addEventListener('pointercancel', endPointer);
+el.addEventListener('contextmenu', e => e.preventDefault());
+el.addEventListener('wheel', e => { e.preventDefault(); ctl.tTarget = null; ctl.dist = THREE.MathUtils.clamp(ctl.dist * (1 + Math.sign(e.deltaY)*0.09), 10, 240); }, {passive:false});
+window.addEventListener('resize', () => { camera.aspect = window.innerWidth/window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); });
+// tilt buttons
+document.getElementById('tiltBtn').addEventListener('click', () => { const flat = ctl.phi < 0.3; flyTo(ctl.target, ctl.dist, ctl.theta, flat ? 0.9 : 0.25); });
+// ============================================================ PICKING (ground hit refined by terrain height, region from the ID raster)
+const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+let hovered = null, selected = null;
+const tip = document.getElementById('tip');
+function aim(e){ ndc.set((e.clientX/window.innerWidth)*2-1, -(e.clientY/window.innerHeight)*2+1); ray.setFromCamera(ndc, camera); }
+function groundHit(e){
+  aim(e);
+  let y = TOP, p = null;
+  for(let k=0;k<3;k++){ const t = (y - ray.ray.origin.y)/ray.ray.direction.y; if(!(t > 0)) return null; p = ray.ray.origin.clone().addScaledVector(ray.ray.direction, t); y = yAt(p.x, p.z); }
+  return p;
+}
+function regionAt(p){
+  if(!idData || !p) return null;
+  const u = (p.x + UNITS_W/2)/UNITS_W, v = (p.z + UNITS_H/2)/UNITS_H; if(u<0||u>1||v<0||v>1) return null;
+  const px = Math.floor(u*(idW-1)), py = Math.floor(v*(idH-1));
+  const at = (x, y) => (x<0||y<0||x>=idW||y>=idH) ? 0 : idData[(y*idW + x)*4];
+  let id = at(px, py);
+  if(!id){ // tolerant taps: snap to the nearest region within ~8 raster pixels (about 10 km)
+    for(let r=1; r<=8 && !id; r++) for(let dy=-r; dy<=r && !id; dy++) for(let dx=-r; dx<=r && !id; dx++) if(Math.max(Math.abs(dx),Math.abs(dy))===r) id = at(px+dx, py+dy);
+  }
+  return id > 0 && id <= ORDER.length ? ORDER[id-1] : null;
+}
+function pick(e){
+  aim(e);
+  const targets = pins.filter(p => p.visible).concat(landmarkGroups.filter(g => g.visible));
+  const hits = ray.intersectObjects(targets, true);
+  if(hits.length) return {code: hits[0].object.userData.code, landmark:true};
+  const code = regionAt(groundHit(e)); return code ? {code, landmark:false} : null;
+}
+function setHover(code){
+  if(hovered === code) return; hovered = code;
+  if(terrainMat) terrainMat.uniforms.hov.value = code ? ORDER.indexOf(code)+1 : 0;
+  document.querySelectorAll('#rail button.r').forEach(b => b.classList.toggle('hover', b.dataset.code === code));
+  el.style.cursor = code ? 'pointer' : 'grab';
+}
+function setSelectedOnMap(code){
+  if(terrainMat){ terrainMat.uniforms.sel.value = code ? ORDER.indexOf(code)+1 : 0; terrainMat.uniforms.dim.value = code ? 1 : 0; }
+}
+function hover(e){
+  const h = pick(e); setHover(h ? h.code : null);
+  if(h){ const C = course(h.code); tip.querySelector('b').textContent = C.name; tip.querySelector('span').textContent = h.landmark ? C.landmark.name : (C.capital + ' · ' + C.wines[0][0]); tip.style.transform = `translate(${e.clientX+14}px, ${e.clientY+14}px)`; tip.classList.add('show'); }
+  else tip.classList.remove('show');
+}
+function click(e){ window.__taps = (window.__taps||0)+1; const h = pick(e); window.__lastPick = h; if(h) location.hash = '#/'+h.code; }
+window.__dbg = {pick, groundHit, regionAt, state:()=>({drag, moved, pointers:pointers.size, idData:!!idData, heightData:!!heightData})};
+// ============================================================ PROGRESS
+const LS = 'italia-in-tavola-progress';
+let progress = new Set(); try{ progress = new Set(JSON.parse(localStorage.getItem(LS)||'[]')); }catch(err){}
+function saveProgress(){ try{ localStorage.setItem(LS, JSON.stringify([...progress])); }catch(err){} }
+const total = ORDER.length*4;
+document.getElementById('pTotal').textContent = total;
+function refreshProgress(){
+  document.getElementById('pDone').textContent = progress.size;
+  document.getElementById('pBar').style.width = (progress.size/total*100)+'%';
+  for(const code of ORDER){ document.querySelectorAll(`#rail button[data-code="${code}"] .dots i`).forEach((d,i)=> d.classList.toggle('on', progress.has(code+':'+i))); }
+}
+function setDone(code, i, on){ const k = code+':'+i; if(on) progress.add(k); else progress.delete(k); saveProgress(); refreshProgress(); }
+
+// ============================================================ REGION LIST
+const rail = document.getElementById('rail');
+for(const area of AREAS){
+  const h = document.createElement('h4'); h.dataset.area = area; h.textContent = area; rail.appendChild(h);
+  for(const code of ORDER){ const C = COURSE[code]; if(C.area !== area) continue;
+    const b = document.createElement('button'); b.className = 'r'; b.dataset.code = code; b.type = 'button';
+    b.innerHTML = `<i class="sw" style="background:${C.color}"></i><span class="nm">${C.name}</span><span class="dots"><i></i><i></i><i></i><i></i></span>`;
+    b.addEventListener('click', () => { location.hash = '#/'+code; });
+    b.addEventListener('mouseenter', () => setHover(code)); b.addEventListener('mouseleave', () => setHover(null));
+    rail.appendChild(b);
+  }
+}
+
+// ============================================================ REGION SHEET
+const sheet = document.getElementById('sheet');
+let sheetState = 'closed';
+function setSheet(s){ sheetState = s; sheet.classList.remove('peek','half','full'); if(s!=='closed') sheet.classList.add(s); }
+{ // drag / tap on the sheet head (phones)
+  const head = sheet.querySelector('.head'); let sy=null, moved=false;
+  head.addEventListener('pointerdown', e => { if(e.target.closest('.close')) return; sy = e.clientY; moved=false; head.setPointerCapture(e.pointerId); });
+  head.addEventListener('pointermove', e => { if(sy==null) return; const dy = e.clientY - sy; if(Math.abs(dy) > 30){ moved = true; if(dy < 0) setSheet(sheetState==='peek' ? 'half' : 'full'); else setSheet(sheetState==='full' ? 'half' : 'peek'); sy = e.clientY; } });
+  head.addEventListener('pointerup', e => { if(sy==null) return; if(!moved && !e.target.closest('.close') && MOBILE()) setSheet(sheetState==='peek' ? 'half' : sheetState==='half' ? 'full' : 'peek'); sy = null; });
+}
+function select(code){
+  const first = selected !== code; selected = code;
+  const r = byCode[code], C = course(code);
+  setSelectedOnMap(code);
+  document.querySelectorAll('#rail button.r').forEach(b => b.classList.toggle('active', b.dataset.code === code));
+  const act = document.querySelector('#rail button.active'); if(act) act.scrollIntoView({block:'nearest', inline:'center', behavior:'smooth'});
+  if(first) frameRegion(code);
+  const readings = readingsFor(code);
+  sheet.querySelector('.eyebrow .sw').style.background = C.color;
+  sheet.querySelector('.eyebrow .area').textContent = `${T('area.'+C.area)} · ${T('module')} ${ORDER.indexOf(code)+1} ${T('of')} ${ORDER.length}`;
+  sheet.querySelector('h2').textContent = C.name;
+  sheet.querySelector('.cap').innerHTML = `${T('capital')} <b>${C.capital}</b>` + (readings ? ` · ${readings.lessons.length} ${T('readings')} · ${readings.lessons.reduce((a,l)=>a+l.minutes,0)} ${T('min')}` : ` · ${T('soonShort')}`);
+  sheet.querySelector('p.intro').textContent = C.intro;
+  sheet.querySelector('ol.lessons').innerHTML = C.lessons.map((l,i) => { const done = progress.has(code+':'+i); const rd = readings && readings.lessons[i];
+    return `<li class="${done?'done':''} ${rd?'readable':'soon'}" data-i="${i}"><div><span class="t">${rd ? rd.title : l}</span><span class="m">${rd ? rd.minutes+' '+T('minRead') : T('soon')}</span></div><span class="go">›</span></li>`; }).join('');
+  sheet.querySelectorAll('ol.lessons li.readable').forEach(li => li.addEventListener('click', () => { location.hash = `#/${code}/${+li.dataset.i+1}`; }));
+  sheet.querySelector('.landmark b').textContent = C.landmark.name;
+  sheet.querySelector('.landmark span').textContent = C.landmark.desc;
+  sheet.querySelector('ul.wines').innerHTML = C.wines.map(([n,t]) => `<li><i class="${t}"></i><span>${n}</span><small>${T('wine.'+t)}</small></li>`).join('');
+  sheet.querySelector('.pair span').textContent = C.pairing;
+  sheet.querySelector('.dishes').innerHTML = C.dishes.map(d => `<span>${d}</span>`).join('');
+  sheet.querySelector('.body').scrollTop = 0;
+  if(first || sheetState==='closed') setSheet(MOBILE() ? 'half' : 'full');
+  document.getElementById('hint').classList.add('fade');
+}
+function closeRegion(){
+  selected = null; setSelectedOnMap(null); setSheet('closed');
+  document.querySelectorAll('#rail button.r').forEach(b => b.classList.remove('active'));
+}
+function home(){ closeRegion(); const h = HOME(); flyTo(h.target, h.dist, h.theta, h.phi); }
+function step(d){ const i = selected ? ORDER.indexOf(selected) : -1; location.hash = '#/'+ORDER[(i + d + ORDER.length) % ORDER.length]; }
+sheet.querySelector('.close').addEventListener('click', () => { location.hash = '#/'; });
+document.getElementById('homeBtn').addEventListener('click', () => { location.hash = '#/'; });
+document.getElementById('nextBtn').addEventListener('click', () => step(1));
+document.getElementById('prevBtn').addEventListener('click', () => step(-1));
+
+// ============================================================ READER
+const reader = document.getElementById('reader'), rscroll = reader.querySelector('.rscroll'), article = reader.querySelector('article');
+let reading = null;
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function figureHtml(dir, credits, key, caption, cls){
+  const cr = credits[key] || {};
+  const credit = cr.artist ? `<span class="credit">${T('photo')}: <a href="${cr.source}" target="_blank" rel="noopener">${esc(cr.artist)}</a>, ${esc(cr.license)}, ${T('via')}</span>` : '';
+  const rel = `assets/${dir}/${key}.jpg`, src = (window.IMAGE_DATA && window.IMAGE_DATA[rel]) || rel;
+  return `<figure class="${cls||''}"><img src="${src}" alt="${esc(caption||'')}" loading="lazy"><figcaption>${caption||''}${credit}</figcaption></figure>`;
+}
+function openReader(code, i){
+  const C = course(code), R = readingsFor(code), L = R && R.lessons[i];
+  reading = {code, i};
+  reader.querySelector('.back span').textContent = C.name;
+  reader.querySelector('.rk').textContent = `${T('reading')} ${i+1} ${T('of')} ${C.lessons.length}`;
+  const region = `<span class="region"><i style="background:${C.color}"></i>${C.name} · ${T('module')} ${ORDER.indexOf(code)+1}</span>`;
+  if(!L){
+    article.innerHTML = `<header class="rhead"><p class="kicker">${T('reading')} ${i+1} ${T('of')} ${C.lessons.length}</p><h1>${esc(C.lessons[i])}</h1><p class="summary">${T('notWritten')}</p>${region}</header>
+      <div class="soon"><p>${T('soonPara')(C.name)}</p></div>
+      <footer class="rfoot"><div class="rnext"><a href="#/${code}"><small>${T('backTo')}</small><b>${C.name}</b></a><a href="#/IT-62/1"><small>${T('seeFinished')}</small><b>${T('lazioR1')}</b></a></div></footer>`;
+  } else {
+    const dir = ASSET_DIRS[code], credits = R.credits || {};
+    let body = L.html.replace(/<figure data-img="([\w-]+)"><figcaption>([\s\S]*?)<\/figcaption><\/figure>/g, (m,k,cap) => figureHtml(dir, credits, k, cap));
+    const done = progress.has(code+':'+i);
+    const next = R.lessons[i+1] ? `<a href="#/${code}/${i+2}"><small>${T('nextReading')}</small><b>${esc(R.lessons[i+1].title)}</b></a>` : `<a href="#/${ORDER[(ORDER.indexOf(code)+1)%ORDER.length]}"><small>${T('nextRegion')}</small><b>${esc(COURSE[ORDER[(ORDER.indexOf(code)+1)%ORDER.length]].name)}</b></a>`;
+    const used = [...new Set([L.hero, ...[...L.html.matchAll(/data-img="([\w-]+)"/g)].map(m=>m[1])])];
+    const hasAudio = !!((window.AUDIO_MANIFEST||{})[`${dir}:${lang}-${i+1}`]);
+    const secs = ((window.AUDIO_MANIFEST||{})[`${dir}:${lang}-${i+1}`]||{}).seconds;
+    const listenLabel = hasAudio ? `${T('listen')} <small>· ${secs ? Math.round(secs/60) : L.minutes} min</small>` : (('speechSynthesis' in window) ? T('listenBrowser') : '');
+    article.innerHTML = `<header class="rhead"><p class="kicker">${esc(L.kicker)} · ${L.minutes} min</p><h1>${esc(L.title)}</h1><p class="summary">${esc(L.summary)}</p>${region}${listenLabel ? `<div><button class="listen" type="button"><i>▶</i>${listenLabel}</button></div>` : ''}</header>
+      ${figureHtml(dir, credits, L.hero, L.heroCaption, 'hero')}
+      <div class="rbody">${body}</div>
+      <footer class="rfoot"><button class="done ${done?'is-done':''}" type="button">${done ? T('marked') : T('mark')}</button>
+        <div class="rnext"><a href="#/${code}"><small>${T('backTo')}</small><b>${C.name}</b></a>${next}</div>
+        <details><summary>${T('credits')}</summary><ul>${used.map(k => credits[k] ? `<li>${esc(k)}: <a href="${credits[k].source}" target="_blank" rel="noopener">${esc(credits[k].artist)}</a>, ${esc(credits[k].license)}</li>` : '').join('')}</ul></details></footer>`;
+    const lb = article.querySelector('.listen'); if(lb) lb.addEventListener('click', () => player.start({code, i, title:L.title, src: hasAudio ? () => resolveAudio(dir, lang, i) : null, text: narrationText(L)}));
+    const btn = article.querySelector('.done');
+    btn.addEventListener('click', () => { const on = !progress.has(code+':'+i); setDone(code, i, on); btn.classList.toggle('is-done', on); btn.textContent = on ? T('marked') : T('mark'); });
+    const recap = article.querySelector('.recap');
+    if(recap && 'IntersectionObserver' in window){ const io = new IntersectionObserver(en => { if(en[0].isIntersecting){ if(!progress.has(code+':'+i)){ setDone(code, i, true); btn.classList.add('is-done'); btn.textContent = T('marked'); } io.disconnect(); } }, {root:rscroll, threshold:0.6}); io.observe(recap); }
+  }
+  rscroll.scrollTop = 0; reader.classList.add('open'); reader.querySelector('.rprog i').style.width = '0';
+  document.title = L ? `${L.title} · Italia in Tavola` : 'Italia in Tavola';
+}
+function closeReader(){ reading = null; player.stop(); reader.classList.remove('open'); document.title = 'Italia in Tavola'; }
+function narrationText(L){
+  let h = L.html.replace(/<figure[\s\S]*?<\/figure>/g, ' ').replace(/<tr><th>(.*?)<\/th><td>(.*?)<\/td><\/tr>/g, ' $1: $2.\n').replace(/<h4>(.*?)<\/h4>/g, '\n$1.\n').replace(/<h2>(.*?)<\/h2>/g, '\n\n$1.\n\n').replace(/<li>([\s\S]*?)<\/li>/g, (m,t)=>'\n'+t.trim().replace(/\.$/,'')+'.\n').replace(/<\/p>|<\/aside>|<\/div>|<\/ul>/g, '\n').replace(/<[^>]+>/g, '');
+  const d = document.createElement('textarea'); d.innerHTML = h; h = d.value;
+  return `${L.title}.\n\n${L.summary}\n\n` + h.replace(/[ \t]+/g,' ').replace(/\n\s*\n+/g, '\n\n').trim();
+}
+// ============================================================ AUDIO SOURCES
+// Narration ships as Opus in Ogg. Browsers that cannot play that (Safari before iOS 18.4) get the same
+// packets repackaged on the fly into Apple's CAF container, which every Safari since 2017 plays.
+const OGG_OK = (() => { try{ const a = document.createElement('audio'); return !!a.canPlayType && a.canPlayType('audio/ogg; codecs=opus') !== ''; }catch(e){ return false; } })();
+function oggOpusToCaf(buf){
+  const u = new Uint8Array(buf); const packets = []; let cur = [], pos = 0;
+  while(pos + 27 <= u.length){
+    if(u[pos]!==0x4f || u[pos+1]!==0x67 || u[pos+2]!==0x67 || u[pos+3]!==0x53) throw new Error('not an Ogg stream');
+    const nseg = u[pos+26]; let p = pos + 27 + nseg;
+    for(let k=0;k<nseg;k++){ const l = u[pos+27+k]; cur.push(u.subarray(p, p+l)); p += l; if(l < 255){ packets.push(cur); cur = []; } }
+    pos = p;
+  }
+  if(packets.length < 3 || String.fromCharCode(...packets[0][0].subarray(0,8)) !== 'OpusHead') throw new Error('not Opus');
+  const audio = packets.slice(2).map(parts => { if(parts.length === 1) return parts[0]; const n = parts.reduce((a,b)=>a+b.length,0); const o = new Uint8Array(n); let q=0; for(const b of parts){ o.set(b,q); q+=b.length; } return o; });
+  // samples per packet from the first TOC byte (config -> frame size, code -> frame count)
+  const toc = audio[0][0], cfg = toc >> 3, code = toc & 3;
+  const ms = cfg < 12 ? [10,20,40,60][cfg % 4] : cfg < 16 ? [10,20][cfg % 2] : [2.5,5,10,20][cfg % 4];
+  const frames = code === 0 ? 1 : code === 3 ? (audio[0][1] & 0x3f) : 2;
+  const fpp = Math.round(ms * 48 * frames);
+  const payload = audio.reduce((a,b)=>a+b.length,0);
+  const varints = []; for(const pk of audio){ let n = pk.length; const bytes = [n & 0x7f]; n >>= 7; while(n > 0){ bytes.unshift((n & 0x7f) | 0x80); n >>= 7; } varints.push(...bytes); }
+  const total = 8 + 44 + 24 + 16 + payload + 36 + varints.length;
+  const out = new Uint8Array(total); const dv = new DataView(out.buffer); let o = 0;
+  const str = t => { for(let k=0;k<4;k++) out[o++] = t.charCodeAt(k); };
+  const i64 = v => { dv.setUint32(o, Math.floor(v / 4294967296)); dv.setUint32(o+4, v >>> 0); o += 8; };
+  const i32 = v => { dv.setUint32(o, v >>> 0); o += 4; };
+  str('caff'); dv.setUint16(o, 1); o += 2; dv.setUint16(o, 0); o += 2;
+  str('desc'); i64(32); dv.setFloat64(o, 48000); o += 8; str('opus'); i32(0); i32(0); i32(fpp); i32(1); i32(0);
+  str('chan'); i64(12); i32((100 << 16) | 1); i32(0); i32(0);
+  str('data'); i64(4 + payload); i32(0); for(const pk of audio){ out.set(pk, o); o += pk.length; }
+  str('pakt'); i64(24 + varints.length); i64(audio.length); i64(audio.length * fpp); i32(0); i32(0); out.set(varints, o); o += varints.length;
+  return out;
+}
+async function resolveAudio(dir, lang, i){
+  const base = `assets/audio/${dir}/${lang}-${i+1}`;
+  if(!window.AUDIO_DATA) return base + '.mp3';                    // self-hosted: full-quality files on disk
+  if(window.AUDIO_DATA[base + '.mp3']) return window.AUDIO_DATA[base + '.mp3'];
+  const ogg = window.AUDIO_DATA[base + '.ogg']; if(!ogg) return null;
+  if(OGG_OK) return ogg;
+  try{ const buf = await (await fetch(ogg)).arrayBuffer(); return URL.createObjectURL(new Blob([oggOpusToCaf(buf)], {type:'audio/x-caf'})); }
+  catch(e){ console.warn('narration repackaging failed', e); return null; }
+}
+window.__dbg = Object.assign(window.__dbg || {}, {oggOpusToCaf, resolveAudio, OGG_OK});
+// ============================================================ AUDIO PLAYER (narration file, or the browser's own voice as a fallback)
+const player = (() => {
+  const bar = reader.querySelector('.rplayer'), pp = bar.querySelector('.pp'), scrub = bar.querySelector('.scrub'), time = bar.querySelector('.time'), meta = bar.querySelector('.meta'), rateBtn = bar.querySelector('.rate');
+  const RATES = [1, 1.25, 1.5, 0.85]; let rateIx = 0, audio = null, mode = null, cur = null, speech = null, seeking = false;
+  const fmt = t => { t = Math.max(0, Math.floor(t||0)); return Math.floor(t/60) + ':' + String(t%60).padStart(2,'0'); };
+  const posKey = () => cur ? `iit-audio:${cur.code}:${lang}:${cur.i}` : null;
+  function setPP(playing){ pp.textContent = playing ? '❚❚' : '▶'; pp.setAttribute('aria-label', playing ? 'Pause' : 'Play'); }
+  function update(){ if(!audio) return; const d = audio.duration || 0; time.textContent = `${fmt(audio.currentTime)} / ${fmt(d)}`; if(!seeking && d){ const p = audio.currentTime/d*1000; scrub.value = p; scrub.style.setProperty('--p', (p/10)+'%'); } }
+  function markRead(){ if(cur && !progress.has(cur.code+':'+cur.i)){ setDone(cur.code, cur.i, true); const b = article.querySelector('.done'); if(b){ b.classList.add('is-done'); b.textContent = T('marked'); } } }
+  async function start(item){
+    stop(); cur = item; bar.classList.add('on');
+    let src = null;
+    if(item.src){ meta.textContent = '…'; try{ src = await item.src(); }catch(e){ src = null; } if(cur !== item) return; }
+    if(src){
+      mode = 'file'; audio = new Audio(src); audio.preload = 'auto'; audio.playbackRate = RATES[rateIx];
+      meta.textContent = T('narrated');
+      try{ const saved = +localStorage.getItem(posKey()); if(saved > 5) audio.currentTime = saved; }catch(e){}
+      audio.addEventListener('timeupdate', () => { update(); try{ localStorage.setItem(posKey(), String(Math.floor(audio.currentTime))); }catch(e){} });
+      audio.addEventListener('loadedmetadata', update);
+      audio.addEventListener('play', () => setPP(true)); audio.addEventListener('pause', () => setPP(false));
+      audio.addEventListener('ended', () => { setPP(false); markRead(); try{ localStorage.removeItem(posKey()); }catch(e){} });
+      audio.play().catch(()=>setPP(false));
+      if('mediaSession' in navigator){ try{ navigator.mediaSession.metadata = new MediaMetadata({title:item.title, artist:'Italia in Tavola', album: course(item.code).name}); navigator.mediaSession.setActionHandler('play', ()=>audio.play()); navigator.mediaSession.setActionHandler('pause', ()=>audio.pause()); navigator.mediaSession.setActionHandler('seekbackward', ()=>skip(-15)); navigator.mediaSession.setActionHandler('seekforward', ()=>skip(15)); }catch(e){} }
+    } else if('speechSynthesis' in window){
+      mode = 'speech'; meta.textContent = T('browserVoice'); time.textContent = '—'; scrub.disabled = true;
+      const paras = item.text.split(/\n\s*\n/).filter(Boolean); let k = 0;
+      const voices = speechSynthesis.getVoices(); const want = lang === 'no' ? /^(nb|no|nn)/i : /^en/i; const voice = voices.find(v => want.test(v.lang) && /natural|neural|premium|enhanced|siri/i.test(v.name)) || voices.find(v => want.test(v.lang));
+      if(!voice && lang === 'no' && !voices.some(v => /^(nb|no|nn)/i.test(v.lang))) meta.textContent = T('noVoice');
+      const speakNext = () => { if(k >= paras.length){ setPP(false); markRead(); return; } const u = new SpeechSynthesisUtterance(paras[k++]); u.lang = lang === 'no' ? 'nb-NO' : 'en-GB'; if(voice) u.voice = voice; u.rate = RATES[rateIx]; u.onend = speakNext; u.onerror = () => setPP(false); speech = u; time.textContent = `${k} / ${paras.length}`; speechSynthesis.speak(u); };
+      speechSynthesis.cancel(); speakNext(); setPP(true);
+    } else { meta.textContent = T('noVoice'); }
+  }
+  function toggle(){ if(mode === 'file' && audio){ audio.paused ? audio.play() : audio.pause(); } else if(mode === 'speech'){ if(speechSynthesis.speaking && !speechSynthesis.paused){ speechSynthesis.pause(); setPP(false); } else { speechSynthesis.resume(); setPP(true); } } }
+  function skip(d){ if(audio){ audio.currentTime = Math.max(0, Math.min((audio.duration||1e9), audio.currentTime + d)); update(); } }
+  function stop(){ if(audio){ audio.pause(); audio.src = ''; audio = null; } if(mode === 'speech'){ speechSynthesis.cancel(); } mode = null; cur = null; scrub.disabled = false; scrub.value = 0; scrub.style.setProperty('--p','0%'); time.textContent = '0:00 / 0:00'; setPP(false); bar.classList.remove('on'); }
+  pp.addEventListener('click', toggle);
+  bar.querySelector('.back15').addEventListener('click', () => skip(-15));
+  bar.querySelector('.fwd15').addEventListener('click', () => skip(15));
+  bar.querySelector('.x').addEventListener('click', stop);
+  rateBtn.addEventListener('click', () => { rateIx = (rateIx+1) % RATES.length; rateBtn.textContent = RATES[rateIx] + '×'; if(audio) audio.playbackRate = RATES[rateIx]; });
+  scrub.addEventListener('input', () => { seeking = true; if(audio && audio.duration){ time.textContent = `${fmt(scrub.value/1000*audio.duration)} / ${fmt(audio.duration)}`; scrub.style.setProperty('--p', (scrub.value/10)+'%'); } });
+  scrub.addEventListener('change', () => { if(audio && audio.duration) audio.currentTime = scrub.value/1000*audio.duration; seeking = false; update(); });
+  if('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => {};
+  return {start, stop, toggle};
+})();
+rscroll.addEventListener('scroll', () => { const max = rscroll.scrollHeight - rscroll.clientHeight; reader.querySelector('.rprog i').style.width = (max>0 ? rscroll.scrollTop/max*100 : 0)+'%'; }, {passive:true});
+reader.querySelector('.back').addEventListener('click', () => { location.hash = '#/'+(reading ? reading.code : ''); });
+
+// ============================================================ ROUTER
+function route(){
+  const m = /^#\/?([A-Z]{2}-\d{2})?(?:\/(\d+))?/.exec(location.hash || '#/');
+  const code = m && m[1] && COURSE[m[1]] ? m[1] : null; const n = m && m[2] ? +m[2] : 0;
+  if(!code){ closeReader(); if(selected) home(); return; }
+  select(code);
+  if(n >= 1 && n <= 4){ openReader(code, n-1); if(selected===code) select(code); } else closeReader();
+}
+window.addEventListener('hashchange', route);
+window.addEventListener('keydown', e => { if(e.target.tagName==='INPUT') return; if(e.key==='Escape'){ location.hash = reading ? '#/'+reading.code : '#/'; } if(reading) return; if(e.key==='n'||e.key==='ArrowRight') step(1); if(e.key==='p'||e.key==='ArrowLeft') step(-1); });
+refreshProgress();
+
+// ============================================================ LOOP
+const clock = new THREE.Clock();
+function ease(t){ return t<0.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
+function loop(){
+  requestAnimationFrame(loop);
+  if(ctl.tTarget){
+    const k = Math.min(1, (performance.now()-ctl.tStart)/1000/ctl.tDur), e = ease(k);
+    ctl.target.copy(ctl.from.target).lerp(ctl.tTarget, e);
+    ctl.dist = ctl.from.dist + (ctl.tDist-ctl.from.dist)*e; ctl.theta = ctl.from.theta + (ctl.tTheta-ctl.from.theta)*e; ctl.phi = ctl.from.phi + (ctl.tPhi-ctl.from.phi)*e;
+    if(k>=1) ctl.tTarget = null;
+  }
+  applyCamera();
+  if(reading) return;
+  updateOverlays();
+  renderer.render(scene, camera);
+}
+function begin(){
+  applyLang();
+  buildTerrain().then(() => {
+    placeLandmarks();
+    const q = new URLSearchParams(location.search); if(q.has('instant')) ctl.tDur = 0.001;
+    applyCamera();
+    document.getElementById('loading').classList.add('gone');
+    loop();
+    if(q.get('region')) location.hash = '#/'+q.get('region') + (q.get('lesson') ? '/'+q.get('lesson') : '');
+    route();
+    if(q.get('scroll')) setTimeout(()=>{ rscroll.scrollTop = +q.get('scroll'); }, 300);
+  }).catch(err => { document.getElementById('loading').textContent = 'Could not load the terrain: ' + err; });
+}
+if(location.search.includes('instant')) begin(); else if(document.fonts && document.fonts.load){ Promise.race([document.fonts.load('500 54px Fraunces'), new Promise(r=>setTimeout(r, 2500))]).then(begin, begin); } else begin();
+})();
+</script>
+

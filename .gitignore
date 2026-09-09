@@ -1,0 +1,18 @@
+# generated outputs (rebuilt by build.py / tools/make_site.py)
+dist/
+site/
+
+# large source data (33 MB DEM; terrain PNG/JPG in assets/terrain are the baked result and are kept)
+docs/dem_italy_z8.npy
+
+# low-bitrate narration variants: not used by the page or the site
+assets/audio/*/*.lo.mp3
+
+# headless-test scratch: Chrome profiles and screenshots
+tools/test/prof_*/
+tools/test/*.png
+tools/test/ref.caf
+
+__pycache__/
+*.pyc
+.idea/

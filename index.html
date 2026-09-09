@@ -1,0 +1,935 @@
+<title>Globe Trotter</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{ --ink:#1b2340; --paper:#fffaf0; --gold:#ffcc33; --sky:#7ec8ff; }
+  html,body{ margin:0; padding:0; height:100%; overflow:hidden; background:#070a1e; color:#fff;
+    font-family: "Segoe UI", "Trebuchet MS", system-ui, sans-serif; }
+  canvas{ display:block; position:fixed; inset:0; z-index:0; }
+  #hud{ position:fixed; inset:0; pointer-events:none; user-select:none; z-index:5; }
+  .panel{ position:absolute; background:rgba(15,20,50,.72); border:2px solid rgba(255,255,255,.18);
+    border-radius:14px; padding:10px 14px; backdrop-filter: blur(6px); box-shadow:0 6px 20px rgba(0,0,0,.35); }
+  #stats{ top:14px; left:14px; font-size:18px; font-weight:700; line-height:1.5; letter-spacing:.3px; }
+  #stats .big{ font-size:22px; color:var(--gold); }
+  #nearest{ font-size:14px; font-weight:500; opacity:.9; margin-top:4px; }
+  #passport{ top:14px; right:14px; width:250px; max-height:calc(100vh - 40px); overflow:auto; font-size:14px; pointer-events:auto; }
+  #passport h3{ margin:0 0 8px; font-size:15px; letter-spacing:1px; text-transform:uppercase; color:var(--gold); display:flex; justify-content:space-between; }
+  #passport h3 span{ font-weight:400; opacity:.6; font-size:12px; letter-spacing:0; text-transform:none; }
+  #passport ul{ list-style:none; margin:0; padding:0; }
+  #passport li{ padding:3px 0; opacity:.55; display:flex; gap:8px; align-items:center; }
+  #passport li.done{ opacity:1; }
+  #passport li .stamp{ width:18px; height:18px; border-radius:50%; border:2px solid rgba(255,255,255,.35);
+    display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex:none; }
+  #passport li.done .stamp{ background:#3ddc84; border-color:#3ddc84; color:#0c2a18; transform:rotate(-12deg); }
+  #passport.collapsed ul{ display:none; }
+  #banner{ left:50%; bottom:18px; transform:translateX(-50%) translateY(20px); opacity:0; transition:all .35s ease;
+    text-align:center; min-width:300px; max-width:440px; padding:8px 16px; pointer-events:none; }
+  #banner.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+  #banner .flag{ font-size:30px; line-height:1; }
+  #banner .name{ font-size:20px; font-weight:800; color:var(--gold); margin-top:4px; }
+  #banner .country{ font-size:14px; text-transform:uppercase; letter-spacing:2px; opacity:.85; }
+  #banner .fact{ font-size:12px; margin-top:4px; opacity:.85; line-height:1.4; }
+  #banner .new{ display:inline-block; margin-top:6px; background:#3ddc84; color:#0c2a18; font-weight:800; font-size:12px;
+    padding:2px 10px; border-radius:20px; letter-spacing:1px; }
+  #hint{ left:14px; bottom:14px; font-size:12px; opacity:.8; line-height:1.6; transition:opacity .5s; }
+  #hint.fade{ opacity:0; }
+  #hint b{ display:inline-block; background:rgba(255,255,255,.15); border-radius:5px; padding:0 6px; margin-right:3px; font-family:monospace; }
+  #toast{ position:absolute; left:50%; top:90px; transform:translateX(-50%); font-size:20px; font-weight:800; color:var(--gold);
+    text-shadow:0 2px 6px #000; opacity:0; transition:opacity .3s; pointer-events:none; }
+  #overlay{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column;
+    background:radial-gradient(ellipse at center, rgba(20,30,80,.75), rgba(5,8,25,.92)); z-index:10; cursor:pointer; text-align:center; }
+  #overlay h1{ font-size:clamp(44px, 9vw, 96px); margin:0; letter-spacing:4px; color:var(--gold);
+    text-shadow:0 4px 0 #b8860b, 0 10px 30px rgba(0,0,0,.6); transform:rotate(-3deg); }
+  #overlay h1 small{ display:block; font-size:.32em; color:#fff; letter-spacing:8px; text-shadow:0 2px 0 #1b2340; }
+  #overlay p{ font-size:18px; max-width:520px; line-height:1.5; opacity:.9; margin:18px 20px; }
+  #overlay .keys{ display:grid; grid-template-columns:auto auto; gap:6px 18px; font-size:15px; text-align:left; margin-top:6px; }
+  #overlay .keys b{ background:rgba(255,255,255,.15); border-radius:6px; padding:2px 10px; font-family:monospace; }
+  #overlay .go{ margin-top:26px; font-size:22px; font-weight:800; animation:pulse 1.2s infinite; }
+  #overlay.hidden{ display:none; }
+  #overlay.win h1{ transform:none; font-size:clamp(36px, 7vw, 72px); }
+  @keyframes pulse{ 0%,100%{opacity:.6} 50%{opacity:1} }
+  #loading{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; font-size:20px; color:#fff; z-index:20; background:#070a1e; }
+  @media (max-width:700px){ #passport{ display:none } #hint{ display:none } #stats{ font-size:15px } }
+</style>
+
+<div id="loading">Building the world…</div>
+<div id="hud">
+  <div id="stats" class="panel">
+    <div><span class="big">🪙 <span id="coins">0</span></span> / <span id="coinsTotal">0</span></div>
+    <div>📍 Landmarks <span id="visited">0</span> / <span id="visitedTotal">0</span></div>
+    <div id="nearest"></div>
+  </div>
+  <div id="passport" class="panel">
+    <h3>Passport <span>[P] toggle</span></h3>
+    <ul id="passportList"></ul>
+  </div>
+  <div id="banner" class="panel">
+    <div class="flag"></div>
+    <div class="name"></div>
+    <div class="country"></div>
+    <div class="fact"></div>
+    <div class="new" style="display:none">STAMPED!</div>
+  </div>
+  <div id="toast"></div>
+  <div id="hint" class="panel">
+    <b>W A S D</b> / <b>↑ ↓ ← →</b> walk &nbsp; <b>SPACE</b> jump<br>
+    <b>Q</b> <b>E</b> or drag mouse to turn camera &nbsp; <b>scroll</b> zoom
+  </div>
+</div>
+<div id="overlay">
+  <h1>GLOBE<br>TROTTER<small>A WORLD TOUR IN 3D</small></h1>
+  <p>Run around a tiny cartoon Earth, jump on the mountains, collect coins and visit the great landmarks of the world to stamp your passport.</p>
+  <div class="keys">
+    <b>W A S D</b><span>walk (relative to the camera)</span>
+    <b>SPACE</b><span>jump</span>
+    <b>Q / E · mouse drag</b><span>rotate camera</span>
+    <b>P</b><span>show / hide passport</span>
+  </div>
+  <div class="go">▶ CLICK OR PRESS ANY KEY TO START</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>if(!window.THREE){document.write('<script src="three.min.js"><\/script>');}</script>
+<script>
+(function(){
+'use strict';
+if(!window.THREE){ document.getElementById('loading').textContent='Could not load Three.js (check your internet connection).'; return; }
+
+// ============================================================ CONSTANTS
+const R = 150;                       // planet radius
+const LM_SCALE = 0.8;                // landmark size multiplier
+const G = 34, JUMP = 14.5, SPEED = 17;
+const Y_AXIS = new THREE.Vector3(0,1,0);
+const clock = new THREE.Clock();
+function randDir(){ const z=Math.random()*2-1, a=Math.random()*Math.PI*2, r=Math.sqrt(1-z*z); return new THREE.Vector3(r*Math.cos(a), z, r*Math.sin(a)); }
+
+// ============================================================ RENDERER / SCENE
+const renderer = new THREE.WebGLRenderer({antialias:true, powerPreference:'high-performance'});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.outputEncoding = THREE.sRGBEncoding;
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x070a1e);
+const camera = new THREE.PerspectiveCamera(58, window.innerWidth/window.innerHeight, 0.3, 2500);
+
+// Toon gradient map (3 bands)
+const gradData = new Uint8Array([70, 150, 255]);
+const gradientMap = new THREE.DataTexture(gradData, 3, 1, THREE.LuminanceFormat);
+gradientMap.minFilter = gradientMap.magFilter = THREE.NearestFilter;
+gradientMap.generateMipmaps = false;
+gradientMap.needsUpdate = true;
+
+const matCache = {};
+function mat(color, opts){
+  const key = color + JSON.stringify(opts||{});
+  if(!matCache[key]){
+    matCache[key] = new THREE.MeshToonMaterial(Object.assign({color:color, gradientMap:gradientMap}, opts||{}));
+  }
+  return matCache[key];
+}
+
+// ============================================================ LIGHTS
+scene.add(new THREE.HemisphereLight(0xbfe3ff, 0x2a3d2a, 0.75));
+const sun = new THREE.DirectionalLight(0xfff2d0, 1.15);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+const sc = sun.shadow.camera; sc.left=-50; sc.right=50; sc.top=50; sc.bottom=-50; sc.near=5; sc.far=320;
+sun.shadow.bias = -0.0015;
+scene.add(sun); scene.add(sun.target);
+
+// ============================================================ GEO HELPERS
+function latLonToVec(lat, lon, alt){
+  const phi = (lon+180)*Math.PI/180, th = (90-lat)*Math.PI/180, r = R + (alt||0);
+  return new THREE.Vector3(-Math.cos(phi)*Math.sin(th)*r, Math.cos(th)*r, Math.sin(phi)*Math.sin(th)*r);
+}
+// Quaternion so that local +Y = up at that point, local +Z = north, then rotated by heading (deg) about Y
+function surfaceQuat(pos, headingDeg){
+  const up = pos.clone().normalize();
+  let north = new THREE.Vector3(0,1,0).sub(up.clone().multiplyScalar(up.y));
+  if(north.lengthSq() < 1e-6) north = new THREE.Vector3(1,0,0);
+  north.normalize();
+  const x = new THREE.Vector3().crossVectors(up, north);
+  const m = new THREE.Matrix4().makeBasis(x, up, north);
+  const q = new THREE.Quaternion().setFromRotationMatrix(m);
+  if(headingDeg) q.multiply(new THREE.Quaternion().setFromAxisAngle(Y_AXIS, headingDeg*Math.PI/180));
+  return q;
+}
+function placeOnSurface(obj, lat, lon, alt, heading){
+  const p = latLonToVec(lat, lon, alt);
+  obj.position.copy(p);
+  obj.quaternion.copy(surfaceQuat(p, heading||0));
+  return obj;
+}
+
+// ============================================================ WORLD MAP (5° bands, lon spans) ------------------
+// row i covers latitude 90-5i .. 85-5i
+const LAND = [
+  [],                                                                                   // 90..85
+  [[-95,-20]],                                                                          // 85..80
+  [[-120,-80],[-75,-18],[10,30],[50,70],[90,105]],                                      // 80..75
+  [[-125,-80],[-60,-20],[60,80],[85,115],[140,180]],                                    // 75..70
+  [[-165,-140],[-140,-65],[-55,-25],[-24,-14],[14,30],[30,180]],                        // 70..65
+  [[-165,-140],[-140,-95],[-78,-64],[-52,-40],[-24,-14],[5,30],[30,180]],               // 65..60
+  [[-162,-150],[-135,-95],[-78,-60],[-8,-2],[5,30],[30,135],[156,163]],                 // 60..55
+  [[-130,-56],[-10,30],[30,142],[156,158]],                                             // 55..50
+  [[-125,-64],[-2,30],[30,140],[140,145]],                                              // 50..45
+  [[-125,-68],[-10,0],[3,14],[17,28],[41,47],[54,130],[138,145]],                       // 45..40
+  [[-125,-75],[-10,0],[12,18],[20,27],[26,47],[54,120],[125,129],[131,141]],            // 40..35
+  [[-120,-78],[-10,36],[35,62],[62,122],[130,134]],                                     // 35..30
+  [[-115,-97],[-82,-80],[-15,35],[35,48],[56,60],[62,122]],                             // 30..25
+  [[-157,-155],[-110,-97],[-90,-87],[-85,-74],[-17,37],[39,60],[69,88],[92,117],[120,122]], // 25..20
+  [[-105,-84],[-74,-68],[-17,39],[42,55],[73,84],[95,111],[120,124]],                   // 20..15
+  [[-92,-83],[-17,51],[43,54],[75,80],[80,82],[98,109],[121,125]],                      // 15..10
+  [[-84,-58],[-13,49],[76,79],[80,82],[99,107],[109,119],[122,126]],                    // 10..5
+  [[-80,-50],[9,45],[95,104],[109,118],[120,125]],                                      // 5..0
+  [[-81,-38],[9,42],[100,106],[110,117],[119,123],[131,150]],                           // 0..-5
+  [[-81,-35],[12,40],[105,115],[135,150]],                                              // -5..-10
+  [[-78,-37],[12,40],[125,136],[141,145]],                                              // -10..-15
+  [[-76,-39],[12,40],[44,50],[117,149]],                                                // -15..-20
+  [[-71,-40],[14,35],[43,48],[113,153]],                                                // -20..-25
+  [[-110,-108],[-71,-48],[16,33],[114,153]],                                            // -25..-30
+  [[-72,-52],[18,30],[115,125],[131,151]],                                              // -30..-35
+  [[-73,-57],[140,150],[173,178]],                                                      // -35..-40
+  [[-74,-63],[145,148],[166,176]],                                                      // -40..-45
+  [[-75,-66],[166,171]],                                                                // -45..-50
+  [[-75,-65],[-61,-57]],                                                                // -50..-55
+  [],                                                                                   // -55..-60
+  [[-64,-56]],                                                                          // -60..-65
+  [[-70,-60],[-5,160]],                                                                 // -65..-70
+  [[-150,-60],[-20,180]],                                                               // -70..-75
+  [[-180,180]],[[-180,180]],[[-180,180]]                                                // -75..-90
+];
+function isLand(lat, lon){
+  const row = Math.floor((90-lat)/5); if(row<0||row>35) return false;
+  for(const s of LAND[row]) if(lon>=s[0] && lon<=s[1]) return true;
+  return false;
+}
+function biome(lat, lon){
+  if(lat < -62) return 'ice';
+  if(lat > 59 && lon > -75 && lon < -15) return 'ice';
+  if(lat>15 && lat<32 && lon>-17 && lon<38) return 'sand';
+  if(lat>13 && lat<32 && lon>34 && lon<60) return 'sand';
+  if(lat>-32 && lat<-18 && lon>118 && lon<142) return 'outback';
+  if(lat>36 && lat<47 && lon>55 && lon<110) return 'steppe';
+  if(lat>30 && lat<40 && lon>-118 && lon<-102) return 'sand';
+  if(lat>63) return 'tundra';
+  if(Math.abs(lat)<12) return 'jungle';
+  return 'grass';
+}
+const BIOME_COLORS = { ice:'#f3f7fb', sand:'#ecc978', outback:'#d98f4c', steppe:'#c8b872', tundra:'#9fb47a', jungle:'#3d9e4b', grass:'#6cbf4f' };
+
+function buildPlanetTexture(){
+  const W = 4096, H = 2048, cw = W/72, ch = H/36;
+  const c = document.createElement('canvas'); c.width=W; c.height=H;
+  const ctx = c.getContext('2d');
+  // ocean
+  ctx.fillStyle = '#2d7fd9'; ctx.fillRect(0,0,W,H);
+  // subtle ocean waves
+  ctx.fillStyle = 'rgba(255,255,255,0.07)';
+  for(let i=0;i<900;i++){ const x=Math.random()*W, y=Math.random()*H; ctx.fillRect(x, y, 6+Math.random()*14, 2); }
+  const X = lon => (lon+180)/360*W, Y = lat => (90-lat)/180*H;
+  function hash(a,b){ const x = Math.sin(a*12.9898 + b*78.233)*43758.5453; return x - Math.floor(x); }
+  function eachCell(fn){
+    for(let r=0;r<36;r++){
+      for(const dl of [1.25, 3.75]){
+        const lat = 90-5*r-dl;
+        for(const s of LAND[r]) for(let lon=s[0]+1.25; lon<s[1]; lon+=2.5) fn(lat, lon, 0.85+hash(lat,lon)*0.35);
+      }
+    }
+  }
+  const rad = ch*0.44;
+  // outline pass (dark shoreline) then sand fringe then land
+  ctx.fillStyle = '#1d4f8f';
+  eachCell((lat,lon,j)=>{ ctx.beginPath(); ctx.arc(X(lon), Y(lat), rad*j+10, 0, Math.PI*2); ctx.fill(); });
+  ctx.fillStyle = '#f0e2a0';
+  eachCell((lat,lon,j)=>{ ctx.beginPath(); ctx.arc(X(lon), Y(lat), rad*j+4, 0, Math.PI*2); ctx.fill(); });
+  eachCell((lat,lon,j)=>{ ctx.fillStyle = BIOME_COLORS[biome(lat,lon)]; ctx.beginPath(); ctx.arc(X(lon), Y(lat), rad*j, 0, Math.PI*2); ctx.fill(); });
+  // biome softening: extra dots inside
+  eachCell((lat,lon,j)=>{ ctx.fillStyle = BIOME_COLORS[biome(lat+1.2,lon+1.2)]; ctx.globalAlpha=.6; ctx.beginPath(); ctx.arc(X(lon)+cw*0.2, Y(lat)-ch*0.1, rad*0.7, 0, Math.PI*2); ctx.fill(); ctx.globalAlpha=1; });
+  // polar ice
+  ctx.fillStyle = '#f3f7fb';
+  ctx.fillRect(0, 0, W, Y(83));
+  ctx.fillStyle = 'rgba(243,247,251,0.55)'; ctx.fillRect(0, Y(83), W, Y(80)-Y(83));
+  const tex = new THREE.CanvasTexture(c);
+  tex.encoding = THREE.sRGBEncoding;
+  tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  return tex;
+}
+
+// ============================================================ PLANET
+const planet = new THREE.Mesh(new THREE.SphereGeometry(R, 160, 80), new THREE.MeshToonMaterial({map: buildPlanetTexture(), gradientMap}));
+planet.receiveShadow = true;
+scene.add(planet);
+// atmosphere glow
+scene.add(new THREE.Mesh(new THREE.SphereGeometry(R*1.045, 64, 32), new THREE.MeshBasicMaterial({color:0x7ec8ff, transparent:true, opacity:0.18, side:THREE.BackSide, depthWrite:false})));
+
+// ============================================================ SPACE
+(function stars(){
+  const n=2500, pos=new Float32Array(n*3);
+  for(let i=0;i<n;i++){ const v=randDir().multiplyScalar(900+Math.random()*600); pos.set([v.x,v.y,v.z], i*3); }
+  const g=new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos,3));
+  scene.add(new THREE.Points(g, new THREE.PointsMaterial({color:0xffffff, size:3.2, sizeAttenuation:true})));
+  const g2=new THREE.BufferGeometry(); const p2=new Float32Array(300*3);
+  for(let i=0;i<300;i++){ const v=randDir().multiplyScalar(800); p2.set([v.x,v.y,v.z], i*3); }
+  g2.setAttribute('position', new THREE.BufferAttribute(p2,3));
+  scene.add(new THREE.Points(g2, new THREE.PointsMaterial({color:0xffe9a0, size:6, sizeAttenuation:true})));
+})();
+const moon = new THREE.Mesh(new THREE.SphereGeometry(18, 32, 16), mat(0xd9d9e6));
+scene.add(moon);
+const ringPlanet = new THREE.Group();
+ringPlanet.add(new THREE.Mesh(new THREE.SphereGeometry(30, 32, 16), mat(0xe8a86a)));
+const ring = new THREE.Mesh(new THREE.RingGeometry(38, 56, 64), new THREE.MeshBasicMaterial({color:0xf3d6a8, side:THREE.DoubleSide, transparent:true, opacity:.75}));
+ring.rotation.x = Math.PI/2.4; ringPlanet.add(ring);
+ringPlanet.position.set(-700, 250, -900); scene.add(ringPlanet);
+
+// ============================================================ PRIMITIVE HELPERS
+function shadowed(m){ m.castShadow = true; m.receiveShadow = true; return m; }
+function box(w,h,d,color,x,yBottom,z){ const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d), mat(color)); m.position.set(x, yBottom+h/2, z); return shadowed(m); }
+function cyl(rt,rb,h,color,x,yBottom,z,seg){ const m=new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,seg||20), mat(color)); m.position.set(x, yBottom+h/2, z); return shadowed(m); }
+function cone(r,h,color,x,yBottom,z,seg){ return cyl(0, r, h, color, x, yBottom, z, seg); }
+function pyr(r,h,color,x,yBottom,z){ const m=cone(r,h,color,x,yBottom,z,4); m.rotation.y=Math.PI/4; return m; }
+function sph(r,color,x,y,z,ws,hs){ const m=new THREE.Mesh(new THREE.SphereGeometry(r, ws||20, hs||14), mat(color)); m.position.set(x,y,z); return shadowed(m); }
+function beam(a,b,r,color){
+  const dir = new THREE.Vector3().subVectors(b,a); const len = dir.length();
+  const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r, len, 8), mat(color));
+  m.position.copy(a).add(b).multiplyScalar(0.5);
+  m.quaternion.setFromUnitVectors(Y_AXIS, dir.normalize());
+  return shadowed(m);
+}
+function prism(w,h,d,color,x,yBottom,z){ // triangular roof, ridge along z
+  const s = new THREE.Shape(); s.moveTo(-w/2,0); s.lineTo(w/2,0); s.lineTo(0,h); s.closePath();
+  const g = new THREE.ExtrudeGeometry(s, {depth:d, bevelEnabled:false}); g.translate(0,0,-d/2);
+  const m = new THREE.Mesh(g, mat(color)); m.position.set(x,yBottom,z); return shadowed(m);
+}
+function labelSprite(text){
+  const c=document.createElement('canvas'); c.width=512; c.height=128; const ctx=c.getContext('2d');
+  ctx.font='bold 54px "Segoe UI", Trebuchet MS, sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+  ctx.lineWidth=10; ctx.strokeStyle='rgba(20,25,60,0.9)'; ctx.strokeText(text,256,64);
+  ctx.fillStyle='#fff'; ctx.fillText(text,256,64);
+  const t=new THREE.CanvasTexture(c); t.encoding=THREE.sRGBEncoding;
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:t, transparent:true}));
+  sp.scale.set(12,3,1); return sp;
+}
+
+// ============================================================ LANDMARK BUILDERS  (local: +Y up, origin on ground)
+const B = {};
+B.eiffel = g => {
+  const c = 0x9a5b2c;
+  for(const sx of [-1,1]) for(const sz of [-1,1]){
+    g.add(beam(new THREE.Vector3(sx*3.4,0,sz*3.4), new THREE.Vector3(sx*1.5,7.5,sz*1.5), 0.36, c));
+    g.add(beam(new THREE.Vector3(sx*1.5,7.5,sz*1.5), new THREE.Vector3(sx*0.65,14.5,sz*0.65), 0.28, c));
+  }
+  // arches/cross braces
+  for(const [a,b] of [[[2.6,3.4,2.6],[-2.6,3.4,2.6]],[[2.6,3.4,-2.6],[-2.6,3.4,-2.6]],[[2.6,3.4,2.6],[2.6,3.4,-2.6]],[[-2.6,3.4,2.6],[-2.6,3.4,-2.6]]])
+    g.add(beam(new THREE.Vector3(...a), new THREE.Vector3(...b), 0.16, c));
+  g.add(box(6.8,0.5,6.8,c,0,7.3,0));
+  g.add(box(3.2,0.45,3.2,c,0,14.3,0));
+  g.add(cyl(0.3,0.75,7.5,c,0,14.75,0,8));
+  g.add(box(1.5,0.3,1.5,c,0,22.2,0));
+  g.add(cyl(0.08,0.08,2.6,0xcccccc,0,22.5,0,6));
+  g.add(sph(0.22,0xff4444,0,25.3,0,8,6));
+};
+B.liberty = g => {
+  g.add(box(6,1.2,6,0x8d8f95,0,0,0)); g.add(box(3.6,4,3.6,0xa9abb2,0,1.2,0)); g.add(box(2.6,0.5,2.6,0x8d8f95,0,5.2,0));
+  const green = 0x74c2a8;
+  g.add(cyl(1.15,1.75,7.2,green,0,5.7,0));
+  g.add(sph(0.85,green,0,13.5,0));
+  for(let i=0;i<7;i++){ const a=(i/6-0.5)*Math.PI*1.1; const s=cone(0.16,1.1,0xd9f2e6,Math.sin(a)*0.75,13.9+Math.cos(a)*0.5,0,6); s.rotation.z=-a; g.add(s); }
+  g.add(beam(new THREE.Vector3(1.2,11,0), new THREE.Vector3(1.9,16.2,0), 0.32, green));
+  g.add(cyl(0.3,0.22,1.2,0xd9c07a,1.9,16.2,0,8));
+  const flame = sph(0.55,0xffb400,1.9,17.9,0,10,8); flame.material = new THREE.MeshBasicMaterial({color:0xffc233}); g.add(flame);
+  g.add(box(0.9,1.4,0.35,green,-1.35,9.6,0.5));
+  g.add(beam(new THREE.Vector3(-1.1,11.2,0), new THREE.Vector3(-1.4,10.2,0.5), 0.3, green));
+};
+B.bigben = g => {
+  const stone = 0xd2b46f;
+  g.add(box(2.6,14,2.6,stone,0,0,0));
+  g.add(box(3,3,3,0xb99b5a,0,14,0));
+  for(let i=0;i<4;i++){
+    const f = new THREE.Mesh(new THREE.CylinderGeometry(1.15,1.15,0.14,24), mat(0xfaf6e6));
+    f.rotation.x = Math.PI/2; f.rotation.z = i*Math.PI/2;
+    const hb = box(0.12,0.8,0.05,0x222222,0,0,0.08); hb.position.y = 0.35;
+    const hm = box(0.12,0.55,0.05,0x222222,0,0,0.08); hm.position.y=0.2; hm.rotation.z=-1.2;
+    const wrap = new THREE.Group(); wrap.add(f); wrap.rotation.y = i*Math.PI/2;
+    f.rotation.set(Math.PI/2,0,0); f.position.set(0,0,1.55);
+    const hands = new THREE.Group(); hands.add(hb); hands.add(hm); hands.position.set(0,-0.1,1.6); wrap.add(hands);
+    wrap.position.y = 15.5; g.add(wrap);
+  }
+  g.add(pyr(2.2,4.2,0x6f7d5a,0,17,0));
+  g.add(cyl(0.1,0.28,1.3,0xe8c65a,0,21.1,0,8));
+  // Parliament
+  g.add(box(10,3.6,3.2,stone,-7.5,0,-1));
+  g.add(box(1.4,5.6,1.4,stone,-3,0,-1)); g.add(pyr(1.1,1.6,0x6f7d5a,-3,5.6,-1));
+  g.add(box(1.4,5,1.4,stone,-12,0,-1)); g.add(pyr(1.1,1.6,0x6f7d5a,-12,5,-1));
+};
+B.pyramids = g => {
+  const sand = 0xe0b86c;
+  g.add(pyr(6,7.5,sand,0,0,0));
+  g.add(pyr(4.4,5.6,sand,8,0,4));
+  g.add(pyr(2.8,3.6,sand,13.5,0,7));
+  // sphinx
+  g.add(box(1.8,1.2,4.2,0xd8b36a,-7,0,-4));
+  g.add(box(2.4,1.7,1.4,0xd8b36a,-7,0.8,-2.2)); g.add(sph(0.9,0xd8b36a,-7,2.1,-2.1));
+  g.add(box(1.7,0.8,0.8,0xc5a05a,-7,2.4,-2.1));
+  for(let i=0;i<4;i++){ const p = cone(0.9,1.4,0x3f9d4f,-5+i*2.2,0,8,7); g.add(cyl(0.12,0.16,1.8,0x7a5a30,-5+i*2.2,0,8,6)); p.position.y=1.8+0.7; g.add(p); }
+};
+B.taj = g => {
+  const w = 0xf7f1e6;
+  g.add(box(13,1,13,0xe9e1d0,0,0,0));
+  g.add(box(6.4,6,6.4,w,0,1,0));
+  g.add(box(2.6,6.2,1.2,0xefe7d9,0,1,3.4)); g.add(box(1.2,3.2,0.6,0x3a3a4a,0,1,3.9));
+  g.add(sph(2.7,w,0,9.2,0,24,16)); g.add(cone(1.1,1.1,w,0,11.5,0,12)); g.add(cyl(0.08,0.08,1.6,0xe8c65a,0,12.4,0,6));
+  for(const sx of [-1,1]) for(const sz of [-1,1]){
+    g.add(cyl(0.75,0.75,1.2,w,sx*2.5,7,sz*2.5,12)); g.add(sph(0.8,w,sx*2.5,8.4,sz*2.5,16,12));
+    g.add(cyl(0.42,0.48,9.5,w,sx*5.8,1,sz*5.8,12)); g.add(sph(0.55,w,sx*5.8,10.6,sz*5.8,12,10));
+  }
+  g.add(box(2.2,0.2,9,0x63b4e8,0,1,10.5));
+  for(const sx of [-1,1]) for(let i=0;i<4;i++){ g.add(cone(0.5,2,0x2f8f4e,sx*2.2,1.1,7+i*2.3,8)); }
+};
+B.temple = g => {
+  g.add(cyl(7.5,7.5,0.6,0xf0ece2,0,0,0,32)); g.add(cyl(6.3,6.3,0.6,0xf0ece2,0,0.6,0,32)); g.add(cyl(5.1,5.1,0.6,0xf0ece2,0,1.2,0,32));
+  const red=0xc9402e, blue=0x2f4ea8;
+  g.add(cyl(3,3,3.2,red,0,1.8,0,24)); g.add(cone(4.2,1.7,blue,0,4.9,0,24));
+  g.add(cyl(2.3,2.3,2.2,red,0,6.5,0,24)); g.add(cone(3.3,1.5,blue,0,8.6,0,24));
+  g.add(cyl(1.7,1.7,2.2,red,0,10,0,24)); g.add(cone(2.4,2.4,blue,0,12.1,0,24));
+  g.add(sph(0.4,0xf2c14e,0,14.6,0,10,8));
+  for(let i=0;i<12;i++){ const a=i/12*Math.PI*2; g.add(cyl(0.18,0.18,3.2,0xe8c65a,Math.cos(a)*2.9,1.8,Math.sin(a)*2.9,6)); }
+};
+B.fuji = g => {
+  g.add(cone(11,10,0x4a5a80,0,0,0,28));
+  g.add(cone(3.5,3.6,0xffffff,0,6.45,0,28));
+  // torii gate
+  const red = 0xd9382b;
+  g.add(cyl(0.28,0.3,4.2,red,-1.8,0,13,10)); g.add(cyl(0.28,0.3,4.2,red,1.8,0,13,10));
+  g.add(box(5.6,0.4,0.45,0x2b2b2b,0,4.2,13)); g.add(box(4.6,0.32,0.35,red,0,3.4,13));
+  g.add(cyl(0.28,0.3,4.2,red,-1.8,0,-13,10)); g.add(cyl(0.28,0.3,4.2,red,1.8,0,-13,10));
+  g.add(box(5.6,0.4,0.45,0x2b2b2b,0,4.2,-13)); g.add(box(4.6,0.32,0.35,red,0,3.4,-13));
+  // small pagoda
+  for(let i=0;i<3;i++){ g.add(box(2.4-i*0.4,1.2,2.4-i*0.4,0xb3452f,13,i*1.6,-4)); g.add(pyr(2.1-i*0.35,0.8,0x333a4a,13,1.2+i*1.6,-4)); }
+};
+B.opera = g => {
+  g.add(box(14,1.2,8,0xe3dccb,0,0,0)); g.add(box(12,0.8,6,0xd6ceb9,0,1.2,0));
+  const sailMat = new THREE.MeshToonMaterial({color:0xfbfaf5, gradientMap, side:THREE.DoubleSide});
+  function sail(r,x,z,ry,tilt){
+    const m = new THREE.Mesh(new THREE.SphereGeometry(r, 18, 12, 0, Math.PI/2, 0, Math.PI/2), sailMat);
+    m.position.set(x,2,z); m.rotation.y = ry; m.rotation.z = tilt||0; shadowed(m); g.add(m);
+  }
+  sail(4.2,-3.5,1.2,Math.PI*1.05); sail(3.4,0.2,1.2,Math.PI*1.05); sail(2.7,3.2,1.2,Math.PI*1.05);
+  sail(3.0,-1.5,-2.2,Math.PI*1.05); sail(2.3,1.6,-2.2,Math.PI*1.05);
+};
+B.christ = g => {
+  const hill = cone(8,9,0x5f9a54,0,0,0,24); g.add(hill);
+  g.add(box(1.4,1.6,1.4,0xbfbfb8,0,9,0));
+  g.add(cyl(0.65,1,4.4,0xe6e6df,0,10.6,0,12));
+  g.add(box(6.4,0.55,0.55,0xe6e6df,0,14.6,0));
+  g.add(sph(0.52,0xe6e6df,0,15.7,0,12,10));
+  for(let i=0;i<6;i++){ const a=i/6*Math.PI*2; g.add(cone(0.7,2.2,0x2f8f4e,Math.cos(a)*10.5,0,Math.sin(a)*10.5,7)); }
+};
+B.colosseum = g => {
+  const stone = 0xe0c58f, dark = 0x5e4a33;
+  const tall = new THREE.Mesh(new THREE.CylinderGeometry(6.2,6.2,6.4,48,1,true,0,Math.PI*1.45), new THREE.MeshToonMaterial({color:stone, gradientMap, side:THREE.DoubleSide}));
+  tall.position.y = 3.2; shadowed(tall); g.add(tall);
+  const low = new THREE.Mesh(new THREE.CylinderGeometry(6.2,6.2,3.2,48,1,true,Math.PI*1.45,Math.PI*0.55), tall.material);
+  low.position.y = 1.6; shadowed(low); g.add(low);
+  g.add(cyl(5.6,5.6,0.6,0xc9ad78,0,0,0,48));
+  const inner = new THREE.Mesh(new THREE.CylinderGeometry(4.6,4.6,2.4,40,1,true), tall.material); inner.position.y=1.2; g.add(inner);
+  for(let i=0;i<28;i++){ const a=i/28*Math.PI*2; const rows = a < Math.PI*1.45 ? 3 : 1;
+    for(let r=0;r<rows;r++){ const w=box(0.7,1.2,0.3,dark,0,0,0); w.position.set(Math.cos(a)*6.25, 0.9+r*2, Math.sin(a)*6.25); w.rotation.y=-a+Math.PI/2; g.add(w); } }
+  for(let i=0;i<5;i++){ g.add(cone(0.6,2.6,0x3d8f4e,-9+i*1.5,0.5,8,7)); g.add(cyl(0.12,0.14,1,0x7a5a30,-9+i*1.5,0,8,6)); }
+};
+B.basil = g => {
+  const red = 0xc94b3f;
+  g.add(box(8,2.2,8,red,0,0,0));
+  g.add(cyl(1.5,1.5,5.4,0xe9e2d3,0,2.2,0,16)); g.add(cone(1.8,4.4,0x3f9c5c,0,7.6,0,8)); g.add(sph(0.6,0xf2c14e,0,12.3,0,12,10)); g.add(cyl(0.06,0.06,1.4,0xf2c14e,0,12.8,0,6));
+  const cols = [[0x3b6fd6,0xf2c14e],[0x3f9c5c,0xffffff],[0xf2c14e,0xc94b3f],[0xd0463c,0x3b6fd6]];
+  let i=0;
+  for(const sx of [-1,1]) for(const sz of [-1,1]){
+    const [a,b] = cols[i++];
+    g.add(cyl(0.95,0.95,4.4,0xe9e2d3,sx*2.6,2.2,sz*2.6,16));
+    const onion = sph(1.2,a,sx*2.6,7.4,sz*2.6,18,14); onion.scale.set(1,1.15,1); g.add(onion);
+    g.add(cone(0.55,1.4,b,sx*2.6,8.5,sz*2.6,10)); g.add(cyl(0.05,0.05,1,0xf2c14e,sx*2.6,9.8,sz*2.6,6));
+  }
+  for(const [x,z,cc] of [[0,3.2,0x3b6fd6],[0,-3.2,0xf2c14e],[3.2,0,0x3f9c5c],[-3.2,0,0xd0463c]]){
+    g.add(cyl(0.7,0.7,3.2,0xe9e2d3,x,2.2,z,12)); const o=sph(0.85,cc,x,5.9,z,14,10); o.scale.set(1,1.2,1); g.add(o); g.add(cone(0.4,1,0xf2c14e,x,6.8,z,8));
+  }
+};
+B.burj = g => {
+  const glass = 0xbcd8ee;
+  let y=0; const tiers=[[2.6,6],[2.1,5.5],[1.7,5],[1.3,4.5],[0.95,4],[0.6,3.5]];
+  for(const [r,h] of tiers){ g.add(cyl(r,r+0.1,h,glass,0,y,0,6)); y+=h; }
+  g.add(cone(0.4,3,0xdfe9f2,0,y,0,6)); g.add(cyl(0.06,0.06,3,0xffffff,0,y+2.5,0,4));
+  g.add(box(3,4,3,0xd7e3ec,-5,0,2)); g.add(box(2.2,6,2.2,0xd7e3ec,5,0,-2)); g.add(box(4,2.5,2.5,0xd7e3ec,1,0,-6));
+  for(let i=0;i<4;i++){ g.add(cyl(0.12,0.16,2.2,0x8a6a3a,-6+i*4,0,6,6)); for(let k=0;k<5;k++){ const leaf=box(2.2,0.18,0.35,0x3fa54a,0,0,0); leaf.position.set(-6+i*4+Math.cos(k/5*6.28)*1.0,2.4,6+Math.sin(k/5*6.28)*1.0); leaf.rotation.y=-k/5*6.28; leaf.rotation.z=0.4; g.add(leaf);} }
+};
+B.stave = g => {
+  const wood = 0x4a2e1c, roof = 0x3a2416;
+  g.add(box(6.5,3.2,8.5,wood,0,0,0));
+  g.add(prism(7.4,2.6,9.4,roof,0,3.2,0));
+  g.add(box(3.6,2.2,5.2,wood,0,5,0)); g.add(prism(4.4,2,6.2,roof,0,7.2,0));
+  g.add(box(1.8,1.7,2.4,wood,0,8.6,0)); g.add(prism(2.3,1.6,3.2,roof,0,10.3,0));
+  g.add(box(0.12,1.2,0.12,0xe8c65a,0,11.9,0)); g.add(box(0.6,0.12,0.12,0xe8c65a,0,12.6,0));
+  // dragon heads
+  for(const sz of [-1,1]){ const h=beam(new THREE.Vector3(0,5.8,sz*4.7), new THREE.Vector3(0,7.2,sz*5.6),0.18,roof); g.add(h); }
+  g.add(box(1.2,1.8,0.2,0x2a1a10,0,0,4.3));
+  for(let i=0;i<6;i++){ const a=i/6*Math.PI*2; g.add(cone(0.9,3,0x2f7f3e,Math.cos(a)*9,0,Math.sin(a)*9,7)); g.add(cyl(0.14,0.18,1.2,0x5a3a20,Math.cos(a)*9,0,Math.sin(a)*9,6)); }
+  // viking ship on the side
+  const ship = new THREE.Group();
+  ship.add(box(6.5,1,1.9,0x6b3f1f,0,0,0)); ship.add(box(5,0.5,2.4,0x7d4a24,0,0.9,0));
+  ship.add(beam(new THREE.Vector3(3.2,0.6,0), new THREE.Vector3(4.2,3,0),0.25,0x6b3f1f)); ship.add(sph(0.4,0xe8c65a,4.3,3.2,0,8,6));
+  ship.add(beam(new THREE.Vector3(-3.2,0.6,0), new THREE.Vector3(-4,2.4,0),0.25,0x6b3f1f));
+  ship.add(cyl(0.12,0.12,5,0x8a5a30,0,1,0,6));
+  const sail = box(3.4,2.6,0.12,0xd9382b,0,2.6,0.1); ship.add(sail);
+  for(let i=0;i<3;i++){ ship.add(box(0.4,2.6,0.14,0xffffff,-1.2+i*1.2,2.6,0.12)); }
+  for(let i=0;i<4;i++){ const sh = new THREE.Mesh(new THREE.CylinderGeometry(0.42,0.42,0.1,12), mat(0xf2c14e)); sh.rotation.x=Math.PI/2; sh.position.set(-2+i*1.3,1.1,1.25); ship.add(sh); }
+  ship.position.set(-9,-0.2,-3); ship.rotation.y = 0.5; g.add(ship);
+};
+B.cntower = g => {
+  const c = 0xdcdcdc;
+  g.add(box(6,1,6,0xbfbfbf,0,0,0)); g.add(cyl(0.7,1.4,14.5,c,0,1,0,12));
+  g.add(cyl(2.2,1.6,1.8,c,0,14.5,0,20)); g.add(cyl(1.6,2.2,0.7,0xa9a9a9,0,13.8,0,20));
+  g.add(cyl(0.55,0.65,4,c,0,16.3,0,10)); g.add(cyl(0.9,0.9,0.8,c,0,20.3,0,12));
+  g.add(cone(0.35,6,0xf0f0f0,0,21.1,0,8)); g.add(sph(0.25,0xff3333,0,27.2,0,8,6));
+  g.add(box(3,4,3,0x8fb8d8,-5,0,3)); g.add(box(2.5,6,2.5,0x8fb8d8,5,0,2)); g.add(box(2.5,3,4,0x8fb8d8,4,0,-4));
+};
+B.moai = g => {
+  g.add(box(12,1,3,0x7a7a70,0,0,0));
+  for(let i=0;i<4;i++){
+    const x = -4.5+i*3, stone = 0x6e6e64;
+    g.add(box(1.3,2.6,1,stone,x,1,0));
+    const head = box(1.15,2.2,1.1,stone,x,3.6,0.1); g.add(head);
+    g.add(box(0.35,0.9,0.4,stone,x,4.1,0.7)); g.add(box(1.0,0.3,0.3,0x555550,x,4.9,0.6));
+    g.add(cyl(0.55,0.65,0.7,0xa8443a,x,5.8,0.05,12));
+  }
+  for(let i=0;i<3;i++){ g.add(cyl(0.14,0.18,2.6,0x8a6a3a,-6+i*6,-0.2,-4,6)); for(let k=0;k<6;k++){ const leaf=box(2.4,0.18,0.4,0x3fa54a,0,0,0); leaf.position.set(-6+i*6+Math.cos(k/6*6.28)*1.1,2.7,-4+Math.sin(k/6*6.28)*1.1); leaf.rotation.y=-k/6*6.28; leaf.rotation.z=0.45; g.add(leaf);} }
+};
+B.chichen = g => {
+  const stone = 0xbbb391;
+  const sizes=[11,9,7.2,5.4,3.6];
+  sizes.forEach((s,i)=>{ g.add(box(s,1.3,s,stone,0,i*1.3,0)); });
+  g.add(box(2.8,2.2,2.8,0xa79f7c,0,6.5,0)); g.add(box(3.2,0.5,3.2,0x8f8867,0,8.7,0));
+  const stairs = box(2.2,0.4,6.4,0xd7cfa8,0,0,0); stairs.position.set(0,3.4,-3.4); stairs.rotation.x=-Math.atan2(6.5,5.9); g.add(stairs);
+  for(let i=0;i<5;i++){ const a=i/5*Math.PI*2+0.3; g.add(cone(0.8,2.6,0x2f8f4e,Math.cos(a)*10,0,Math.sin(a)*10,7)); g.add(cyl(0.12,0.15,1.2,0x7a5a30,Math.cos(a)*10,-0.2,Math.sin(a)*10,6)); }
+};
+
+// ============================================================ LANDMARK DEFINITIONS
+const LANDMARKS = [
+  {id:'eiffel',   name:'Eiffel Tower',        country:'France',        flag:'🇫🇷', lat:47.6, lon:2.6,   heading:20,  height:26, fact:'Built for the 1889 World\'s Fair. It was the tallest structure on Earth for 41 years.', colliders:[{x:0,z:0,r:4.2}]},
+  {id:'bigben',   name:'Big Ben',             country:'United Kingdom',flag:'🇬🇧', lat:52.6, lon:-2.4,  heading:0,   height:22, fact:'"Big Ben" is really the name of the 13-ton bell inside the Elizabeth Tower.', colliders:[{x:0,z:0,r:2.3},{x:-7.5,z:-1,r:5.5}]},
+  {id:'colosseum',name:'Colosseum',           country:'Italy',         flag:'🇮🇹', lat:41.9, lon:12.8,  heading:0,   height:8,  fact:'Rome\'s giant amphitheatre held about 50,000 spectators nearly 2,000 years ago.', colliders:[{x:0,z:0,r:6.6}]},
+  {id:'basil',    name:"St. Basil's Cathedral",country:'Russia',       flag:'🇷🇺', lat:55.7, lon:37.6,  heading:0,   height:14, fact:'Its nine colourful onion domes have stood on Red Square in Moscow since 1561.', colliders:[{x:0,z:0,r:5}]},
+  {id:'stave',    name:'Stave Church',        country:'Norway',        flag:'🇳🇴', lat:60.6, lon:9.6,   heading:-30, height:13, fact:'Wooden stave churches were built by Viking descendants; Borgund\'s dates from about 1180.', colliders:[{x:0,z:0,r:4.6}]},
+  {id:'liberty',  name:'Statue of Liberty',   country:'United States', flag:'🇺🇸', lat:41.2, lon:-72.8, heading:60,  height:19, fact:'A gift from France in 1886. Her crown has seven rays, one for each continent.', colliders:[{x:0,z:0,r:3.2}]},
+  {id:'cntower',  name:'CN Tower',            country:'Canada',        flag:'🇨🇦', lat:45.8, lon:-81.5, heading:0,   height:28, fact:'At 553 m the Toronto tower was the world\'s tallest free-standing structure for 32 years.', colliders:[{x:0,z:0,r:1.6}]},
+  {id:'chichen',  name:'Chichén Itzá',        country:'Mexico',        flag:'🇲🇽', lat:21.2, lon:-89,   heading:0,   height:10, fact:'The Maya pyramid El Castillo has 365 steps, one for every day of the year.', colliders:[{type:'cone',x:0,z:0,r:5.8,h:7}]},
+  {id:'christ',   name:'Christ the Redeemer', country:'Brazil',        flag:'🇧🇷', lat:-22.8,lon:-43.2, heading:0,   height:17, fact:'The 30 m statue watches over Rio de Janeiro from the top of Corcovado mountain.', colliders:[{type:'cone',x:0,z:0,r:8,h:9},{x:0,z:0,r:1.2}]},
+  {id:'moai',     name:'Moai of Easter Island',country:'Chile',        flag:'🇨🇱', lat:-27,  lon:-109.2,heading:0,   height:7,  fact:'Nearly 900 giant stone heads were carved by the Rapa Nui people between 1250 and 1500.', colliders:[{x:-4.5,z:0,r:1.2},{x:-1.5,z:0,r:1.2},{x:1.5,z:0,r:1.2},{x:4.5,z:0,r:1.2}]},
+  {id:'pyramids', name:'Pyramids of Giza',    country:'Egypt',         flag:'🇪🇬', lat:29.4, lon:31,    heading:30,  height:8,  fact:'The Great Pyramid is about 4,500 years old and the last surviving Wonder of the Ancient World.', colliders:[{type:'cone',x:0,z:0,r:6,h:7.5},{type:'cone',x:8,z:4,r:4.4,h:5.6},{type:'cone',x:13.5,z:7,r:2.8,h:3.6},{x:-7,z:-3,r:1.8}]},
+  {id:'burj',     name:'Burj Khalifa',        country:'United Arab Emirates', flag:'🇦🇪', lat:24.5, lon:55.5, heading:0, height:30, fact:'The tallest building in the world at 828 metres, with 163 floors.', colliders:[{x:0,z:0,r:2.8},{x:-5,z:2,r:2},{x:5,z:-2,r:1.6},{x:1,z:-6,r:2.3}]},
+  {id:'taj',      name:'Taj Mahal',           country:'India',         flag:'🇮🇳', lat:27.2, lon:78.2,  heading:0,   height:14, fact:'A white marble mausoleum built by Emperor Shah Jahan for his wife Mumtaz Mahal in 1632.', colliders:[{x:0,z:0,r:4.5},{x:5.8,z:5.8,r:.6},{x:-5.8,z:5.8,r:.6},{x:5.8,z:-5.8,r:.6},{x:-5.8,z:-5.8,r:.6}]},
+  {id:'temple',   name:'Temple of Heaven',    country:'China',         flag:'🇨🇳', lat:39.6, lon:116.5, heading:0,   height:15, fact:'Ming emperors prayed here for good harvests. It was built entirely without nails.', colliders:[{x:0,z:0,r:3.3}]},
+  {id:'fuji',     name:'Mount Fuji',          country:'Japan',         flag:'🇯🇵', lat:36,   lon:138.2, heading:0,   height:11, fact:'Japan\'s highest mountain (3,776 m) is a sacred volcano and appears in countless works of art.', colliders:[{type:'cone',x:0,z:0,r:11,h:10},{x:-1.8,z:13,r:.4},{x:1.8,z:13,r:.4},{x:-1.8,z:-13,r:.4},{x:1.8,z:-13,r:.4},{x:13,z:-4,r:1.6}]},
+  {id:'opera',    name:'Sydney Opera House',  country:'Australia',     flag:'🇦🇺', lat:-33,  lon:150.2, heading:90,  height:8,  fact:'Its sail-shaped shells took 14 years to build and opened in 1973.', colliders:[{x:0,z:0,r:6.5}]},
+];
+const landmarkObjs = [];
+for(const L of LANDMARKS){
+  const g = new THREE.Group();
+  B[L.id](g);
+  g.scale.setScalar(LM_SCALE);
+  L.height *= LM_SCALE;
+  L.colliders = L.colliders.map(c => Object.assign({}, c, {x:c.x*LM_SCALE, z:c.z*LM_SCALE, r:c.r*LM_SCALE, h:(c.h||0)*LM_SCALE}));
+  placeOnSurface(g, L.lat, L.lon, -0.15, L.heading);
+  const label = labelSprite(L.name); label.position.set(0, L.height/LM_SCALE+4, 0); g.add(label);
+  scene.add(g);
+  L.label = label; L.group = g; L.pos = g.position.clone(); L.up = L.pos.clone().normalize(); L.visited = false;
+  L.world = L.colliders.map(c => {
+    const wp = g.localToWorld(new THREE.Vector3(c.x, 0, c.z));
+    return Object.assign({}, c, {wp});
+  });
+  landmarkObjs.push(g);
+}
+
+// ============================================================ HILLS / MOUNTAINS
+const hills = [];
+function addHill(lat, lon, r, colorHex, snowy){
+  const c = latLonToVec(lat, lon, -r*0.45);
+  const geo = new THREE.SphereGeometry(r, 24, 18);
+  const m = new THREE.Mesh(geo, mat(colorHex));
+  if(snowy){
+    const pos = geo.attributes.position; const colors = new Float32Array(pos.count*3);
+    const base = new THREE.Color(colorHex), white = new THREE.Color(0xffffff);
+    for(let i=0;i<pos.count;i++){ const y = pos.getY(i); const cc = y > r*0.86 ? white : base; colors.set([cc.r,cc.g,cc.b], i*3); }
+    geo.setAttribute('color', new THREE.BufferAttribute(colors,3));
+    m.material = new THREE.MeshToonMaterial({color:0xffffff, vertexColors:true, gradientMap});
+  }
+  m.position.copy(c); m.quaternion.copy(surfaceQuat(c,0)); shadowed(m); scene.add(m);
+  hills.push({c, r});
+}
+const MOUNTAINS = [[44,-113,7],[50,-119,5.5],[38,-108,5],[-15,-72,5],[-30,-70,5],[0,-78,4],[46.5,10,4.5],[30,86,8],[33,78,6],[28,95,5],[60,60,4],[32,-5,3.5],[-29,29,3.5],[-3,37,4],[43,44,4],[9,39,4],[-25,148,4],[-44,170,3.5],[62,-150,5],[66,16,4]];
+for(const [la,lo,r] of MOUNTAINS) addHill(la, lo, r, 0x7a7590, true);
+// green hills (deterministic pseudo-random)
+let seed = 12345; function rnd(){ seed = (seed*16807) % 2147483647; return (seed-1)/2147483646; }
+let placed = 0, tries = 0;
+while(placed < 55 && tries < 4000){
+  tries++;
+  const lat = (rnd()*2-1)*70, lon = rnd()*360-180;
+  if(!isLand(lat,lon)) continue;
+  const b = biome(lat,lon); if(b==='ice') continue;
+  const p = latLonToVec(lat,lon);
+  if(LANDMARKS.some(L => L.pos.distanceTo(p) < 22)) continue;
+  if(hills.some(h => h.c.distanceTo(p) < 12)) continue;
+  addHill(lat, lon, 2.2 + rnd()*2.2, b==='sand'||b==='outback' ? 0xd9a866 : 0x5fae48, false);
+  placed++;
+}
+
+// ============================================================ TREES (instanced)
+(function trees(){
+  const N = 520;
+  const trunk = new THREE.InstancedMesh(new THREE.CylinderGeometry(0.16,0.22,1.3,6), mat(0x7a4f28), N);
+  const pine  = new THREE.InstancedMesh(new THREE.CylinderGeometry(0,0.95,2.6,7), mat(0x2f8a3f), N);
+  const round = new THREE.InstancedMesh(new THREE.SphereGeometry(1.05,10,8), mat(0x52b043), N);
+  trunk.castShadow = pine.castShadow = round.castShadow = true;
+  const m = new THREE.Matrix4(), q = new THREE.Quaternion(), s = new THREE.Vector3(), t = new THREE.Vector3();
+  let np=0, nr=0, n=0, tries=0;
+  while(n < N && tries < 20000){
+    tries++;
+    const lat = (rnd()*2-1)*75, lon = rnd()*360-180;
+    if(!isLand(lat,lon)) continue;
+    const b = biome(lat,lon); if(b==='ice'||b==='sand'||b==='outback') continue;
+    const p = latLonToVec(lat,lon,-0.1);
+    if(LANDMARKS.some(L => L.pos.distanceTo(p) < 15)) continue;
+    if(hills.some(h => h.c.distanceTo(p) < h.r+0.5)) continue;
+    const sc = 0.8 + rnd()*0.7;
+    q.copy(surfaceQuat(p, rnd()*360)); s.set(sc,sc,sc);
+    m.compose(p, q, s); trunk.setMatrixAt(n, m);
+    const isPine = b==='tundra' || b==='steppe' || (b==='grass' && rnd()<0.55);
+    t.copy(p).add(p.clone().normalize().multiplyScalar(sc*(isPine?2.2:1.9)));
+    m.compose(t, q, s);
+    if(isPine) pine.setMatrixAt(np++, m); else round.setMatrixAt(nr++, m);
+    n++;
+  }
+  trunk.count = n; pine.count = np; round.count = nr;
+  scene.add(trunk); scene.add(pine); scene.add(round);
+})();
+
+// ============================================================ CLOUDS
+const clouds = [];
+for(let i=0;i<26;i++){
+  const g = new THREE.Group();
+  const k = 3+Math.floor(rnd()*3);
+  for(let j=0;j<k;j++){ const s = sph(1.2+rnd()*1.4, 0xffffff, (j-k/2)*1.6+rnd(), rnd()*0.6, (rnd()-0.5)*1.5, 12, 8); s.castShadow=false; s.receiveShadow=false; g.add(s); }
+  const base = latLonToVec((rnd()*2-1)*75, rnd()*360-180, 13+rnd()*4);
+  const axis = randDir();
+  clouds.push({g, base, axis, angle: rnd()*6.28, speed: 0.01+rnd()*0.02});
+  scene.add(g);
+}
+
+// ============================================================ COINS
+const coins = [];
+const coinGeo = new THREE.CylinderGeometry(0.62,0.62,0.16,18);
+const coinMat = new THREE.MeshToonMaterial({color:0xffcc33, gradientMap, emissive:0x553300});
+function addCoin(pos){
+  const m = new THREE.Mesh(coinGeo, coinMat); m.castShadow = true;
+  m.position.copy(pos); m.quaternion.copy(surfaceQuat(pos, rnd()*360));
+  m.rotateX(Math.PI/2);
+  scene.add(m); coins.push({m, taken:false});
+}
+for(const L of LANDMARKS){
+  const rad = 10 + (L.id==='fuji'||L.id==='pyramids'||L.id==='christ' ? 6 : 0);
+  for(let i=0;i<6;i++){
+    const a = i/6*Math.PI*2 + 0.4;
+    const local = new THREE.Vector3(Math.cos(a)*rad, 1.3, Math.sin(a)*rad);
+    const wp = L.group.localToWorld(local.clone());
+    // keep on surface
+    wp.setLength(R+1.3); addCoin(wp);
+  }
+}
+for(const h of hills){ const dir = h.c.clone().normalize(); addCoin(dir.multiplyScalar(h.c.length()+h.r+1.3)); }
+for(const L of ['christ','pyramids','chichen','fuji']){ const LM = LANDMARKS.find(l=>l.id===L); const c = LM.colliders.find(c=>c.type==='cone'); const p = LM.group.localToWorld(new THREE.Vector3(c.x/LM_SCALE, c.h/LM_SCALE+1.6, c.z/LM_SCALE)); addCoin(p); }
+// random ocean/land arcs
+for(let i=0;i<60;i++){ const lat=(rnd()*2-1)*70, lon=rnd()*360-180; if(!isLand(lat,lon)) continue; addCoin(latLonToVec(lat,lon,1.3)); }
+document.getElementById('coinsTotal').textContent = coins.length;
+
+// ============================================================ PLAYER
+const player = new THREE.Group();
+const model = new THREE.Group(); player.add(model);
+const skin = 0xffd6a5, red = 0xd42a3a, blue = 0x2b6cf0, pants = 0x2b4b8f;
+model.add(cyl(0.5,0.62,1.05,red,0,0.55,0,14));
+model.add(box(0.7,0.5,0.35,pants,0,0.6,0.35));
+model.add(sph(0.56,skin,0,1.78,0,20,14));
+const capTop = new THREE.Mesh(new THREE.SphereGeometry(0.6,20,10,0,Math.PI*2,0,Math.PI/2), mat(blue)); capTop.position.y=1.82; shadowed(capTop); model.add(capTop);
+model.add(box(0.7,0.1,0.55,blue,0,1.84,0.55));
+for(const sx of [-1,1]){ model.add(sph(0.14,0xffffff,sx*0.21,1.86,0.46,10,8)); model.add(sph(0.07,0x1b1b1b,sx*0.21,1.87,0.58,8,6)); }
+model.add(sph(0.11,0xe9a07a,0,1.7,0.55,8,6));
+model.add(box(0.28,0.05,0.15,0x8a4a1a,0,1.58,0.5));
+const legs=[], arms=[];
+for(const sx of [-1,1]){
+  const lg = new THREE.Group(); lg.position.set(sx*0.24,0.62,0);
+  lg.add(cyl(0.15,0.15,0.5,pants,0,-0.5,0,8)); lg.add(box(0.32,0.18,0.5,0x6b3f1f,0,-0.62,0.06));
+  model.add(lg); legs.push(lg);
+  const ag = new THREE.Group(); ag.position.set(sx*0.68,1.35,0);
+  ag.add(cyl(0.13,0.13,0.6,red,0,-0.6,0,8)); ag.add(sph(0.17,0xffffff,0,-0.7,0,10,8));
+  model.add(ag); arms.push(ag);
+}
+scene.add(player);
+// compass arrow
+const arrow = new THREE.Group();
+arrow.add(cone(0.42,1.0,0xffcc33,0,0,0,10)); arrow.add(cyl(0.16,0.16,0.7,0xffcc33,0,-0.7,0,8));
+arrow.children.forEach(c=>{c.castShadow=false;});
+scene.add(arrow);
+
+// ============================================================ STATE
+const state = {
+  pos: latLonToVec(45.6, 1.0),
+  hvel: new THREE.Vector3(),
+  vy: 0, grounded: true, facing: null, camF: null, camDist: 17, camPitch: 0.3,
+  coins: 0, visited: 0, started: false, walkPhase: 0, squash: 1, squashV: 0, nearest: null, activeLandmark: null,
+  wasGrounded: true,
+};
+{
+  const up = state.pos.clone().normalize();
+  const target = LANDMARKS[0].pos.clone().sub(state.pos); target.sub(up.clone().multiplyScalar(target.dot(up))).normalize();
+  state.facing = target.clone(); state.camF = target.clone();
+}
+const keys = {};
+window.addEventListener('keydown', e => { keys[e.code]=true; if(actx && actx.state==='suspended') actx.resume(); if(!state.started) start(); if(e.code==='KeyP') document.getElementById('passport').classList.toggle('collapsed'); if(['Space','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.code)) e.preventDefault(); });
+window.addEventListener('keyup', e => { keys[e.code]=false; });
+let dragging=false, lastX=0, lastY=0;
+renderer.domElement.addEventListener('mousedown', e=>{ dragging=true; lastX=e.clientX; lastY=e.clientY; });
+window.addEventListener('mouseup', ()=>dragging=false);
+window.addEventListener('mousemove', e=>{ if(!dragging) return; const dx=e.clientX-lastX, dy=e.clientY-lastY; lastX=e.clientX; lastY=e.clientY; state.camYawInput=(state.camYawInput||0)-dx*0.006; state.camPitch=THREE.MathUtils.clamp(state.camPitch+dy*0.004,0.08,1.1); });
+window.addEventListener('wheel', e=>{ state.camDist = THREE.MathUtils.clamp(state.camDist + Math.sign(e.deltaY)*1.5, 8, 34); }, {passive:true});
+// touch: simple drag to turn, tap-hold on left/right halves to move
+let touchId=null, tx=0, ty=0;
+renderer.domElement.addEventListener('touchstart', e=>{ if(!state.started) start(); const t=e.changedTouches[0]; touchId=t.identifier; tx=t.clientX; ty=t.clientY; keys.KeyW=true; }, {passive:true});
+renderer.domElement.addEventListener('touchmove', e=>{ for(const t of e.changedTouches){ if(t.identifier!==touchId) continue; const dx=t.clientX-tx; tx=t.clientX; state.camYawInput=(state.camYawInput||0)-dx*0.008; } }, {passive:true});
+renderer.domElement.addEventListener('touchend', e=>{ keys.KeyW=false; if(e.changedTouches.length && Math.abs(e.changedTouches[0].clientY-ty)<10) keys.Space=true; setTimeout(()=>keys.Space=false,120); }, {passive:true});
+window.addEventListener('resize', ()=>{ camera.aspect=window.innerWidth/window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); });
+document.getElementById('overlay').addEventListener('click', start);
+
+// ============================================================ AUDIO
+let actx = null;
+function beep(freq, dur, type, when, vol){
+  if(!actx) return;
+  const o = actx.createOscillator(), g = actx.createGain();
+  o.type = type||'square'; o.frequency.value = freq;
+  g.gain.setValueAtTime(0.0001, actx.currentTime+when); g.gain.exponentialRampToValueAtTime(vol||0.12, actx.currentTime+when+0.01);
+  g.gain.exponentialRampToValueAtTime(0.0001, actx.currentTime+when+dur);
+  o.connect(g); g.connect(actx.destination); o.start(actx.currentTime+when); o.stop(actx.currentTime+when+dur+0.05);
+}
+const sfx = {
+  jump(){ if(!actx) return; const o=actx.createOscillator(), g=actx.createGain(); o.type='square'; o.frequency.setValueAtTime(320, actx.currentTime); o.frequency.exponentialRampToValueAtTime(760, actx.currentTime+0.14); g.gain.setValueAtTime(0.1, actx.currentTime); g.gain.exponentialRampToValueAtTime(0.0001, actx.currentTime+0.18); o.connect(g); g.connect(actx.destination); o.start(); o.stop(actx.currentTime+0.2); },
+  coin(){ beep(988,0.09,'sine',0,0.14); beep(1319,0.22,'sine',0.08,0.14); },
+  stamp(){ [523,659,784,1047].forEach((f,i)=>beep(f,0.18,'triangle',i*0.09,0.16)); },
+  win(){ [523,659,784,1047,784,1047,1319].forEach((f,i)=>beep(f,0.25,'triangle',i*0.13,0.18)); },
+};
+
+// ============================================================ UI
+const ui = {
+  coins: document.getElementById('coins'), visited: document.getElementById('visited'), nearest: document.getElementById('nearest'),
+  banner: document.getElementById('banner'), toast: document.getElementById('toast'), overlay: document.getElementById('overlay'), list: document.getElementById('passportList'),
+};
+document.getElementById('visitedTotal').textContent = LANDMARKS.length;
+for(const L of LANDMARKS){ const li=document.createElement('li'); li.id='pp-'+L.id; li.innerHTML=`<span class="stamp"></span><span>${L.flag} ${L.name}</span>`; ui.list.appendChild(li); }
+let toastTimer=null;
+function toast(msg){ ui.toast.textContent=msg; ui.toast.style.opacity=1; clearTimeout(toastTimer); toastTimer=setTimeout(()=>ui.toast.style.opacity=0, 1800); }
+function showBanner(L, isNew){
+  ui.banner.querySelector('.flag').textContent = L.flag;
+  ui.banner.querySelector('.name').textContent = L.name;
+  ui.banner.querySelector('.country').textContent = L.country;
+  ui.banner.querySelector('.fact').textContent = L.fact;
+  ui.banner.querySelector('.new').style.display = isNew ? 'inline-block' : 'none';
+  ui.banner.classList.add('show');
+  clearTimeout(showBanner.t); showBanner.t = setTimeout(()=>ui.banner.classList.remove('show'), 7000);
+}
+if(window.innerWidth < 1200) document.getElementById('passport').classList.add('collapsed');
+function start(){
+  if(state.started) return;
+  state.started = true;
+  setTimeout(()=>document.getElementById('hint').classList.add('fade'), 12000);
+  ui.overlay.classList.add('hidden');
+  try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){}
+  clock.getDelta();
+}
+document.getElementById('loading').remove();
+
+// ============================================================ PHYSICS + GAME LOOP
+const tmp = { v:new THREE.Vector3(), v2:new THREE.Vector3(), v3:new THREE.Vector3(), q:new THREE.Quaternion(), m:new THREE.Matrix4() };
+
+function update(dt){
+  const S = state;
+  const up = S.pos.clone().normalize();
+
+  // ---- camera frame: parallel-transport camF onto the tangent plane
+  S.camF.sub(up.clone().multiplyScalar(S.camF.dot(up))).normalize();
+  let yaw = S.camYawInput||0; S.camYawInput = 0;
+  if(keys.KeyQ) yaw += 2.2*dt; if(keys.KeyE) yaw -= 2.2*dt;
+  if(yaw) S.camF.applyAxisAngle(up, yaw);
+  const camR = new THREE.Vector3().crossVectors(S.camF, up).normalize();
+
+  // ---- input
+  let ix=0, iz=0;
+  if(S.started){
+    if(keys.KeyW||keys.ArrowUp) iz+=1; if(keys.KeyS||keys.ArrowDown) iz-=1;
+    if(keys.KeyD||keys.ArrowRight) ix+=1; if(keys.KeyA||keys.ArrowLeft) ix-=1;
+  }
+  const move = new THREE.Vector3().addScaledVector(S.camF, iz).addScaledVector(camR, ix);
+  const moving = move.lengthSq() > 0;
+  if(moving) move.normalize();
+  const target = move.multiplyScalar(SPEED);
+  const accel = S.grounded ? 12 : 5;
+  S.hvel.lerp(target, 1-Math.exp(-accel*dt));
+  S.hvel.sub(up.clone().multiplyScalar(S.hvel.dot(up)));
+  if(moving) S.facing.lerp(move.clone().normalize(), 1-Math.exp(-14*dt)).sub(up.clone().multiplyScalar(S.facing.dot(up))).normalize();
+  else S.facing.sub(up.clone().multiplyScalar(S.facing.dot(up))).normalize();
+
+  // ---- jump / gravity
+  if((keys.Space) && S.grounded){ S.vy = JUMP; S.grounded=false; sfx.jump(); S.squashV = 4; }
+  S.vy -= G*dt;
+  S.pos.addScaledVector(S.hvel, dt).addScaledVector(up, S.vy*dt);
+
+  // ---- ground
+  S.grounded = false;
+  const r = S.pos.length();
+  if(r <= R){ S.pos.setLength(R); if(S.vy<0) S.vy=0; S.grounded=true; }
+  const up2 = S.pos.clone().normalize();
+
+  // ---- hills (spheres)
+  const bodyC = S.pos.clone().addScaledVector(up2, 1.0), pr = 0.95;
+  for(const h of hills){
+    const d = bodyC.clone().sub(h.c); const dist = d.length();
+    if(dist < h.r + pr){
+      const n = d.multiplyScalar(1/dist);
+      bodyC.copy(h.c).addScaledVector(n, h.r+pr);
+      S.pos.copy(bodyC).addScaledVector(up2, -1.0);
+      const nUp = n.dot(up2);
+      if(nUp > 0.55){ if(S.vy<0) S.vy=0; S.grounded=true; }
+      else { const into = S.hvel.dot(n); if(into<0) S.hvel.addScaledVector(n, -into); if(nUp < -0.3 && S.vy>0) S.vy=0; }
+    }
+  }
+  // ---- landmarks (cylinders & cones in world)
+  const lenBefore = S.pos.length(), groundedBefore = S.grounded;
+  for(const L of LANDMARKS){
+    if(L.pos.distanceTo(S.pos) > 26) continue;
+    for(const c of L.world){
+      const q = S.pos.clone().sub(c.wp); q.sub(L.up.clone().multiplyScalar(q.dot(L.up)));
+      const d = q.length();
+      if(c.type === 'cone'){
+        if(d < c.r){
+          const hAt = c.h*(1 - d/c.r);
+          const alt = S.pos.length() - R;
+          if(alt < hAt){ S.pos.setLength(R + hAt); if(S.vy<0) S.vy=0; S.grounded=true; }
+        }
+      } else {
+        const alt = S.pos.length() - R;
+        if(d < c.r + 0.6 && alt < L.height){
+          const n = d>1e-4 ? q.multiplyScalar(1/d) : camR.clone();
+          S.pos.addScaledVector(n, c.r+0.6-d);
+          if(groundedBefore) S.pos.setLength(lenBefore);
+          const into = S.hvel.dot(n); if(into<0) S.hvel.addScaledVector(n,-into);
+        }
+      }
+    }
+  }
+  if(S.grounded && S.pos.length() < R) S.pos.setLength(R);
+
+  // ---- landing squash
+  if(S.grounded && !S.wasGrounded){ S.squashV = -6; }
+  S.wasGrounded = S.grounded;
+  S.squashV += (1-S.squash)*90*dt; S.squashV *= Math.exp(-9*dt); S.squash += S.squashV*dt;
+
+  // ---- player transform
+  const upN = S.pos.clone().normalize();
+  S.facing.sub(upN.clone().multiplyScalar(S.facing.dot(upN))).normalize();
+  const right = new THREE.Vector3().crossVectors(upN, S.facing).normalize();
+  tmp.m.makeBasis(right, upN, S.facing);
+  player.quaternion.setFromRotationMatrix(tmp.m);
+  player.position.copy(S.pos);
+  model.scale.set(1/Math.sqrt(S.squash), S.squash, 1/Math.sqrt(S.squash));
+  const spd = S.hvel.length();
+  if(S.grounded && spd > 1){ S.walkPhase += dt*spd*0.9; }
+  const sw = S.grounded ? Math.sin(S.walkPhase)*Math.min(1, spd/SPEED)*0.75 : 0.5;
+  legs[0].rotation.x = sw; legs[1].rotation.x = -sw;
+  arms[0].rotation.x = S.grounded ? -sw : -2.6; arms[1].rotation.x = S.grounded ? sw : -2.6;
+  arms[0].rotation.z = S.grounded ? 0.15 : 0.5; arms[1].rotation.z = S.grounded ? -0.15 : -0.5;
+  model.position.y = S.grounded ? Math.abs(Math.sin(S.walkPhase))*0.08*Math.min(1,spd/SPEED) : 0;
+  model.rotation.x = S.grounded ? 0 : -0.15;
+
+  // ---- camera
+  const camPos = S.pos.clone().addScaledVector(upN, 2 + S.camDist*Math.sin(S.camPitch)).addScaledVector(S.camF, -S.camDist*Math.cos(S.camPitch));
+  // keep camera above the ground
+  if(camPos.length() < R+1.5) camPos.setLength(R+1.5);
+  camera.position.lerp(camPos, 1-Math.exp(-7*dt));
+  camera.up.copy(upN);
+  camera.lookAt(S.pos.clone().addScaledVector(upN, 3.2));
+
+  // ---- light follows player (consistent toon look everywhere)
+  const ld = upN.clone().multiplyScalar(1.1).addScaledVector(camR, 0.8).addScaledVector(S.camF, -0.35).normalize();
+  sun.position.copy(S.pos).addScaledVector(ld, 150);
+  sun.target.position.copy(S.pos);
+
+  // ---- coins
+  for(const c of coins){
+    if(c.taken) continue;
+    c.m.rotateZ(dt*3.5);
+    if(c.m.position.distanceToSquared(bodyC) < 2.4*2.4){
+      c.taken = true; scene.remove(c.m); S.coins++; ui.coins.textContent = S.coins; sfx.coin();
+      if(S.coins === coins.length) toast('✨ Every coin collected!');
+    }
+  }
+
+  // ---- landmarks: proximity & nearest unvisited
+  let nearest=null, nd=1e9, active=null;
+  for(const L of LANDMARKS){
+    const ang = Math.acos(THREE.MathUtils.clamp(L.up.dot(upN), -1, 1)); const dist = ang*R;
+    if(dist < 13 + (L.id==='fuji'||L.id==='pyramids'?6:0)) active = L;
+    if(!L.visited && dist < nd){ nd=dist; nearest=L; }
+  }
+  for(const L of LANDMARKS){ const d = L.pos.distanceTo(S.pos); L.label.material.opacity = THREE.MathUtils.clamp((110-d)/40, 0, 1); L.label.visible = d < 110; }
+  if(active){
+    if(active !== S.activeLandmark){
+      const isNew = !active.visited;
+      if(isNew){ active.visited = true; S.visited++; ui.visited.textContent = S.visited; document.getElementById('pp-'+active.id).classList.add('done'); document.querySelector('#pp-'+active.id+' .stamp').textContent='✓'; sfx.stamp(); }
+      showBanner(active, isNew);
+      if(isNew && S.visited === LANDMARKS.length){ setTimeout(()=>{ sfx.win(); ui.overlay.classList.add('win'); ui.overlay.innerHTML = '<h1>🌍 WORLD TOUR COMPLETE!<small>YOU VISITED EVERY LANDMARK</small></h1><p>Coins collected: '+S.coins+' / '+coins.length+'<br>Keep exploring, or reload the page to start a new tour.</p><div class="go">▶ CLICK TO KEEP EXPLORING</div>'; ui.overlay.classList.remove('hidden'); ui.overlay.onclick=()=>ui.overlay.classList.add('hidden'); }, 900); }
+    }
+  } else if(S.activeLandmark) ui.banner.classList.remove('show');
+  S.activeLandmark = active;
+  if(nearest){
+    ui.nearest.textContent = '➤ ' + nearest.name + ' · ' + Math.round(nd*10) + ' km';
+    const dir = nearest.pos.clone().sub(S.pos); dir.sub(upN.clone().multiplyScalar(dir.dot(upN)));
+    arrow.visible = nd > 14;
+    if(dir.lengthSq()>1e-6){ dir.normalize();
+      arrow.position.copy(S.pos).addScaledVector(upN, 3.4 + Math.sin(clock.elapsedTime*4)*0.15);
+      const tilt = dir.clone().multiplyScalar(0.92).addScaledVector(upN, -0.38).normalize();
+      arrow.quaternion.setFromUnitVectors(Y_AXIS, tilt); }
+  } else { ui.nearest.textContent = '🏆 All landmarks visited!'; arrow.visible=false; }
+
+  // ---- clouds, moon
+  for(const c of clouds){
+    c.angle += c.speed*dt;
+    const p = c.base.clone().applyAxisAngle(c.axis, c.angle);
+    c.g.position.copy(p); c.g.quaternion.copy(surfaceQuat(p,0));
+  }
+  const t = clock.elapsedTime;
+  moon.position.set(Math.cos(t*0.05)*420, 120, Math.sin(t*0.05)*420);
+  ringPlanet.rotation.y = t*0.03;
+}
+
+const DEBUG_STEPS = +((/steps=(\d+)/.exec(location.search)||[])[1]||0);
+function loop(){
+  requestAnimationFrame(loop);
+  const dt = Math.min(clock.getDelta(), 0.05);
+  if(DEBUG_STEPS){ for(let i=0;i<DEBUG_STEPS;i++) update(1/60); } else update(dt);
+  renderer.render(scene, camera);
+}
+camera.position.copy(state.pos.clone().multiplyScalar(1.2));
+if(location.search.includes('autostart')) start();
+{ const k = /keys=([A-Za-z,]+)/.exec(location.search); if(k){ for(const c of k[1].split(',')) keys[c]=true; } if(location.search.includes('debug')) setInterval(()=>console.log('DBG '+JSON.stringify({alt:+(state.pos.length()-R).toFixed(2), g:state.grounded, coins:state.coins, vis:state.visited, spd:+state.hvel.length().toFixed(1), cam:+camera.position.distanceTo(state.pos).toFixed(1)})), 1000); }
+{ const m = /at=(-?[\d.]+),(-?[\d.]+)/.exec(location.search); if(m){ state.pos = latLonToVec(+m[1], +m[2]); const up = state.pos.clone().normalize(); let best=null,bd=1e9; for(const L of LANDMARKS){ const d=L.pos.distanceTo(state.pos); if(d<bd){bd=d;best=L;} } const t = best.pos.clone().sub(state.pos); t.sub(up.clone().multiplyScalar(t.dot(up))).normalize(); state.facing.copy(t); state.camF.copy(t); camera.position.copy(state.pos.clone().multiplyScalar(1.2)); } }
+loop();
+})();
+</script>
