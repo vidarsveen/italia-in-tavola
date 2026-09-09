@@ -14,7 +14,12 @@ and asset files; a build step produces a single-file version for the hosted prev
 - Owner: Vidar (Norwegian). Both languages matter equally. Mobile first, always test on a phone viewport.
 - Done: Lazio (IT-62), Piemonte (IT-21), Toscana (IT-52), Veneto (IT-34), Campania (IT-72), Sicilia (IT-82), Lombardia (IT-25): text EN+NO, photos, narration EN+NO.
 - Next, in order: Emilia-Romagna (IT-45), Puglia (IT-75), then the rest in batches.
-- Hosted preview (Claude artifact): https://claude.ai/code/artifact/f01358a9-a2b1-40b6-8232-aa3d55343263
+- Live site (the real course, full narration, no size limit): https://vidarsveen.github.io/italia-in-tavola/
+  Source repo: https://github.com/vidarsveen/italia-in-tavola (public, branch `main`). Every push to `main` runs
+  `.github/workflows/pages.yml`, which runs `tools/make_site.py` and publishes `site/` to GitHub Pages (2–3 min).
+  So the deploy step for a new region is simply: commit and `git push`. `dist/`, `site/` and the 33 MB DEM are
+  git-ignored.
+- Hosted preview (Claude artifact, 16 MB cap, browser voice for most regions): https://claude.ai/code/artifact/f01358a9-a2b1-40b6-8232-aa3d55343263
   Republish with the Artifact tool passing this `url`, file `dist/italia-course.html`. Never publish without
   `url` (that creates a second artifact).
 - A separate older prototype, the cartoon planet game `index.html`, is unrelated; leave it alone.

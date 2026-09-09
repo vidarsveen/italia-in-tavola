@@ -1,5 +1,7 @@
 # Globe Trotter
 
+Live: **https://vidarsveen.github.io/italia-in-tavola/** (full narration in every finished region). Published automatically from `main` by GitHub Actions.
+
 A Mario Galaxy-style 3D browser game: run around a tiny cartoon Earth, jump on mountains,
 collect coins and visit 16 famous landmarks (Eiffel Tower, Big Ben, Pyramids, Taj Mahal,
 Mount Fuji, Sydney Opera House, Statue of Liberty, ...) to stamp your passport.
