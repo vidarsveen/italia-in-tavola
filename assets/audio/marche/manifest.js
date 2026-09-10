@@ -1,0 +1,1 @@
+window.AUDIO_MANIFEST = Object.assign(window.AUDIO_MANIFEST || {}, {"marche:en-1": {"seconds": 377.5, "voice": "en-GB-SoniaNeural", "bytes": 2264832, "lo_bytes": 755360}, "marche:en-2": {"seconds": 336.4, "voice": "en-GB-SoniaNeural", "bytes": 2018448, "lo_bytes": 673208}, "marche:en-3": {"seconds": 344.6, "voice": "en-GB-SoniaNeural", "bytes": 2067552, "lo_bytes": 689552}});

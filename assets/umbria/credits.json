@@ -1,0 +1,97 @@
+{
+ "vineyard": {
+  "artist": "Umbria Lovers",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Vigna_di_Sagrantino_and_Panorama.jpg"
+ },
+ "wintervines": {
+  "artist": "Umbria Lovers",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Vigna_di_Sagrantino.jpg"
+ },
+ "trasimeno": {
+  "artist": "PROPOLI87",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Lago_Trasimeno_visto_da_Tuoro_sul_Trasimeno.jpg"
+ },
+ "orvieto": {
+  "artist": "Luca Aless",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Orvieto_-_Duomo,_facciata_01.jpg"
+ },
+ "vini": {
+  "artist": "Randy HOC",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Vini_di_Montefalco.jpg"
+ },
+ "grapes": {
+  "artist": "Zyance",
+  "license": "CC BY-SA 2.5",
+  "source": "https://commons.wikimedia.org/wiki/File:Montefalco_z09.jpg"
+ },
+ "sagrantino": {
+  "artist": "Michela Simoncini",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Sagrantino_di_Montefalco_wine.jpg"
+ },
+ "passito": {
+  "artist": "Michela Simoncini",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Sagrantino_Montefalco_Passito.jpg"
+ },
+ "truffle": {
+  "artist": "Diego Delso",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Tuber_melanosporum_-_trufa_negra,_Ágreda,_España.jpg"
+ },
+ "prosciutto": {
+  "artist": "Emanuele Persiani",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Prosciutto_di_Norcia_IGP_in_stagionatura.jpg"
+ },
+ "lentils": {
+  "artist": "Zyance",
+  "license": "CC BY-SA 2.5",
+  "source": "https://commons.wikimedia.org/wiki/File:Lenticchie_z01.jpg"
+ },
+ "castelluccio": {
+  "artist": "Stefano Avolio",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:\"Castelluccio_Classic\"_-_Fioritura_di_Castelluccio_di_Norcia_-_Flowering_at_Castelluccio_of_Norcia_(PG,_Italy_-_Italia).jpg"
+ },
+ "strangozzi": {
+  "artist": "Cantalamessa",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Strangozzi_ragu.JPG"
+ },
+ "lentilsoup": {
+  "artist": "Umbria Lovers",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Lentils_soup_with_strangozzi.jpg"
+ },
+ "baci": {
+  "artist": "Fabuio",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Baci_perugina.jpg"
+ },
+ "assisi": {
+  "artist": "Jessyangeli90",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Assisi_-_Basilica_di_San_Francesco_con_statua.jpg"
+ },
+ "assisipan": {
+  "artist": "Adrian Michael",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Assisi-Ansicht.jpg"
+ },
+ "gubbio": {
+  "artist": "Mongolo1984",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Gubbio,_panorama_01.jpg"
+ },
+ "spoleto": {
+  "artist": "Christoph Strässler",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Ponte_delle_Torri,_Spoleto,_Italy.jpg"
+ }
+}

@@ -1,0 +1,97 @@
+{
+ "vines": {
+  "artist": "Davide",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Verdicchio_vines_in_Cupramontana.jpg"
+ },
+ "grapes": {
+  "artist": "tongeron91",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Grappe_de_Verdicchio_(Marche_-Italie).jpg"
+ },
+ "campagna": {
+  "artist": "Mauro Cesarini",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Campagna_6_novembre_2011_per_WIKI_small.jpg"
+ },
+ "monteroberto": {
+  "artist": "JollyPR",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Verdicchio_(Monte_Roberto).jpg"
+ },
+ "bottles": {
+  "artist": "Paolo13041983",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Bottiglie_verdicchio_.jpg"
+ },
+ "portonovo": {
+  "artist": "Luca Boldrini",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Ancona-Vista_Portonovo.jpg"
+ },
+ "conero": {
+  "artist": "Claudio.stanco",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Monte_Conero_Vista_Mare_Sud_2.JPG"
+ },
+ "hdr": {
+  "artist": "Luca Boldrini",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Verdicchio_HDR.jpg"
+ },
+ "offida": {
+  "artist": "pizzodisevo",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Campagna_Marchigiana_Offida_DOC.jpg"
+ },
+ "filari": {
+  "artist": "Bigstones",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Filari_di_vite.JPG"
+ },
+ "olive": {
+  "artist": "Manuela Zangara",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Olive_all'ascolana.jpg"
+ },
+ "olive2": {
+  "artist": "Wine Dharma",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Olive_all'ascolana_2.jpg"
+ },
+ "vincisgrassi": {
+  "artist": "Daniele La Monaca",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Vincisgrassi_alla_maceratese.jpg"
+ },
+ "ciauscolo": {
+  "artist": "Egijd",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Ciauscolo.jpg"
+ },
+ "brodetto": {
+  "artist": "Beabrun",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Foto_brodetto_.jpg"
+ },
+ "urbino": {
+  "artist": "Francesco Maria Garbugli",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Urbino_dalla_Strada_Rossa.jpg"
+ },
+ "frasassi": {
+  "artist": "Accurimbono",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Grotte_di_Frasassi_95.jpg"
+ },
+ "sibillini": {
+  "artist": "Simone Mencarelli",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Monti_sibillini_al_tramonto.jpg"
+ },
+ "loreto": {
+  "artist": "Terragio67",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Basilica_di_Loreto_-_Ancona_(Close_up).jpg"
+ }
+}

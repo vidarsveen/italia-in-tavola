@@ -84,6 +84,8 @@
   .landmark span{ color:var(--paper-dim); font-size:12.5px; line-height:1.5; }
   ul.wines{ list-style:none; margin:0; padding:0; display:grid; gap:6px; }
   ul.wines li{ display:grid; grid-template-columns:12px 1fr auto auto; gap:10px; align-items:center; padding:8px 10px; border-radius:6px; background:rgba(255,255,255,.04); }
+  #sheet .vmpstore{ display:flex; align-items:center; gap:8px; margin:0 0 8px; font-size:11.5px; color:var(--paper-faint); }
+  #sheet .vmpstore select{ flex:1; min-width:0; background:rgba(255,255,255,.06); color:var(--paper); border:1px solid var(--line); border-radius:6px; padding:5px 8px; font:inherit; font-size:11.5px; min-height:32px; }
   ul.wines li a.vmp{ font-size:10.5px; letter-spacing:.06em; color:var(--paper-faint); text-decoration:none; border:1px solid var(--line); border-radius:12px; padding:3px 8px; white-space:nowrap; min-height:24px; display:inline-flex; align-items:center; }
   ul.wines li a.vmp:hover{ color:var(--paper); border-color:var(--gold); }
   ul.wines li i{ width:12px; height:12px; border-radius:50%; }
@@ -252,7 +254,7 @@
       <p class="intro"></p>
       <section><h3 data-t="lessons">Lessons</h3><ol class="lessons"></ol></section>
       <section><h3 data-t="landmark">Landmark</h3><div class="landmark"><div class="ico">◆</div><div><b></b><span></span></div></div></section>
-      <section><h3 data-t="wines">Wines to know</h3><ul class="wines"></ul><div class="pair"><b data-t="pairing">Classic pairing</b><span></span></div></section>
+      <section><h3 data-t="wines">Wines to know</h3><div class="vmpstore"><label for="vmpStore" data-t="vmpStoreLabel">Show selection at</label><select id="vmpStore"></select></div><ul class="wines"></ul><div class="pair"><b data-t="pairing">Classic pairing</b><span></span></div></section>
       <section><h3 data-t="table">At the table</h3><div class="dishes"></div></section>
     </div>
     <div class="nav"><button id="prevBtn" data-t="prev">← Previous</button><button id="nextBtn" class="primary" data-t="next">Next region →</button></div>
@@ -314,6 +316,18 @@ const REGIONS = [{"name":"Piemonte","code":"IT-21","c":[8.04,45.09],"rings":[[[7
 <script src="content/liguria.js"></script>
 <script src="content/liguria.no.js"></script>
 <script src="assets/audio/liguria/manifest.js"></script>
+<script src="content/umbria.js"></script>
+<script src="content/umbria.no.js"></script>
+<script src="assets/audio/umbria/manifest.js"></script>
+<script src="content/marche.js"></script>
+<script src="content/marche.no.js"></script>
+<script src="assets/audio/marche/manifest.js"></script>
+<script src="content/abruzzo.js"></script>
+<script src="content/abruzzo.no.js"></script>
+<script src="assets/audio/abruzzo/manifest.js"></script>
+<script src="content/sardegna.js"></script>
+<script src="content/sardegna.no.js"></script>
+<script src="assets/audio/sardegna/manifest.js"></script>
 <script>
 (function(){
 'use strict';
@@ -325,11 +339,11 @@ const I18N = {
  en:{ sub:'A course in twenty regions · wine & food', hint:'Tap a region or a pin · drag to pan · pinch to zoom · ◭ tilts', loading:'Preparing the map of Italy…', lessons:'Lessons', landmark:'Landmark', wines:'Wines to know', table:'At the table', pairing:'Classic pairing', prev:'← Previous', next:'Next region →', capital:'Capital', module:'Module', of:'of', readings:'readings', min:'min', soonShort:'readings coming soon', minRead:'min read', soon:'Reading coming soon', reading:'Reading', notWritten:'This reading is not written yet.',
    soonPara:n=>`The Lazio module shows the reading format the course will use: a 6–8 minute illustrated essay with key facts, a tasting table for wine lessons and a short recap. ${n}'s readings will follow the same pattern.`,
    backTo:'Back to', seeFinished:'See the finished module', lazioR1:'Lazio, reading 1', nextReading:'Next reading', nextRegion:'Next region', mark:'Mark as read', marked:'✓ Marked as read', credits:'Photo credits', photo:'Photo', via:'via Wikimedia Commons', close:'Close', home:'Show all of Italy', listen:'Listen', listenBrowser:'Listen with the browser voice', narrated:'Narrated by an AI voice', browserVoice:'Browser voice', noVoice:'No voice available on this device',
-   'area.North':'North','area.Centre':'Centre','area.South':'South','area.Islands':'Islands','wine.red':'red','wine.white':'white','wine.rose':'rosé','wine.sparkling':'sparkling','wine.sweet':'sweet', vmp:'Vinmonopolet', vmpTitle:'See the current selection at Vinmonopolet (opens their search page)' },
+   'area.North':'North','area.Centre':'Centre','area.South':'South','area.Islands':'Islands','wine.red':'red','wine.white':'white','wine.rose':'rosé','wine.sparkling':'sparkling','wine.sweet':'sweet', vmp:'Vinmonopolet', vmpTitle:'See the current selection at Vinmonopolet (opens their search page)', vmpStoreLabel:'Show selection at', vmpAll:'All of Norway' },
  no:{ sub:'Et kurs i tjue regioner · vin og mat', hint:'Trykk på en region eller en nål · dra for å flytte · knip for å zoome · ◭ vipper', loading:'Forbereder kartet over Italia …', lessons:'Leksjoner', landmark:'Landemerke', wines:'Viner å kjenne til', table:'Ved bordet', pairing:'Klassisk kombinasjon', prev:'← Forrige', next:'Neste region →', capital:'Hovedstad', module:'Modul', of:'av', readings:'lesetekster', min:'min', soonShort:'lesetekster kommer', minRead:'min lesetid', soon:'Lesetekst kommer', reading:'Lesetekst', notWritten:'Denne leseteksten er ikke skrevet ennå.',
    soonPara:n=>`Lazio-modulen viser leseformatet kurset skal bruke: et illustrert essay på 6–8 minutter med nøkkelfakta, en smakstabell for vinleksjonene og en kort oppsummering. Lesetekstene for ${n} følger samme mønster.`,
    backTo:'Tilbake til', seeFinished:'Se den ferdige modulen', lazioR1:'Lazio, lesetekst 1', nextReading:'Neste lesetekst', nextRegion:'Neste region', mark:'Merk som lest', marked:'✓ Merket som lest', credits:'Fotokreditering', photo:'Foto', via:'via Wikimedia Commons', close:'Lukk', home:'Vis hele Italia', listen:'Lytt', listenBrowser:'Lytt med nettleserstemme', narrated:'Lest inn av en KI-stemme', browserVoice:'Nettleserstemme', noVoice:'Ingen stemme tilgjengelig på denne enheten',
-   'area.North':'Nord','area.Centre':'Midt-Italia','area.South':'Sør','area.Islands':'Øyene','wine.red':'rød','wine.white':'hvit','wine.rose':'rosé','wine.sparkling':'musserende','wine.sweet':'søt', vmp:'Vinmonopolet', vmpTitle:'Se utvalget hos Vinmonopolet (åpner butikkens søk)' }
+   'area.North':'Nord','area.Centre':'Midt-Italia','area.South':'Sør','area.Islands':'Øyene','wine.red':'rød','wine.white':'hvit','wine.rose':'rosé','wine.sparkling':'musserende','wine.sweet':'søt', vmp:'Vinmonopolet', vmpTitle:'Se utvalget hos Vinmonopolet (åpner butikkens søk)', vmpStoreLabel:'Vis utvalget hos', vmpAll:'Hele landet' }
 };
 let lang = (()=>{ const q = new URLSearchParams(location.search).get('lang'); if(q && I18N[q]) return q; try{ const s = localStorage.getItem('iit-lang'); if(s && I18N[s]) return s; }catch(e){} return /^(nb|nn|no)/i.test(navigator.language||'') ? 'no' : 'en'; })();
 const T = k => { const v = I18N[lang][k] !== undefined ? I18N[lang][k] : I18N.en[k]; return v === undefined ? k : v; };
@@ -350,7 +364,8 @@ document.querySelectorAll('#lang button').forEach(b => b.addEventListener('click
 const COURSE = {
  'IT-23':{name:"Valle d'Aosta", capital:'Aosta', area:'North', color:'#8fae7a', intro:"Italy's smallest region climbs from the Dora Baltea river to the Matterhorn and Mont Blanc. Vines cling to terraces at up to 1,200 metres, and the kitchen is built on butter, rye bread and mountain cheese.",
    landmark:{name:'Castello di Fénis & the Matterhorn', desc:'A fairy-tale medieval castle guarding the valley, with the Cervino (Matterhorn) rising to 4,478 m at its head.', props:[['aosta',45.80,7.55]]},
-   wines:[['Blanc de Morgex et de La Salle','white'],['Petite Arvine','white'],['Fumin','red'],['Torrette','red']], pairing:'A glass of Torrette alongside carbonada, the slow beef stew served over polenta.',
+   vmp:'italia_valle_d\'aosta',
+   wines:[['Blanc de Morgex et de La Salle','white','italia_valle_d\'aosta_morgex_e_la_salle'],['Petite Arvine','white','#Petite Arvine'],['Fumin','red',''],['Torrette','red','']], pairing:'A glass of Torrette alongside carbonada, the slow beef stew served over polenta.',
    dishes:['Fontina DOP','Carbonada','Polenta concia','Lardo di Arnad','Seupa à la Vapelenentse'],
    lessons:["Europe's highest vineyards","Alpine whites and mountain reds","Fontina and the table of the Alps","Castles of the Aosta valley"]},
  'IT-21':{name:'Piemonte', capital:'Torino', area:'North', color:'#7fa267', intro:"The foot of the mountains: fog-wrapped Langhe hills where Nebbiolo becomes Barolo and Barbaresco, white truffles from Alba, and a Turin café culture that gave the world vermouth and gianduja.",
@@ -361,92 +376,110 @@ const COURSE = {
    lessons:["Nebbiolo and the Langhe hills","Barolo and Barbaresco, village by village","Truffles, tajarin and bagna cauda","Turin: vermouth, chocolate and the Mole"]},
  'IT-42':{name:'Liguria', capital:'Genova', area:'North', color:'#b7b06a', intro:"A thin crescent of coast squeezed between sea and mountain. Terraced vineyards hang above the Cinque Terre, basil grows in every window, and Genoa's port has traded spices and olive oil for a thousand years.",
    landmark:{name:'Lanterna di Genova & the Cinque Terre', desc:'The 77 m lighthouse has guided ships into Genoa since 1543; to the east, five pastel villages cling to the cliffs.', props:[['lanterna',44.40,8.90]]},
-   wines:[['Vermentino','white'],['Pigato','white'],['Rossese di Dolceacqua','red'],['Sciacchetrà','sweet']], pairing:'Chilled Vermentino with trofie al pesto, or Sciacchetrà with a slice of pandolce after dinner.',
+   vmp:'italia_liguria',
+   wines:[['Vermentino','white','#Vermentino'],['Pigato','white','#Pigato'],['Rossese di Dolceacqua','red','italia_liguria_rossese_di_dolceacqua_(dolceacqua)'],['Sciacchetrà','sweet','']], pairing:'Chilled Vermentino with trofie al pesto, or Sciacchetrà with a slice of pandolce after dinner.',
    dishes:['Pesto alla genovese','Focaccia di Recco','Trofie','Farinata','Pansoti con salsa di noci'],
    lessons:["Vines on the cliffs","Vermentino, Pigato and the sea","Pesto, focaccia and the olive","Genoa: a maritime republic's kitchen"]},
  'IT-25':{name:'Lombardia', capital:'Milano', area:'North', color:'#93b070', intro:"Italy's economic engine is also a land of rice paddies, alpine lakes and Franciacorta's traditional-method sparkling wine. Milan's cooking is rich with butter, saffron and bone marrow.",
    landmark:{name:'Duomo di Milano', desc:'Six centuries in the making, the marble cathedral bristles with 135 spires and 3,400 statues, crowned by the golden Madonnina.', props:[['duomo',45.46,9.19]]},
-   wines:[['Franciacorta','sparkling'],['Valtellina Superiore (Nebbiolo)','red'],['Lugana','white'],['Oltrepò Pavese Pinot Nero','red']], pairing:'Franciacorta Satèn with risotto alla milanese; Sforzato di Valtellina with pizzoccheri.',
+   vmp:'italia_lombardia',
+   wines:[['Franciacorta','sparkling','italia_lombardia_franciacorta'],['Valtellina Superiore (Nebbiolo)','red','italia_lombardia_valtellina_superiore'],['Lugana','white','@italia_lugana'],['Oltrepò Pavese Pinot Nero','red','italia_lombardia_oltrepò_pavese']], pairing:'Franciacorta Satèn with risotto alla milanese; Sforzato di Valtellina with pizzoccheri.',
    dishes:['Risotto alla milanese','Cotoletta alla milanese','Ossobuco','Pizzoccheri','Panettone','Gorgonzola'],
    lessons:["Franciacorta: Italy's answer to Champagne","Nebbiolo in the Alps: Valtellina","Saffron risotto and the Milanese table","The Duomo and the city of design"]},
  'IT-32':{name:'Trentino-Alto Adige', capital:'Trento', area:'North', color:'#a5bf92', intro:"Two cultures share one alpine region: Italian-speaking Trentino and German-speaking Südtirol. Aromatic whites grow beneath the pale Dolomite peaks, and speck, dumplings and strudel come from the Austrian side of the pantry.",
    landmark:{name:'The Dolomites', desc:'Pale limestone towers that glow pink at sunset, a UNESCO World Heritage site rising above vineyards and apple orchards.', props:[['dolomites',46.45,11.85]]},
-   wines:[['Gewürztraminer','white'],['Pinot Grigio','white'],['Lagrein','red'],['Teroldego Rotaliano','red'],['Trentodoc','sparkling']], pairing:'Gewürztraminer with speck and Alto Adige cheeses; Lagrein with venison and canederli.',
+   vmp:'italia_trentino-alto_adige',
+   wines:[['Gewürztraminer','white','#Gewürztraminer'],['Pinot Grigio','white','#Pinot Grigio'],['Lagrein','red','#Lagrein'],['Teroldego Rotaliano','red','italia_trentino-alto_adige_teroldego_rotaliano'],['Trentodoc','sparkling','italia_trentino-alto_adige_trento']], pairing:'Gewürztraminer with speck and Alto Adige cheeses; Lagrein with venison and canederli.',
    dishes:['Canederli','Speck Alto Adige','Apfelstrudel','Polenta with mushrooms','Schlutzkrapfen'],
    lessons:["Vineyards between two cultures","Gewürztraminer, Lagrein and the aromatic north","Speck, dumplings and strudel","The Dolomites: mountains of stone and light"]},
  'IT-34':{name:'Veneto', capital:'Venezia', area:'North', color:'#86a86a', intro:"From Venice's lagoon to Verona's amphitheatre, Veneto is Italy's largest wine producer. Prosecco fizzes in the hills of Valdobbiadene while Amarone is made from grapes dried on straw mats.",
    landmark:{name:'Venice: Campanile di San Marco', desc:'The 99 m bell tower over Piazza San Marco, rebuilt in 1912 after the original collapsed; gondolas glide past below.', props:[['venice',45.43,12.34]]},
-   wines:[['Amarone della Valpolicella','red'],['Prosecco Superiore','sparkling'],['Soave Classico','white'],['Valpolicella Ripasso','red'],['Bardolino','red']], pairing:'Soave with risi e bisi; Amarone with aged Asiago or a long-braised pastissada de caval.',
+   vmp:'italia_veneto',
+   wines:[['Amarone della Valpolicella','red','italia_veneto_amarone_della_valpolicella'],['Prosecco Superiore','sparkling','italia_veneto_conegliano_valdobbiadene_prosecco'],['Soave Classico','white','italia_veneto_soave_classico'],['Valpolicella Ripasso','red','italia_veneto_valpolicella_ripasso'],['Bardolino','red','italia_veneto_bardolino']], pairing:'Soave with risi e bisi; Amarone with aged Asiago or a long-braised pastissada de caval.',
    dishes:['Risi e bisi','Baccalà mantecato','Sarde in saor','Bigoli in salsa','Tiramisù','Cicchetti'],
    lessons:["Valpolicella and the art of appassimento","Prosecco: from hills to glass","Cicchetti and the Venetian bàcaro","Venice: a republic built on trade"]},
  'IT-36':{name:'Friuli-Venezia Giulia', capital:'Trieste', area:'North', color:'#9db37c', intro:"Where Italy meets Slovenia and Austria. Friuli's white wines are among the country's finest, San Daniele cures its prosciutto in alpine-sea breezes, and Trieste's cafés still feel Habsburg.",
    landmark:{name:'Castello di Miramare, Trieste', desc:'A white castle built in 1860 for Archduke Maximilian on a rocky headland above the Adriatic.', props:[['miramare',45.70,13.71]]},
-   wines:[['Friulano','white'],['Ribolla Gialla','white'],['Pinot Grigio (Collio)','white'],['Refosco dal Peduncolo Rosso','red'],['Picolit','sweet']], pairing:'Friulano with prosciutto di San Daniele; Refosco with frico and polenta.',
+   vmp:'italia_friuli-venezia_giuli',
+   wines:[['Friulano','white','#Friulano (Tai)'],['Ribolla Gialla','white','#Ribolla Gialla'],['Pinot Grigio (Collio)','white','italia_friuli-venezia_giuli_colio_goriziano_(collio)'],['Refosco dal Peduncolo Rosso','red','#Refosco'],['Picolit','sweet','#Picolit']], pairing:'Friulano with prosciutto di San Daniele; Refosco with frico and polenta.',
    dishes:['Prosciutto di San Daniele','Frico','Jota','Montasio','Gubana'],
    lessons:["Collio and the great Italian whites","Friulano, Ribolla and orange wine","San Daniele, frico and the Carnic kitchen","Trieste: coffee, Habsburgs and the bora"]},
  'IT-45':{name:'Emilia-Romagna', capital:'Bologna', area:'North', color:'#c2b06a', intro:"Italy's food valley. Parmigiano Reggiano, prosciutto di Parma, balsamic vinegar of Modena and fresh egg pasta all come from the flat Po plain, washed down with fizzy, cheerful Lambrusco.",
    landmark:{name:'The Two Towers, Bologna', desc:'Asinelli (97 m) and its leaning neighbour Garisenda, medieval family towers that still dominate the porticoed city.', props:[['towers',44.49,11.34]]},
-   wines:[['Lambrusco di Sorbara','sparkling'],['Lambrusco Grasparossa','sparkling'],['Sangiovese di Romagna','red'],['Albana di Romagna','white'],['Pignoletto','sparkling']], pairing:'Dry Lambrusco with a board of salumi and Parmigiano; Sangiovese di Romagna with tagliatelle al ragù.',
+   vmp:'italia_emilia-romagna',
+   wines:[['Lambrusco di Sorbara','sparkling','italia_emilia-romagna_lambrusco_di_sorbara'],['Lambrusco Grasparossa','sparkling','italia_emilia-romagna_lambrusco_grasparossa_di_castelvetro'],['Sangiovese di Romagna','red','italia_emilia-romagna_romagna_sangiovese'],['Albana di Romagna','white','italia_emilia-romagna_romagna_albana'],['Pignoletto','sparkling','italia_emilia-romagna_pignoletto']], pairing:'Dry Lambrusco with a board of salumi and Parmigiano; Sangiovese di Romagna with tagliatelle al ragù.',
    dishes:['Tagliatelle al ragù','Tortellini in brodo','Parmigiano Reggiano','Prosciutto di Parma','Aceto balsamico','Piadina'],
    lessons:["Lambrusco, properly understood","Sangiovese on the Romagna side","Parmigiano, prosciutto and balsamic: three protected treasures","Bologna la Grassa and the sfoglia"]},
  'IT-52':{name:'Toscana', capital:'Firenze', area:'Centre', color:'#c9ad5c', intro:"Cypress-lined hills, Renaissance cities and Sangiovese in every form: Chianti Classico, Brunello di Montalcino, Vino Nobile. The cooking is peasant-proud: bread, beans, olive oil and a thick Florentine steak.",
    landmark:{name:'Leaning Tower of Pisa & Brunelleschi\'s Dome', desc:'Pisa\'s bell tower has leaned since the 1170s; in Florence, Brunelleschi\'s 1436 dome still crowns the largest brick dome ever built.', props:[['pisa',43.72,10.40],['florence',43.77,11.25]]},
-   wines:[['Chianti Classico','red'],['Brunello di Montalcino','red'],['Vino Nobile di Montepulciano','red'],['Bolgheri (Super Tuscan)','red'],['Vernaccia di San Gimignano','white'],['Vin Santo','sweet']], pairing:'Chianti Classico with bistecca alla fiorentina; Vin Santo with cantucci for dunking.',
+   vmp:'italia_toscana',
+   wines:[['Chianti Classico','red','italia_toscana_chianti_classico'],['Brunello di Montalcino','red','italia_toscana_brunello_di_montalcino'],['Vino Nobile di Montepulciano','red','italia_toscana_vino_nobile_di_montepulciano'],['Bolgheri (Super Tuscan)','red','italia_toscana_bolgheri'],['Vernaccia di San Gimignano','white','italia_toscana_vernaccia_di_san_gimignano'],['Vin Santo','sweet','italia_toscana_vin_santo_del_chianti_classico']], pairing:'Chianti Classico with bistecca alla fiorentina; Vin Santo with cantucci for dunking.',
    dishes:['Bistecca alla fiorentina','Ribollita','Pappa al pomodoro','Pici cacio e pepe','Lampredotto','Cantucci'],
    lessons:["Sangiovese: one grape, many faces","Chianti Classico and the black rooster","Brunello, Nobile and the Super Tuscans","Bread, beans and the Florentine steak"]},
  'IT-55':{name:'Umbria', capital:'Perugia', area:'Centre', color:'#a8a85a', intro:"The green heart of Italy, the only landlocked region in the peninsula. Assisi and Orvieto crown its hills, black truffles hide near Norcia, and Sagrantino is one of Italy's most tannic reds.",
    landmark:{name:'Basilica di San Francesco, Assisi', desc:'Two stacked churches built from 1228 over the tomb of St Francis, frescoed by Giotto and Cimabue.', props:[['assisi',43.07,12.62]]},
-   wines:[['Sagrantino di Montefalco','red'],['Orvieto Classico','white'],['Montefalco Rosso','red'],['Grechetto','white']], pairing:'Sagrantino with roast lamb or aged pecorino; Orvieto with strangozzi al tartufo nero.',
+   vmp:'italia_umbria',
+   wines:[['Sagrantino di Montefalco','red','italia_umbria_montefalco_sagrantino'],['Orvieto Classico','white',''],['Montefalco Rosso','red','italia_umbria_montefalco'],['Grechetto','white','']], pairing:'Sagrantino with roast lamb or aged pecorino; Orvieto with strangozzi al tartufo nero.',
    dishes:['Black truffle of Norcia','Porchetta','Strangozzi','Lentils of Castelluccio','Torta al testo','Norcia salumi'],
    lessons:["The landlocked vineyard","Sagrantino: Italy's most tannic red","Norcia: truffles, salumi and the norcino","Assisi and the hill towns"]},
  'IT-57':{name:'Marche', capital:'Ancona', area:'Centre', color:'#d1b878', intro:"Adriatic beaches, the Sibillini mountains and Renaissance Urbino. Verdicchio is one of Italy's great age-worthy whites, and the coast cooks a thirteen-fish brodetto.",
    landmark:{name:'Palazzo Ducale, Urbino', desc:'The Renaissance palace of Duke Federico da Montefeltro, its twin slender towers rising above the walled hill town.', props:[['urbino',43.72,12.64]]},
-   wines:[['Verdicchio dei Castelli di Jesi','white'],['Verdicchio di Matelica','white'],['Rosso Conero','red'],['Lacrima di Morro d\'Alba','red']], pairing:'Verdicchio with brodetto all\'anconetana; Rosso Conero with vincisgrassi.',
+   vmp:'italia_marche',
+   wines:[['Verdicchio dei Castelli di Jesi','white','italia_marche_verdicchio_dei_castelli_di_jesi'],['Verdicchio di Matelica','white','italia_marche_verdicchio_di_matelica'],['Rosso Conero','red','italia_marche_rosso_conero'],['Lacrima di Morro d\'Alba','red','']], pairing:'Verdicchio with brodetto all\'anconetana; Rosso Conero with vincisgrassi.',
    dishes:['Olive all\'ascolana','Brodetto','Vincisgrassi','Ciauscolo','Crescia'],
    lessons:["Verdicchio: a white that ages like a red","Montepulciano on the Conero","Ascoli olives and the Adriatic brodetto","Urbino and the ideal city"]},
  'IT-62':{name:'Lazio', capital:'Roma', area:'Centre', color:'#c99d5c', intro:"Rome sits at the centre: the Colosseum, the Forum and a cucina povera of pecorino, guanciale and pasta that became the world's favourite. In the Castelli Romani hills, Frascati has been the city's white wine for centuries.",
    landmark:{name:'The Colosseum, Rome', desc:'The Flavian Amphitheatre, completed in AD 80, seated some 50,000 spectators for games and spectacles.', props:[['colosseum',41.89,12.49]]},
-   wines:[['Frascati Superiore','white'],['Cesanese del Piglio','red'],['Est! Est!! Est!!! di Montefiascone','white'],['Aleatico di Gradoli','sweet']], pairing:'Frascati with carciofi alla giudia; Cesanese with abbacchio alla romana or amatriciana.',
+   vmp:'italia_lazio',
+   wines:[['Frascati Superiore','white','italia_lazio_frascati_superiore'],['Cesanese del Piglio','red','#Cesanese'],['Est! Est!! Est!!! di Montefiascone','white',''],['Aleatico di Gradoli','sweet','']], pairing:'Frascati with carciofi alla giudia; Cesanese with abbacchio alla romana or amatriciana.',
    dishes:['Carbonara','Cacio e pepe','Amatriciana','Saltimbocca alla romana','Carciofi alla giudia','Supplì'],
    lessons:["The Castelli Romani and Frascati","Cesanese: Lazio's forgotten red","The four Roman pastas","Rome: the Colosseum and the eternal table"]},
  'IT-65':{name:'Abruzzo', capital:"L'Aquila", area:'Centre', color:'#b09e68', intro:"Mountain wilderness above, Adriatic below. Bears and wolves roam the Gran Sasso national park, shepherds grill arrosticini over charcoal, and Montepulciano d'Abruzzo is the everyday red of half the country.",
    landmark:{name:'Rocca Calascio & the Gran Sasso', desc:'A 10th-century fortress at 1,460 m, the highest in the Apennines, beneath the 2,912 m Corno Grande.', props:[['calascio',42.33,13.70]]},
-   wines:[['Montepulciano d\'Abruzzo','red'],['Cerasuolo d\'Abruzzo','rose'],['Trebbiano d\'Abruzzo','white'],['Pecorino','white']], pairing:'Cerasuolo with arrosticini straight from the grill; Montepulciano with spaghetti alla chitarra e pallottine.',
+   vmp:'italia_abruzzo',
+   wines:[['Montepulciano d\'Abruzzo','red','italia_abruzzo_montepulciano_d\'abruzzo'],['Cerasuolo d\'Abruzzo','rose','italia_abruzzo_cerasuolo_d\'abruzzo'],['Trebbiano d\'Abruzzo','white','italia_abruzzo_trebbiano_d\'abruzzo'],['Pecorino','white','#Pecorino']], pairing:'Cerasuolo with arrosticini straight from the grill; Montepulciano with spaghetti alla chitarra e pallottine.',
    dishes:['Arrosticini','Spaghetti alla chitarra','Brodetto alla vastese','Pecorino di Farindola','Confetti di Sulmona'],
    lessons:["Montepulciano: the grape, not the town","Cerasuolo and the Adriatic rosé","Arrosticini and the shepherd's kitchen","Gran Sasso and the hill fortresses"]},
  'IT-67':{name:'Molise', capital:'Campobasso', area:'South', color:'#c7a56a', intro:"Italy's youngest and least-visited region, split from Abruzzo in 1963. Ancient sheep-droving tracks (tratturi) cross its hills, Tintilia is its native red grape, and the cheeses are caciocavallo and scamorza.",
    landmark:{name:'Castello Monforte, Campobasso', desc:'A Norman-era castle rebuilt in 1458, watching over the regional capital and the tratturi below.', props:[['monforte',41.56,14.66]]},
-   wines:[['Tintilia del Molise','red'],['Biferno Rosso','red'],['Molise Falanghina','white']], pairing:'Tintilia with cavatelli al ragù di agnello and a wedge of caciocavallo.',
+   vmp:'italia_molise',
+   wines:[['Tintilia del Molise','red',''],['Biferno Rosso','red','italia_molise_biferno'],['Molise Falanghina','white','']], pairing:'Tintilia with cavatelli al ragù di agnello and a wedge of caciocavallo.',
    dishes:['Cavatelli','Caciocavallo di Agnone','Pampanella','Scamorza','Ventricina'],
    lessons:["A region rediscovered","Tintilia: a grape saved from extinction","Caciocavallo and the transhumance routes","Campobasso and the hill villages"]},
  'IT-72':{name:'Campania', capital:'Napoli', area:'South', color:'#cf9358', intro:"Naples invented pizza, Vesuvius buried Pompeii, and the volcanic soils grow ancient grapes: Aglianico for Taurasi, Fiano and Greco for whites. Buffalo mozzarella, San Marzano tomatoes and lemons complete the picture.",
    landmark:{name:'Mount Vesuvius & Pompeii', desc:'The volcano whose AD 79 eruption preserved Pompeii still looms over the Bay of Naples; its slopes grow Lacryma Christi.', props:[['vesuvius',40.82,14.43]]},
-   wines:[['Taurasi (Aglianico)','red'],['Fiano di Avellino','white'],['Greco di Tufo','white'],['Lacryma Christi del Vesuvio','red'],['Falanghina','white']], pairing:'Falanghina with pizza margherita and fried seafood; Taurasi with ragù napoletano.',
+   vmp:'italia_campania',
+   wines:[['Taurasi (Aglianico)','red','italia_campania_taurasi'],['Fiano di Avellino','white','italia_campania_fiano_di_avellino'],['Greco di Tufo','white','italia_campania_greco_di_tufo'],['Lacryma Christi del Vesuvio','red',''],['Falanghina','white','#Falanghina']], pairing:'Falanghina with pizza margherita and fried seafood; Taurasi with ragù napoletano.',
    dishes:['Pizza napoletana','Mozzarella di bufala','Ragù napoletano','Sfogliatella','Pasta e patate','Limoncello'],
    lessons:["Volcanic soils and ancient grapes","Taurasi, Fiano and Greco","Pizza, mozzarella and the Neapolitan table","Vesuvius, Pompeii and the Amalfi coast"]},
  'IT-75':{name:'Puglia', capital:'Bari', area:'South', color:'#d8b06e', intro:"The heel of the boot is a sun-baked plain of olive trees (40% of Italy's oil), whitewashed trulli, and Primitivo and Negroamaro vines. Burrata was invented here, and pasta is shaped by hand into little ears.",
    landmark:{name:'Trulli of Alberobello & Castel del Monte', desc:'Conical dry-stone houses, over 1,500 of them in Alberobello, and Frederick II\'s mysterious octagonal castle of 1240.', props:[['trulli',40.78,17.24],['castel',41.08,16.27]]},
-   wines:[['Primitivo di Manduria','red'],['Salice Salentino (Negroamaro)','red'],['Nero di Troia','red'],['Rosato del Salento','rose'],['Verdeca','white']], pairing:'Salento rosato with orecchiette con cime di rapa; Primitivo with braciole and grilled lamb.',
+   vmp:'italia_puglia',
+   wines:[['Primitivo di Manduria','red','italia_puglia_primitivo_di_manduria'],['Salice Salentino (Negroamaro)','red','italia_puglia_salice_salentino'],['Nero di Troia','red','italia_puglia_castel_del_monte'],['Rosato del Salento','rose','italia_puglia_salento'],['Verdeca','white','']], pairing:'Salento rosato with orecchiette con cime di rapa; Primitivo with braciole and grilled lamb.',
    dishes:['Orecchiette con cime di rapa','Burrata','Focaccia barese','Taralli','Bombette','Panzerotti'],
    lessons:["Olives, sun and the Salento","Primitivo and Negroamaro","Orecchiette, burrata and the bread of Altamura","Trulli, castles and the Adriatic"]},
  'IT-77':{name:'Basilicata', capital:'Potenza', area:'South', color:'#b98f5e', intro:"Rugged, mountainous and once desperately poor, Basilicata is now known for Matera's cave city and Aglianico del Vulture, grown on an extinct volcano. Crunchy dried peppers season almost everything.",
    landmark:{name:'Sassi di Matera', desc:'Cave dwellings carved into a limestone ravine, inhabited for 9,000 years and a UNESCO site since 1993.', props:[['matera',40.67,16.61]]},
-   wines:[['Aglianico del Vulture','red'],['Matera DOC Primitivo','red'],['Grottino di Roccanova','red']], pairing:'Aglianico del Vulture with lucanica sausage and pane di Matera rubbed with peperoni cruschi.',
+   vmp:'italia_basilicata',
+   wines:[['Aglianico del Vulture','red','italia_basilicata_aglianico_del_vulture'],['Matera DOC Primitivo','red',''],['Grottino di Roccanova','red','']], pairing:'Aglianico del Vulture with lucanica sausage and pane di Matera rubbed with peperoni cruschi.',
    dishes:['Peperoni cruschi','Pane di Matera','Lucanica','Lagane e ceci','Caciocavallo podolico'],
    lessons:["Vulture: wine on a volcano","Aglianico, the Barolo of the south","Peperoni cruschi and the bread of Matera","Matera: the cave city"]},
  'IT-78':{name:'Calabria', capital:'Catanzaro', area:'South', color:'#cc945f', intro:"The toe of Italy, fiercely spicy and Greek in its roots. 'Nduja, red onions of Tropea, bergamot and liquorice all come from here, and Cirò is one of the oldest wines in the world.",
    landmark:{name:'Tropea & Santa Maria dell\'Isola', desc:'A cliff-top town above white sand, with a Benedictine sanctuary perched on its own rock in the sea.', props:[['tropea',38.68,15.90]]},
-   wines:[['Cirò Rosso (Gaglioppo)','red'],['Cirò Bianco (Greco Bianco)','white'],['Greco di Bianco','sweet'],['Magliocco','red']], pairing:'Cirò Rosso with fileja and \'nduja; Greco di Bianco with fig and almond sweets.',
+   vmp:'italia_calabria',
+   wines:[['Cirò Rosso (Gaglioppo)','red','italia_calabria_cirò'],['Cirò Bianco (Greco Bianco)','white','italia_calabria_cirò'],['Greco di Bianco','sweet',''],['Magliocco','red','']], pairing:'Cirò Rosso with fileja and \'nduja; Greco di Bianco with fig and almond sweets.',
    dishes:['\'Nduja','Cipolla rossa di Tropea','Fileja','Swordfish alla bagnarese','Bergamot','Liquorice of Rossano'],
    lessons:["Magna Graecia and the oldest vineyard","Gaglioppo and Cirò","'Nduja, chilli and the Calabrian pantry","Tropea and the Costa degli Dei"]},
  'IT-82':{name:'Sicilia', capital:'Palermo', area:'Islands', color:'#dcb46a', intro:"The Mediterranean's largest island has been Greek, Arab, Norman and Spanish, and the kitchen shows it: couscous, citrus, pistachios, cannoli. Etna's volcanic vineyards make some of Italy's most exciting wines.",
    landmark:{name:'Mount Etna & the Valley of the Temples', desc:'Europe\'s most active volcano (3,357 m) and, at Agrigento, the best-preserved Greek temples outside Greece.', props:[['etna',37.75,15.00],['temple',37.29,13.59]]},
-   wines:[['Etna Rosso (Nerello Mascalese)','red'],['Nero d\'Avola','red'],['Grillo','white'],['Marsala','sweet'],['Passito di Pantelleria','sweet'],['Cerasuolo di Vittoria','red']], pairing:'Etna Bianco with pasta alla Norma; Nero d\'Avola with grilled swordfish; Passito with cannoli.',
+   vmp:'italia_sicilia',
+   wines:[['Etna Rosso (Nerello Mascalese)','red','italia_sicilia_etna'],['Nero d\'Avola','red','#Nero d\'Avola'],['Grillo','white','#Grillo'],['Marsala','sweet','italia_sicilia_marsala'],['Passito di Pantelleria','sweet','italia_sicilia_pantelleria'],['Cerasuolo di Vittoria','red','italia_sicilia_cerasuolo_di_vittoria']], pairing:'Etna Bianco with pasta alla Norma; Nero d\'Avola with grilled swordfish; Passito with cannoli.',
    dishes:['Arancini','Pasta alla Norma','Caponata','Cannoli','Granita','Pasta con le sarde'],
    lessons:["Etna: vines on a live volcano","Nero d'Avola, Grillo and Marsala","Arab Sicily: citrus, sugar and street food","Temples, Normans and the Baroque"]},
  'IT-88':{name:'Sardegna', capital:'Cagliari', area:'Islands', color:'#caa965', intro:"An island apart, with its own language and 7,000 Bronze-Age stone towers. Shepherds roast suckling pig, bake paper-thin carasau bread and make pecorino; Cannonau and Vermentino are its two great grapes.",
    landmark:{name:'Nuraghe Su Nuraxi, Barumini', desc:'A 3,500-year-old stone fortress with a central tower and village, the finest of Sardinia\'s nuraghi.', props:[['nuraghe',39.70,9.00]]},
-   wines:[['Cannonau di Sardegna','red'],['Vermentino di Gallura','white'],['Carignano del Sulcis','red'],['Vernaccia di Oristano','sweet']], pairing:'Vermentino di Gallura with fregola ai frutti di mare; Cannonau with porceddu and pecorino sardo.',
+   vmp:'italia_sardinia',
+   wines:[['Cannonau di Sardegna','red','italia_sardinia_cannonau_di_sardegna'],['Vermentino di Gallura','white','italia_sardinia_vermentino_di_gallura'],['Carignano del Sulcis','red','italia_sardinia_carignano_del_sulcis'],['Vernaccia di Oristano','sweet','italia_sardinia_vernaccia_di_oristano']], pairing:'Vermentino di Gallura with fregola ai frutti di mare; Cannonau with porceddu and pecorino sardo.',
    dishes:['Porceddu','Pane carasau','Culurgiones','Fregola','Pecorino sardo','Seadas'],
    lessons:["An island of shepherds and vines","Cannonau and Vermentino","Porceddu, carasau and the pastoral table","Nuraghi: the Bronze Age towers"]},
 };
@@ -456,11 +489,42 @@ const COURSE = {
 // rather than a free-text search, which is fuzzy: "Barolo" as text also returns grappa and Barolo Chinato.
 // A region carries its district code in COURSE.vmp; the third element of a wines[] entry is the sub-district
 // code, listed by tools/vmpmap.py. A wine with no sub-district code links at region level, which is never empty.
-const vmpUrl = (district, sub) => 'https://www.vinmonopolet.no/search?q=' + encodeURIComponent(
-  ':relevance:mainCountry:italia:mainDistrict:' + district + (sub ? ':mainSubDistrict:' + sub : ''));
+// Every Vinmonopolet shop, name and id, read from the shop's own availableInStores facet (tools/vmpstores.py).
+const VMP_STORES = [['Aksdal','103'],['Alta','200'],['Andebu','425'],['Andenes','316'],['Arendal','201'],['Asker','202'],['Askim','203'],['Askvoll','414'],['Askøy','148'],['Aurland','482'],['Austevoll','410'],['Bagn','427'],['Bardufoss','278'],['Beitostølen','396'],['Bergen, Arna','165'],['Bergen, Bergen Storsenter','121'],['Bergen, Fyllingsdalen','149'],['Bergen, Lagunen','331'],['Bergen, Laksevåg','373'],['Bergen, Nesttun','163'],['Bergen, Sletten','130'],['Bergen, Valkendorfsgt.','150'],['Bergen, Vestkanten','170'],['Bergen, Åsane','197'],['Bergen, Åsane Horisont','434'],['Bjugn','428'],['Bjørkelangen','301'],['Bodø, City Nord','339'],['Bodø, Hunstad','469'],['Bodø, Sentrum','204'],['Brattvåg','379'],['Brekstad','206'],['Brokelandsheia','409'],['Bruhagen','420'],['Brumunddal','394'],['Bryne','326'],['Brønnøysund','208'],['Buvika','479'],['Båtsfjord','318'],['Bærum, Bekkestua','190'],['Bærum, Bærums Verk','453'],['Bærum, Fornebu','442'],['Bærum, Kolsås','124'],['Bærum, Sandvika','194'],['Bærum, Østerås','198'],['Bø i Telemark','166'],['Bø i Vesterålen','445'],['Bømlo','309'],['Digerneset','109'],['Dokka','123'],['Dombås','303'],['Drammen, Bragernes','205'],['Drammen, CC','468'],['Drammen, Strømsø','207'],['Drangedal','365'],['Drøbak','210'],['Egersund','209'],['Eggedal','119'],['Eidsvoll','213'],['Eikelandsosen','448'],['Elnesvågen','333'],['Elverum','215'],['Etne','429'],['Evenskjer','413'],['Evje','172'],['Fagernes','217'],['Farsund','307'],['Fauske','212'],['Fetsund','441'],['Finnsnes','216'],['Fitjar','129'],['Fjerdingby','477'],['Flekkefjord','167'],['Flisa','302'],['Florø','164'],['Flå','452'],['Fosnavåg','347'],['Fredrikstad, Værstetorvet','219'],['Fredrikstad, Østsiden','222'],['Froland','437'],['Frosta','465'],['Frøya','358'],['Førde','251'],['Gausdal','395'],['Geilo','304'],['Gjerdrum','426'],['Gjøvik','223'],['Gol','225'],['Gran','226'],['Grimstad','211'],['Grong','315'],['Halden','229'],['Hamar','230'],['Hammerfest','220'],['Harstad','224'],['Haugesund, Amanda','483'],['Haugesund, Sentrum','218'],['Hemsedal','419'],['Herøy','443'],['Hitra','314'],['Hokksund','375'],['Holmen Senter','135'],['Holmestrand','233'],['Honningsvåg','239'],['Horten','237'],['Hov','438'],['Hovden','107'],['Husnes','179'],['Hvaler','321'],['Hønefoss','242'],['Høyanger','356'],['Inderøy','446'],['Jessheim','246'],['Jevnaker','377'],['Jørpeland','308'],['Karmøy, Kopervik','168'],['Karmøy, Oasen','449'],['Kautokeino','319'],['Kirkenes','228'],['Kjøllefjord','447'],['Klepp','385'],['Kløfta','455'],['Knarvik','156'],['Kolbotn','234'],['Kolvereid','243'],['Kongsberg','247'],['Kongsvinger','250'],['Koppang','411'],['Korgen','424'],['Kragerø','257'],['Kristiansand, Lillemarkens','254'],['Kristiansand, Sørlandssenteret','253'],['Kristiansand, Vågsbygd','386'],['Kristiansund, Futura','137'],['Kristiansund, Sentrum','232'],['Krokstadelva','126'],['Kvinesdal','430'],['Kyrksæterøra','313'],['Lakselv','133'],['Langevåg','432'],['Larvik','258'],['Leknes','214'],['Lena','332'],['Levanger','236'],['Liertoppen','362'],['Lillehammer','263'],['Lillesand','306'],['Lillestrøm','265'],['Lom','364'],['Lonevåg','421'],['Luster','366'],['Lyngdal','345'],['Lyngen','444'],['Lødingen','369'],['Lørenskog, Metro','473'],['Lørenskog, Triaden','287'],['Løten','363'],['Malvik','383'],['Mandal','266'],['Melhus','342'],['Mo i Nord-Odal','101'],['Mo i Rana','240'],['Moelv','439'],['Molde','244'],['Mosjøen','248'],['Moss','270'],['Myre','359'],['Mysen','343'],['Måløy','151'],['Namsos','252'],['Nannestad','392'],['Narvik','256'],['Nesbyen','387'],['Nesna','108'],['Nesodden','134'],['Nittedal','105'],['Nordfjordeid','255'],['Noresund','131'],['Norheimsund','177'],['Notodden','273'],['Nærbø','431'],['Nøtterøy','142'],['Odda','235'],['Oppdal','260'],['Orkanger','262'],['Os','275'],['Oslo, Aker Brygge','114'],['Oslo, Alna','117'],['Oslo, Bjørvika','474'],['Oslo, Briskeby','104'],['Oslo, Bryn','475'],['Oslo, Bøler','440'],['Oslo, CC Vest','127'],['Oslo, Carl Berner','459'],['Oslo, Colosseum','136'],['Oslo, Frogner','111'],['Oslo, Grorud','389'],['Oslo, Grønland Basar','361'],['Oslo, Grünerløkka','115'],['Oslo, Hasle Torg','182'],['Oslo, Holmlia','122'],['Oslo, Kiellandsplass','178'],['Oslo, Lambertseter','374'],['Oslo, Linderud','132'],['Oslo, Manglerud','138'],['Oslo, Mortensrud','403'],['Oslo, Nydalen','417'],['Oslo, Oslo City','143'],['Oslo, Oslo S','118'],['Oslo, Paleet','141'],['Oslo, Røa','335'],['Oslo, Sandaker','152'],['Oslo, Skøyen','393'],['Oslo, Steen & Strøm','286'],['Oslo, Storo','161'],['Oslo, Stovner','162'],['Oslo, Tveita','145'],['Oslo, Ullevaal Stadion','334'],['Oslo, Valkyrien','471'],['Oslo, Vinderen','454'],['Otta','274'],['Overhalla','139'],['Porsgrunn, Down Town','113'],['Porsgrunn, Jernbanegata','277'],['Radøy','433'],['Rakkestad','300'],['Randaberg','399'],['Raufoss','352'],['Re','381'],['Rena','330'],['Ringebu','380'],['Rissa','340'],['Risør','169'],['Rjukan','281'],['Rognan','328'],['Rosendal','102'],['Rudshøgda','267'],['Rygge','350'],['Råholt','470'],['Rødberg','412'],['Røros','264'],['Rørvik','382'],['Samnanger','153'],['Sandane','346'],['Sande','407'],['Sandefjord','283'],['Sandnes, Kvadrat','116'],['Sandnes, Sandnes Sentrum','241'],['Sandnessjøen','268'],['Sarpsborg, Borg','461'],['Sarpsborg, Storbyen','285'],['Sauda','147'],['Selbu','423'],['Seljord','320'],['Setermoen','360'],['Sjøvegan','368'],['Skarnes','388'],['Skedsmokorset','472'],['Ski','289'],['Skien, Gråtenmoen','181'],['Skien, Lietorvet','290'],['Skjervøy','327'],['Slemmestad','173'],['Smøla','457'],['Sogndal','261'],['Sola, Solakrossen','355'],['Sola, Tananger','480'],['Son','462'],['Sortland','272'],['Sotra','325'],['Stange','324'],['Stathelle','128'],['Stavanger, Herbarium','227'],['Stavanger, Hillevåg','221'],['Stavanger, Hinna','436'],['Stavanger, Madla','416'],['Stavanger, Tasta','450'],['Stavanger, Verksgata','231'],['Stavern','404'],['Steigen','456'],['Steinkjer','276'],['Stjørdal','280'],['Stokke','398'],['Stokmarknes','341'],['Stord','297'],['Storslett','269'],['Storsteinnes','317'],['Stranda','329'],['Stryn','310'],['Strømmen','291'],['Støren','189'],['Suldal','106'],['Sund','466'],['Sunndalsøra','259'],['Surnadal','312'],['Sveio','476'],['Svelvik','422'],['Svolvær','284'],['Sykkylven','348'],['Sætre','112'],['Søgne','354'],['Sørumsand','378'],['Tjøme','376'],['Tofte','397'],['Tromsø, Langnes','282'],['Tromsø, Sentrum','292'],['Tromsø, Tromsdalen','288'],['Trondheim, Byhaven','140'],['Trondheim, Byåsen','401'],['Trondheim, City Syd','120'],['Trondheim, Heimdal','460'],['Trondheim, Lade','336'],['Trondheim, Nedre Elvehavn','322'],['Trondheim, Sirkus Shopping','146'],['Trondheim, Trondheim Torg','160'],['Trondheim, Valentinlyst','180'],['Trysil','294'],['Tvedestrand','323'],['Tynset','293'],['Tysnes','458'],['Tønsberg','295'],['Ulefoss','353'],['Ulsteinvik','183'],['Vadsø','296'],['Vanylven','367'],['Vardø','370'],['Vennesla','344'],['Verdal','337'],['Vestby','351'],['Vestnes','384'],['Vik i Hole','467'],['Vik i Sogn','464'],['Vikersund','171'],['Vinje','305'],['Vinstra','125'],['Vinterbro','338'],['Volda','357'],['Voss','298'],['Vågå','349'],['Ytre Enebakk','415'],['Åfjord','402'],['Ål','406'],['Ålesund, Moa','174'],['Ålesund, Sentrum','245'],['Ålgård','405'],['Åndalsnes','175'],['Årdal','311'],['Årnes','176'],['Ås','418'],['Åsgårdstrand','463'],['Ølen','400'],['Ørnes','185'],['Ørsta','299'],['Øyer','408']];
+// The reader can pin a shop, so the links show what is on the shelf there instead of the whole catalogue.
+let vmpStore = (() => { try { return localStorage.getItem('iit-vmp-store') || ''; } catch(e) { return ''; } })();
+// A wine may sit in a different district than its region (Lugana, Prosecco), be an appellation inside it,
+// or be named after its grape. The three cases are '@district', 'sub_district' and '#Grape'.
+const vmpUrl = (district, sub) => (sub && sub.charAt(0) === '@') ? vmpUrl(sub.slice(1), '')
+  : 'https://www.vinmonopolet.no/search?q=' + encodeURIComponent(
+    ':relevance:mainCountry:italia:mainDistrict:' + district
+    + (sub ? (sub.charAt(0) === '#' ? ':singleGrape:' + sub.slice(1) : ':mainSubDistrict:' + sub) : '')
+    + (vmpStore ? ':availableInStores:' + vmpStore : ''));
+// The wines list and the shop picker above it. Changing the shop re-renders the links in place.
+let vmpRegion = null;
+function renderWines(C){
+  vmpRegion = C;
+  const ul = document.querySelector('#sheet ul.wines');
+  ul.innerHTML = C.wines.map(([n,t,sub]) => `<li><i class="${t}"></i><span>${n}</span><small>${T('wine.'+t)}</small>`
+    + (C.vmp ? `<a class="vmp" href="${vmpUrl(C.vmp, sub)}" target="_blank" rel="noopener" title="${T('vmpTitle')}">${T('vmp')}</a>` : '')
+    + '</li>').join('');
+  const box = document.querySelector('#sheet .vmpstore'), sel = document.getElementById('vmpStore');
+  box.style.display = C.vmp ? '' : 'none';
+  if(!C.vmp) return;
+  if(!sel.options.length){
+    sel.innerHTML = `<option value="">${T('vmpAll')}</option>`
+      + VMP_STORES.map(([n,i]) => `<option value="${i}">${n}</option>`).join('');
+    sel.addEventListener('change', () => {
+      vmpStore = sel.value;
+      try{ localStorage.setItem('iit-vmp-store', vmpStore); }catch(e){}
+      if(vmpRegion) renderWines(vmpRegion);
+    });
+  }
+  sel.value = vmpStore;
+}
 const ORDER = ['IT-23','IT-21','IT-42','IT-25','IT-32','IT-34','IT-36','IT-45','IT-52','IT-55','IT-57','IT-62','IT-65','IT-67','IT-72','IT-75','IT-77','IT-78','IT-82','IT-88'];
 const AREAS = ['North','Centre','South','Islands'];
-const ASSET_DIRS = {'IT-62':'lazio','IT-21':'piemonte','IT-52':'toscana','IT-34':'veneto','IT-72':'campania','IT-82':'sicilia','IT-25':'lombardia','IT-45':'emiliaromagna','IT-75':'puglia','IT-32':'trentino','IT-36':'friuli','IT-42':'liguria'};
+const ASSET_DIRS = {'IT-62':'lazio','IT-21':'piemonte','IT-52':'toscana','IT-34':'veneto','IT-72':'campania','IT-82':'sicilia','IT-25':'lombardia','IT-45':'emiliaromagna','IT-75':'puglia','IT-32':'trentino','IT-36':'friuli','IT-42':'liguria','IT-55':'umbria','IT-57':'marche','IT-65':'abruzzo','IT-88':'sardegna'};
 COURSE['IT-62'].landmark.props = [['rome',41.89,12.49]];
 COURSE['IT-62'].landmark.name = 'The Colosseum & St Peter\'s, Rome';
 const VINEYARDS = [[44.6,8.0],[45.6,10.0],[45.5,10.9],[45.9,12.2],[46.0,13.5],[44.7,10.9],[43.5,11.3],[43.05,11.5],[42.9,12.65],[43.4,13.1],[42.4,14.1],[41.0,14.95],[40.4,17.6],[40.95,15.65],[39.4,17.05],[37.8,15.05],[37.8,12.5],[41.0,9.3],[45.75,7.4],[46.55,11.2],[44.2,9.9],[42.1,11.8],[41.75,13.15]];
@@ -875,7 +939,7 @@ function select(code){
   sheet.querySelectorAll('ol.lessons li.readable').forEach(li => li.addEventListener('click', () => { location.hash = `#/${code}/${+li.dataset.i+1}`; }));
   sheet.querySelector('.landmark b').textContent = C.landmark.name;
   sheet.querySelector('.landmark span').textContent = C.landmark.desc;
-  sheet.querySelector('ul.wines').innerHTML = C.wines.map(([n,t,sub]) => `<li><i class="${t}"></i><span>${n}</span><small>${T('wine.'+t)}</small>${C.vmp ? `<a class="vmp" href="${vmpUrl(C.vmp, sub)}" target="_blank" rel="noopener" title="${T('vmpTitle')}">${T('vmp')}</a>` : ''}</li>`).join('');
+  renderWines(C);
   sheet.querySelector('.pair span').textContent = C.pairing;
   sheet.querySelector('.dishes').innerHTML = C.dishes.map(d => `<span>${d}</span>`).join('');
   sheet.querySelector('.body').scrollTop = 0;

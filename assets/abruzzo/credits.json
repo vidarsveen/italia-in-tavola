@@ -1,0 +1,92 @@
+{
+ "pergola": {
+  "artist": "Ra Boe",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Montepulciano_d_Abruzzo_01_(RaBoe).jpg"
+ },
+ "vigneti": {
+  "artist": "Peter Forster",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Vigneti,_Rebberg,_Montepulciano_d'Abruzzo_vineyards.jpg"
+ },
+ "cerasuolo": {
+  "artist": "e_calamar",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Montepulciano_d'Abruzzo_Cerasuolo_2007.jpg"
+ },
+ "trabocco": {
+  "artist": "Rocco Scattino",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Trabucco_-_Fossacesia(_CH).jpg"
+ },
+ "arrosticini": {
+  "artist": "Superchilum",
+  "license": "CC BY 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Arrosticini_abruzzesi_01.jpg"
+ },
+ "arrosticini2": {
+  "artist": "Cetrone90",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Arrosticini_fatti_a_mano.jpg"
+ },
+ "chitarra": {
+  "artist": "Horcrux",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Spaghetti_alla_chitarra_con_pallottine_(Teramo).jpg"
+ },
+ "scrippelle": {
+  "artist": "Franco aq",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Scrippelle_mbusse.jpg"
+ },
+ "confetti": {
+  "artist": "Claro48",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Confetti_Sulmona.JPG"
+ },
+ "zafferano": {
+  "artist": "Giancarlo.pak",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Fioritura_zafferano_di_Navelli.jpg"
+ },
+ "ventricina": {
+  "artist": "Nightrain83",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Ventricina_vastese.jpg"
+ },
+ "calascio": {
+  "artist": "Andrej",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Rocca_Calascio_(45815227705).jpg"
+ },
+ "calascio2": {
+  "artist": "Jon Gudorf Photography",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Photographer_in_fog_waiting_for_light_at_sunset_atop_Rocca_Calascio,_Abruzzo,_Italy_(35192152864).jpg"
+ },
+ "campo": {
+  "artist": "Gigi L. Filice",
+  "license": "CC0",
+  "source": "https://commons.wikimedia.org/wiki/File:Campo_Imperatore_(37424325292).jpg"
+ },
+ "campo2": {
+  "artist": "Ziegler175",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:AbrCampoImperatore1.jpg"
+ },
+ "corno": {
+  "artist": "Cats' photos",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Corno_Grande_(visto_da_Chieti).JPG"
+ },
+ "sessanio": {
+  "artist": "Gabriella Pesce",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Borgo_Santo_Stefano_di_Sessanio.jpg"
+ },
+ "orso": {
+  "artist": "Marco Tersigni",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Orso_bruno_marsicano.jpg"
+ }
+}
