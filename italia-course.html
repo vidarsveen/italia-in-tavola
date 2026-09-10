@@ -214,6 +214,10 @@
   #labels .lbl{ position:absolute; left:0; top:0; font-family:var(--serif); font-weight:500; font-variation-settings:"opsz" 48, "SOFT" 30; color:#fff; letter-spacing:.02em; white-space:nowrap;
     text-shadow:0 0 3px rgba(20,25,35,.95), 0 0 6px rgba(20,25,35,.8), 0 1px 2px rgba(0,0,0,.9); transition:opacity .3s; }
   #labels .lbl.dim{ opacity:.45; }
+  #labels .cap-lbl{ position:absolute; left:0; top:0; display:flex; align-items:center; gap:5px; white-space:nowrap;
+    font-family:var(--sans); font-weight:500; font-size:11px; letter-spacing:.02em; color:rgba(255,255,255,.9);
+    text-shadow:0 0 3px rgba(20,25,35,.95), 0 1px 2px rgba(0,0,0,.9); transition:opacity .25s; }
+  #labels .cap-lbl i{ width:4px; height:4px; border-radius:50%; background:#fff; box-shadow:0 0 3px rgba(0,0,0,.9); flex:none; }
   #tiltBtn{ position:absolute; right:12px; bottom:calc(var(--sheet-peek) + var(--safe-b) + 108px); width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:rgba(26,34,44,.86); color:var(--paper); cursor:pointer; font-size:16px; }
   #sheet.half ~ #tiltBtn, #sheet.full ~ #tiltBtn{ display:none; }
   #loading{ position:fixed; inset:0; z-index:30; background:var(--sea); display:grid; place-items:center; font-family:var(--serif); font-size:20px; color:var(--paper-dim); transition:opacity .6s; padding:20px; text-align:center; }
@@ -793,7 +797,14 @@ B.rome = g => {
 };
 
 // ============================================================ LANDMARKS: pins at overview, models when a region is focused
-const landmarkGroups = [], pins = [], labelEls = {};
+const landmarkGroups = [], pins = [], labelEls = {}, capEls = {};
+// Regional capitals, lon/lat. Every one verified to fall inside its own region polygon.
+const CAPITAL_POS = {
+  'IT-23':[7.320,45.737], 'IT-21':[7.686,45.070], 'IT-42':[8.933,44.407], 'IT-25':[9.190,45.464],
+  'IT-32':[11.121,46.069],'IT-34':[12.327,45.438],'IT-36':[13.777,45.649],'IT-45':[11.343,44.494],
+  'IT-52':[11.256,43.770],'IT-55':[12.389,43.111],'IT-57':[13.518,43.616],'IT-62':[12.496,41.903],
+  'IT-65':[13.399,42.351],'IT-67':[14.656,41.560],'IT-72':[14.268,40.852],'IT-75':[16.872,41.118],
+  'IT-77':[15.805,40.639],'IT-78':[16.588,38.910],'IT-82':[13.362,38.116],'IT-88':[9.114,39.224]};
 function pinTexture(colorHex){
   const c = document.createElement('canvas'); c.width = 64; c.height = 96; const x = c.getContext('2d');
   x.shadowColor = 'rgba(0,0,0,0.35)'; x.shadowBlur = 6; x.shadowOffsetY = 3;
@@ -817,16 +828,64 @@ function placeLandmarks(){
   }
   const box = document.getElementById('labels');
   for(const code of ORDER){ const el = document.createElement('div'); el.className = 'lbl'; el.textContent = COURSE[code].name; box.appendChild(el); labelEls[code] = el; }
+  // capitals: a dot and the city name, shown only once the camera is close enough for them to mean something
+  for(const code of ORDER){
+    const cap = CAPITAL_POS[code]; if(!cap) continue;
+    const el = document.createElement('div'); el.className = 'cap-lbl';
+    el.innerHTML = `<i></i><span>${COURSE[code].capital}</span>`;
+    box.appendChild(el);
+    capEls[code] = {el, pos: new THREE.Vector3(X(cap[0]), yAt(X(cap[0]), Z(cap[1])) + 0.25, Z(cap[1]))};
+  }
 }
 const _v = new THREE.Vector3();
+// Labels are placed by priority and anything that would overlap something already placed is hidden.
+// A label already on screen keeps a small advantage, so the map does not flicker as the camera moves.
+const _boxes = [];
+function _fits(x, y, w, h, pad){
+  for(const b of _boxes){
+    if(x - w/2 - pad < b.x + b.w/2 && x + w/2 + pad > b.x - b.w/2 &&
+       y - h/2 - pad < b.y + b.h/2 && y + h/2 + pad > b.y - b.h/2) return false;
+  }
+  return true;
+}
+function _place(el, x, y, pad){
+  const w = el.offsetWidth || 60, h = el.offsetHeight || 14;
+  if(!_fits(x, y, w, h, pad)) return false;
+  _boxes.push({x, y, w, h});
+  return true;
+}
 function updateOverlays(){
   const dist = ctl.dist, fs = THREE.MathUtils.clamp(13.5 * Math.pow(150/dist, 0.55), 10, 21);
+  _boxes.length = 0;
+  // capitals only once the camera is close enough that they add something
+  const showCaps = dist < 140;
+  for(const code of ORDER){
+    const c = capEls[code]; if(!c) continue;
+    if(!showCaps){ c.el.style.display = 'none'; continue; }
+    _v.copy(c.pos).project(camera);
+    const vis = _v.z < 1 && Math.abs(_v.x) < 1.05 && Math.abs(_v.y) < 1.05;
+    if(!vis){ c.el.style.display = 'none'; continue; }
+    c.el.style.display = 'block';
+    c.el.style.transform = `translate(0,-50%) translate(${(_v.x*0.5+0.5)*window.innerWidth}px, ${(-_v.y*0.5+0.5)*window.innerHeight}px)`;
+  }
   for(const code of ORDER){
     const r = byCode[code]; if(!r) continue;
     _v.copy(r.center).add(new THREE.Vector3(0, 0.4, 0)).project(camera);
     const el = labelEls[code]; const on = _v.z < 1 && Math.abs(_v.x) < 1.1 && Math.abs(_v.y) < 1.1 && code !== selected;
     el.style.display = on ? 'block' : 'none';
     if(on){ el.style.transform = `translate(-50%,-50%) translate(${(_v.x*0.5+0.5)*window.innerWidth}px, ${(-_v.y*0.5+0.5)*window.innerHeight}px)`; el.style.fontSize = fs + 'px'; el.classList.toggle('dim', !!selected); }
+  }
+  // region names win over city names; both yield to whatever was placed first
+  for(const code of ORDER){
+    const el = labelEls[code];
+    if(el.style.display === 'none') continue;
+    const r = el.getBoundingClientRect();
+    if(!_place(el, r.left + r.width/2, r.top + r.height/2, 2)) el.style.display = 'none';
+  }
+  for(const code of ORDER){
+    const c = capEls[code]; if(!c || c.el.style.display === 'none') continue;
+    const r = c.el.getBoundingClientRect();
+    if(!_place(c.el, r.left + r.width/2, r.top + r.height/2, 3)) c.el.style.display = 'none';
   }
   const pinScale = dist * 0.032;
   for(const p of pins){ const focused = p.userData.code === selected && dist < 75; p.visible = !focused; p.scale.set(pinScale*0.67, pinScale, 1); }

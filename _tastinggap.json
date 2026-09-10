@@ -1,0 +1,408 @@
+[
+ {
+  "code": "IT-23",
+  "region": "Valle d'Aosta",
+  "stem": "valledaosta",
+  "wine": "Petite Arvine",
+  "kind": "white"
+ },
+ {
+  "code": "IT-23",
+  "region": "Valle d'Aosta",
+  "stem": "valledaosta",
+  "wine": "Fumin",
+  "kind": "red"
+ },
+ {
+  "code": "IT-21",
+  "region": "Piemonte",
+  "stem": "piemonte",
+  "wine": "Barbaresco",
+  "kind": "red"
+ },
+ {
+  "code": "IT-21",
+  "region": "Piemonte",
+  "stem": "piemonte",
+  "wine": "Barbera d'Asti",
+  "kind": "red"
+ },
+ {
+  "code": "IT-21",
+  "region": "Piemonte",
+  "stem": "piemonte",
+  "wine": "Moscato d'Asti",
+  "kind": "sparkling"
+ },
+ {
+  "code": "IT-21",
+  "region": "Piemonte",
+  "stem": "piemonte",
+  "wine": "Gavi",
+  "kind": "white"
+ },
+ {
+  "code": "IT-42",
+  "region": "Liguria",
+  "stem": "liguria",
+  "wine": "Vermentino",
+  "kind": "white"
+ },
+ {
+  "code": "IT-42",
+  "region": "Liguria",
+  "stem": "liguria",
+  "wine": "Rossese di Dolceacqua",
+  "kind": "red"
+ },
+ {
+  "code": "IT-42",
+  "region": "Liguria",
+  "stem": "liguria",
+  "wine": "Sciacchetrà",
+  "kind": "sweet"
+ },
+ {
+  "code": "IT-25",
+  "region": "Lombardia",
+  "stem": "lombardia",
+  "wine": "Lugana",
+  "kind": "white"
+ },
+ {
+  "code": "IT-25",
+  "region": "Lombardia",
+  "stem": "lombardia",
+  "wine": "Oltrepò Pavese Pinot Nero",
+  "kind": "red"
+ },
+ {
+  "code": "IT-32",
+  "region": "Trentino-Alto Adige",
+  "stem": "trentino",
+  "wine": "Pinot Grigio",
+  "kind": "white"
+ },
+ {
+  "code": "IT-32",
+  "region": "Trentino-Alto Adige",
+  "stem": "trentino",
+  "wine": "Lagrein",
+  "kind": "red"
+ },
+ {
+  "code": "IT-32",
+  "region": "Trentino-Alto Adige",
+  "stem": "trentino",
+  "wine": "Teroldego Rotaliano",
+  "kind": "red"
+ },
+ {
+  "code": "IT-34",
+  "region": "Veneto",
+  "stem": "veneto",
+  "wine": "Soave Classico",
+  "kind": "white"
+ },
+ {
+  "code": "IT-34",
+  "region": "Veneto",
+  "stem": "veneto",
+  "wine": "Valpolicella Ripasso",
+  "kind": "red"
+ },
+ {
+  "code": "IT-34",
+  "region": "Veneto",
+  "stem": "veneto",
+  "wine": "Bardolino",
+  "kind": "red"
+ },
+ {
+  "code": "IT-36",
+  "region": "Friuli-Venezia Giulia",
+  "stem": "friuli",
+  "wine": "Friulano",
+  "kind": "white"
+ },
+ {
+  "code": "IT-36",
+  "region": "Friuli-Venezia Giulia",
+  "stem": "friuli",
+  "wine": "Pinot Grigio (Collio)",
+  "kind": "white"
+ },
+ {
+  "code": "IT-36",
+  "region": "Friuli-Venezia Giulia",
+  "stem": "friuli",
+  "wine": "Refosco dal Peduncolo Rosso",
+  "kind": "red"
+ },
+ {
+  "code": "IT-36",
+  "region": "Friuli-Venezia Giulia",
+  "stem": "friuli",
+  "wine": "Picolit",
+  "kind": "sweet"
+ },
+ {
+  "code": "IT-45",
+  "region": "Emilia-Romagna",
+  "stem": "emiliaromagna",
+  "wine": "Lambrusco Grasparossa",
+  "kind": "sparkling"
+ },
+ {
+  "code": "IT-45",
+  "region": "Emilia-Romagna",
+  "stem": "emiliaromagna",
+  "wine": "Sangiovese di Romagna",
+  "kind": "red"
+ },
+ {
+  "code": "IT-45",
+  "region": "Emilia-Romagna",
+  "stem": "emiliaromagna",
+  "wine": "Albana di Romagna",
+  "kind": "white"
+ },
+ {
+  "code": "IT-45",
+  "region": "Emilia-Romagna",
+  "stem": "emiliaromagna",
+  "wine": "Pignoletto",
+  "kind": "sparkling"
+ },
+ {
+  "code": "IT-52",
+  "region": "Toscana",
+  "stem": "toscana",
+  "wine": "Vino Nobile di Montepulciano",
+  "kind": "red"
+ },
+ {
+  "code": "IT-52",
+  "region": "Toscana",
+  "stem": "toscana",
+  "wine": "Bolgheri (Super Tuscan)",
+  "kind": "red"
+ },
+ {
+  "code": "IT-52",
+  "region": "Toscana",
+  "stem": "toscana",
+  "wine": "Vernaccia di San Gimignano",
+  "kind": "white"
+ },
+ {
+  "code": "IT-52",
+  "region": "Toscana",
+  "stem": "toscana",
+  "wine": "Vin Santo",
+  "kind": "sweet"
+ },
+ {
+  "code": "IT-55",
+  "region": "Umbria",
+  "stem": "umbria",
+  "wine": "Sagrantino di Montefalco",
+  "kind": "red"
+ },
+ {
+  "code": "IT-55",
+  "region": "Umbria",
+  "stem": "umbria",
+  "wine": "Montefalco Rosso",
+  "kind": "red"
+ },
+ {
+  "code": "IT-55",
+  "region": "Umbria",
+  "stem": "umbria",
+  "wine": "Grechetto",
+  "kind": "white"
+ },
+ {
+  "code": "IT-57",
+  "region": "Marche",
+  "stem": "marche",
+  "wine": "Verdicchio di Matelica",
+  "kind": "white"
+ },
+ {
+  "code": "IT-57",
+  "region": "Marche",
+  "stem": "marche",
+  "wine": "Lacrima di Morro d'Alba",
+  "kind": "red"
+ },
+ {
+  "code": "IT-62",
+  "region": "Lazio",
+  "stem": "lazio",
+  "wine": "Est! Est!! Est!!! di Montefiascone",
+  "kind": "white"
+ },
+ {
+  "code": "IT-62",
+  "region": "Lazio",
+  "stem": "lazio",
+  "wine": "Aleatico di Gradoli",
+  "kind": "sweet"
+ },
+ {
+  "code": "IT-65",
+  "region": "Abruzzo",
+  "stem": "abruzzo",
+  "wine": "Trebbiano d'Abruzzo",
+  "kind": "white"
+ },
+ {
+  "code": "IT-65",
+  "region": "Abruzzo",
+  "stem": "abruzzo",
+  "wine": "Pecorino",
+  "kind": "white"
+ },
+ {
+  "code": "IT-67",
+  "region": "Molise",
+  "stem": "molise",
+  "wine": "Biferno Rosso",
+  "kind": "red"
+ },
+ {
+  "code": "IT-67",
+  "region": "Molise",
+  "stem": "molise",
+  "wine": "Molise Falanghina",
+  "kind": "white"
+ },
+ {
+  "code": "IT-72",
+  "region": "Campania",
+  "stem": "campania",
+  "wine": "Fiano di Avellino",
+  "kind": "white"
+ },
+ {
+  "code": "IT-72",
+  "region": "Campania",
+  "stem": "campania",
+  "wine": "Greco di Tufo",
+  "kind": "white"
+ },
+ {
+  "code": "IT-72",
+  "region": "Campania",
+  "stem": "campania",
+  "wine": "Falanghina",
+  "kind": "white"
+ },
+ {
+  "code": "IT-75",
+  "region": "Puglia",
+  "stem": "puglia",
+  "wine": "Salice Salentino (Negroamaro)",
+  "kind": "red"
+ },
+ {
+  "code": "IT-75",
+  "region": "Puglia",
+  "stem": "puglia",
+  "wine": "Nero di Troia",
+  "kind": "red"
+ },
+ {
+  "code": "IT-75",
+  "region": "Puglia",
+  "stem": "puglia",
+  "wine": "Rosato del Salento",
+  "kind": "rose"
+ },
+ {
+  "code": "IT-75",
+  "region": "Puglia",
+  "stem": "puglia",
+  "wine": "Verdeca",
+  "kind": "white"
+ },
+ {
+  "code": "IT-77",
+  "region": "Basilicata",
+  "stem": "basilicata",
+  "wine": "Matera DOC Primitivo",
+  "kind": "red"
+ },
+ {
+  "code": "IT-77",
+  "region": "Basilicata",
+  "stem": "basilicata",
+  "wine": "Grottino di Roccanova",
+  "kind": "red"
+ },
+ {
+  "code": "IT-78",
+  "region": "Calabria",
+  "stem": "calabria",
+  "wine": "Cirò Bianco (Greco Bianco)",
+  "kind": "white"
+ },
+ {
+  "code": "IT-78",
+  "region": "Calabria",
+  "stem": "calabria",
+  "wine": "Greco di Bianco",
+  "kind": "sweet"
+ },
+ {
+  "code": "IT-78",
+  "region": "Calabria",
+  "stem": "calabria",
+  "wine": "Magliocco",
+  "kind": "red"
+ },
+ {
+  "code": "IT-82",
+  "region": "Sicilia",
+  "stem": "sicilia",
+  "wine": "Nero d'Avola",
+  "kind": "red"
+ },
+ {
+  "code": "IT-82",
+  "region": "Sicilia",
+  "stem": "sicilia",
+  "wine": "Grillo",
+  "kind": "white"
+ },
+ {
+  "code": "IT-82",
+  "region": "Sicilia",
+  "stem": "sicilia",
+  "wine": "Marsala",
+  "kind": "sweet"
+ },
+ {
+  "code": "IT-82",
+  "region": "Sicilia",
+  "stem": "sicilia",
+  "wine": "Passito di Pantelleria",
+  "kind": "sweet"
+ },
+ {
+  "code": "IT-88",
+  "region": "Sardegna",
+  "stem": "sardegna",
+  "wine": "Vermentino di Gallura",
+  "kind": "white"
+ },
+ {
+  "code": "IT-88",
+  "region": "Sardegna",
+  "stem": "sardegna",
+  "wine": "Vernaccia di Oristano",
+  "kind": "sweet"
+ }
+]
