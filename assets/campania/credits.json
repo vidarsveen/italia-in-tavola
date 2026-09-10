@@ -88,5 +88,20 @@
   "artist": "Jensens",
   "license": "Public domain",
   "source": "https://commons.wikimedia.org/wiki/File:Lemon_orchard_Amalfi.jpg"
+ },
+ "ragu": {
+  "artist": "CristianoMay",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Paccheri_rigati_al_rag%C3%B9_Napoletano.jpg"
+ },
+ "pastapatate": {
+  "artist": "Mojmir Churavy",
+  "license": "CC0",
+  "source": "https://commons.wikimedia.org/wiki/File:Pasta_Patate_e_Provola.jpg"
+ },
+ "sfogliatellafrolla": {
+  "artist": "Saggittarius A",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Sfogliatella_frolla_napoletana.jpg"
  }
 }

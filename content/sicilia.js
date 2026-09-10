@@ -2,6 +2,16 @@
 window.READINGS = window.READINGS || {};
 window.READINGS['IT-82'] = {
   credits: /*__CREDITS__*/{
+    "norma": {
+        "artist": "Paoletta S.",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pasta_alla_Norma_(2563876877).jpg"
+    },
+    "sarde": {
+        "artist": "Joy",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pasta_con_le_sarde_-_19960039311.jpg"
+    },
     "etnavines": {
         "artist": "Neil Weightman",
         "license": "CC BY 2.0",

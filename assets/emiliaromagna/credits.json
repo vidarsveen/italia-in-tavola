@@ -1,97 +1,102 @@
 {
- "lambrusco": {
-  "artist": "Lore & Guille",
-  "license": "CC BY 2.0",
-  "source": "https://commons.wikimedia.org/wiki/File:A_glass_of_Lambrusco.jpg"
- },
- "vines": {
-  "artist": "Marie Thérèse Hébert & Jean Robert Thibault from Québec, Canada",
-  "license": "CC BY-SA 2.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Italie,_Lesignana_di_Modena,_Vignes_(50245499621).jpg"
- },
- "gnocco": {
-  "artist": "Gail from Calgary, Canada",
-  "license": "CC BY 2.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Gnocco_fritto,_salame,_and_lambrusco.jpg"
- },
- "romagna": {
-  "artist": "Terragio67",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Monte_Sterlino_-_Collinello_-_Forlì-Cesena_-_GT_2025.jpg"
- },
- "bertinoro": {
-  "artist": "Diego Baglieri",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Bertinoro_-_veduta_05.jpg"
- },
- "brisighella": {
-  "artist": "Dadonene89",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Mauro_da_Zattaglia.jpg"
- },
- "piadina": {
-  "artist": "Lasagnolo9 at Italian Wikipedia",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Piadina_prosciutto_e_Asiago_DOP.jpg"
- },
- "parmigiano": {
-  "artist": "LauraLessio",
-  "license": "CC BY 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Forme_di_Parmigiano.jpg"
- },
- "hams": {
-  "artist": "Scott Brenner",
-  "license": "CC BY 2.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Aging_meat.jpg"
- },
- "prosciutto": {
-  "artist": "Thomon",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Jambon_de_Parme.jpg"
- },
- "acetaia": {
-  "artist": "Patafisik",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Castello_di_Levizzano_Rangone_abc7_acetaia.jpg"
- },
- "culatello": {
-  "artist": "Alessio Bragadini",
-  "license": "CC BY-SA 2.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Cantina_dei_culatelli_di_Zibello.jpg"
- },
- "duetorri": {
-  "artist": "Dimitris Kamaras from Athens, Greece",
-  "license": "CC BY 2.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Torri_Garisenda_&_Asinelli,_Bologna_(26076037864).jpg"
- },
- "portici": {
-  "artist": "Serenapaliria",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Portici_di_Bologna_-_San_Luca_Walk_-_Portici_di_San_Luca,_Bologna.jpg"
- },
- "piazza": {
-  "artist": "Zairon",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Bologna_Piazza_Maggiore_06.jpg"
- },
- "sfoglia": {
-  "artist": "Wittylama",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Making_tortellini.jpg"
- },
- "tortellini": {
-  "artist": "Nick.mon",
-  "license": "CC0",
-  "source": "https://commons.wikimedia.org/wiki/File:Tortellini_in_brodo_Bologna.jpg"
- },
- "tagliatelle": {
-  "artist": "Alex Sirac",
-  "license": "CC BY 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Tagliatelle_al_ragù_Trattoria_Tony.jpg"
- },
- "mortadella": {
-  "artist": "Ramagliolo9 at Italian Wikipedia",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Mortadella_affettata.jpg"
- }
+    "lambrusco": {
+        "artist": "Lore & Guille",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:A_glass_of_Lambrusco.jpg"
+    },
+    "vines": {
+        "artist": "Marie Thérèse Hébert & Jean Robert Thibault from Québec, Canada",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Italie,_Lesignana_di_Modena,_Vignes_(50245499621).jpg"
+    },
+    "gnocco": {
+        "artist": "Gail from Calgary, Canada",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Gnocco_fritto,_salame,_and_lambrusco.jpg"
+    },
+    "romagna": {
+        "artist": "Terragio67",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Monte_Sterlino_-_Collinello_-_Forlì-Cesena_-_GT_2025.jpg"
+    },
+    "bertinoro": {
+        "artist": "Diego Baglieri",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bertinoro_-_veduta_05.jpg"
+    },
+    "brisighella": {
+        "artist": "Dadonene89",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Mauro_da_Zattaglia.jpg"
+    },
+    "piadina": {
+        "artist": "Lasagnolo9 at Italian Wikipedia",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Piadina_prosciutto_e_Asiago_DOP.jpg"
+    },
+    "parmigiano": {
+        "artist": "LauraLessio",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Forme_di_Parmigiano.jpg"
+    },
+    "hams": {
+        "artist": "Scott Brenner",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Aging_meat.jpg"
+    },
+    "prosciutto": {
+        "artist": "Thomon",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jambon_de_Parme.jpg"
+    },
+    "acetaia": {
+        "artist": "Patafisik",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Castello_di_Levizzano_Rangone_abc7_acetaia.jpg"
+    },
+    "culatello": {
+        "artist": "Alessio Bragadini",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Cantina_dei_culatelli_di_Zibello.jpg"
+    },
+    "duetorri": {
+        "artist": "Dimitris Kamaras from Athens, Greece",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Torri_Garisenda_&_Asinelli,_Bologna_(26076037864).jpg"
+    },
+    "portici": {
+        "artist": "Serenapaliria",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Portici_di_Bologna_-_San_Luca_Walk_-_Portici_di_San_Luca,_Bologna.jpg"
+    },
+    "piazza": {
+        "artist": "Zairon",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bologna_Piazza_Maggiore_06.jpg"
+    },
+    "sfoglia": {
+        "artist": "Wittylama",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Making_tortellini.jpg"
+    },
+    "tortellini": {
+        "artist": "Nick.mon",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Tortellini_in_brodo_Bologna.jpg"
+    },
+    "tagliatelle": {
+        "artist": "Alex Sirac",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Tagliatelle_al_ragù_Trattoria_Tony.jpg"
+    },
+    "mortadella": {
+        "artist": "Ramagliolo9 at Italian Wikipedia",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Mortadella_affettata.jpg"
+    },
+    "lasagne": {
+        "artist": "Sambawamba",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lasagna_bolognese.jpg"
+    }
 }

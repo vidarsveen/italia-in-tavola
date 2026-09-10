@@ -96,6 +96,11 @@ window.READINGS['IT-45'] = {
         "artist": "Ramagliolo9 at Italian Wikipedia",
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File:Mortadella_affettata.jpg"
+    },
+    "lasagne": {
+        "artist": "Sambawamba",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lasagna_bolognese.jpg"
     }
 },
   lessons: [

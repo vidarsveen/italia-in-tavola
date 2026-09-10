@@ -1,92 +1,97 @@
 {
- "chianti": {
-  "artist": "Deensel",
-  "license": "CC BY 2.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Toscana_(25820992818).jpg"
- },
- "castellina": {
-  "artist": "Rowan Heuvel insolitus",
-  "license": "CC0",
-  "source": "https://commons.wikimedia.org/wiki/File:Castellina_In_Chianti_(Unsplash).jpg"
- },
- "sangiovese": {
-  "artist": "Peter Forster",
-  "license": "CC BY-SA 2.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Sangiovese_grapes_in_Montepulciano.JPG"
- },
- "montalcino": {
-  "artist": "Hans A. Rosbach",
-  "license": "CC BY-SA 3.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Val-d_Orcia_landscape_20120926-1.JPG"
- },
- "bolgheri": {
-  "artist": "Repuli",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Cipressibolgheri.jpg"
- },
- "bistecca": {
-  "artist": "mike packard",
-  "license": "CC BY-SA 2.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Bistecca_alla_fiorentina-01.jpg"
- },
- "ribollita": {
-  "artist": "Ithunn",
-  "license": "CC BY-SA 3.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Ribollita_toscana.JPG"
- },
- "lampredotto": {
-  "artist": "William Held",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Lampredotto_Sandwich.jpg"
- },
- "cantucci": {
-  "artist": "Salvadonica Borgo del Chianti",
-  "license": "CC BY 2.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Cantucci_con_Vin_Santo.jpg"
- },
- "duomo": {
-  "artist": "Vyacheslav Argenberg",
-  "license": "CC BY 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Florence,_Italy,_Brunelleschi's_Dome_of_Florence_Cathedral.jpg"
- },
- "pranzo": {
-  "artist": "Tim Lucas from Sydney, Australia",
-  "license": "CC BY 2.0",
-  "source": "https://commons.wikimedia.org/wiki/File:A_late_lunch.jpg"
- },
- "fiaschi": {
-  "artist": "Arnaud 25",
-  "license": "CC BY-SA 3.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Fiaschi_of_basic_Chianti.jpg"
- },
- "fortezza": {
-  "artist": "Mongolo1984",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Fortezza_di_Montalcino_01.jpg"
- },
- "montepulciano": {
-  "artist": "Michal Osmenda from Brussels, Belgium",
-  "license": "CC BY-SA 2.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Piazza_Grande_of_Montepulciano.jpg"
- },
- "sangimignano": {
-  "artist": "Eric Kilby",
-  "license": "CC BY-SA 2.0",
-  "source": "https://commons.wikimedia.org/wiki/File:San_Gimignano_Towers.jpg"
- },
- "pane": {
-  "artist": "Anna.Massini",
-  "license": "CC BY 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Bread_of_Florence_(without_salt).jpg"
- },
- "frantoio": {
-  "artist": "PROPOLI87",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Toscana_(Italy)_Olio_in_uscita_dal_frantoio.jpg"
- },
- "pici": {
-  "artist": "Popo le Chien",
-  "license": "CC0",
-  "source": "https://commons.wikimedia.org/wiki/File:Pici2.jpg"
- }
+    "chianti": {
+        "artist": "Deensel",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Toscana_(25820992818).jpg"
+    },
+    "castellina": {
+        "artist": "Rowan Heuvel insolitus",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Castellina_In_Chianti_(Unsplash).jpg"
+    },
+    "sangiovese": {
+        "artist": "Peter Forster",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Sangiovese_grapes_in_Montepulciano.JPG"
+    },
+    "montalcino": {
+        "artist": "Hans A. Rosbach",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Val-d_Orcia_landscape_20120926-1.JPG"
+    },
+    "bolgheri": {
+        "artist": "Repuli",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Cipressibolgheri.jpg"
+    },
+    "bistecca": {
+        "artist": "mike packard",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bistecca_alla_fiorentina-01.jpg"
+    },
+    "ribollita": {
+        "artist": "Ithunn",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Ribollita_toscana.JPG"
+    },
+    "lampredotto": {
+        "artist": "William Held",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lampredotto_Sandwich.jpg"
+    },
+    "cantucci": {
+        "artist": "Salvadonica Borgo del Chianti",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Cantucci_con_Vin_Santo.jpg"
+    },
+    "duomo": {
+        "artist": "Vyacheslav Argenberg",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Florence,_Italy,_Brunelleschi's_Dome_of_Florence_Cathedral.jpg"
+    },
+    "pranzo": {
+        "artist": "Tim Lucas from Sydney, Australia",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:A_late_lunch.jpg"
+    },
+    "fiaschi": {
+        "artist": "Arnaud 25",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Fiaschi_of_basic_Chianti.jpg"
+    },
+    "fortezza": {
+        "artist": "Mongolo1984",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Fortezza_di_Montalcino_01.jpg"
+    },
+    "montepulciano": {
+        "artist": "Michal Osmenda from Brussels, Belgium",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Piazza_Grande_of_Montepulciano.jpg"
+    },
+    "sangimignano": {
+        "artist": "Eric Kilby",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:San_Gimignano_Towers.jpg"
+    },
+    "pane": {
+        "artist": "Anna.Massini",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bread_of_Florence_(without_salt).jpg"
+    },
+    "frantoio": {
+        "artist": "PROPOLI87",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Toscana_(Italy)_Olio_in_uscita_dal_frantoio.jpg"
+    },
+    "pici": {
+        "artist": "Popo le Chien",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pici2.jpg"
+    },
+    "pappa": {
+        "artist": "Karl Cossio",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pappa_al_pomodoro_in_Casperia_(6078201765).jpg"
+    }
 }

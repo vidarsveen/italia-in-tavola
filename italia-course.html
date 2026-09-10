@@ -398,60 +398,79 @@ const REGIONS = [{"name":"Piemonte","code":"IT-21","c":[8.04,45.09],"rings":[[[7
 <script src="assets/audio/lazio/manifest.js"></script>
 <script src="content/piemonte.js"></script>
 <script src="content/piemonte.no.js"></script>
+<script src="content/recipes/piemonte.js"></script>
 <script src="assets/audio/piemonte/manifest.js"></script>
 <script src="content/toscana.js"></script>
 <script src="content/toscana.no.js"></script>
+<script src="content/recipes/toscana.js"></script>
 <script src="assets/audio/toscana/manifest.js"></script>
 <script src="content/veneto.js"></script>
 <script src="content/veneto.no.js"></script>
+<script src="content/recipes/veneto.js"></script>
 <script src="assets/audio/veneto/manifest.js"></script>
 <script src="content/campania.js"></script>
 <script src="content/campania.no.js"></script>
+<script src="content/recipes/campania.js"></script>
 <script src="assets/audio/campania/manifest.js"></script>
 <script src="content/sicilia.js"></script>
 <script src="content/sicilia.no.js"></script>
+<script src="content/recipes/sicilia.js"></script>
 <script src="assets/audio/sicilia/manifest.js"></script>
 <script src="content/lombardia.js"></script>
 <script src="content/lombardia.no.js"></script>
+<script src="content/recipes/lombardia.js"></script>
 <script src="assets/audio/lombardia/manifest.js"></script>
 <script src="content/emiliaromagna.js"></script>
 <script src="content/emiliaromagna.no.js"></script>
+<script src="content/recipes/emiliaromagna.js"></script>
 <script src="assets/audio/emiliaromagna/manifest.js"></script>
 <script src="content/puglia.js"></script>
 <script src="content/puglia.no.js"></script>
+<script src="content/recipes/puglia.js"></script>
 <script src="assets/audio/puglia/manifest.js"></script>
 <script src="content/trentino.js"></script>
 <script src="content/trentino.no.js"></script>
+<script src="content/recipes/trentino.js"></script>
 <script src="assets/audio/trentino/manifest.js"></script>
 <script src="content/friuli.js"></script>
 <script src="content/friuli.no.js"></script>
+<script src="content/recipes/friuli.js"></script>
 <script src="assets/audio/friuli/manifest.js"></script>
 <script src="content/liguria.js"></script>
 <script src="content/liguria.no.js"></script>
+<script src="content/recipes/liguria.js"></script>
 <script src="assets/audio/liguria/manifest.js"></script>
 <script src="content/umbria.js"></script>
 <script src="content/umbria.no.js"></script>
+<script src="content/recipes/umbria.js"></script>
 <script src="assets/audio/umbria/manifest.js"></script>
 <script src="content/marche.js"></script>
 <script src="content/marche.no.js"></script>
+<script src="content/recipes/marche.js"></script>
 <script src="assets/audio/marche/manifest.js"></script>
 <script src="content/abruzzo.js"></script>
 <script src="content/abruzzo.no.js"></script>
+<script src="content/recipes/abruzzo.js"></script>
 <script src="assets/audio/abruzzo/manifest.js"></script>
 <script src="content/sardegna.js"></script>
 <script src="content/sardegna.no.js"></script>
+<script src="content/recipes/sardegna.js"></script>
 <script src="assets/audio/sardegna/manifest.js"></script>
 <script src="content/calabria.js"></script>
 <script src="content/calabria.no.js"></script>
+<script src="content/recipes/calabria.js"></script>
 <script src="assets/audio/calabria/manifest.js"></script>
 <script src="content/basilicata.js"></script>
 <script src="content/basilicata.no.js"></script>
+<script src="content/recipes/basilicata.js"></script>
 <script src="assets/audio/basilicata/manifest.js"></script>
 <script src="content/molise.js"></script>
 <script src="content/molise.no.js"></script>
+<script src="content/recipes/molise.js"></script>
 <script src="assets/audio/molise/manifest.js"></script>
 <script src="content/valledaosta.js"></script>
 <script src="content/valledaosta.no.js"></script>
+<script src="content/recipes/valledaosta.js"></script>
 <script src="assets/audio/valledaosta/manifest.js"></script>
 <script>
 (function(){
@@ -534,7 +553,7 @@ const COURSE = {
    landmark:{name:'The Two Towers, Bologna', desc:'Asinelli (97 m) and its leaning neighbour Garisenda, medieval family towers that still dominate the porticoed city.', props:[['towers',44.49,11.34]]},
    vmp:'italia_emilia-romagna',
    wines:[['Lambrusco di Sorbara','sparkling','italia_emilia-romagna_lambrusco_di_sorbara'],['Lambrusco Grasparossa','sparkling','italia_emilia-romagna_lambrusco_grasparossa_di_castelvetro'],['Sangiovese di Romagna','red','italia_emilia-romagna_romagna_sangiovese'],['Albana di Romagna','white','italia_emilia-romagna_romagna_albana'],['Pignoletto','sparkling','italia_emilia-romagna_pignoletto']], pairing:'Dry Lambrusco with a board of salumi and Parmigiano; Sangiovese di Romagna with tagliatelle al ragù.',
-   dishes:['Tagliatelle al ragù','Tortellini in brodo','Parmigiano Reggiano','Prosciutto di Parma','Aceto balsamico','Piadina'],
+   dishes:['Tagliatelle al ragù','Tortellini in brodo','Lasagne verdi','Parmigiano Reggiano','Prosciutto di Parma','Aceto balsamico','Piadina','Gnocco fritto'],
    lessons:["Lambrusco, properly understood","Sangiovese on the Romagna side","Parmigiano, prosciutto and balsamic: three protected treasures","Bologna la Grassa and the sfoglia"]},
  'IT-52':{name:'Toscana', capital:'Firenze', area:'Centre', color:'#c9ad5c', intro:"Cypress-lined hills, Renaissance cities and Sangiovese in every form: Chianti Classico, Brunello di Montalcino, Vino Nobile. The cooking is peasant-proud: bread, beans, olive oil and a thick Florentine steak.",
    landmark:{name:'Leaning Tower of Pisa & Brunelleschi\'s Dome', desc:'Pisa\'s bell tower has leaned since the 1170s; in Florence, Brunelleschi\'s 1436 dome still crowns the largest brick dome ever built.', props:[['pisa',43.72,10.40],['florence',43.77,11.25]]},
@@ -576,7 +595,7 @@ const COURSE = {
    landmark:{name:'Mount Vesuvius & Pompeii', desc:'The volcano whose AD 79 eruption preserved Pompeii still looms over the Bay of Naples; its slopes grow Lacryma Christi.', props:[['vesuvius',40.82,14.43]]},
    vmp:'italia_campania',
    wines:[['Taurasi (Aglianico)','red','italia_campania_taurasi'],['Fiano di Avellino','white','italia_campania_fiano_di_avellino'],['Greco di Tufo','white','italia_campania_greco_di_tufo'],['Lacryma Christi del Vesuvio','red',''],['Falanghina','white','#Falanghina']], pairing:'Falanghina with pizza margherita and fried seafood; Taurasi with ragù napoletano.',
-   dishes:['Pizza napoletana','Mozzarella di bufala','Ragù napoletano','Sfogliatella','Pasta e patate','Limoncello'],
+   dishes:['Pizza napoletana','Mozzarella di bufala','Ragù napoletano','Spaghetti alle vongole','Sfogliatella','Pasta e patate','Limoncello'],
    lessons:["Volcanic soils and ancient grapes","Taurasi, Fiano and Greco","Pizza, mozzarella and the Neapolitan table","Vesuvius, Pompeii and the Amalfi coast"]},
  'IT-75':{name:'Puglia', capital:'Bari', area:'South', color:'#d8b06e', intro:"The heel of the boot is a sun-baked plain of olive trees (40% of Italy's oil), whitewashed trulli, and Primitivo and Negroamaro vines. Burrata was invented here, and pasta is shaped by hand into little ears.",
    landmark:{name:'Trulli of Alberobello & Castel del Monte', desc:'Conical dry-stone houses, over 1,500 of them in Alberobello, and Frederick II\'s mysterious octagonal castle of 1240.', props:[['trulli',40.78,17.24],['castel',41.08,16.27]]},

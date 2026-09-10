@@ -53,7 +53,9 @@ try:
     tap(*at("#recipeBtn")); time.sleep(1)
     check("hash after Recipes button", js("location.hash"), "#/recipes")
     check("index open", js("document.getElementById('cook').classList.contains('open')"), True)
-    check("recipes listed", js("document.querySelectorAll('#cook a.rcard').length"), 4)
+    n = js("document.querySelectorAll('#cook a.rcard').length")
+    check("every recipe listed", n == js("Object.values(window.RECIPES||{}).reduce((a,b)=>a+b.length,0)"), True)
+    print("   recipes in the index:", n)
 
     # 2. a card opens the recipe
     tap(*at("#cook a.rcard[href$='carbonara']")); time.sleep(1)

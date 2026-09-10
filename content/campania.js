@@ -87,6 +87,21 @@ window.READINGS['IT-72'] = {
         "license": "CC BY 2.0",
         "source": "https://commons.wikimedia.org/wiki/File:Positano-Amalfi_Coast-Italy.jpg"
     },
+    "ragu": {
+        "artist": "CristianoMay",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Paccheri_rigati_al_rag%C3%B9_Napoletano.jpg"
+    },
+    "pastapatate": {
+        "artist": "Mojmir Churavy",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pasta_Patate_e_Provola.jpg"
+    },
+    "sfogliatellafrolla": {
+        "artist": "Saggittarius A",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Sfogliatella_frolla_napoletana.jpg"
+    },
     "lemons": {
         "artist": "Jensens",
         "license": "Public domain",

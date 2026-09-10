@@ -91,6 +91,11 @@ window.READINGS['IT-52'] = {
         "artist": "Popo le Chien",
         "license": "CC0",
         "source": "https://commons.wikimedia.org/wiki/File:Pici2.jpg"
+    },
+    "pappa": {
+        "artist": "Karl Cossio",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pappa_al_pomodoro_in_Casperia_(6078201765).jpg"
     }
 },
   lessons: [
