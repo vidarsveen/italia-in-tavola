@@ -12,8 +12,9 @@ illustrated, narrated readings in English and Norwegian (bokmål). Everything is
 and asset files; a build step produces a single-file version for the hosted preview.
 
 - Owner: Vidar (Norwegian). Both languages matter equally. Mobile first, always test on a phone viewport.
-- Done: Lazio (IT-62), Piemonte (IT-21), Toscana (IT-52), Veneto (IT-34), Campania (IT-72), Sicilia (IT-82), Lombardia (IT-25), Emilia-Romagna (IT-45), Puglia (IT-75), Trentino-Alto Adige (IT-32, stem `trentino`), Friuli-Venezia Giulia (IT-36, stem `friuli`), Liguria (IT-42): text EN+NO, photos, narration EN+NO.
-- Next: the remaining eight in pairs (suggested order: Umbria, Marche, Abruzzo, Sardegna, Calabria, Basilicata, Molise, Valle d'Aosta).
+- Done: Lazio (IT-62), Piemonte (IT-21), Toscana (IT-52), Veneto (IT-34), Campania (IT-72), Sicilia (IT-82), Lombardia (IT-25), Emilia-Romagna (IT-45), Puglia (IT-75), Trentino-Alto Adige (IT-32, stem `trentino`), Friuli-Venezia Giulia (IT-36, stem `friuli`), Liguria (IT-42), Umbria (IT-55), Marche (IT-57), Abruzzo (IT-65),
+  Sardegna (IT-88): text EN+NO, photos, narration EN+NO.
+- In progress: Calabria (IT-78), Basilicata (IT-77), Molise (IT-67), Valle d'Aosta (stem `valledaosta`). Old order was: Umbria, Marche, Abruzzo, Sardegna, Calabria, Basilicata, Molise, Valle d'Aosta).
 - Live site (the real course, full narration, no size limit): https://vidarsveen.github.io/italia-in-tavola/
   Source repo: https://github.com/vidarsveen/italia-in-tavola (public, branch `main`). Every push to `main` runs
   `.github/workflows/pages.yml`, which runs `tools/make_site.py` and publishes `site/` to GitHub Pages (2–3 min).

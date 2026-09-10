@@ -167,6 +167,15 @@ def check(region):
     if a != b: print('IMAGE KEYS differ: only EN', a - b, 'only NO', b - a); ok = False
     if he != hn: print('HERO keys differ', he, hn); ok = False
     if 'class="glass"' in N: print('class "glass" inside reading html'); ok = False
+    # markup: a stray guillemet or a missing bracket in a tag survives the JS parser but breaks the page
+    for lang, txt in (('EN', E), ('NO', N)):
+        for m in re.finditer(r'<[a-zA-Z/][^<>]{0,80}?[«»](?:[^<>]{0,80})?>', txt):
+            print('%s malformed tag: %s' % (lang, m.group(0)[:60])); ok = False
+        for tag in ('p', 'h2', 'h4', 'li', 'em', 'strong', 'b', 'figure', 'figcaption', 'table', 'tr', 'td', 'th', 'ul', 'aside', 'div'):
+            o = len(re.findall(r'<%s[ >]' % tag, txt)) + len(re.findall(r'<%s>' % tag, txt)) - len(re.findall(r'<%s>' % tag, txt))
+            o = len(re.findall(r'<%s(?:[ >])' % tag, txt))
+            c = len(re.findall(r'</%s>' % tag, txt))
+            if o != c: print('%s unbalanced <%s>: %d open, %d close' % (lang, tag, o, c)); ok = False
     for pat, name in [(r'Vin · Lesetekst \d av 4|Mat · Lesetekst \d av 4|Landemerke · Lesetekst \d av 4', 'kickers'),
                       (r'<h4>Før du går videre</h4>', 'Før du går videre')]:
         if len(re.findall(pat, N)) < 4: print('fixed heading/kicker missing or renamed:', name); ok = False

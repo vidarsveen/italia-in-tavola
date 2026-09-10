@@ -328,6 +328,18 @@ const REGIONS = [{"name":"Piemonte","code":"IT-21","c":[8.04,45.09],"rings":[[[7
 <script src="content/sardegna.js"></script>
 <script src="content/sardegna.no.js"></script>
 <script src="assets/audio/sardegna/manifest.js"></script>
+<script src="content/calabria.js"></script>
+<script src="content/calabria.no.js"></script>
+<script src="assets/audio/calabria/manifest.js"></script>
+<script src="content/basilicata.js"></script>
+<script src="content/basilicata.no.js"></script>
+<script src="assets/audio/basilicata/manifest.js"></script>
+<script src="content/molise.js"></script>
+<script src="content/molise.no.js"></script>
+<script src="assets/audio/molise/manifest.js"></script>
+<script src="content/valledaosta.js"></script>
+<script src="content/valledaosta.no.js"></script>
+<script src="assets/audio/valledaosta/manifest.js"></script>
 <script>
 (function(){
 'use strict';
@@ -422,7 +434,7 @@ const COURSE = {
    wines:[['Sagrantino di Montefalco','red','italia_umbria_montefalco_sagrantino'],['Orvieto Classico','white',''],['Montefalco Rosso','red','italia_umbria_montefalco'],['Grechetto','white','']], pairing:'Sagrantino with roast lamb or aged pecorino; Orvieto with strangozzi al tartufo nero.',
    dishes:['Black truffle of Norcia','Porchetta','Strangozzi','Lentils of Castelluccio','Torta al testo','Norcia salumi'],
    lessons:["The landlocked vineyard","Sagrantino: Italy's most tannic red","Norcia: truffles, salumi and the norcino","Assisi and the hill towns"]},
- 'IT-57':{name:'Marche', capital:'Ancona', area:'Centre', color:'#d1b878', intro:"Adriatic beaches, the Sibillini mountains and Renaissance Urbino. Verdicchio is one of Italy's great age-worthy whites, and the coast cooks a thirteen-fish brodetto.",
+ 'IT-57':{name:'Marche', capital:'Ancona', area:'Centre', color:'#d1b878', intro:"Adriatic beaches, the Sibillini mountains and Renaissance Urbino. Verdicchio is one of Italy's great age-worthy whites, and the coast argues over how many kinds of fish belong in a brodetto.",
    landmark:{name:'Palazzo Ducale, Urbino', desc:'The Renaissance palace of Duke Federico da Montefeltro, its twin slender towers rising above the walled hill town.', props:[['urbino',43.72,12.64]]},
    vmp:'italia_marche',
    wines:[['Verdicchio dei Castelli di Jesi','white','italia_marche_verdicchio_dei_castelli_di_jesi'],['Verdicchio di Matelica','white','italia_marche_verdicchio_di_matelica'],['Rosso Conero','red','italia_marche_rosso_conero'],['Lacrima di Morro d\'Alba','red','']], pairing:'Verdicchio with brodetto all\'anconetana; Rosso Conero with vincisgrassi.',
@@ -524,7 +536,7 @@ function renderWines(C){
 }
 const ORDER = ['IT-23','IT-21','IT-42','IT-25','IT-32','IT-34','IT-36','IT-45','IT-52','IT-55','IT-57','IT-62','IT-65','IT-67','IT-72','IT-75','IT-77','IT-78','IT-82','IT-88'];
 const AREAS = ['North','Centre','South','Islands'];
-const ASSET_DIRS = {'IT-62':'lazio','IT-21':'piemonte','IT-52':'toscana','IT-34':'veneto','IT-72':'campania','IT-82':'sicilia','IT-25':'lombardia','IT-45':'emiliaromagna','IT-75':'puglia','IT-32':'trentino','IT-36':'friuli','IT-42':'liguria','IT-55':'umbria','IT-57':'marche','IT-65':'abruzzo','IT-88':'sardegna'};
+const ASSET_DIRS = {'IT-62':'lazio','IT-21':'piemonte','IT-52':'toscana','IT-34':'veneto','IT-72':'campania','IT-82':'sicilia','IT-25':'lombardia','IT-45':'emiliaromagna','IT-75':'puglia','IT-32':'trentino','IT-36':'friuli','IT-42':'liguria','IT-55':'umbria','IT-57':'marche','IT-65':'abruzzo','IT-88':'sardegna','IT-78':'calabria','IT-77':'basilicata','IT-67':'molise','IT-23':'valledaosta'};
 COURSE['IT-62'].landmark.props = [['rome',41.89,12.49]];
 COURSE['IT-62'].landmark.name = 'The Colosseum & St Peter\'s, Rome';
 const VINEYARDS = [[44.6,8.0],[45.6,10.0],[45.5,10.9],[45.9,12.2],[46.0,13.5],[44.7,10.9],[43.5,11.3],[43.05,11.5],[42.9,12.65],[43.4,13.1],[42.4,14.1],[41.0,14.95],[40.4,17.6],[40.95,15.65],[39.4,17.05],[37.8,15.05],[37.8,12.5],[41.0,9.3],[45.75,7.4],[46.55,11.2],[44.2,9.9],[42.1,11.8],[41.75,13.15]];

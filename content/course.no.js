@@ -40,7 +40,7 @@ window.COURSE_NO = {
    landmark:{name:'Basilica di San Francesco, Assisi', desc:'To kirker oppå hverandre, bygget fra 1228 over graven til den hellige Frans, med fresker av Giotto og Cimabue.'},
    pairing:'Sagrantino til lammestek eller lagret pecorino; Orvieto til strangozzi al tartufo nero.',
    lessons:["Vinmarken uten kyst","Sagrantino: Italias mest tanninrike rødvin","Norcia: trøffel, salumi og norcinoen","Assisi og åsbyene"]},
- 'IT-57':{intro:"Adriaterhavsstrender, Sibillini-fjellene og renessansebyen Urbino. Verdicchio er en av Italias store lagringsdyktige hvitviner, og kysten koker en brodetto på tretten fiskeslag.",
+ 'IT-57':{intro:"Adriaterhavsstrender, Sibillini-fjellene og renessansebyen Urbino. Verdicchio er en av Italias store lagringsdyktige hvitviner, og langs kysten krangler de om hvor mange fiskeslag som hører hjemme i en brodetto.",
    landmark:{name:'Palazzo Ducale, Urbino', desc:'Renessansepalasset til hertug Federico da Montefeltro, med to slanke tårn over den murkransede åsbyen.'},
    pairing:'Verdicchio til brodetto all\'anconetana; Rosso Conero til vincisgrassi.',
    lessons:["Verdicchio: en hvitvin som eldes som en rødvin","Montepulciano på Conero","Ascoli-oliven og Adriaterhavets brodetto","Urbino og idealbyen"]},
