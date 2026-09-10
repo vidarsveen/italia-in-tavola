@@ -146,6 +146,17 @@ at 11.0 MB with all twenty regions. The live site keeps the 720 px originals.
 Next: the course features rather than more regions. Recap questions, tasting cards, a glossary, capital-city
 labels with collision avoidance, and progress that syncs across devices.
 
+## 6m. Status 2026-09-10, recap questions
+
+Every reading now ends with three multiple-choice questions that explain themselves after answering: 480
+questions across both languages, written by four parallel workers from the readings themselves, with the format
+frozen in docs/quiz-format.md and checked by tools/quizcheck.py. Answer positions are spread rather than
+clustered, and no question is repeated.
+
+Remaining roadmap: tasting cards, a glossary, capital-city labels with collision avoidance, and progress that
+syncs between devices. Licensed narration (Azure Speech, about $12 for the whole course) would also replace the
+unlicensed edge-tts route before this is published widely.
+
 ## 7. Suggested order of work
 
 1. Validate the Lazio reading format with a few learners on phones (this round).

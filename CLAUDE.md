@@ -241,6 +241,16 @@ script prints arrows or Norwegian letters on Windows.
 - Photo captions must be updated in BOTH language files when a photo is swapped.
 - Keep `dist/` under 16 MB; check the size line that `build.py` prints.
 
+## 12. Recap questions (added 2026-09-10)
+
+Three multiple-choice questions close every reading, in both languages: 240 per language, 480 in all.
+Data lives in `content/quiz.js` (`window.QUIZ`) and `content/quiz.no.js` (`window.QUIZ_NO`), one array of four
+lessons per region, three questions each. The contract is `docs/quiz-format.md` and is enforced by
+`python tools/quizcheck.py` (shape, four answers, valid index, both languages matching, and a guard against the
+answer always sitting in the same position). A region with no entry renders nothing, so this degrades safely.
+The renderer is `quizHtml()` / `wireQuiz()` in the app, and the questions are NOT spoken: `narrate.py` never
+sees them, so adding or editing a question does not make any narration stale.
+
 ## 11. Vinmonopolet links (added 2026-09-10)
 
 Each wine in a region sheet links to Vinmonopolet's own search, so the bottles shown are whatever is in the

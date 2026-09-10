@@ -164,6 +164,30 @@
   .rplayer .time{ font-size:12px; color:var(--text-dim); font-variant-numeric:tabular-nums; white-space:nowrap; min-width:82px; text-align:right; }
   .rplayer .meta{ font-size:11px; color:var(--text-faint); letter-spacing:.04em; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .rplayer .x{ border:0; color:var(--text-faint); font-size:18px; }
+  /* recap questions, between the reading and the mark-as-read button */
+  .quiz{ margin:30px 0 0; padding:18px 20px 20px; border-radius:12px; background:#fff; border:1px solid var(--rule); }
+  .quiz > h4{ margin:0 0 4px; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--wine); font-weight:700; }
+  .quiz .qcount{ font-size:12.5px; color:var(--text-faint); margin:0 0 14px; }
+  .quiz ol{ list-style:none; margin:0; padding:0; counter-reset:qq; }
+  .quiz li.q{ counter-increment:qq; padding:14px 0; border-top:1px solid var(--rule); }
+  .quiz li.q:first-child{ border-top:0; padding-top:4px; }
+  .quiz li.q > p{ margin:0 0 10px; font-size:16px; line-height:1.45; font-weight:600; }
+  .quiz li.q > p:first-child::before{ content:counter(qq) ". "; color:var(--text-faint); font-weight:400; }
+  .quiz .opts{ display:grid; gap:7px; }
+  .quiz .opt{ display:flex; gap:10px; align-items:flex-start; width:100%; text-align:left; padding:10px 12px; border-radius:8px;
+    border:1px solid var(--rule); background:var(--page); color:var(--text); font:inherit; font-size:15px; line-height:1.4; cursor:pointer; min-height:44px; }
+  .quiz .opt:hover:not(:disabled){ border-color:var(--wine); }
+  .quiz .opt .mk{ flex:none; width:20px; height:20px; border-radius:50%; border:1px solid var(--rule); display:grid; place-items:center; font-size:11px; margin-top:1px; }
+  .quiz .opt.right{ border-color:var(--olive); background:rgba(154,168,106,.14); }
+  .quiz .opt.right .mk{ background:var(--olive); border-color:var(--olive); color:#fff; }
+  .quiz .opt.wrong{ border-color:var(--wine); background:rgba(166,61,85,.10); }
+  .quiz .opt.wrong .mk{ background:var(--wine); border-color:var(--wine); color:#fff; }
+  .quiz .opt:disabled{ cursor:default; opacity:1; }
+  .quiz .why{ margin:10px 0 0; padding:10px 12px; border-left:3px solid var(--olive); background:var(--page-2); border-radius:0 8px 8px 0; font-size:14.5px; line-height:1.5; display:none; }
+  .quiz .why.on{ display:block; }
+  .quiz .score{ margin:16px 0 0; padding-top:14px; border-top:1px solid var(--rule); font-size:15px; font-weight:600; display:none; }
+  .quiz .score.on{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .quiz .score button{ font:inherit; font-size:13px; font-weight:600; padding:8px 14px; border-radius:20px; border:1px solid var(--rule); background:var(--page); color:var(--text-dim); cursor:pointer; min-height:38px; }
   .rfoot{ padding:28px 20px 0; }
   .rfoot .done{ width:100%; padding:14px; border-radius:10px; border:2px solid var(--wine); background:var(--wine); color:#fff; font-weight:700; font-size:15px; cursor:pointer; min-height:48px; }
   .rfoot .done.is-done{ background:#fff; color:var(--olive); border-color:var(--olive); }
@@ -281,6 +305,8 @@ const REGIONS = [{"name":"Piemonte","code":"IT-21","c":[8.04,45.09],"rings":[[[7
 <!--__IMAGES__-->
 <!--__CONTENT__--><script src="content/lazio.js"></script>
 <script src="content/course.no.js"></script>
+<script src="content/quiz.js"></script>
+<script src="content/quiz.no.js"></script>
 <script src="content/lazio.no.js"></script>
 <script src="assets/audio/lazio/manifest.js"></script>
 <script src="content/piemonte.js"></script>
@@ -351,11 +377,11 @@ const I18N = {
  en:{ sub:'A course in twenty regions · wine & food', hint:'Tap a region or a pin · drag to pan · pinch to zoom · ◭ tilts', loading:'Preparing the map of Italy…', lessons:'Lessons', landmark:'Landmark', wines:'Wines to know', table:'At the table', pairing:'Classic pairing', prev:'← Previous', next:'Next region →', capital:'Capital', module:'Module', of:'of', readings:'readings', min:'min', soonShort:'readings coming soon', minRead:'min read', soon:'Reading coming soon', reading:'Reading', notWritten:'This reading is not written yet.',
    soonPara:n=>`The Lazio module shows the reading format the course will use: a 6–8 minute illustrated essay with key facts, a tasting table for wine lessons and a short recap. ${n}'s readings will follow the same pattern.`,
    backTo:'Back to', seeFinished:'See the finished module', lazioR1:'Lazio, reading 1', nextReading:'Next reading', nextRegion:'Next region', mark:'Mark as read', marked:'✓ Marked as read', credits:'Photo credits', photo:'Photo', via:'via Wikimedia Commons', close:'Close', home:'Show all of Italy', listen:'Listen', listenBrowser:'Listen with the browser voice', narrated:'Narrated by an AI voice', browserVoice:'Browser voice', noVoice:'No voice available on this device',
-   'area.North':'North','area.Centre':'Centre','area.South':'South','area.Islands':'Islands','wine.red':'red','wine.white':'white','wine.rose':'rosé','wine.sparkling':'sparkling','wine.sweet':'sweet', vmp:'Vinmonopolet', vmpTitle:'See the current selection at Vinmonopolet (opens their search page)', vmpStoreLabel:'Show selection at', vmpAll:'All of Norway' },
+   'area.North':'North','area.Centre':'Centre','area.South':'South','area.Islands':'Islands','wine.red':'red','wine.white':'white','wine.rose':'rosé','wine.sparkling':'sparkling','wine.sweet':'sweet', vmp:'Vinmonopolet', vmpTitle:'See the current selection at Vinmonopolet (opens their search page)', vmpStoreLabel:'Show selection at', vmpAll:'All of Norway', quiz:'Check yourself', quizSub:n=>`${n} questions on this reading. Answers explain themselves.`, quizScore:(a,b)=>`${a} of ${b} right`, quizAgain:'Try again', quizAll:'All three right. Move on.' },
  no:{ sub:'Et kurs i tjue regioner · vin og mat', hint:'Trykk på en region eller en nål · dra for å flytte · knip for å zoome · ◭ vipper', loading:'Forbereder kartet over Italia …', lessons:'Leksjoner', landmark:'Landemerke', wines:'Viner å kjenne til', table:'Ved bordet', pairing:'Klassisk kombinasjon', prev:'← Forrige', next:'Neste region →', capital:'Hovedstad', module:'Modul', of:'av', readings:'lesetekster', min:'min', soonShort:'lesetekster kommer', minRead:'min lesetid', soon:'Lesetekst kommer', reading:'Lesetekst', notWritten:'Denne leseteksten er ikke skrevet ennå.',
    soonPara:n=>`Lazio-modulen viser leseformatet kurset skal bruke: et illustrert essay på 6–8 minutter med nøkkelfakta, en smakstabell for vinleksjonene og en kort oppsummering. Lesetekstene for ${n} følger samme mønster.`,
    backTo:'Tilbake til', seeFinished:'Se den ferdige modulen', lazioR1:'Lazio, lesetekst 1', nextReading:'Neste lesetekst', nextRegion:'Neste region', mark:'Merk som lest', marked:'✓ Merket som lest', credits:'Fotokreditering', photo:'Foto', via:'via Wikimedia Commons', close:'Lukk', home:'Vis hele Italia', listen:'Lytt', listenBrowser:'Lytt med nettleserstemme', narrated:'Lest inn av en KI-stemme', browserVoice:'Nettleserstemme', noVoice:'Ingen stemme tilgjengelig på denne enheten',
-   'area.North':'Nord','area.Centre':'Midt-Italia','area.South':'Sør','area.Islands':'Øyene','wine.red':'rød','wine.white':'hvit','wine.rose':'rosé','wine.sparkling':'musserende','wine.sweet':'søt', vmp:'Vinmonopolet', vmpTitle:'Se utvalget hos Vinmonopolet (åpner butikkens søk)', vmpStoreLabel:'Vis utvalget hos', vmpAll:'Hele landet' }
+   'area.North':'Nord','area.Centre':'Midt-Italia','area.South':'Sør','area.Islands':'Øyene','wine.red':'rød','wine.white':'hvit','wine.rose':'rosé','wine.sparkling':'musserende','wine.sweet':'søt', vmp:'Vinmonopolet', vmpTitle:'Se utvalget hos Vinmonopolet (åpner butikkens søk)', vmpStoreLabel:'Vis utvalget hos', vmpAll:'Hele landet', quiz:'Sjekk deg selv', quizSub:n=>`${n} spørsmål til denne leseteksten. Svarene forklarer seg selv.`, quizScore:(a,b)=>`${a} av ${b} riktig`, quizAgain:'Prøv igjen', quizAll:'Alle tre riktig. Gå videre.' }
 };
 let lang = (()=>{ const q = new URLSearchParams(location.search).get('lang'); if(q && I18N[q]) return q; try{ const s = localStorage.getItem('iit-lang'); if(s && I18N[s]) return s; }catch(e){} return /^(nb|nn|no)/i.test(navigator.language||'') ? 'no' : 'en'; })();
 const T = k => { const v = I18N[lang][k] !== undefined ? I18N[lang][k] : I18N.en[k]; return v === undefined ? k : v; };
@@ -973,6 +999,68 @@ document.getElementById('prevBtn').addEventListener('click', () => step(-1));
 const reader = document.getElementById('reader'), rscroll = reader.querySelector('.rscroll'), article = reader.querySelector('article');
 let reading = null;
 function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+// ---------- RECAP QUESTIONS
+// Three multiple-choice questions per reading, from content/quiz.js (EN) and content/quiz.no.js (NO).
+// A reading with no questions simply renders nothing, so the feature can land region by region.
+function quizFor(code, i){
+  const bank = (lang === 'no' ? window.QUIZ_NO : window.QUIZ) || {};
+  const region = bank[code];
+  return (region && region[i]) ? region[i] : null;
+}
+function quizHtml(code, i){
+  const qs = quizFor(code, i);
+  if(!qs || !qs.length) return '';
+  const items = qs.map((q, n) => `<li class="q" data-c="${q.c}">
+      <p>${esc(q.q)}</p>
+      <div class="opts">${q.a.map((opt, k) => `<button class="opt" type="button" data-k="${k}"><span class="mk"></span><span>${esc(opt)}</span></button>`).join('')}</div>
+      <p class="why">${esc(q.why)}</p>
+    </li>`).join('');
+  return `<section class="quiz" aria-label="${esc(T('quiz'))}">
+      <h4>${esc(T('quiz'))}</h4>
+      <p class="qcount">${esc(T('quizSub')(qs.length))}</p>
+      <ol>${items}</ol>
+      <p class="score" aria-live="polite"><span class="txt"></span><button type="button" class="again">${esc(T('quizAgain'))}</button></p>
+    </section>`;
+}
+function wireQuiz(root){
+  const quiz = root.querySelector('.quiz');
+  if(!quiz) return;
+  const qs = [...quiz.querySelectorAll('li.q')];
+  const score = quiz.querySelector('.score'), txt = score.querySelector('.txt');
+  let answered = 0, right = 0;
+  const show = () => {
+    txt.textContent = right === qs.length ? T('quizAll') : T('quizScore')(right, qs.length);
+    score.classList.add('on');
+  };
+  qs.forEach(li => {
+    const correct = +li.dataset.c;
+    li.querySelectorAll('.opt').forEach(btn => btn.addEventListener('click', () => {
+      if(li.dataset.done) return;
+      li.dataset.done = '1';
+      const picked = +btn.dataset.k;
+      if(picked === correct) right++;
+      answered++;
+      li.querySelectorAll('.opt').forEach(b => {
+        const k = +b.dataset.k;
+        b.disabled = true;
+        if(k === correct){ b.classList.add('right'); b.querySelector('.mk').textContent = '✓'; }
+        else if(k === picked){ b.classList.add('wrong'); b.querySelector('.mk').textContent = '✕'; }
+      });
+      li.querySelector('.why').classList.add('on');
+      if(answered === qs.length) show();
+    }));
+  });
+  quiz.querySelector('.again').addEventListener('click', () => {
+    answered = 0; right = 0;
+    score.classList.remove('on');
+    qs.forEach(li => {
+      delete li.dataset.done;
+      li.querySelector('.why').classList.remove('on');
+      li.querySelectorAll('.opt').forEach(b => { b.disabled = false; b.classList.remove('right','wrong'); b.querySelector('.mk').textContent = ''; });
+    });
+    quiz.scrollIntoView({block:'start', behavior:'smooth'});
+  });
+}
 function figureHtml(dir, credits, key, caption, cls){
   const cr = credits[key] || {};
   const credit = cr.artist ? `<span class="credit">${T('photo')}: <a href="${cr.source}" target="_blank" rel="noopener">${esc(cr.artist)}</a>, ${esc(cr.license)}, ${T('via')}</span>` : '';
@@ -1001,12 +1089,14 @@ function openReader(code, i){
     article.innerHTML = `<header class="rhead"><p class="kicker">${esc(L.kicker)} · ${L.minutes} min</p><h1>${esc(L.title)}</h1><p class="summary">${esc(L.summary)}</p>${region}${listenLabel ? `<div><button class="listen" type="button"><i>▶</i>${listenLabel}</button></div>` : ''}</header>
       ${figureHtml(dir, credits, L.hero, L.heroCaption, 'hero')}
       <div class="rbody">${body}</div>
+      ${quizHtml(code, i)}
       <footer class="rfoot"><button class="done ${done?'is-done':''}" type="button">${done ? T('marked') : T('mark')}</button>
         <div class="rnext"><a href="#/${code}"><small>${T('backTo')}</small><b>${C.name}</b></a>${next}</div>
         <details><summary>${T('credits')}</summary><ul>${used.map(k => credits[k] ? `<li>${esc(k)}: <a href="${credits[k].source}" target="_blank" rel="noopener">${esc(credits[k].artist)}</a>, ${esc(credits[k].license)}</li>` : '').join('')}</ul></details></footer>`;
     const lb = article.querySelector('.listen'); if(lb) lb.addEventListener('click', () => player.start({code, i, title:L.title, src: hasAudio ? () => resolveAudio(dir, lang, i) : null, text: narrationText(L)}));
     const btn = article.querySelector('.done');
     btn.addEventListener('click', () => { const on = !progress.has(code+':'+i); setDone(code, i, on); btn.classList.toggle('is-done', on); btn.textContent = on ? T('marked') : T('mark'); });
+    wireQuiz(article);
     const recap = article.querySelector('.recap');
     if(recap && 'IntersectionObserver' in window){ const io = new IntersectionObserver(en => { if(en[0].isIntersecting){ if(!progress.has(code+':'+i)){ setDone(code, i, true); btn.classList.add('is-done'); btn.textContent = T('marked'); } io.disconnect(); } }, {root:rscroll, threshold:0.6}); io.observe(recap); }
   }
