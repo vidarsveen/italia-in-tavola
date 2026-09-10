@@ -185,7 +185,11 @@ English in view; if it needs the English to parse, rewrite it.
 - Landmarks: pins (sprites) at the overview; `B.<builder>` model groups only when the region is selected and
   `ctl.dist < 75`. Volcanoes and mountains are real terrain now; builders should not add fake peaks.
 - Camera: north-up, `phi` 0.3–0.42 by default, one-finger/left-drag pans, right/alt-drag orbits, `◭` tilts.
-  Portrait home: target (9, 0, 3), dist 268. `frameRegion` fits the region above the sheet on phones.
+  `HOME()` no longer carries hand-tuned constants: `fitView(FIT_PTS, chromeInsets(0), phi)` projects every
+  coastline vertex of the twenty regions, measures the screen box and iterates target and distance five times
+  until Italy is centred in the area the chrome leaves free. `resize` and `orientationchange` re-frame
+  (debounced 220 ms, ignoring the browser chrome sliding away), so rotating the phone works.
+  `frameRegion` still fits the region above the sheet on phones with its own constants.
 - To rebuild terrain assets: `python tools/bake_terrain.py` (needs numpy, PIL, `docs/dem_italy_z8.npy`;
   the DEM came from AWS Terrain Tiles, Terrarium PNG, zoom 8, tiles x 132–141, y 88–100, no API key).
 
@@ -218,7 +222,11 @@ Serve the folder: `python -m http.server 8765 --bind 127.0.0.1` (run in the back
 Chrome path: `C:\Program Files\Google\Chrome\Application\chrome.exe`. Set `PYTHONIOENCODING=utf-8` when a
 script prints arrows or Norwegian letters on Windows.
 
-- Screenshot: `tools/test/shot3.sh <name> 390,844 "?instant&region=IT-52&lesson=2&lang=no"` (phone) or `1200,720`
+- Screenshot: **use `python tools/test/shot.py out.png 390x844 "?instant"`** (repeat the three arguments for
+  more shots in one Chrome run; `IIT_URL` and `IIT_WAIT` override the page and the wait). It sets the viewport
+  through CDP. `tools/test/shot3.sh` does not: `--window-size=390,844` leaves the page a 500×688 window and then
+  crops the capture, so anything that reads `window.innerWidth` is framed for the wrong screen.
+- Old screenshot script, still there: `tools/test/shot3.sh <name> 390,844 "?instant&region=IT-52&lesson=2&lang=no"` (phone) or `1200,720`
   (desktop). Output PNG lands next to the script; look at it with the Read tool. `--screenshot` needs an absolute
   Windows path (the script handles it). The capture fires about two seconds after load, so use `?instant`.
 - Touch flows over the DevTools protocol (needs `websocket-client`): `python tools/test/touchtest.py "<url>"`
@@ -300,3 +308,34 @@ capitalised term preceded by another capitalised word is part of a name.
 polygon. Capitals appear only when the camera is closer than 140 units. `updateOverlays()` now places labels by
 priority, selected region first, then regions, then capitals, and hides anything overlapping a box already
 placed rather than drawing on top.
+
+## 14. Recipes (added 2026-09-10)
+
+A cookbook inside the same page: `#/recipes` lists every recipe, `#/recipes/<id>` is one of them, and the
+quantities rescale live to the number of portions. Reached from a **Recipes** button in `#top`, from the
+"At the table" chips on a region sheet (a chip whose dish has a recipe becomes a link), and from a
+**Cook it** block at the foot of the reading the dish belongs to. Each recipe links back to its region, to
+that reading, and to its wine's Vinmonopolet search.
+
+- Data: `content/recipes/<region>.js`, `window.RECIPES['IT-xx'] = [ … ]`, **both languages in one file**
+  (`{en, no}` on every prose field) so a quantity is written exactly once and cannot drift. Contract:
+  `docs/recipe-format.md`. Checked by `python tools/recipecheck.py`.
+- Units are `g`, `kg`, `ml`, `l` or a bare count. No cups, spoons, `dl`, `ss`, `ts` or imperial — the checker
+  rejects them, and it also rejects a step that repeats a quantity the servings stepper is going to rescale.
+- Scaling: linear by default, `scale:'none'` for pepper and salt to taste, `scale:'sub'` (factor^0.7) for
+  pasta water, `round:'half'` for counts (3 eggs for four becomes 4½ for six). Portions live in localStorage
+  as `iit-servings`.
+- Renderer: the RECIPES section of the app (`cookIndexHtml`, `cookRecipeHtml`, `openCook`, `cookItHtml`).
+  `#cook` is a second full-screen light page sharing the reader's CSS, so `#reader` selectors that used to be
+  scoped now read `#reader X, #cook X`.
+- **Recipes are never narrated.** `narrate.py` only ever sees a reading's `html`, and nothing in
+  `content/<region>.js` changes, so editing a recipe cannot make an audio file stale.
+- `tools/review_no.py --check` now counts a recipe hero as a reference to a photo; before that it reported a
+  recipe's own photo as unused (see §4.10 for why that matters).
+- Test: `python tools/test/cooktest.py` (index → recipe → rescale → language → chips → the reading's block).
+- **Depth: the long form**, chosen by the owner 2026-09-10 after comparing both on a phone. Every recipe carries
+  a `headnote` of two or three paragraphs (where the dish comes from, what the mechanism is, what is not
+  negotiable), 8-11 steps, two or three `notes` explaining why rather than what, and two or three `variations`.
+  Roughly 700-900 words a recipe across the two languages. Write the headnote from the region's own reading so
+  the two cannot contradict each other.
+- Done so far: Lazio, four recipes (gricia, cacio e pepe, amatriciana, carbonara).

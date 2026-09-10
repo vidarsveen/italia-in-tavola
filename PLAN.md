@@ -172,6 +172,36 @@ languages, so terms carry per-language surface forms.
 Remaining roadmap: progress that syncs between devices, and licensed narration (Azure Speech, about $12 for the
 whole course) to replace the unlicensed edge-tts route before publishing widely.
 
+## 6o. Status 2026-09-10, map framing and the first recipes
+
+**Framing.** The portrait overview was aimed at world X = 9 (longitude 13.8) by two constants that answered to
+nothing — not screen size, not orientation, and `resize` never re-ran them, so a rotation left the camera where
+the previous orientation had put it. Italy's centre of mass is at X ≈ −4, so on a phone the north-west was
+clipped off the left edge while a wedge of empty sea sat on the right, and the map floated small in the upper
+half. `HOME()` now calls a `fitView` routine that projects every coastline vertex of the twenty regions and
+iterates target and distance until they are centred in the area the title bar, region strip and sheet leave
+free; `resize` and `orientationchange` re-frame. The capitals threshold moved to `dist < 200` on wide screens
+so desktop keeps the city names it had at its old, closer home distance.
+
+`tools/test/shot3.sh` turned out to be unreliable and is why this was hard to see: in `--headless=new`,
+`--window-size=390,844` gives the page a 500×688 window and then crops the capture, so every screenshot of a
+layout that reads `window.innerWidth` was of the wrong screen. `tools/test/shot.py` sets the viewport through
+CDP instead.
+
+**Recipes.** The cookbook the course has been missing: `#/recipes`, portions that rescale, both languages in
+one data file so a quantity is written once. Lazio first, with the four Roman pastas. Two depths were written for
+carbonara and compared on a phone; the long form won, so every recipe carries a headnote, notes and variations
+as well as its ingredients and method.
+Contract in `docs/recipe-format.md`, checker `tools/recipecheck.py`, flow test `tools/test/cooktest.py`,
+handover in CLAUDE.md §14. Gricia had no photograph in the course; one was added from Commons.
+
+Two latent bugs surfaced on the way. `review_no.py --check` set its `ok` flag *after* the photo audit, so a
+missing or uncredited photo printed a warning and still passed; and the same audit did not know about recipe
+heroes, so it called a recipe's own photo unused — the exact shape of the mistake that once deleted photos
+from two regions.
+
+Next: the remaining regions in batches of four parallel workers, as with the readings.
+
 ## 7. Suggested order of work
 
 1. Validate the Lazio reading format with a few learners on phones (this round).

@@ -17,6 +17,7 @@ window.READINGS['IT-62'] = {
     "amatriciana": {"artist":"Blackcat","license":"CC BY-SA 4.0","source":"https://commons.wikimedia.org/wiki/File:Bucatini_amatriciana_Roma_2019.jpg"},
     "cacio": {"artist":"Blackcat","license":"CC BY-SA 4.0","source":"https://commons.wikimedia.org/wiki/File:Spaghetto_cacio_e_pepe_Roma_2018.jpg"},
     "guanciale": {"artist":"Jill and Jamie","license":"CC BY-SA 2.0","source":"https://commons.wikimedia.org/wiki/File:Guanciale_artigianale.jpg"},
+    "gricia": {"artist":"Luca Nebuloni","license":"CC BY 2.0","source":"https://commons.wikimedia.org/wiki/File:Gricia_(7378890110).jpg"},
     "pecorino": {"artist":"Jon Sullivan","license":"Public domain","source":"https://commons.wikimedia.org/wiki/File:Pecorino_romano_cheese.jpg"}
   },
   lessons: [

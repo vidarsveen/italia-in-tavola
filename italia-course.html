@@ -23,13 +23,13 @@
   :focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
 
   /* ---------- top bar */
-  #top{ position:absolute; left:0; right:0; top:0; padding:calc(10px + env(safe-area-inset-top,0px)) 14px 8px; display:flex; align-items:center; justify-content:space-between; gap:10px; pointer-events:none;
+  #top{ position:absolute; left:0; right:0; top:0; padding:calc(10px + env(safe-area-inset-top,0px)) 14px 8px; display:flex; align-items:center; justify-content:space-between; gap:8px; pointer-events:none;
     background:linear-gradient(rgba(23,61,92,.85), rgba(23,61,92,0)); }
-  #top h1{ font-family:var(--serif); font-weight:400; font-variation-settings:"opsz" 96, "SOFT" 60; font-size:24px; margin:0; letter-spacing:-.01em; text-shadow:0 2px 12px rgba(0,0,0,.35); line-height:1; }
+  #top h1{ font-family:var(--serif); font-weight:400; font-variation-settings:"opsz" 96, "SOFT" 60; font-size:clamp(19px, 5.4vw, 24px); margin:0; white-space:nowrap; letter-spacing:-.01em; text-shadow:0 2px 12px rgba(0,0,0,.35); line-height:1; }
   #top h1 em{ font-style:italic; color:var(--gold); }
   #top .sub{ display:none; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--paper-dim); }
   #prog{ pointer-events:auto; display:flex; align-items:center; gap:8px; padding:6px 10px; border-radius:20px; font-size:12px; font-variant-numeric:tabular-nums; }
-  #prog .bar{ width:56px; height:4px; background:rgba(255,255,255,.14); border-radius:2px; overflow:hidden; }
+  #prog .bar{ width:40px; height:4px; background:rgba(255,255,255,.14); border-radius:2px; overflow:hidden; }
   #lang{ display:flex; border-radius:20px; overflow:hidden; pointer-events:auto; }
   #lang button{ background:none; border:0; color:var(--paper-dim); padding:6px 9px; font-size:11px; letter-spacing:.08em; cursor:pointer; min-height:32px; }
   #lang button.on{ background:rgba(255,255,255,.16); color:var(--paper); font-weight:700; }
@@ -114,15 +114,15 @@
   #sheet .nav button.primary{ background:var(--wine); border-color:var(--wine); }
 
   /* ---------- reader (full screen, light page) */
-  #reader{ position:fixed; inset:0; z-index:20; background:var(--page); color:var(--text); display:none; flex-direction:column; }
-  #reader.open{ display:flex; }
-  #reader .rbar{ flex:none; display:flex; align-items:center; gap:10px; padding:calc(8px + env(safe-area-inset-top,0px)) 12px 8px; background:var(--page); border-bottom:1px solid var(--rule); position:relative; }
-  #reader .rbar .back{ display:flex; align-items:center; gap:6px; padding:8px 12px 8px 8px; border-radius:20px; border:1px solid var(--rule); background:#fff; color:var(--text); cursor:pointer; min-height:40px; font-weight:600; font-size:13px; }
-  #reader .rbar .rk{ margin-left:auto; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-faint); white-space:nowrap; }
+  #reader, #cook{ position:fixed; inset:0; z-index:20; background:var(--page); color:var(--text); display:none; flex-direction:column; }
+  #reader.open, #cook.open{ display:flex; }
+  #reader .rbar, #cook .rbar{ flex:none; display:flex; align-items:center; gap:10px; padding:calc(8px + env(safe-area-inset-top,0px)) 12px 8px; background:var(--page); border-bottom:1px solid var(--rule); position:relative; }
+  #reader .rbar .back, #cook .rbar .back{ display:flex; align-items:center; gap:6px; padding:8px 12px 8px 8px; border-radius:20px; border:1px solid var(--rule); background:#fff; color:var(--text); cursor:pointer; min-height:40px; font-weight:600; font-size:13px; }
+  #reader .rbar .rk, #cook .rbar .rk{ margin-left:auto; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-faint); white-space:nowrap; }
   #reader .rbar .rprog{ position:absolute; left:0; right:0; bottom:-1px; height:3px; background:transparent; }
   #reader .rbar .rprog i{ display:block; height:100%; width:0; background:var(--wine); }
-  #reader .rscroll{ flex:1; overflow:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
-  #reader article{ max-width:700px; margin:0 auto; padding:0 0 60px; }
+  #reader .rscroll, #cook .rscroll{ flex:1; overflow:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
+  #reader article, #cook article{ max-width:700px; margin:0 auto; padding:0 0 60px; }
   .rhead{ padding:26px 20px 6px; }
   .rhead .kicker{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--wine); margin:0 0 10px; font-weight:600; }
   .rhead h1{ font-family:var(--serif); font-weight:400; font-variation-settings:"opsz" 144, "SOFT" 30; font-size:clamp(32px, 8vw, 46px); line-height:1.02; letter-spacing:-.02em; margin:0 0 12px; text-wrap:balance; }
@@ -176,6 +176,55 @@
   /* glossary: the first mention of a term in a reading is tappable */
   .rbody .gl{ border-bottom:1px dashed var(--text-faint); cursor:help; }
   .rbody .gl:hover{ border-bottom-color:var(--wine); }
+  /* ---------- recipes */
+  #cook .filters{ display:flex; gap:6px; overflow-x:auto; padding:2px 20px 14px; scrollbar-width:none; }
+  #cook .filters::-webkit-scrollbar{ display:none; }
+  #cook .filters button{ flex:none; padding:8px 13px; border-radius:20px; border:1px solid var(--rule); background:#fff; color:var(--text-dim); font-size:13px; font-weight:600; cursor:pointer; min-height:38px; }
+  #cook .filters button.on{ background:var(--wine); border-color:var(--wine); color:#fff; }
+  #cook .rsearch{ padding:0 20px 12px; }
+  #cook .rsearch input{ width:100%; font:inherit; font-size:15px; padding:11px 14px; border-radius:10px; border:1px solid var(--rule); background:#fff; color:var(--text); min-height:44px; }
+  #cook .rgroup{ padding:0 20px; }
+  #cook .rgroup h3{ display:flex; align-items:center; gap:8px; margin:22px 0 8px; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--text-faint); font-weight:700; }
+  #cook .rgroup h3 i{ width:10px; height:10px; border-radius:2px; }
+  #cook a.rcard{ display:flex; gap:12px; align-items:center; padding:9px 0; border-bottom:1px solid var(--rule); color:inherit; text-decoration:none; }
+  #cook a.rcard img{ width:66px; height:66px; object-fit:cover; border-radius:8px; flex:none; background:var(--page-2); }
+  #cook a.rcard .tx{ flex:1; min-width:0; }
+  #cook a.rcard b{ display:block; font-family:var(--serif); font-weight:500; font-size:19px; line-height:1.15; margin-bottom:3px; }
+  #cook a.rcard span{ display:block; font-size:13px; line-height:1.4; color:var(--text-dim); overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+  #cook a.rcard em{ font-style:normal; font-size:11.5px; color:var(--text-faint); letter-spacing:.04em; }
+  #cook .rnone{ padding:30px 20px; color:var(--text-dim); }
+  .rmeta{ display:flex; flex-wrap:wrap; align-items:center; gap:10px 18px; margin:20px 20px 0; padding:14px 16px; border:1px solid var(--rule); border-radius:10px; background:#fff; }
+  .rmeta .t{ font-size:12.5px; color:var(--text-dim); }
+  .rmeta .t b{ color:var(--text); font-weight:700; }
+  .serves{ display:flex; align-items:center; gap:10px; margin-left:auto; }
+  .serves .lbl{ font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--wine); font-weight:700; }
+  .serves button{ width:38px; height:38px; border-radius:50%; border:1px solid var(--rule); background:#fff; color:var(--text); font-size:19px; line-height:1; cursor:pointer; }
+  .serves button:disabled{ opacity:.35; cursor:default; }
+  .serves output{ min-width:22px; text-align:center; font-weight:700; font-size:17px; font-variant-numeric:tabular-nums; }
+  .ings{ margin:22px 20px 0; }
+  .ings h2, .method h2, .rnotes h2{ font-family:var(--serif); font-weight:500; font-size:24px; margin:0 0 10px; }
+  .ings .grp{ margin:0 0 6px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-faint); font-weight:700; }
+  .ings table{ width:100%; border-collapse:collapse; font:inherit; color:var(--text); font-size:16px; }
+  .ings td{ padding:9px 0; border-bottom:1px solid var(--rule); line-height:1.4; vertical-align:top; }
+  .ings td.q{ width:96px; padding-right:12px; font-weight:700; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .ings td small{ display:block; font-size:13px; color:var(--text-dim); }
+  .method{ margin:28px 20px 0; }
+  .method ol{ margin:0; padding-left:0; list-style:none; counter-reset:s; }
+  .method li{ counter-increment:s; position:relative; padding:0 0 16px 44px; font-size:16.5px; line-height:1.6; }
+  .method li::before{ content:counter(s); position:absolute; left:0; top:-1px; width:30px; height:30px; border-radius:50%; background:var(--wine); color:#fff; display:grid; place-items:center; font-size:14px; font-weight:700; font-family:var(--sans); }
+  .rnotes{ margin:26px 20px 0; }
+  .rnotes .n{ background:#fff; border:1px solid var(--rule); border-radius:10px; padding:14px 16px; margin:0 0 10px; font-size:15px; line-height:1.55; }
+  .rnotes .n b{ display:block; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--wine); margin-bottom:5px; }
+  .rwine{ margin:26px 20px 0; padding:14px 16px; border-left:3px solid var(--gold); background:var(--page-2); border-radius:0 10px 10px 0; font-size:15px; }
+  .rwine b{ display:block; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--wine); margin-bottom:5px; }
+  .rwine a{ color:var(--text); }
+  .cookit{ margin:30px 20px 0; padding:18px 20px; border-left:3px solid var(--wine); background:var(--page-2); border-radius:0 10px 10px 0; }
+  .cookit h4{ margin:0 0 10px; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--wine); font-weight:700; }
+  .cookit a{ display:flex; align-items:center; gap:6px; padding:7px 0; color:var(--text); text-decoration:none; font-size:15.5px; font-weight:600; }
+  .cookit a .go{ margin-left:auto; color:var(--text-faint); }
+  .dishes a{ font-size:12.5px; padding:6px 10px; border-radius:20px; border:1px solid var(--wine); color:var(--paper); text-decoration:none; background:rgba(166,61,85,.18); }
+  #recipeBtn{ pointer-events:auto; display:flex; align-items:center; justify-content:center; gap:6px; padding:0 9px; min-width:38px; min-height:36px; border-radius:20px; border:1px solid var(--line); background:rgba(26,34,44,.86); color:var(--paper); font-size:12.5px; font-weight:600; cursor:pointer; }
+  #recipeBtn span{ display:none; }   /* the word only where there is room for it */
   #glossPop{ position:fixed; z-index:40; max-width:min(340px, calc(100vw - 24px)); padding:14px 16px; border-radius:12px;
     background:#fff; color:var(--text); border:1px solid var(--rule); box-shadow:0 18px 50px rgba(20,25,40,.28); display:none; }
   #glossPop.on{ display:block; }
@@ -245,9 +294,13 @@
   /* ---------- wide screens */
   @media (min-width:900px){
     #top{ padding:18px 20px; background:none; justify-content:flex-start; gap:14px; align-items:baseline; right:440px; }
+    #recipeBtn span{ display:inline; }
+    #recipeBtn{ padding:0 13px; align-self:center; }
+    #top .sub{ display:none; }   /* the strapline only where the row is not already full */
     #top h1{ font-size:30px; }
     #top .sub{ display:inline; }
     #prog{ margin-left:auto; }
+    #prog .bar{ width:56px; }
     #rail{ left:20px; right:auto; top:78px; bottom:20px; width:236px; border-radius:10px; flex-direction:column; gap:0; overflow:auto; padding:6px 0 10px; scrollbar-width:thin; scroll-snap-type:none;
       background:rgba(26,34,44,.86); border:1px solid var(--line); backdrop-filter:blur(10px); }
     #rail h4{ display:block; margin:10px 16px 4px; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--paper-faint); font-weight:600; }
@@ -278,6 +331,7 @@
     .rfoot{ padding:28px 24px 0; }
     .rnext{ grid-template-columns:1fr 1fr; }
   }
+  @media (min-width:1280px){ #top .sub{ display:inline; white-space:nowrap; } }
   @media (prefers-reduced-motion: reduce){ #sheet, #reader, #prog .bar i{ transition:none; } }
 </style>
 
@@ -285,7 +339,7 @@
 <div id="ui">
   <div id="top"><h1>Italia <em>in Tavola</em></h1><span class="sub" data-t="sub">A course in twenty regions · wine &amp; food</span>
     <div id="prog" class="glass"><span><b id="pDone">0</b>/<span id="pTotal">80</span></span><div class="bar"><i id="pBar"></i></div></div>
-    <div id="lang" class="glass" role="group" aria-label="Language"><button type="button" data-lang="en">EN</button><button type="button" data-lang="no">NO</button></div></div>
+    <button id="recipeBtn" type="button" aria-label="Recipes"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M7 3v5M9.5 3v5M4.5 3v5M7 8v13"/><path d="M7 8a2.5 2.5 0 0 0 2.5-2.5M7 8a2.5 2.5 0 0 1-2.5-2.5"/><path d="M16.5 3c-1.4 0-2.5 1.6-2.5 3.5S15.1 10 16.5 10 19 8.4 19 6.5 17.9 3 16.5 3zM16.5 10v11"/></svg><span data-t="recipes">Recipes</span></button><div id="lang" class="glass" role="group" aria-label="Language"><button type="button" data-lang="en">EN</button><button type="button" data-lang="no">NO</button></div></div>
   <div id="hint" class="glass" data-t="hint">Tap a region or landmark · drag to orbit · pinch to zoom</div>
   <div id="labels" aria-hidden="true"></div>
   <nav id="rail" aria-label="Regions"></nav>
@@ -319,6 +373,10 @@
     <div class="row"><span class="meta"></span><button class="back15" type="button">−15 s</button><button class="rate" type="button">1×</button><button class="fwd15" type="button">+15 s</button><button class="x" type="button" aria-label="Close player">×</button></div>
   </div>
 </div>
+<div id="cook" role="dialog" aria-modal="true">
+  <div class="rbar"><button class="back" type="button">‹ <span></span></button><span class="rk"></span></div>
+  <div class="rscroll"><article></article></div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>if(!window.THREE){document.write('<script src="three.min.js"><\/script>');}</script>
@@ -336,6 +394,7 @@ const REGIONS = [{"name":"Piemonte","code":"IT-21","c":[8.04,45.09],"rings":[[[7
 <script src="content/tasting.js"></script>
 <script src="content/tasting.no.js"></script>
 <script src="content/lazio.no.js"></script>
+<script src="content/recipes/lazio.js"></script>
 <script src="assets/audio/lazio/manifest.js"></script>
 <script src="content/piemonte.js"></script>
 <script src="content/piemonte.no.js"></script>
@@ -402,11 +461,11 @@ const MOBILE = () => window.innerWidth < 900;
 
 // ============================================================ LANGUAGE
 const I18N = {
- en:{ sub:'A course in twenty regions · wine & food', hint:'Tap a region or a pin · drag to pan · pinch to zoom · ◭ tilts', loading:'Preparing the map of Italy…', lessons:'Lessons', landmark:'Landmark', wines:'Wines to know', table:'At the table', pairing:'Classic pairing', prev:'← Previous', next:'Next region →', capital:'Capital', module:'Module', of:'of', readings:'readings', min:'min', soonShort:'readings coming soon', minRead:'min read', soon:'Reading coming soon', reading:'Reading', notWritten:'This reading is not written yet.',
+ en:{ recipes:'Recipes', backMap:'Map', recipesSub:n => `${n} dishes from the course, in grams and millilitres`, recipeSearch:'Search the recipes', servings:'Servings', ingredients:'Ingredients', method:'Method', prep:'Prep', cooking:'Cooking', cookIt:'Cook it', cookItSub:'Recipes from this reading', fromReading:'Where it comes from', goodWith:'Good with', whyWorks:'Why it works', variations:'Variations', noRecipes:'No recipe matches that.', allCourses:'All', toTaste:'to taste', servesNote:n => `Written for ${n}`, 'course.antipasto':'Antipasto', 'course.primo':'First course', 'course.secondo':'Main course', 'course.contorno':'Side', 'course.dolce':'Dessert', 'course.base':'Basics', sub:'A course in twenty regions · wine & food', hint:'Tap a region or a pin · drag to pan · pinch to zoom · ◭ tilts', loading:'Preparing the map of Italy…', lessons:'Lessons', landmark:'Landmark', wines:'Wines to know', table:'At the table', pairing:'Classic pairing', prev:'← Previous', next:'Next region →', capital:'Capital', module:'Module', of:'of', readings:'readings', min:'min', soonShort:'readings coming soon', minRead:'min read', soon:'Reading coming soon', reading:'Reading', notWritten:'This reading is not written yet.',
    soonPara:n=>`The Lazio module shows the reading format the course will use: a 6–8 minute illustrated essay with key facts, a tasting table for wine lessons and a short recap. ${n}'s readings will follow the same pattern.`,
    backTo:'Back to', seeFinished:'See the finished module', lazioR1:'Lazio, reading 1', nextReading:'Next reading', nextRegion:'Next region', mark:'Mark as read', marked:'✓ Marked as read', credits:'Photo credits', photo:'Photo', via:'via Wikimedia Commons', close:'Close', home:'Show all of Italy', listen:'Listen', listenBrowser:'Listen with the browser voice', narrated:'Narrated by an AI voice', browserVoice:'Browser voice', noVoice:'No voice available on this device',
    'area.North':'North','area.Centre':'Centre','area.South':'South','area.Islands':'Islands','wine.red':'red','wine.white':'white','wine.rose':'rosé','wine.sparkling':'sparkling','wine.sweet':'sweet', vmp:'Vinmonopolet', vmpTitle:'See the current selection at Vinmonopolet (opens their search page)', vmpStoreLabel:'Show selection at', vmpAll:'All of Norway', tCard:['Colour','Nose','Palate','Alcohol','Serve','At the table'], quiz:'Check yourself', quizSub:n=>`${n} questions on this reading. Answers explain themselves.`, quizScore:(a,b)=>`${a} of ${b} right`, quizAgain:'Try again', quizAll:'All three right. Move on.' },
- no:{ sub:'Et kurs i tjue regioner · vin og mat', hint:'Trykk på en region eller en nål · dra for å flytte · knip for å zoome · ◭ vipper', loading:'Forbereder kartet over Italia …', lessons:'Leksjoner', landmark:'Landemerke', wines:'Viner å kjenne til', table:'Ved bordet', pairing:'Klassisk kombinasjon', prev:'← Forrige', next:'Neste region →', capital:'Hovedstad', module:'Modul', of:'av', readings:'lesetekster', min:'min', soonShort:'lesetekster kommer', minRead:'min lesetid', soon:'Lesetekst kommer', reading:'Lesetekst', notWritten:'Denne leseteksten er ikke skrevet ennå.',
+ no:{ recipes:'Oppskrifter', backMap:'Kartet', recipesSub:n => `${n} retter fra kurset, i gram og milliliter`, recipeSearch:'Søk i oppskriftene', servings:'Porsjoner', ingredients:'Ingredienser', method:'Slik gjør du', prep:'Forberedelse', cooking:'Koketid', cookIt:'Lag den selv', cookItSub:'Oppskrifter fra denne leseteksten', fromReading:'Hvor den kommer fra', goodWith:'Godt til', whyWorks:'Hvorfor det virker', variations:'Varianter', noRecipes:'Ingen oppskrift passer med det.', allCourses:'Alle', toTaste:'etter smak', servesNote:n => `Skrevet for ${n}`, 'course.antipasto':'Antipasto', 'course.primo':'Forrett', 'course.secondo':'Hovedrett', 'course.contorno':'Tilbehør', 'course.dolce':'Dessert', 'course.base':'Grunnoppskrift', sub:'Et kurs i tjue regioner · vin og mat', hint:'Trykk på en region eller en nål · dra for å flytte · knip for å zoome · ◭ vipper', loading:'Forbereder kartet over Italia …', lessons:'Leksjoner', landmark:'Landemerke', wines:'Viner å kjenne til', table:'Ved bordet', pairing:'Klassisk kombinasjon', prev:'← Forrige', next:'Neste region →', capital:'Hovedstad', module:'Modul', of:'av', readings:'lesetekster', min:'min', soonShort:'lesetekster kommer', minRead:'min lesetid', soon:'Lesetekst kommer', reading:'Lesetekst', notWritten:'Denne leseteksten er ikke skrevet ennå.',
    soonPara:n=>`Lazio-modulen viser leseformatet kurset skal bruke: et illustrert essay på 6–8 minutter med nøkkelfakta, en smakstabell for vinleksjonene og en kort oppsummering. Lesetekstene for ${n} følger samme mønster.`,
    backTo:'Tilbake til', seeFinished:'Se den ferdige modulen', lazioR1:'Lazio, lesetekst 1', nextReading:'Neste lesetekst', nextRegion:'Neste region', mark:'Merk som lest', marked:'✓ Merket som lest', credits:'Fotokreditering', photo:'Foto', via:'via Wikimedia Commons', close:'Lukk', home:'Vis hele Italia', listen:'Lytt', listenBrowser:'Lytt med nettleserstemme', narrated:'Lest inn av en KI-stemme', browserVoice:'Nettleserstemme', noVoice:'Ingen stemme tilgjengelig på denne enheten',
    'area.North':'Nord','area.Centre':'Midt-Italia','area.South':'Sør','area.Islands':'Øyene','wine.red':'rød','wine.white':'hvit','wine.rose':'rosé','wine.sparkling':'musserende','wine.sweet':'søt', vmp:'Vinmonopolet', vmpTitle:'Se utvalget hos Vinmonopolet (åpner butikkens søk)', vmpStoreLabel:'Vis utvalget hos', vmpAll:'Hele landet', tCard:['Farge','Duft','Smak','Alkohol','Serveres','Ved bordet'], quiz:'Sjekk deg selv', quizSub:n=>`${n} spørsmål til denne leseteksten. Svarene forklarer seg selv.`, quizScore:(a,b)=>`${a} av ${b} riktig`, quizAgain:'Prøv igjen', quizAll:'Alle tre riktig. Gå videre.' }
@@ -422,6 +481,7 @@ function applyLang(){
   document.querySelectorAll('#lang button').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
   const c = document.querySelector('#sheet .close'); if(c){ c.title = T('close'); c.setAttribute('aria-label', T('close')); }
   const h = document.getElementById('homeBtn'); if(h){ h.title = T('home'); h.setAttribute('aria-label', T('home')); }
+  const rb = document.getElementById('recipeBtn'); if(rb){ rb.title = T('recipes'); rb.setAttribute('aria-label', T('recipes')); }
   try{ localStorage.setItem('iit-lang', lang); }catch(e){}
 }
 document.querySelectorAll('#lang button').forEach(b => b.addEventListener('click', () => { if(b.dataset.lang === lang) return; lang = b.dataset.lang; applyLang(); if(typeof route === 'function') route(); }));
@@ -498,7 +558,7 @@ const COURSE = {
    landmark:{name:'The Colosseum, Rome', desc:'The Flavian Amphitheatre, completed in AD 80, seated some 50,000 spectators for games and spectacles.', props:[['colosseum',41.89,12.49]]},
    vmp:'italia_lazio',
    wines:[['Frascati Superiore','white','italia_lazio_frascati_superiore'],['Cesanese del Piglio','red','#Cesanese'],['Est! Est!! Est!!! di Montefiascone','white',''],['Aleatico di Gradoli','sweet','']], pairing:'Frascati with carciofi alla giudia; Cesanese with abbacchio alla romana or amatriciana.',
-   dishes:['Carbonara','Cacio e pepe','Amatriciana','Saltimbocca alla romana','Carciofi alla giudia','Supplì'],
+   dishes:['Carbonara','Cacio e pepe','Amatriciana','Gricia','Saltimbocca alla romana','Carciofi alla giudia','Supplì'],
    lessons:["The Castelli Romani and Frascati","Cesanese: Lazio's forgotten red","The four Roman pastas","Rome: the Colosseum and the eternal table"]},
  'IT-65':{name:'Abruzzo', capital:"L'Aquila", area:'Centre', color:'#b09e68', intro:"Mountain wilderness above, Adriatic below. Bears and wolves roam the Gran Sasso national park, shepherds grill arrosticini over charcoal, and Montepulciano d'Abruzzo is the everyday red of half the country.",
    landmark:{name:'Rocca Calascio & the Gran Sasso', desc:'A 10th-century fortress at 1,460 m, the highest in the Apennines, beneath the 2,912 m Corno Grande.', props:[['calascio',42.33,13.70]]},
@@ -899,7 +959,7 @@ function updateOverlays(){
   const dist = ctl.dist, fs = THREE.MathUtils.clamp(13.5 * Math.pow(150/dist, 0.55), 10, 21);
   _boxes.length = 0;
   // capitals only once the camera is close enough that they add something
-  const showCaps = dist < 140;
+  const showCaps = dist < (MOBILE() ? 140 : 200);
   for(const code of ORDER){
     const c = capEls[code]; if(!c) continue;
     if(!showCaps){ c.el.style.display = 'none'; continue; }
@@ -934,7 +994,46 @@ function updateOverlays(){
 }
 // ============================================================ CAMERA
 const PORTRAIT = () => window.innerHeight > window.innerWidth;
-const HOME = () => ({ target:new THREE.Vector3(PORTRAIT() ? 9 : 0, TOP, PORTRAIT() ? 3 : 2), dist: PORTRAIT() ? 268 : (MOBILE() ? 120 : 132), theta:0, phi: PORTRAIT() ? 0.3 : 0.42 });
+// every coastline vertex of the twenty regions, in world units: what the overview has to keep on screen
+const FIT_PTS = (() => { const p = []; for(const R of REGIONS){ if(!COURSE[R.code]) continue; for(const ring of R.rings) for(let i=0;i<ring.length;i+=2) p.push(new THREE.Vector3(X(ring[i][0]), TOP, Z(ring[i][1]))); } return p; })();
+// the chrome that must not cover the map: title above, region strip and sheet peek below (rail on the left when wide)
+function chromeInsets(sheetPx){
+  const cs = getComputedStyle(document.documentElement);
+  const peek = parseFloat(cs.getPropertyValue('--sheet-peek')) || 96;
+  const safeB = parseFloat(cs.getPropertyValue('--safe-b')) || 0;
+  const sheet = sheetPx == null ? peek + safeB : sheetPx;   // at home the sheet is closed; only the region strip is there
+  return MOBILE() ? {top:76, bottom:Math.max(sheet, safeB + 8) + 56, left:12, right:12}
+                  : {top:86, bottom:28, left:268, right:sheetPx ? 428 : 28};
+}
+// where the ray through a screen point meets the ground plane
+function _planeAt(cam, px, py, y){
+  const v = new THREE.Vector3((px/window.innerWidth)*2-1, -(py/window.innerHeight)*2+1, 0.5).unproject(cam);
+  const dir = v.sub(cam.position).normalize();
+  return cam.position.clone().addScaledVector(dir, (y - cam.position.y)/dir.y);
+}
+// place the camera so `pts` fill the free area of the screen, centred in it
+function fitView(pts, ins, phi){
+  const W = window.innerWidth, H = window.innerHeight;
+  const sw = Math.max(60, W - ins.left - ins.right), sh = Math.max(60, H - ins.top - ins.bottom);
+  const scx = ins.left + sw/2, scy = ins.top + sh/2;
+  const cam = new THREE.PerspectiveCamera(42, W/H, 0.5, 1500);
+  const target = new THREE.Vector3(0, TOP, 0), v = new THREE.Vector3();
+  let dist = 240;
+  for(let k=0; k<5; k++){
+    cam.position.set(target.x, target.y + dist*Math.cos(phi), target.z + dist*Math.sin(phi));
+    cam.lookAt(target); cam.aspect = W/H; cam.updateProjectionMatrix(); cam.updateMatrixWorld();
+    let x0=1e9, x1=-1e9, y0=1e9, y1=-1e9;
+    for(const p of pts){ v.copy(p).project(cam); const px = (v.x*0.5+0.5)*W, py = (-v.y*0.5+0.5)*H;
+      if(px<x0) x0=px; if(px>x1) x1=px; if(py<y0) y0=py; if(py>y1) y1=py; }
+    const a = _planeAt(cam, (x0+x1)/2, (y0+y1)/2, TOP), b = _planeAt(cam, scx, scy, TOP);
+    target.x += a.x - b.x; target.z += a.z - b.z;
+    dist = THREE.MathUtils.clamp(dist * Math.max((x1-x0)/sw, (y1-y0)/sh) / 0.96, 40, 460);
+  }
+  target.x = THREE.MathUtils.clamp(target.x, -UNITS_W/2, UNITS_W/2);
+  target.z = THREE.MathUtils.clamp(target.z, -UNITS_H/2, UNITS_H/2);
+  return {target, dist};
+}
+const HOME = () => { const phi = PORTRAIT() ? 0.3 : 0.42; const f = fitView(FIT_PTS, chromeInsets(0), phi); return {target:f.target, dist:f.dist, theta:0, phi}; };
 const ctl = Object.assign({ tTarget:null, tStart:0, tDur:1.2, from:null }, HOME());
 function applyCamera(){
   const p = ctl.phi, t = ctl.theta, d = ctl.dist;
@@ -975,7 +1074,17 @@ function endPointer(e){ pointers.delete(e.pointerId); if(pointers.size<2) pinch 
 el.addEventListener('pointerup', endPointer); el.addEventListener('pointercancel', endPointer);
 el.addEventListener('contextmenu', e => e.preventDefault());
 el.addEventListener('wheel', e => { e.preventDefault(); ctl.tTarget = null; ctl.dist = THREE.MathUtils.clamp(ctl.dist * (1 + Math.sign(e.deltaY)*0.09), 10, 240); }, {passive:false});
-window.addEventListener('resize', () => { camera.aspect = window.innerWidth/window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); });
+let _vpW = window.innerWidth, _vpH = window.innerHeight, _reframe = null;
+function onViewport(){
+  camera.aspect = window.innerWidth/window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight);
+  // a real resize or a rotation re-frames; the browser chrome sliding away does not
+  if(Math.abs(window.innerWidth - _vpW) < 40 && Math.abs(window.innerHeight - _vpH) < 80) return;
+  _vpW = window.innerWidth; _vpH = window.innerHeight;
+  clearTimeout(_reframe);
+  _reframe = setTimeout(() => { if(reading || cooking) return; if(selected) frameRegion(selected); else { const h = HOME(); flyTo(h.target, h.dist, h.theta, h.phi); } }, 220);
+}
+window.addEventListener('resize', onViewport);
+window.addEventListener('orientationchange', onViewport);
 // tilt buttons
 document.getElementById('tiltBtn').addEventListener('click', () => { const flat = ctl.phi < 0.3; flyTo(ctl.target, ctl.dist, ctl.theta, flat ? 0.9 : 0.25); });
 // ============================================================ PICKING (ground hit refined by terrain height, region from the ID raster)
@@ -1079,7 +1188,8 @@ function select(code){
   sheet.querySelector('.landmark span').textContent = C.landmark.desc;
   renderWines(C, code);
   sheet.querySelector('.pair span').textContent = C.pairing;
-  sheet.querySelector('.dishes').innerHTML = C.dishes.map(d => `<span>${d}</span>`).join('');
+  sheet.querySelector('.dishes').innerHTML = C.dishes.map(d => { const rc = recipeForDish(code, d);
+    return rc ? `<a href="#/recipes/${rc.id}">${d}</a>` : `<span>${d}</span>`; }).join('');
   sheet.querySelector('.body').scrollTop = 0;
   if(first || sheetState==='closed') setSheet(MOBILE() ? 'half' : 'full');
   document.getElementById('hint').classList.add('fade');
@@ -1258,6 +1368,7 @@ function openReader(code, i){
       ${figureHtml(dir, credits, L.hero, L.heroCaption, 'hero')}
       <div class="rbody">${glossLink(body)}</div>
       ${quizHtml(code, i)}
+      ${cookItHtml(code, i)}
       <footer class="rfoot"><button class="done ${done?'is-done':''}" type="button">${done ? T('marked') : T('mark')}</button>
         <div class="rnext"><a href="#/${code}"><small>${T('backTo')}</small><b>${C.name}</b></a>${next}</div>
         <details><summary>${T('credits')}</summary><ul>${used.map(k => credits[k] ? `<li>${esc(k)}: <a href="${credits[k].source}" target="_blank" rel="noopener">${esc(credits[k].artist)}</a>, ${esc(credits[k].license)}</li>` : '').join('')}</ul></details></footer>`;
@@ -1276,6 +1387,141 @@ function narrationText(L){
   let h = L.html.replace(/<figure[\s\S]*?<\/figure>/g, ' ').replace(/<tr><th>(.*?)<\/th><td>(.*?)<\/td><\/tr>/g, ' $1: $2.\n').replace(/<h4>(.*?)<\/h4>/g, '\n$1.\n').replace(/<h2>(.*?)<\/h2>/g, '\n\n$1.\n\n').replace(/<li>([\s\S]*?)<\/li>/g, (m,t)=>'\n'+t.trim().replace(/\.$/,'')+'.\n').replace(/<\/p>|<\/aside>|<\/div>|<\/ul>/g, '\n').replace(/<[^>]+>/g, '');
   const d = document.createElement('textarea'); d.innerHTML = h; h = d.value;
   return `${L.title}.\n\n${L.summary}\n\n` + h.replace(/[ \t]+/g,' ').replace(/\n\s*\n+/g, '\n\n').trim();
+}
+// ============================================================ RECIPES
+// Data: content/recipes/<region>.js, window.RECIPES['IT-xx'] = [ … ]. Bilingual in one file so the
+// quantities are written once and cannot drift between the two languages. Never narrated.
+const cook = document.getElementById('cook'), cookArt = cook.querySelector('article');
+let cooking = null;              // {id} for one recipe, {} for the index, null when closed
+let cookBack = '#/';             // where the index's back button returns to
+let cookFilter = 'all', cookQuery = '';
+const SERVE_MIN = 1, SERVE_MAX = 12;
+function recipesOf(code){ return (window.RECIPES || {})[code] || []; }
+function allRecipes(){ const out = []; for(const code of ORDER) for(const r of recipesOf(code)) out.push(Object.assign({code}, r)); return out; }
+function recipeById(id){ return allRecipes().find(r => r.id === id) || null; }
+function recipeForDish(code, dish){ return recipesOf(code).find(r => r.dish === dish) || null; }
+function tr(v){ return v == null ? '' : (typeof v === 'string' ? v : (v[lang] !== undefined ? v[lang] : v.en)); }
+function servingsGet(base){ try{ const v = +localStorage.getItem('iit-servings'); if(v >= SERVE_MIN && v <= SERVE_MAX) return v; }catch(e){} return base; }
+function servingsSet(n){ try{ localStorage.setItem('iit-servings', String(n)); }catch(e){} }
+// numbers the way each language writes them: 2,5 in Norwegian, 2.5 in English
+function decs(v, n){ const s = v.toFixed(n).replace(/\.?0+$/, ''); return lang === 'no' ? s.replace('.', ',') : s; }
+function fmtQty(it, f){
+  if(it.q == null) return '';
+  const mode = it.scale || 'lin';
+  let v = it.q * (mode === 'none' ? 1 : mode === 'sub' ? Math.pow(f, 0.7) : f), u = it.u || '';
+  if(u === 'g' && v >= 1000){ v /= 1000; u = 'kg'; }
+  if(u === 'ml' && v >= 1000){ v /= 1000; u = 'l'; }
+  let out;
+  if(it.round === 'half'){ const h = Math.round(v*2)/2; out = h % 1 ? (h > 1 ? Math.floor(h) + '½' : '½') : String(h); }
+  else if(u === 'kg' || u === 'l') out = decs(v, 1);
+  else if(v < 10) out = decs(Math.round(v*2)/2, 1);
+  else if(v < 100) out = String(Math.round(v));
+  else if(v < 1000) out = String(Math.round(v/5)*5);
+  else out = String(Math.round(v/10)*10);
+  return out + (u ? ' ' + u : '');
+}
+function recipeHero(r, cls){
+  const dir = ASSET_DIRS[r.code], R = (window.READINGS || {})[r.code];
+  return figureHtml(dir, (R && R.credits) || {}, r.hero, tr(r.heroCaption) || tr(r.blurb), cls);
+}
+function recipeThumb(r){ const rel = `assets/${ASSET_DIRS[r.code]}/${r.hero}.jpg`; return (window.IMAGE_DATA && window.IMAGE_DATA[rel]) || rel; }
+function cookIndexHtml(){
+  const all = allRecipes();
+  const courses = ['all', ...[...new Set(all.map(r => r.course))]];
+  const q = cookQuery.trim().toLowerCase();
+  const hit = r => (cookFilter === 'all' || r.course === cookFilter)
+    && (!q || (tr(r.title) + ' ' + tr(r.blurb) + ' ' + course(r.code).name).toLowerCase().includes(q));
+  let body = '';
+  for(const code of ORDER){
+    const rs = recipesOf(code).map(r => Object.assign({code}, r)).filter(hit);
+    if(!rs.length) continue;
+    const C = course(code);
+    body += `<div class="rgroup"><h3><i style="background:${C.color}"></i>${esc(C.name)}</h3>`
+      + rs.map(r => `<a class="rcard" href="#/recipes/${r.id}"><img src="${recipeThumb(r)}" alt="" loading="lazy">`
+          + `<span class="tx"><b>${esc(tr(r.title))}</b><span>${esc(tr(r.blurb))}</span>`
+          + `<em>${T('course.'+r.course)} · ${r.time.prep + r.time.cook} ${T('min')}</em></span></a>`).join('')
+      + '</div>';
+  }
+  if(!body) body = `<p class="rnone">${T('noRecipes')}</p>`;
+  return `<header class="rhead"><p class="kicker">Italia in Tavola</p><h1>${T('recipes')}</h1>`
+    + `<p class="summary">${T('recipesSub')(all.length)}</p></header>`
+    + `<div class="rsearch"><input type="search" placeholder="${esc(T('recipeSearch'))}" value="${esc(cookQuery)}" aria-label="${esc(T('recipeSearch'))}"></div>`
+    + `<div class="filters">` + courses.map(c => `<button type="button" class="${c===cookFilter?'on':''}" data-c="${c}">${c==='all'?T('allCourses'):T('course.'+c)}</button>`).join('') + '</div>'
+    + body;
+}
+function cookRecipeHtml(r){
+  const C = course(r.code), serves = servingsGet(r.serves), f = serves / r.serves;
+  const ing = r.ingredients.map(g => (g.group && tr(g.group) ? `<p class="grp">${esc(tr(g.group))}</p>` : '')
+    + '<table>' + g.items.map(it => `<tr><td class="q">${fmtQty(it, f)}</td><td>${esc(tr(it.n))}`
+        + ((it.note || it.q == null) ? `<small>${esc(tr(it.note) || T('toTaste'))}</small>` : '')
+        + '</td></tr>').join('') + '</table>').join('');
+  const wines = (r.wines || []).map(w => {
+    const wl = (C.wines || []).find(x => x[0] === w);
+    return C.vmp && wl ? `<a href="${vmpUrl(C.vmp, wl[2])}" target="_blank" rel="noopener">${esc(w)}</a>` : esc(w);
+  }).join(', ');
+  return `<header class="rhead"><p class="kicker">${esc(C.name)} · ${T('course.'+r.course)}</p>`
+    + `<h1>${esc(tr(r.title))}</h1><p class="summary">${esc(tr(r.blurb))}</p></header>`
+    + recipeHero(r, 'hero')
+    + (r.headnote ? `<div class="rbody">${tr(r.headnote)}</div>` : '')
+    + `<div class="rmeta"><span class="t">${T('prep')} <b>${r.time.prep} ${T('min')}</b></span>`
+    + `<span class="t">${T('cooking')} <b>${r.time.cook} ${T('min')}</b></span>`
+    + `<span class="serves"><span class="lbl">${T('servings')}</span>`
+    + `<button type="button" class="minus" aria-label="−">−</button><output>${serves}</output>`
+    + `<button type="button" class="plus" aria-label="+">+</button></span></div>`
+    + `<div class="ings"><h2>${T('ingredients')}</h2>${ing}</div>`
+    + `<div class="method"><h2>${T('method')}</h2><ol>` + r.steps.map(st => `<li>${tr(st)}</li>`).join('') + '</ol></div>'
+    + ((r.notes && r.notes.length) ? `<div class="rnotes"><h2>${T('whyWorks')}</h2>`
+        + r.notes.map(n => `<div class="n"><b>${esc(tr(n.title))}</b>${tr(n.body)}</div>`).join('') + '</div>' : '')
+    + ((r.variations && r.variations.length) ? `<div class="rnotes"><h2>${T('variations')}</h2>`
+        + r.variations.map(n => `<div class="n"><b>${esc(tr(n.title))}</b>${tr(n.body)}</div>`).join('') + '</div>' : '')
+    + (wines ? `<div class="rwine"><b>${T('goodWith')}</b>${wines}</div>` : '')
+    + `<footer class="rfoot"><div class="rnext">`
+    + `<a href="#/${r.code}"><small>${T('backTo')}</small><b>${esc(C.name)}</b></a>`
+    + (r.lesson ? `<a href="#/${r.code}/${r.lesson}"><small>${T('fromReading')}</small><b>${esc(C.lessons[r.lesson-1])}</b></a>` : '')
+    + `</div></footer>`;
+}
+function openCook(id){
+  const r = id ? recipeById(id) : null;
+  if(id && !r){ location.hash = '#/recipes'; return; }
+  cooking = r ? {id} : {};
+  cook.querySelector('.back span').textContent = r ? T('recipes') : T('backMap');
+  cook.querySelector('.rk').textContent = r ? course(r.code).name : T('recipes');
+  cookArt.innerHTML = r ? cookRecipeHtml(r) : cookIndexHtml();
+  cook.querySelector('.rscroll').scrollTop = 0;
+  cook.classList.add('open');
+  document.title = (r ? tr(r.title) + ' · ' : '') + T('recipes') + ' · Italia in Tavola';
+  if(r) wireServings(r); else wireIndex();
+}
+function wireServings(r){
+  const out = cookArt.querySelector('.serves output');
+  const redraw = n => { servingsSet(n); const s = cookArt.querySelector('.rscroll'); const keep = cook.querySelector('.rscroll').scrollTop;
+    cookArt.innerHTML = cookRecipeHtml(r); cook.querySelector('.rscroll').scrollTop = keep; wireServings(r); };
+  const now = +out.textContent;
+  const mi = cookArt.querySelector('.serves .minus'), pl = cookArt.querySelector('.serves .plus');
+  mi.disabled = now <= SERVE_MIN; pl.disabled = now >= SERVE_MAX;
+  mi.addEventListener('click', () => redraw(Math.max(SERVE_MIN, now - 1)));
+  pl.addEventListener('click', () => redraw(Math.min(SERVE_MAX, now + 1)));
+}
+function wireIndex(){
+  cookArt.querySelectorAll('.filters button').forEach(b => b.addEventListener('click', () => {
+    cookFilter = b.dataset.c; cookArt.innerHTML = cookIndexHtml(); wireIndex();
+  }));
+  const inp = cookArt.querySelector('.rsearch input');
+  if(inp) inp.addEventListener('input', () => {
+    cookQuery = inp.value; const at = inp.selectionStart;
+    cookArt.innerHTML = cookIndexHtml(); wireIndex();
+    const n = cookArt.querySelector('.rsearch input'); if(n){ n.focus(); try{ n.setSelectionRange(at, at); }catch(e){} }
+  });
+}
+function closeCook(){ if(!cooking) return; cooking = null; cook.classList.remove('open'); }
+cook.querySelector('.back').addEventListener('click', () => { location.hash = (cooking && cooking.id) ? '#/recipes' : cookBack; });
+document.getElementById('recipeBtn').addEventListener('click', () => { location.hash = '#/recipes'; });
+// the block that sends a reader from a food reading to the dishes it describes
+function cookItHtml(code, i){
+  const rs = recipesOf(code).filter(r => r.lesson === i + 1);
+  if(!rs.length) return '';
+  return `<div class="cookit"><h4>${T('cookItSub')}</h4>`
+    + rs.map(r => `<a href="#/recipes/${r.id}">${esc(tr(r.title))}<span class="go">›</span></a>`).join('') + '</div>';
 }
 // ============================================================ AUDIO SOURCES
 // Narration ships as Opus in Ogg. Browsers that cannot play that (Safari before iOS 18.4) get the same
@@ -1370,14 +1616,19 @@ reader.querySelector('.back').addEventListener('click', () => { location.hash = 
 
 // ============================================================ ROUTER
 function route(){
-  const m = /^#\/?([A-Z]{2}-\d{2})?(?:\/(\d+))?/.exec(location.hash || '#/');
+  const h = location.hash || '#/';
+  const rm = /^#\/recipes(?:\/([\w-]+))?/.exec(h);
+  if(rm){ closeReader(); openCook(rm[1] || null); return; }
+  cookBack = h;
+  closeCook();
+  const m = /^#\/?([A-Z]{2}-\d{2})?(?:\/(\d+))?/.exec(h);
   const code = m && m[1] && COURSE[m[1]] ? m[1] : null; const n = m && m[2] ? +m[2] : 0;
   if(!code){ closeReader(); if(selected) home(); return; }
   select(code);
   if(n >= 1 && n <= 4){ openReader(code, n-1); if(selected===code) select(code); } else closeReader();
 }
 window.addEventListener('hashchange', route);
-window.addEventListener('keydown', e => { if(e.target.tagName==='INPUT') return; if(e.key==='Escape'){ location.hash = reading ? '#/'+reading.code : '#/'; } if(reading) return; if(e.key==='n'||e.key==='ArrowRight') step(1); if(e.key==='p'||e.key==='ArrowLeft') step(-1); });
+window.addEventListener('keydown', e => { if(e.target.tagName==='INPUT') return; if(e.key==='Escape'){ location.hash = cooking ? (cooking.id ? '#/recipes' : cookBack) : reading ? '#/'+reading.code : '#/'; } if(reading || cooking) return; if(e.key==='n'||e.key==='ArrowRight') step(1); if(e.key==='p'||e.key==='ArrowLeft') step(-1); });
 refreshProgress();
 
 // ============================================================ LOOP
@@ -1392,7 +1643,7 @@ function loop(){
     if(k>=1) ctl.tTarget = null;
   }
   applyCamera();
-  if(reading) return;
+  if(reading || cooking) return;
   updateOverlays();
   renderer.render(scene, camera);
 }
@@ -1406,7 +1657,7 @@ function begin(){
     loop();
     if(q.get('region')) location.hash = '#/'+q.get('region') + (q.get('lesson') ? '/'+q.get('lesson') : '');
     route();
-    if(q.get('scroll')) setTimeout(()=>{ rscroll.scrollTop = +q.get('scroll'); }, 300);
+    if(q.get('scroll')) setTimeout(()=>{ (document.querySelector('#cook.open .rscroll') || rscroll).scrollTop = +q.get('scroll'); }, 300);
   }).catch(err => { document.getElementById('loading').textContent = 'Could not load the terrain: ' + err; });
 }
 if(location.search.includes('instant')) begin(); else if(document.fonts && document.fonts.load){ Promise.race([document.fonts.load('500 54px Fraunces'), new Promise(r=>setTimeout(r, 2500))]).then(begin, begin); } else begin();

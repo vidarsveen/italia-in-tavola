@@ -32,8 +32,10 @@ steps per frame (used for automated testing).
 A mobile-first 3D relief map of Italy that works as the navigation for a course on Italian regions, wine and food.
 Real terrain from 300 m elevation data (AWS Terrain Tiles), a baked shaded-relief texture, real region boundaries
 (simplified from the openpolis ISTAT GeoJSON) drawn as a cased cartographic layer, a pin per region at the overview
-and a landmark model when a region is focused. All twenty regions are fully built out with four illustrated, narrated readings each in English and Norwegian; the last 0
-regions have module summaries with lesson titles. See `PLAN.md` for the roadmap from prototype to production.
+and a landmark model when a region is focused. All twenty regions are fully built out with four illustrated,
+narrated readings each in English and Norwegian, three recap questions per reading, a tasting card for each of the
+89 wines and a 48-term glossary. A recipe collection is starting: Lazio's Roman pastas, in both languages, with
+quantities that rescale to the number of portions. See `PLAN.md` for the roadmap from prototype to production.
 
 ## Files
 
@@ -43,6 +45,7 @@ regions have module summaries with lesson titles. See `PLAN.md` for the roadmap 
 | `content/<region>.js` | reading content per region (English): four lessons, photo captions, credits. all twenty regions. |
 | `content/<region>.no.js` | the same readings in Norwegian (bokmål). |
 | `content/course.no.js` | Norwegian region summaries (intro, landmark, pairing, lesson titles) for all 20 regions. |
+| `content/recipes/<region>.js` | recipes, both languages in one file, quantities written once (see `docs/recipe-format.md`). |
 | `assets/<region>/*.jpg` | photographs (Wikimedia Commons, CC / public domain), `credits.json` lists author and licence. |
 | `tools/bake_terrain.py` | bakes `assets/terrain/height.png` (16-bit heightmap), `relief.jpg` (shaded relief) and `meta.json` from `docs/dem_italy_z8.npy`. |
 | `assets/terrain/` | the baked terrain assets (about 800 KB). |
