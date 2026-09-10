@@ -39,7 +39,7 @@ def inline_script(m):
     return '<script>' + NL + open(path, encoding='utf-8').read() + NL + '</script>'
 html = re.sub(r'<script src="((?:content|assets)/[\w./-]+\.js)"></script>', inline_script, html)
 
-PREVIEW_PX, PREVIEW_Q = 620, 45   # photos are re-encoded smaller for the single-file preview (16 MB cap); site/ keeps the originals
+PREVIEW_PX, PREVIEW_Q = 520, 40   # photos are re-encoded smaller for the single-file preview (16 MB cap); site/ keeps the originals
 
 def b64(path, mime):
     data = open(path, 'rb').read()

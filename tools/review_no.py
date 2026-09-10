@@ -209,13 +209,20 @@ def apply(region, patch_path):
 def stale(region, quiet=False):
     from narrate import to_script
     d = os.path.join(ROOT, 'assets', 'audio', region)
+    mp = os.path.join(d, 'manifest.json')
+    # the manifest entry is written only after a file finishes, so a half-written mp3 still counts as stale
+    man = json.load(open(mp, encoding='utf-8')) if os.path.exists(mp) else {}
     out = []
     for lang in ('en', 'no'):
         for i, L in enumerate(lessons(region, lang), 1):
             key = f'{lang}-{i}'
             txt = os.path.join(d, f'{key}.txt')
             cur = open(txt, encoding='utf-8').read() if os.path.exists(txt) else None
-            if cur is None or cur.strip() != to_script(L, lang).strip() or not os.path.exists(os.path.join(d, f'{key}.mp3')):
+            words = len(cur.split()) if cur else 0
+            secs = man.get(key, {}).get('seconds', 0)
+            if (cur is None or cur.strip() != to_script(L, lang).strip()
+                    or not os.path.exists(os.path.join(d, f'{key}.mp3'))
+                    or key not in man or secs < 0.28 * words):
                 out.append(key)
     if not quiet: print(f'{region}: stale narrations: {out or "none"}')
     return out

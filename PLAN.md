@@ -125,6 +125,27 @@ Built as a pair by two parallel workers (each region end to end, including the N
 the parent pre-wiring both into italia-course.html and doing build, tests, docs and push. Twelve regions done.
 Next pairs: Umbria + Marche, Abruzzo + Sardegna, Calabria + Basilicata, Molise + Valle d'Aosta.
 
+## 6l. Status 2026-09-10, all twenty regions complete
+
+Umbria, Marche, Abruzzo, Sardegna, then Calabria, Basilicata, Molise and Valle d'Aosta were built in two batches
+of four parallel workers, each region end to end including the Norwegian review and narration. The course is now
+complete: 20 regions, 80 readings in each language, 348 photos, 160 narration files.
+
+Two checks were strengthened by what the workers found. `review_no.py --check` now catches malformed and
+unbalanced HTML tags, after a stray guillemet in a closing tag survived the JavaScript parse; and `--stale` now
+requires a manifest entry of plausible length, after it reported "none" while a narration was still being written.
+
+Workers corrected several errors in their own briefs, which is worth remembering when writing them: the 1922
+national park is Abruzzo, Lazio e Molise (Gran Sasso's is 1991), Molise DOC is 1988, San Pietro Avellana is in
+Molise, Gaglioppo is related to Sangiovese rather than Greek, and Cirò Classico became Calabria's first DOCG in
+2023. The Marche intro no longer asserts the thirteen-fish brodetto, which nothing supports.
+
+Preview photos are re-encoded by build.py at 520 px / q40 (`PREVIEW_PX`, `PREVIEW_Q`), which keeps the artifact
+at 11.0 MB with all twenty regions. The live site keeps the 720 px originals.
+
+Next: the course features rather than more regions. Recap questions, tasting cards, a glossary, capital-city
+labels with collision avoidance, and progress that syncs across devices.
+
 ## 7. Suggested order of work
 
 1. Validate the Lazio reading format with a few learners on phones (this round).

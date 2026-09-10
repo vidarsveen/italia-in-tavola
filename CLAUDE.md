@@ -12,9 +12,9 @@ illustrated, narrated readings in English and Norwegian (bokmål). Everything is
 and asset files; a build step produces a single-file version for the hosted preview.
 
 - Owner: Vidar (Norwegian). Both languages matter equally. Mobile first, always test on a phone viewport.
-- Done: Lazio (IT-62), Piemonte (IT-21), Toscana (IT-52), Veneto (IT-34), Campania (IT-72), Sicilia (IT-82), Lombardia (IT-25), Emilia-Romagna (IT-45), Puglia (IT-75), Trentino-Alto Adige (IT-32, stem `trentino`), Friuli-Venezia Giulia (IT-36, stem `friuli`), Liguria (IT-42), Umbria (IT-55), Marche (IT-57), Abruzzo (IT-65),
-  Sardegna (IT-88): text EN+NO, photos, narration EN+NO.
-- In progress: Calabria (IT-78), Basilicata (IT-77), Molise (IT-67), Valle d'Aosta (stem `valledaosta`). Old order was: Umbria, Marche, Abruzzo, Sardegna, Calabria, Basilicata, Molise, Valle d'Aosta).
+- Done: **all twenty regions** have text EN+NO, photos and narration EN+NO (348 photos, 160 audio files).
+  Three content stems differ from the region name: IT-32 `trentino`, IT-36 `friuli`, IT-23 `valledaosta`.
+- Every wine in the region sheet links to Vinmonopolet; see §11.
 - Live site (the real course, full narration, no size limit): https://vidarsveen.github.io/italia-in-tavola/
   Source repo: https://github.com/vidarsveen/italia-in-tavola (public, branch `main`). Every push to `main` runs
   `.github/workflows/pages.yml`, which runs `tools/make_site.py` and publishes `site/` to GitHub Pages (2–3 min).
@@ -236,6 +236,25 @@ script prints arrows or Norwegian letters on Windows.
 - ffmpeg is a Windows exe: give it Windows paths, not `/tmp`.
 - Photo captions must be updated in BOTH language files when a photo is swapped.
 - Keep `dist/` under 16 MB; check the size line that `build.py` prints.
+
+## 11. Vinmonopolet links (added 2026-09-10)
+
+Each wine in a region sheet links to Vinmonopolet's own search, so the bottles shown are whatever is in the
+assortment today and nothing needs maintaining. The link is built from **their** classification, not from a
+free-text search, because free text is fuzzy ("Barolo" also returns grappa and Barolo Chinato).
+
+- A region carries its district code as `vmp:` in its `COURSE` entry, e.g. `vmp:'italia_piemonte'`.
+- The optional third element of a `wines[]` entry says how to narrow it:
+  `'italia_piemonte_barolo'` an appellation (mainSubDistrict), `'#Nero d'Avola'` a grape (singleGrape, exact
+  spelling, case-sensitive), `'@italia_lugana'` a different district, and `''` the region alone.
+- `tools/vmpmap.py` lists every district and appellation code Vinmonopolet uses. Never guess a code: Gavi is
+  `italia_piemonte_gavi_(cortese_di_gavi)` and Friulano's grape value is `Friulano (Tai)`.
+- `tools/vmpverify.py` checks every link still returns products; run it when adding a region. It paces itself
+  because the endpoint throttles after roughly seventy requests.
+- `tools/vmpstores.py` refreshes the shop list baked in as `VMP_STORES`. A reader can pin a shop in the sheet
+  (saved in localStorage as `iit-vmp-store`), which appends `:availableInStores:<id>` to every link.
+- Wording stays neutral ("Se utvalget hos Vinmonopolet"), with no prices, scores or buy language, because
+  Norway's alcohol-advertising ban covers links made to promote sales.
 
 ## 10. Roadmap (short)
 

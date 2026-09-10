@@ -1,0 +1,87 @@
+{
+ "morgex": {
+  "artist": "Gilles Guillamot",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Mont-Blanc_depuis_Morgex_-_panoramio.jpg"
+ },
+ "prie": {
+  "artist": "Rollopack",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Prié_blanc.jpg"
+ },
+ "vigne": {
+  "artist": "Patafisik e Elena Tartaglione",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Aymavilles_2018_abc2_vigne.jpg"
+ },
+ "skyway": {
+  "artist": "Stefano Venturini",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Cabina_Skyway_Monte_Bianco.jpg"
+ },
+ "aymavilles": {
+  "artist": "Fabio Ingrosso",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Panorama_viticoltura_Aymavilles.jpg"
+ },
+ "montjovet": {
+  "artist": "Patafisik",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Borgo_(Montjovet)_ago_2018_abc33_vigne.jpg"
+ },
+ "chambave": {
+  "artist": "Patafisik",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Frazioni_e_panorama_preso_tra_Pontey_e_Fenis,_lato_Chambave_abc1.jpg"
+ },
+ "fontina": {
+  "artist": "Luigi Chiesa",
+  "license": "CC BY 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Fontina_DOP.jpg"
+ },
+ "fontinaslice": {
+  "artist": "U9POI57",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Fetta_di_Fontina_DOP.jpg"
+ },
+ "lard": {
+  "artist": "Patafisik",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Lardo_di_Arnad_fiera.jpg"
+ },
+ "merenda": {
+  "artist": "Elena Tartaglione & Patafisik",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Area_picnic_della_Valmeriana_07_merenda_alla_valdostana.jpg"
+ },
+ "fenis": {
+  "artist": "Superbass",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:2026-08-15-Castello_di_Fénis-062123.jpg"
+ },
+ "bard": {
+  "artist": "Chiara Vallarino 1",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Bard_-_Forte_di_Bard_-_2024-09-08_13-42-35_001.JPG"
+ },
+ "arco": {
+  "artist": "Krzysztof Golik",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Arch_of_Augustus_in_Aosta_(3).jpg"
+ },
+ "porta": {
+  "artist": "Zairon",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Aosta_Porta_Praetoria_4.jpg"
+ },
+ "cervino": {
+  "artist": "Patafisik",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Cervino_visto_da_Breuil_Cervinia_01.jpg"
+ },
+ "ibex": {
+  "artist": "Irene Vercellino",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Capra_ibex_in_Gran_Paradiso_National_Park.jpg"
+ }
+}

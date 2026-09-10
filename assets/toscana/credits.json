@@ -19,11 +19,6 @@
   "license": "CC BY-SA 3.0",
   "source": "https://commons.wikimedia.org/wiki/File:Val-d_Orcia_landscape_20120926-1.JPG"
  },
- "valdorcia": {
-  "artist": "Hans A. Rosbach",
-  "license": "CC BY-SA 3.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Val-d_Orcia_landscape_20120926-1.JPG"
- },
  "bolgheri": {
   "artist": "Repuli",
   "license": "CC BY-SA 4.0",
@@ -53,10 +48,5 @@
   "artist": "Vyacheslav Argenberg",
   "license": "CC BY 4.0",
   "source": "https://commons.wikimedia.org/wiki/File:Florence,_Italy,_Brunelleschi's_Dome_of_Florence_Cathedral.jpg"
- },
- "pisa": {
-  "artist": "MHoser",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:The_Duomo_and_Tower_of_Pisa_at_sunrise.jpg"
  }
 }

@@ -33,7 +33,7 @@ window.READINGS['IT-42'] = {
         "source": "https://commons.wikimedia.org/wiki/File:Ortovero_SV_(22648).jpg"
     },
     "rossese": {
-        "artist": "unknown (public domain)",
+        "artist": "Uploader, released into the public domain",
         "license": "Public domain",
         "source": "https://commons.wikimedia.org/wiki/File:Cru_Galeae.JPG"
     },
