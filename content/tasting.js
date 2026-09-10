@@ -440,7 +440,7 @@ Object.assign(window.TASTING, {
     palate: "Medium to full body, fresh but not sharp acidity, round tannin, a savoury finish",
     alcohol: "13–14%",
     serve: "16–18 °C; Superiore from two years, Riserva from four, the best keep ten",
-    table: "Grilled meat, cappelletti in broth, piadina with squacquerone, pecorino di fossa"
+    table: "Grilled meat, cappelletti in broth, piadina with squacquerone and prosciutto, pecorino di fossa"
   },
   "IT-45|Albana di Romagna": {
     colour: "Golden, deeper in colour than most Italian whites",
@@ -493,9 +493,9 @@ Object.assign(window.TASTING, {
   "IT-55|Sagrantino di Montefalco": {
     colour: "Opaque purple-black, slow to turn garnet even with age",
     nose: "Blackberry, damson, violet, tar, bitter chocolate, dried herbs and earth",
-    palate: "Full body, very high tannin, firm acidity, a long dry finish that grips",
+    palate: "Full body, very high tannin, firm acidity, dense dark fruit, a long dry finish that grips",
     alcohol: "14–15%",
-    serve: "18 °C, decanted an hour ahead; from eight years, the best keep twenty",
+    serve: "18 °C, decanted an hour ahead; drink from eight years, the best keep twenty",
     table: "Roast lamb, wild boar, game birds, aged pecorino, anything grilled over embers"
   },
   "IT-55|Montefalco Rosso": {

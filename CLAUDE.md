@@ -241,6 +241,27 @@ script prints arrows or Norwegian letters on Windows.
 - Photo captions must be updated in BOTH language files when a photo is swapped.
 - Keep `dist/` under 16 MB; check the size line that `build.py` prints.
 
+## 13. Tasting cards, glossary and map labels (added 2026-09-10)
+
+**Tasting cards.** Every wine on a region sheet opens a card with colour, nose, palate, alcohol, serving and
+food. Data is `content/tasting.js` / `tasting.no.js`, keyed `IT-xx|Wine Name` where the name matches
+`COURSE.wines` character for character. The contract is `docs/tasting-format.md`. Thirty-one cards are lifted
+straight from the tasting tables in the readings by `tools/tastingextract.py`, so card and essay cannot drift;
+re-run it after editing such a table. `tools/tastinggap.py` lists wines with no card, `tools/tastingcheck.py`
+enforces the whole set. Cards are never spoken, so editing one never makes narration stale.
+
+**Glossary.** `content/glossary.js` / `glossary.no.js`, 48 terms. A term carries `short`, `long` and a `match`
+list of surface forms **per language**, because one key cannot match both: English "limestone" is Norwegian
+"kalkstein". Only the first mention in a reading is linked, and linking happens at render time so the stored
+text and the narration scripts stay identical. Terms that are also the tail of an appellation (Chianti
+Classico, Valtellina Superiore, Valpolicella Ripasso, Greco di Tufo) are skipped by shape, not by a list: a
+capitalised term preceded by another capitalised word is part of a name.
+
+**Map labels.** `CAPITAL_POS` holds the twenty regional capitals, each verified to fall inside its own region
+polygon. Capitals appear only when the camera is closer than 140 units. `updateOverlays()` now places labels by
+priority, selected region first, then regions, then capitals, and hides anything overlapping a box already
+placed rather than drawing on top.
+
 ## 12. Recap questions (added 2026-09-10)
 
 Three multiple-choice questions close every reading, in both languages: 240 per language, 480 in all.

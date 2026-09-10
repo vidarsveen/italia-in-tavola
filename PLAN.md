@@ -157,6 +157,21 @@ Remaining roadmap: tasting cards, a glossary, capital-city labels with collision
 syncs between devices. Licensed narration (Azure Speech, about $12 for the whole course) would also replace the
 unlicensed edge-tts route before this is published widely.
 
+## 6n. Status 2026-09-10, tasting cards, glossary and map labels
+
+All three shipped. Tasting cards: 89 wines, both languages, 31 lifted from the readings and 58 written by three
+parallel workers. Glossary: 48 terms, linked on first mention only. Map: capital-city labels and collision
+avoidance.
+
+Three content bugs were found by the work rather than by testing. Vernaccia di Oristano was classified as a
+sweet wine on the Sardegna sheet when the course's own reading describes it as dry, oxidative and flor-aged; it
+is now white. Two wines already had tables under a different name (Romagna Sangiovese Superiore, Montefalco
+Sagrantino) and were copied rather than paraphrased. My own glossary spec was wrong: one key cannot match two
+languages, so terms carry per-language surface forms.
+
+Remaining roadmap: progress that syncs between devices, and licensed narration (Azure Speech, about $12 for the
+whole course) to replace the unlicensed edge-tts route before publishing widely.
+
 ## 7. Suggested order of work
 
 1. Validate the Lazio reading format with a few learners on phones (this round).

@@ -83,9 +83,18 @@
   .landmark b{ display:block; font-size:14px; }
   .landmark span{ color:var(--paper-dim); font-size:12.5px; line-height:1.5; }
   ul.wines{ list-style:none; margin:0; padding:0; display:grid; gap:6px; }
-  ul.wines li{ display:grid; grid-template-columns:12px 1fr auto auto; gap:10px; align-items:center; padding:8px 10px; border-radius:6px; background:rgba(255,255,255,.04); }
+  ul.wines li{ display:grid; grid-template-columns:12px 1fr auto auto auto; gap:10px; align-items:center; padding:8px 10px; border-radius:6px; background:rgba(255,255,255,.04); }
   #sheet .vmpstore{ display:flex; align-items:center; gap:8px; margin:0 0 8px; font-size:11.5px; color:var(--paper-faint); }
   #sheet .vmpstore select{ flex:1; min-width:0; background:rgba(255,255,255,.06); color:var(--paper); border:1px solid var(--line); border-radius:6px; padding:5px 8px; font:inherit; font-size:11.5px; min-height:32px; }
+  ul.wines li.has-card{ cursor:pointer; }
+  ul.wines li .chev{ font-size:11px; color:var(--paper-faint); transition:transform .2s; }
+  ul.wines li.open .chev{ transform:rotate(90deg); }
+  ul.wines li.card{ display:block; padding:0; background:none; grid-column:1/-1; }
+  ul.wines li.card[hidden]{ display:none; }
+  .tcard{ margin:2px 0 6px; padding:12px 14px; border-radius:8px; background:rgba(255,255,255,.06); border:1px solid var(--line); }
+  .tcard dl{ margin:0; display:grid; grid-template-columns:auto 1fr; gap:5px 12px; align-items:baseline; }
+  .tcard dt{ font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--gold); white-space:nowrap; }
+  .tcard dd{ margin:0; font-size:12.5px; line-height:1.45; color:var(--paper-dim); }
   ul.wines li a.vmp{ font-size:10.5px; letter-spacing:.06em; color:var(--paper-faint); text-decoration:none; border:1px solid var(--line); border-radius:12px; padding:3px 8px; white-space:nowrap; min-height:24px; display:inline-flex; align-items:center; }
   ul.wines li a.vmp:hover{ color:var(--paper); border-color:var(--gold); }
   ul.wines li i{ width:12px; height:12px; border-radius:50%; }
@@ -324,6 +333,8 @@ const REGIONS = [{"name":"Piemonte","code":"IT-21","c":[8.04,45.09],"rings":[[[7
 <script src="content/quiz.no.js"></script>
 <script src="content/glossary.js"></script>
 <script src="content/glossary.no.js"></script>
+<script src="content/tasting.js"></script>
+<script src="content/tasting.no.js"></script>
 <script src="content/lazio.no.js"></script>
 <script src="assets/audio/lazio/manifest.js"></script>
 <script src="content/piemonte.js"></script>
@@ -394,11 +405,11 @@ const I18N = {
  en:{ sub:'A course in twenty regions · wine & food', hint:'Tap a region or a pin · drag to pan · pinch to zoom · ◭ tilts', loading:'Preparing the map of Italy…', lessons:'Lessons', landmark:'Landmark', wines:'Wines to know', table:'At the table', pairing:'Classic pairing', prev:'← Previous', next:'Next region →', capital:'Capital', module:'Module', of:'of', readings:'readings', min:'min', soonShort:'readings coming soon', minRead:'min read', soon:'Reading coming soon', reading:'Reading', notWritten:'This reading is not written yet.',
    soonPara:n=>`The Lazio module shows the reading format the course will use: a 6–8 minute illustrated essay with key facts, a tasting table for wine lessons and a short recap. ${n}'s readings will follow the same pattern.`,
    backTo:'Back to', seeFinished:'See the finished module', lazioR1:'Lazio, reading 1', nextReading:'Next reading', nextRegion:'Next region', mark:'Mark as read', marked:'✓ Marked as read', credits:'Photo credits', photo:'Photo', via:'via Wikimedia Commons', close:'Close', home:'Show all of Italy', listen:'Listen', listenBrowser:'Listen with the browser voice', narrated:'Narrated by an AI voice', browserVoice:'Browser voice', noVoice:'No voice available on this device',
-   'area.North':'North','area.Centre':'Centre','area.South':'South','area.Islands':'Islands','wine.red':'red','wine.white':'white','wine.rose':'rosé','wine.sparkling':'sparkling','wine.sweet':'sweet', vmp:'Vinmonopolet', vmpTitle:'See the current selection at Vinmonopolet (opens their search page)', vmpStoreLabel:'Show selection at', vmpAll:'All of Norway', quiz:'Check yourself', quizSub:n=>`${n} questions on this reading. Answers explain themselves.`, quizScore:(a,b)=>`${a} of ${b} right`, quizAgain:'Try again', quizAll:'All three right. Move on.' },
+   'area.North':'North','area.Centre':'Centre','area.South':'South','area.Islands':'Islands','wine.red':'red','wine.white':'white','wine.rose':'rosé','wine.sparkling':'sparkling','wine.sweet':'sweet', vmp:'Vinmonopolet', vmpTitle:'See the current selection at Vinmonopolet (opens their search page)', vmpStoreLabel:'Show selection at', vmpAll:'All of Norway', tCard:['Colour','Nose','Palate','Alcohol','Serve','At the table'], quiz:'Check yourself', quizSub:n=>`${n} questions on this reading. Answers explain themselves.`, quizScore:(a,b)=>`${a} of ${b} right`, quizAgain:'Try again', quizAll:'All three right. Move on.' },
  no:{ sub:'Et kurs i tjue regioner · vin og mat', hint:'Trykk på en region eller en nål · dra for å flytte · knip for å zoome · ◭ vipper', loading:'Forbereder kartet over Italia …', lessons:'Leksjoner', landmark:'Landemerke', wines:'Viner å kjenne til', table:'Ved bordet', pairing:'Klassisk kombinasjon', prev:'← Forrige', next:'Neste region →', capital:'Hovedstad', module:'Modul', of:'av', readings:'lesetekster', min:'min', soonShort:'lesetekster kommer', minRead:'min lesetid', soon:'Lesetekst kommer', reading:'Lesetekst', notWritten:'Denne leseteksten er ikke skrevet ennå.',
    soonPara:n=>`Lazio-modulen viser leseformatet kurset skal bruke: et illustrert essay på 6–8 minutter med nøkkelfakta, en smakstabell for vinleksjonene og en kort oppsummering. Lesetekstene for ${n} følger samme mønster.`,
    backTo:'Tilbake til', seeFinished:'Se den ferdige modulen', lazioR1:'Lazio, lesetekst 1', nextReading:'Neste lesetekst', nextRegion:'Neste region', mark:'Merk som lest', marked:'✓ Merket som lest', credits:'Fotokreditering', photo:'Foto', via:'via Wikimedia Commons', close:'Lukk', home:'Vis hele Italia', listen:'Lytt', listenBrowser:'Lytt med nettleserstemme', narrated:'Lest inn av en KI-stemme', browserVoice:'Nettleserstemme', noVoice:'Ingen stemme tilgjengelig på denne enheten',
-   'area.North':'Nord','area.Centre':'Midt-Italia','area.South':'Sør','area.Islands':'Øyene','wine.red':'rød','wine.white':'hvit','wine.rose':'rosé','wine.sparkling':'musserende','wine.sweet':'søt', vmp:'Vinmonopolet', vmpTitle:'Se utvalget hos Vinmonopolet (åpner butikkens søk)', vmpStoreLabel:'Vis utvalget hos', vmpAll:'Hele landet', quiz:'Sjekk deg selv', quizSub:n=>`${n} spørsmål til denne leseteksten. Svarene forklarer seg selv.`, quizScore:(a,b)=>`${a} av ${b} riktig`, quizAgain:'Prøv igjen', quizAll:'Alle tre riktig. Gå videre.' }
+   'area.North':'Nord','area.Centre':'Midt-Italia','area.South':'Sør','area.Islands':'Øyene','wine.red':'rød','wine.white':'hvit','wine.rose':'rosé','wine.sparkling':'musserende','wine.sweet':'søt', vmp:'Vinmonopolet', vmpTitle:'Se utvalget hos Vinmonopolet (åpner butikkens søk)', vmpStoreLabel:'Vis utvalget hos', vmpAll:'Hele landet', tCard:['Farge','Duft','Smak','Alkohol','Serveres','Ved bordet'], quiz:'Sjekk deg selv', quizSub:n=>`${n} spørsmål til denne leseteksten. Svarene forklarer seg selv.`, quizScore:(a,b)=>`${a} av ${b} riktig`, quizAgain:'Prøv igjen', quizAll:'Alle tre riktig. Gå videre.' }
 };
 let lang = (()=>{ const q = new URLSearchParams(location.search).get('lang'); if(q && I18N[q]) return q; try{ const s = localStorage.getItem('iit-lang'); if(s && I18N[s]) return s; }catch(e){} return /^(nb|nn|no)/i.test(navigator.language||'') ? 'no' : 'en'; })();
 const T = k => { const v = I18N[lang][k] !== undefined ? I18N[lang][k] : I18N.en[k]; return v === undefined ? k : v; };
@@ -534,7 +545,7 @@ const COURSE = {
  'IT-88':{name:'Sardegna', capital:'Cagliari', area:'Islands', color:'#caa965', intro:"An island apart, with its own language and 7,000 Bronze-Age stone towers. Shepherds roast suckling pig, bake paper-thin carasau bread and make pecorino; Cannonau and Vermentino are its two great grapes.",
    landmark:{name:'Nuraghe Su Nuraxi, Barumini', desc:'A 3,500-year-old stone fortress with a central tower and village, the finest of Sardinia\'s nuraghi.', props:[['nuraghe',39.70,9.00]]},
    vmp:'italia_sardinia',
-   wines:[['Cannonau di Sardegna','red','italia_sardinia_cannonau_di_sardegna'],['Vermentino di Gallura','white','italia_sardinia_vermentino_di_gallura'],['Carignano del Sulcis','red','italia_sardinia_carignano_del_sulcis'],['Vernaccia di Oristano','sweet','italia_sardinia_vernaccia_di_oristano']], pairing:'Vermentino di Gallura with fregola ai frutti di mare; Cannonau with porceddu and pecorino sardo.',
+   wines:[['Cannonau di Sardegna','red','italia_sardinia_cannonau_di_sardegna'],['Vermentino di Gallura','white','italia_sardinia_vermentino_di_gallura'],['Carignano del Sulcis','red','italia_sardinia_carignano_del_sulcis'],['Vernaccia di Oristano','white','italia_sardinia_vernaccia_di_oristano']], pairing:'Vermentino di Gallura with fregola ai frutti di mare; Cannonau with porceddu and pecorino sardo.',
    dishes:['Porceddu','Pane carasau','Culurgiones','Fregola','Pecorino sardo','Seadas'],
    lessons:["An island of shepherds and vines","Cannonau and Vermentino","Porceddu, carasau and the pastoral table","Nuraghi: the Bronze Age towers"]},
 };
@@ -556,13 +567,30 @@ const vmpUrl = (district, sub) => (sub && sub.charAt(0) === '@') ? vmpUrl(sub.sl
     + (sub ? (sub.charAt(0) === '#' ? ':singleGrape:' + sub.slice(1) : ':mainSubDistrict:' + sub) : '')
     + (vmpStore ? ':availableInStores:' + vmpStore : ''));
 // The wines list and the shop picker above it. Changing the shop re-renders the links in place.
-let vmpRegion = null;
-function renderWines(C){
-  vmpRegion = C;
+let vmpRegion = null, vmpCode = null;
+function renderWines(C, code){
+  vmpRegion = C; vmpCode = code || vmpCode;
+  code = vmpCode;
   const ul = document.querySelector('#sheet ul.wines');
-  ul.innerHTML = C.wines.map(([n,t,sub]) => `<li><i class="${t}"></i><span>${n}</span><small>${T('wine.'+t)}</small>`
-    + (C.vmp ? `<a class="vmp" href="${vmpUrl(C.vmp, sub)}" target="_blank" rel="noopener" title="${T('vmpTitle')}">${T('vmp')}</a>` : '')
-    + '</li>').join('');
+  const cards = (lang === 'no' ? window.TASTING_NO : window.TASTING) || {};
+  ul.innerHTML = C.wines.map(([n,t,sub], wi) => {
+    const card = cards[code + '|' + n];
+    return `<li class="${card ? 'has-card' : ''}" data-w="${wi}"><i class="${t}"></i><span>${n}</span><small>${T('wine.'+t)}</small>`
+      + (C.vmp ? `<a class="vmp" href="${vmpUrl(C.vmp, sub)}" target="_blank" rel="noopener" title="${T('vmpTitle')}">${T('vmp')}</a>` : '')
+      + (card ? '<span class="chev">\u203a</span>' : '')
+      + '</li>'
+      + (card ? `<li class="card" data-for="${wi}" hidden><div class="tcard"><dl>`
+          + T('tCard').map((lbl, k) => `<dt>${lbl}</dt><dd>${esc([card.colour,card.nose,card.palate,card.alcohol,card.serve,card.table][k] || '')}</dd>`).join('')
+          + '</dl></div></li>' : '');
+  }).join('');
+  ul.querySelectorAll('li.has-card').forEach(li => li.addEventListener('click', e => {
+    if(e.target.closest('a')) return;              // the Vinmonopolet link keeps its own job
+    const panel = ul.querySelector(`li.card[data-for="${li.dataset.w}"]`);
+    if(!panel) return;
+    const open = panel.hidden;
+    panel.hidden = !open;
+    li.classList.toggle('open', open);
+  }));
   const box = document.querySelector('#sheet .vmpstore'), sel = document.getElementById('vmpStore');
   box.style.display = C.vmp ? '' : 'none';
   if(!C.vmp) return;
@@ -572,7 +600,7 @@ function renderWines(C){
     sel.addEventListener('change', () => {
       vmpStore = sel.value;
       try{ localStorage.setItem('iit-vmp-store', vmpStore); }catch(e){}
-      if(vmpRegion) renderWines(vmpRegion);
+      if(vmpRegion) renderWines(vmpRegion, vmpCode);
     });
   }
   sel.value = vmpStore;
@@ -1049,7 +1077,7 @@ function select(code){
   sheet.querySelectorAll('ol.lessons li.readable').forEach(li => li.addEventListener('click', () => { location.hash = `#/${code}/${+li.dataset.i+1}`; }));
   sheet.querySelector('.landmark b').textContent = C.landmark.name;
   sheet.querySelector('.landmark span').textContent = C.landmark.desc;
-  renderWines(C);
+  renderWines(C, code);
   sheet.querySelector('.pair span').textContent = C.pairing;
   sheet.querySelector('.dishes').innerHTML = C.dishes.map(d => `<span>${d}</span>`).join('');
   sheet.querySelector('.body').scrollTop = 0;

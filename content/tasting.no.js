@@ -440,7 +440,7 @@ Object.assign(window.TASTING_NO, {
     palate: "Middels til full fylde, frisk, men ikke skarp syre, rund tannin, en smaksrik avslutning",
     alcohol: "13–14 %",
     serve: "16–18 °C; Superiore fra to år, Riserva fra fire, de beste holder seg i ti",
-    table: "Grillet kjøtt, cappelletti i kraft, piadina med squacquerone, pecorino di fossa"
+    table: "Grillet kjøtt, cappelletti i kraft, piadina med squacquerone og prosciutto, pecorino di fossa"
   },
   "IT-45|Albana di Romagna": {
     colour: "Gyllen, dypere i fargen enn de fleste italienske hvitviner",
@@ -493,9 +493,9 @@ Object.assign(window.TASTING_NO, {
   "IT-55|Sagrantino di Montefalco": {
     colour: "Ugjennomsiktig purpursvart, treg til å gå mot granat selv med alder",
     nose: "Bjørnebær, sviskeplomme, fiol, tjære, mørk sjokolade, tørkede urter og jord",
-    palate: "Full fylde, svært høy tannin, fast syre, en lang og tørr avslutning som griper",
+    palate: "Full fylde, svært høy tannin, fast syre, tett mørk frukt, en lang og tørr avslutning som griper",
     alcohol: "14–15 %",
-    serve: "18 °C, dekantert en time i forveien; fra åtte år, de beste holder seg i tjue",
+    serve: "18 °C, dekantert en time i forveien; drikkes fra åtte år, de beste holder seg i tjue",
     table: "Lammestek, villsvin, fuglevilt, lagret pecorino, alt som er grillet over glør"
   },
   "IT-55|Montefalco Rosso": {
