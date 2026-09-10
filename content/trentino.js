@@ -96,6 +96,21 @@ window.READINGS['IT-32'] = {
         "artist": "Jakub Hałun",
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File:20110727_Piazza_Duomo_Trento_6540.jpg"
+    },
+    "schlutzkrapfen": {
+        "artist": "David Kostner",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Schlutzkrapfen_neu.jpg"
+    },
+    "polenta": {
+        "artist": "FakirNL",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Polenta_con_funghi.jpg"
+    },
+    "gerstsuppe": {
+        "artist": "Benreis",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Gerstensuppe_Tuffalm.JPG"
     }
 },
   lessons: [

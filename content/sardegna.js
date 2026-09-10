@@ -91,6 +91,21 @@ window.READINGS['IT-88'] = {
         "artist": "S141739",
         "license": "CC BY 3.0",
         "source": "https://commons.wikimedia.org/wiki/File:Alghero_Centro_Storico_Panorama.jpg"
+    },
+    "fregolamare": {
+        "artist": "Simon Legner (User:simon04)",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Fregola_ai_frutti_di_mare_(IMG_20260515_203730).jpg"
+    },
+    "frattau": {
+        "artist": "Frattau",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pane_Frattau.jpg"
+    },
+    "seadasfritta": {
+        "artist": "Pietro Di Fontana",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:SeadasCA.jpg"
     }
 },
   lessons: [

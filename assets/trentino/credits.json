@@ -1,97 +1,112 @@
 {
- "villner": {
-  "artist": "Mariposa Longo",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Villner_Schloessl_among_vineyards_in_South_Tyrol.jpg"
- },
- "cembra": {
-  "artist": "Syrio",
-  "license": "CC BY-SA 3.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Val_di_Cembra_-_Cembra_e_Faver_visti_da_Sevignano.JPG"
- },
- "pergola": {
-  "artist": "Bruce gilardi",
-  "license": "CC BY-SA 3.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Pergola_trentino.JPG"
- },
- "bolzano": {
-  "artist": "Hiroki Ogawa",
-  "license": "CC BY 3.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Piazza_Walther_Bolzano_Italy_-_panoramio.jpg"
- },
- "tramin": {
-  "artist": "Zairon",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Tramin_an_der_Weinstraße_Blick_auf_Tramin_3.jpg"
- },
- "remuage": {
-  "artist": "Bruce gilardi",
-  "license": "CC BY-SA 3.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Remuage.JPG"
- },
- "santamaddalena": {
-  "artist": "Touring Club Italiano archive, author unknown",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Photo_Vineyards_1967_-_Touring_Club_Italiano_2.2642.jpg"
- },
- "canederli": {
-  "artist": "Benreis",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Speckknödel_gemischter_Salat.jpg"
- },
- "speck": {
-  "artist": "Stefan Oemisch",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:SuedtirolerSpeck_(Meran).jpg"
- },
- "knoedel": {
-  "artist": "Benreis",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Buchweizenknödel_Tomatensalat_FrommeralmWelschnofen.jpg"
- },
- "strudel": {
-  "artist": "Camelia.boban",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Strudel_di_mele_02.jpg"
- },
- "toerggelen": {
-  "artist": "mattimaus90",
-  "license": "CC BY 2.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Törggelen_(10758293694).jpg"
- },
- "mele": {
-  "artist": "Xaura",
-  "license": "CC BY-SA 3.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Mele_antiche_della_Val_di_Non.jpg"
- },
- "trecime": {
-  "artist": "Tiia Monto",
-  "license": "CC BY-SA 3.0",
-  "source": "https://commons.wikimedia.org/wiki/File:2019_Tre_Cime.jpg"
- },
- "marmolada": {
-  "artist": "Dmitry A. Mottl",
-  "license": "CC BY-SA 3.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Marmolada_Sunset.jpg"
- },
- "seceda": {
-  "artist": "Neuropape",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Arcobaleno_sul_Seceda.jpg"
- },
- "seiseralm": {
-  "artist": "Wolfgang Moroder",
-  "license": "CC BY-SA 3.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Prossliner_Schwaige_mit_Schlern_Seiser_Alm.jpg"
- },
- "selva": {
-  "artist": "Wolfgang Moroder",
-  "license": "CC BY-SA 3.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Sëlva_Wolkenstein_Selva_di_Val_Gardena_Sella_Saslonch.jpg"
- },
- "trento": {
-  "artist": "Jakub Hałun",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:20110727_Piazza_Duomo_Trento_6540.jpg"
- }
+    "villner": {
+        "artist": "Mariposa Longo",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Villner_Schloessl_among_vineyards_in_South_Tyrol.jpg"
+    },
+    "cembra": {
+        "artist": "Syrio",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Val_di_Cembra_-_Cembra_e_Faver_visti_da_Sevignano.JPG"
+    },
+    "pergola": {
+        "artist": "Bruce gilardi",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pergola_trentino.JPG"
+    },
+    "bolzano": {
+        "artist": "Hiroki Ogawa",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Piazza_Walther_Bolzano_Italy_-_panoramio.jpg"
+    },
+    "tramin": {
+        "artist": "Zairon",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Tramin_an_der_Weinstraße_Blick_auf_Tramin_3.jpg"
+    },
+    "remuage": {
+        "artist": "Bruce gilardi",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Remuage.JPG"
+    },
+    "santamaddalena": {
+        "artist": "Touring Club Italiano archive, author unknown",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Photo_Vineyards_1967_-_Touring_Club_Italiano_2.2642.jpg"
+    },
+    "canederli": {
+        "artist": "Benreis",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Speckknödel_gemischter_Salat.jpg"
+    },
+    "speck": {
+        "artist": "Stefan Oemisch",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:SuedtirolerSpeck_(Meran).jpg"
+    },
+    "knoedel": {
+        "artist": "Benreis",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Buchweizenknödel_Tomatensalat_FrommeralmWelschnofen.jpg"
+    },
+    "strudel": {
+        "artist": "Camelia.boban",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Strudel_di_mele_02.jpg"
+    },
+    "toerggelen": {
+        "artist": "mattimaus90",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Törggelen_(10758293694).jpg"
+    },
+    "mele": {
+        "artist": "Xaura",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Mele_antiche_della_Val_di_Non.jpg"
+    },
+    "trecime": {
+        "artist": "Tiia Monto",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:2019_Tre_Cime.jpg"
+    },
+    "marmolada": {
+        "artist": "Dmitry A. Mottl",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Marmolada_Sunset.jpg"
+    },
+    "seceda": {
+        "artist": "Neuropape",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Arcobaleno_sul_Seceda.jpg"
+    },
+    "seiseralm": {
+        "artist": "Wolfgang Moroder",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Prossliner_Schwaige_mit_Schlern_Seiser_Alm.jpg"
+    },
+    "selva": {
+        "artist": "Wolfgang Moroder",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Sëlva_Wolkenstein_Selva_di_Val_Gardena_Sella_Saslonch.jpg"
+    },
+    "trento": {
+        "artist": "Jakub Hałun",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:20110727_Piazza_Duomo_Trento_6540.jpg"
+    },
+    "schlutzkrapfen": {
+        "artist": "David Kostner",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Schlutzkrapfen_neu.jpg"
+    },
+    "polenta": {
+        "artist": "FakirNL",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Polenta_con_funghi.jpg"
+    },
+    "gerstsuppe": {
+        "artist": "Benreis",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Gerstensuppe_Tuffalm.JPG"
+    }
 }

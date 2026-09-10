@@ -2,6 +2,16 @@
 window.READINGS = window.READINGS || {};
 window.READINGS['IT-36'] = {
   credits: /*__CREDITS__*/{
+    "jota": {
+        "artist": "young shanahan",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jota_(beans_and_sauerkraut)._(52869826883).jpg"
+    },
+    "brovada": {
+        "artist": "Petar43",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Brovada_01.JPG"
+    },
     "spessa": {
         "artist": "Toprural",
         "license": "CC BY-SA 2.0",

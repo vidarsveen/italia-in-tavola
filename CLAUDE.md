@@ -95,7 +95,9 @@ Debug URL parameters: `?instant` (skip font wait and camera tweens), `region=IT-
    `https://commons.wikimedia.org/w/api.php?action=query&list=search&srnamespace=6&srlimit=6&format=json&srsearch=<term> filetype:bitmap`
    then `action=query&prop=imageinfo&iiprop=url|extmetadata|size&iiurlwidth=1000&titles=File:…|File:…` to get
    `thumburl`, `Artist`, `LicenseShortName`. Accept only CC0, CC BY, CC BY-SA, public domain; skip photos whose
-   author attaches extra conditions. Download the 1000 px thumbnails, LOOK at each one (Read the file) and reject
+   author attaches extra conditions. **Download the `thumburl` the API hands back, do not build one yourself**:
+   since 2026 Wikimedia rejects arbitrary widths with `400 Use thumbnail sizes listed on…`, and a hand-made
+   `/1000px-…` URL now fails where `/1280px-…` happens to work. LOOK at each one (Read the file) and reject
    weak ones. Save with PIL to `assets/<region>/<key>.jpg` at max 820 px, quality 60, progressive; write
    `credits.json` `{key:{artist, license, source}}` and paste the same object into the `/*__CREDITS__*/` slot.
    About 10–12 photos per region; the hero of each lesson should be strong.
