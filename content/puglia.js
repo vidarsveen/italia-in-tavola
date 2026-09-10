@@ -96,6 +96,26 @@ window.READINGS['IT-75'] = {
         "artist": "Palickap",
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File:Otranto,_cathedral,_mosaic_05.jpg"
+    },
+    "orecchiette-rapa": {
+        "artist": "Romainbehar",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lyon_7e_-_Restaurant_Veronatuti_-_Orecchiette_con_le_cime_di_rapa_(plat_originaire_des_Pouilles).jpg"
+    },
+    "taralli": {
+        "artist": "Haragayato",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Tarallini2.JPG"
+    },
+    "bombette": {
+        "artist": "Donato611",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bombette_alla_brace.png"
+    },
+    "panzerotti": {
+        "artist": "Saggittarius A",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Puglia_-_panzerotti_-_Artigiano_in_Fiera_2023.jpg"
     }
 },
   lessons: [

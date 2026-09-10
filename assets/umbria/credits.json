@@ -93,5 +93,20 @@
   "artist": "Christoph Strässler",
   "license": "CC BY-SA 2.0",
   "source": "https://commons.wikimedia.org/wiki/File:Ponte_delle_Torri,_Spoleto,_Italy.jpg"
+ },
+ "testo": {
+  "artist": "LepoRello",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Torta_al_testo_ham_cheese.jpg"
+ },
+ "porchetta": {
+  "artist": "Pedro Angelini",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Porchetta_(3168207946).jpg"
+ },
+ "uovatartufo": {
+  "artist": "Tangopaso",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Omelette_aux_truffes_(La_Truffe_Noire).jpg"
  }
 }

@@ -72,6 +72,21 @@ window.READINGS['IT-55'] = {
         "license": "CC BY-SA 2.0",
         "source": "https://commons.wikimedia.org/wiki/File:Lentils_soup_with_strangozzi.jpg"
     },
+    "testo": {
+        "artist": "LepoRello",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Torta_al_testo_ham_cheese.jpg"
+    },
+    "porchetta": {
+        "artist": "Pedro Angelini",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Porchetta_(3168207946).jpg"
+    },
+    "uovatartufo": {
+        "artist": "Tangopaso",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Omelette_aux_truffes_(La_Truffe_Noire).jpg"
+    },
     "baci": {
         "artist": "Fabuio",
         "license": "CC BY-SA 4.0",

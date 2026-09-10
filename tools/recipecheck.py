@@ -32,18 +32,30 @@ def load():
 
 
 def app_facts():
-    src = open(os.path.join(ROOT, 'italia-course.html'), encoding='utf-8').read()
-    order = [c.strip().strip("'") for c in re.findall(r'const ORDER = \[(.*?)\]', src, re.S)[0].split(',')]
-    dirs = dict(re.findall(r"'(IT-\d+)':'([a-z]+)'", re.findall(r'const ASSET_DIRS = \{(.*?)\}', src, re.S)[0]))
-    dishes, wines = {}, {}
-    for m in re.finditer(r"'(IT-\d+)':\{name:", src):
-        code = m.group(1)
-        chunk = src[m.start():src.index('lessons:[', m.start())]
-        d = re.search(r"dishes:\[(.*?)\]", chunk, re.S)
-        dishes[code] = [x.replace("\\'", "'") for x in re.findall(r"'((?:[^'\\]|\\.)*)'", d.group(1))] if d else []
-        w = re.search(r"wines:\[(.*?)\], pairing:", chunk, re.S)
-        wines[code] = [x.replace("\\'", "'") for x in re.findall(r"\['((?:[^'\\]|\\.)*)'", w.group(1))] if w else []
-    return order, dirs, dishes, wines
+    """ORDER, ASSET_DIRS, dishes and wines, read by evaluating the objects rather than matching them.
+
+    A regex version scraped the quotes off these lists and could not survive a dish whose own name
+    carries an apostrophe -- Scrippelle 'mbusse has to be written in double quotes, and the pattern
+    then read the list wrong and reported dishes as missing that were sitting right there.
+    """
+    path = os.path.join(ROOT, 'italia-course.html')
+    node = ("const s = require('fs').readFileSync(%s,'utf8');"
+            "const i = s.indexOf('const COURSE = {');"
+            "const COURSE = eval('(' + s.slice(s.indexOf('{', i), s.indexOf('\\n};', i) + 2) + ')');"
+            "const j = s.indexOf('const ORDER = [');"
+            "const ORDER = eval(s.slice(s.indexOf('[', j), s.indexOf(']', j) + 1));"
+            "const k = s.indexOf('const ASSET_DIRS = {');"
+            "const DIRS = eval('(' + s.slice(s.indexOf('{', k), s.indexOf('};', k) + 1) + ')');"
+            "const dishes = {}, wines = {};"
+            "for (const c of ORDER) { dishes[c] = COURSE[c].dishes || [];"
+            "  wines[c] = (COURSE[c].wines || []).map(w => w[0]); }"
+            "console.log(JSON.stringify({ORDER, DIRS, dishes, wines}));"
+            % json.dumps(path))
+    r = subprocess.run(['node', '-e', node], cwd=ROOT, capture_output=True, text=True, encoding='utf-8')
+    if r.returncode:
+        print('COURSE PARSE FAILED\n' + (r.stderr or '')[-800:]); sys.exit(1)
+    d = json.loads(r.stdout)
+    return d['ORDER'], d['DIRS'], d['dishes'], d['wines']
 
 
 def both(v, where, problems, name):

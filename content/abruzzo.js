@@ -91,6 +91,16 @@ window.READINGS['IT-65'] = {
         "artist": "Marco Tersigni",
         "license": "CC BY 2.0",
         "source": "https://commons.wikimedia.org/wiki/File:Orso_bruno_marsicano.jpg"
+    },
+    "brodetto": {
+        "artist": "Jtorquy",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Brodetto_alla_vastese.jpg"
+    },
+    "chitarra2": {
+        "artist": "Bultro",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Spaghetti_alla_chitarra_al_ragù_bianco.jpg"
     }
 },
   lessons: [
