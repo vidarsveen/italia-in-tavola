@@ -71,6 +71,16 @@ window.READINGS['IT-34'] = {
         "artist": "Wolfgang Moroder",
         "license": "CC BY-SA 3.0",
         "source": "https://commons.wikimedia.org/wiki/File:Arsenale_ingresso_Venezia_notte.jpg"
+    },
+    "risibisi": {
+        "artist": "Ilaria22",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Risi_e_bisi.JPG"
+    },
+    "bigoli": {
+        "artist": "brownpau",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bigoli_with_anchovy_sauce_at_Ristorante_Ribot,_Venice.jpg"
     }
 },
   lessons: [

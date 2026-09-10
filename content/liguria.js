@@ -96,6 +96,11 @@ window.READINGS['IT-42'] = {
         "artist": "MarcoDoder",
         "license": "CC BY-SA 3.0",
         "source": "https://commons.wikimedia.org/wiki/File:CapponMagroMD.jpg"
+    },
+    "pansoti": {
+        "artist": "Dixy52",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pansoti-walnut-sauce.jpg"
     }
 },
   lessons: [

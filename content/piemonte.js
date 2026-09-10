@@ -2,6 +2,11 @@
 window.READINGS = window.READINGS || {};
 window.READINGS['IT-21'] = {
   credits: {
+    "bonet": {
+        "artist": "Hanabishi",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bonet_Saizeriya_2026-01.jpg"
+    },
     "langhe": {
         "artist": "Phalaenopsis Aphrodite from Italy",
         "license": "CC BY 2.0",
@@ -213,7 +218,7 @@ window.READINGS['IT-21'] = {
 
 <figure data-img="agnolotti"><figcaption>Agnolotti del plin, pinched shut by hand and dressed with the roasting juices rather than a sauce.</figcaption></figure>
 <h2>Agnolotti and the Sunday table</h2>
-<p><strong>Agnolotti del plin</strong> are the region's ravioli: tiny parcels of roast meat, usually a mix of veal, pork and rabbit with cabbage, pinched closed with a <em>plin</em>, a pinch of the fingers. They are served in the roasting juices, or in butter and sage, or, the old way, in a napkin with nothing at all, so that the filling can be tasted. A Sunday lunch in the Langhe still runs to several courses: a plate of <strong>vitello tonnato</strong> to start, cold sliced veal under a sauce of tuna, capers and egg yolk that sounds odd and tastes wonderful; then agnolotti; then <strong>brasato</strong> or a <strong>bollito misto</strong>, the boiled meats served with salsa verde; then cheese; then <strong>bonet</strong>, the chocolate and amaretto pudding.</p>
+<p><strong>Agnolotti del plin</strong> are the region's ravioli: tiny parcels of roast meat, usually a mix of veal, pork and rabbit with cabbage, pinched closed with a <em>plin</em>, a pinch of the fingers. They are served in the roasting juices, or in butter and sage, or, the old way, in a napkin with nothing at all, so that the filling can be tasted. A Sunday lunch in the Langhe still runs to several courses: a plate of <strong>vitello tonnato</strong> to start, cold sliced veal under a sauce of tuna, capers and egg yolk that sounds odd and tastes wonderful; then agnolotti; then <strong>brasato</strong> or a <strong>bollito misto</strong>, the boiled meats served with salsa verde; then cheese; then <strong>bonet</strong>, the chocolate and amaretti pudding.</p>
 <figure data-img="vitello"><figcaption>Vitello tonnato: thin slices of poached veal under a sauce of tuna, anchovy, capers and egg.</figcaption></figure>
 <aside class="facts"><h4>Key facts</h4><ul>
 <li>The Alba white truffle fair runs every weekend from early October to early December.</li>

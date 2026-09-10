@@ -14,11 +14,11 @@
   "ogg_bytes": 466784
  },
  "en-3": {
-  "seconds": 285.5,
+  "seconds": 285.4,
   "voice": "en-GB-SoniaNeural",
-  "bytes": 1713168,
-  "lo_bytes": 571472,
-  "ogg_bytes": 419396
+  "bytes": 1712592,
+  "lo_bytes": 571256,
+  "ogg_bytes": 417037
  },
  "en-4": {
   "seconds": 302.7,

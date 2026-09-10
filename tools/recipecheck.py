@@ -12,7 +12,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 UNITS = {'', 'g', 'kg', 'ml', 'l'}
 COURSES = {'antipasto', 'primo', 'secondo', 'contorno', 'dolce', 'base'}
 SCALES = {'lin', 'none', 'sub'}
-BAD_MEASURE = re.compile(r'\b(cups?|tbsp|tsp|tablespoons?|teaspoons?|ounces?|oz|pounds?|lbs?|ss|ts|dl|spiseskje|teskje|desiliter)\b', re.I)
+# always wrong, whatever precedes them
+BAD_MEASURE = re.compile(r'\b(tbsp|tsp|tablespoons?|teaspoons?|oz|lbs?|spiseskje\w*|teskje\w*|desiliter)\b', re.I)
+# wrong only when they are a measure: "pound the basil" and "serve in a cup" are ordinary English,
+# "2 cups" and "1 dl" are not. The word-list version rejected Liguria's mortar step.
+BAD_AMOUNT = re.compile(r'\b\d+(?:[.,/]\d+)?\s*(cups?|pounds?|ounces?|ss|ts|dl)\b', re.I)
 QTY_IN_STEP = re.compile(r'\b\d+(?:[.,]\d+)?\s?(?:g|kg|ml|l)\b')
 TEXT = ('title', 'blurb', 'heroCaption')
 
@@ -121,8 +125,9 @@ def main():
             for n, st in enumerate(steps, 1):
                 if not both(st, where, problems, 'step %d' % n): continue
                 for lg in ('en', 'no'):
-                    if BAD_MEASURE.search(st[lg]):
-                        problems.append('%s: step %d (%s) uses a cup/spoon measure' % (where, n, lg))
+                    m = BAD_MEASURE.search(st[lg]) or BAD_AMOUNT.search(st[lg])
+                    if m:
+                        problems.append('%s: step %d (%s) uses a cup/spoon measure: %r' % (where, n, lg, m.group(0)))
                     if QTY_IN_STEP.search(st[lg]):
                         problems.append('%s: step %d (%s) repeats a quantity the stepper rescales' % (where, n, lg))
             for key in ('notes', 'variations'):
