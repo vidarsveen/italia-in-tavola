@@ -41,6 +41,7 @@ window.READINGS_NO['IT-52'] = {
 
 <h2>Hvorfor den trenger mat</h2>
 <p>Sangiovese alene kan virke tynn og skarp; med mat våkner den til liv. Syren skjærer gjennom fettet i en bistecca og fylden i en ragù, og tanninene mykner mot proteinet. Toskanerne har aldri drukket den som aperitiff. Det er en vin som gjennom århundrer er formet for et bord med grillet kjøtt, bønner, brød og olivenolje, og den fjerde leseteksten handler om det bordet.</p>
+<figure data-img="pranzo"><figcaption>En toskansk lunsj: spekemat, pecorino og et glass rødvin. Sangiovese er laget for et bord som dette.</figcaption></figure>
 
 <div class="recap"><h4>Før du går videre</h4><ul>
 <li>Sangiovese er Toscanas ene store drue: Chianti, Brunello, Vino Nobile og Morellino er alle Sangiovese fra forskjellige steder.</li>
@@ -77,6 +78,7 @@ window.READINGS_NO['IT-52'] = {
 
 <h2>Stråflasken</h2>
 <p><em>Fiascoen</em>, flasken med rund bunn pakket inn i <em>sala</em>-strå, var en praktisk oppfinnelse: billig blåst glass som ikke kunne stå av seg selv. Den gjorde Chianti til verdens mest gjenkjennelige vin, og ble siden et pinlig symbol på vinens forfall. Nesten ingen seriøs produsent bruker den i dag, selv om noen beholder den som et nikk til historien. Ser du en, kan du regne med vanlig Chianti, ikke Classico.</p>
+<figure data-img="fiaschi"><figcaption>Fiaschi i stråkappene sine. Flasken gjorde Chianti til den mest kjente vinen i verden, og gjorde den siden vanskelig å ta på alvor.</figcaption></figure>
 
 <aside class="tasting"><h4>I glasset: Chianti Classico Riserva</h4>
 <table><tr><th>Farge</th><td>Middels rubinrød med granatrød kant</td></tr>
@@ -104,6 +106,7 @@ window.READINGS_NO['IT-52'] = {
 
 <h2>Brunello di Montalcino</h2>
 <p>Montalcino er en murkranset åsby førti kilometer sør for Siena, tørrere og varmere enn Chianti, med sjøluft fra Maremma. På 1870-tallet isolerte <strong>Ferruccio Biondi-Santi</strong> en variant av Sangiovese Grosso han kalte Brunello, «den lille brune», og laget en vin for lagring i stedet for å drikkes ung; hans 1888-årgang var fortsatt levende et århundre senere. I mesteparten av 1900-tallet var Brunello en håndfull gårder. I 1980 fikk den som første italienske vin DOCG-status, og på 1990-tallet var det hundre og deretter to hundre produsenter.</p>
+<figure data-img="fortezza"><figcaption>Festningen i Montalcino, den murkransede åsbyen der Brunello ble Italias første DOCG.</figcaption></figure>
 <figure data-img="montalcino"><figcaption>Åsene rundt Montalcino: Brunello-vinmarker fra kjølig leire i nord til varm kalkstein i sør.</figcaption></figure>
 <aside class="facts"><h4>Reglene i Montalcino</h4><ul>
 <li><b>Brunello di Montalcino</b>: 100 % Sangiovese, sluppet fem år etter innhøstingen (seks for Riserva), hvorav minst to på fat.</li>
@@ -114,6 +117,7 @@ window.READINGS_NO['IT-52'] = {
 
 <h2>Vino Nobile di Montepulciano</h2>
 <p>Tjue kilometer lenger øst lager renessansebyen Montepulciano <strong>Vino Nobile</strong>, «edel vin», et navn nedtegnet på 1600-tallet da den forsynte pavehoffet. Druen er igjen Sangiovese, lokalt <em>Prugnolo Gentile</em>, minst 70 %, med Canaiolo og Mammolo tillatt. Den lagres i to år (tre for Riserva) og ligger mellom Chianti Classico og Brunello i tyngde: rundere enn den første, mykere enn den andre, og ofte det beste kjøpet av de tre. Ikke forveksle den med Montepulciano d'Abruzzo, som er en drue, ikke et sted.</p>
+<figure data-img="montepulciano"><figcaption>Piazza Grande i Montepulciano, renessansebyen på åsen som står bak Vino Nobile.</figcaption></figure>
 
 <h2>Opprørerne i Bolgheri</h2>
 <p>I 1944 plantet markien Mario Incisa della Rocchetta Cabernet Sauvignon på eiendommen sin, Tenuta San Guido, på Maremma-kysten nær <strong>Bolgheri</strong>, fordi han likte Bordeaux og den grusholdige jorden minnet ham om Médoc. Vinen, <strong>Sassicaia</strong>, ble laget til eget bruk inntil nevøen Piero Antinori overtalte ham til å selge 1968-årgangen i 1971. Den hadde ingen opprinnelsesbetegnelse, fordi ingen regler tillot Cabernet i Toscana, så den ble merket <em>vino da tavola</em>, bordvin, den laveste kategorien. Den solgte for mer enn Barolo.</p>
@@ -130,6 +134,7 @@ window.READINGS_NO['IT-52'] = {
 
 <h2>En hvit og en søt</h2>
 <p>Toscana er rødvinsland, men to andre hører med i kurset. <strong>Vernaccia di San Gimignano</strong>, fra tårnenes by, var Italias første DOC i 1966: en tørr, lett bitter hvitvin som Dante nevnte. Og <strong>Vin Santo</strong>, «hellig vin», lages av Trebbiano og Malvasia tørket på matter gjennom vinteren, og lagres deretter i årevis på små, forseglede fat under taket. Den er ravgul, nøtteaktig og søt, og skjenkes ved slutten av hvert måltid i Toscana, med mandelkjeksene cantucci til å dyppe i den.</p>
+<figure data-img="sangimignano"><figcaption>Tårnene i San Gimignano. Vernaccia fra disse åsene ble Italias første DOC, i 1966.</figcaption></figure>
 
 <div class="recap"><h4>Før du går videre</h4><ul>
 <li>Brunello: 100 % Sangiovese fra Montalcino, fem år før den slippes, Italias første DOCG. Rosso di Montalcino er utgaven som drikkes ung.</li>
@@ -149,6 +154,7 @@ window.READINGS_NO['IT-52'] = {
 
 <h2>Brød uten salt</h2>
 <p>Den første overraskelsen er brødet. <strong>Pane toscano</strong> lages uten salt, en vane som er blitt forklart med snart en middelaldersk saltskatt, snart en pisansk blokade av Firenzes saltforsyning, snart ganske enkelt saltheten i alt som spises til: prosciutto, pecorino, finocchiona, ansjos. Det blir fort tørt, og det er poenget: halvparten av toskansk matlaging er en måte å bruke gårsdagens brød på. <strong>Ribollita</strong>, «kokt på nytt», er en suppe av cannellinibønner, svartkål, gulrot, løk og tørt brød, kokt, satt bort og kokt igjen til den er tykk nok til at skjeen står. <strong>Pappa al pomodoro</strong> er brød kokt til grøt med tomater, hvitløk og basilikum. <strong>Panzanella</strong> er brød som er bløtlagt, klemt og vendt med tomater, agurk og løk til sommeren. Og <strong>fettunta</strong>, «oljet skive», er den enkleste av alle: grillet brød gnidd med hvitløk og druknet i ny olje i november.</p>
+<figure data-img="pane"><figcaption>Pane toscano, bakt uten salt. Det blir fort tørt, og halvparten av regionens matlaging finnes for å bruke det opp.</figcaption></figure>
 <figure data-img="ribollita"><figcaption>Ribollita: cannellinibønner, svartkål og tørt brød, retten som definerer toskansk cucina povera.</figcaption></figure>
 <aside class="facts"><h4>Nøkkelfakta</h4><ul>
 <li>Toskansk olivenolje høstes tidlig og grønn; den er pepret nok til å få deg til å hoste, noe toskanerne tar som et kvalitetstegn.</li>
@@ -156,6 +162,7 @@ window.READINGS_NO['IT-52'] = {
 <li>Chianina, det svære hvite storfeet fra Val di Chiana, er en av verdens eldste raser.</li>
 <li>Pecorino Toscano DOP er mildere enn den romerske; utgaven fra Pienza er den mest verdsatte.</li>
 </ul></aside>
+<figure data-img="frantoio"><figcaption>Ny olje som renner fra pressen, grønn og uklar. Toskansk olje høstes tidlig og er pepret nok til å ta tak i halsen.</figcaption></figure>
 
 <h2>Biffen</h2>
 <p><strong>Bistecca alla fiorentina</strong> har regler. Den skal være en T-bein- eller porterhousebiff av Chianina-okse, minst fire fingre tykk, over en kilo og tørrmodnet. Den grilles over glør av eik eller oliventre, noen minutter på hver side og deretter stående på beinet, slik at utsiden svis og innsiden holder seg rød: <em>al sangue</em>, og en florentinsk kelner ser trist på deg om du ber om den gjennomstekt. Salt og pepper kommer på etter stekingen, med en tynn stråle olje; sitron aldri. Den serveres til to eller flere, skåret fra beinet ved bordet, med cannellinibønner og ingenting annet. Vinen er Chianti Classico, med en syre som er laget for nettopp dette fettet.</p>
@@ -166,6 +173,7 @@ window.READINGS_NO['IT-52'] = {
 
 <h2>Pasta, vilt og kysten</h2>
 <p>Toscana er ikke en pastaregion slik Emilia er, men den har sine former: <strong>pici</strong>, tykke håndrullede strimler fra åsene ved Siena, med hvitløk og tomat eller med brødsmuler; og <strong>pappardelle</strong>, brede bånd laget for <em>ragù di cinghiale</em>, villsvinet som streifer i Chianti-skogene og havner på hver trattoria. Vilt hører høsten til: fasan, hare, villsvin og steinsopp fra Apenninene. Kysten ved Livorno legger til <strong>cacciucco</strong>, en fiskegryte av minst fem fiskeslag med hvitløk, chili og tomat, helt over hvitløksbrød.</p>
+<figure data-img="pici"><figcaption>Pici, tykke tråder rullet for hånd mellom håndflatene, pastaen fra åsene ved Siena.</figcaption></figure>
 <figure data-img="cantucci"><figcaption>Cantucci med Vin Santo: mandelkjeksene fra Prato, dyppet i den søte vinen for å avslutte måltidet.</figcaption></figure>
 
 <h2>Under kuppelen</h2>

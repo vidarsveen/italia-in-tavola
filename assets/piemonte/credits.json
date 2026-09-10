@@ -63,5 +63,35 @@
   "artist": "Clop",
   "license": "Public domain",
   "source": "https://commons.wikimedia.org/wiki/File:Gianduiotti.jpg"
+ },
+ "barolo-village": {
+  "artist": "Georgius LXXXIX",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Barolo_veduta.JPG"
+ },
+ "barbaresco": {
+  "artist": "Matteo Aresca 05",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Barbaresco_(CN).jpg"
+ },
+ "castiglione": {
+  "artist": "Christoph Strässler",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Castiglione_Falletto_and_La_Morra,_Piemonte,_Italy.jpg"
+ },
+ "nebbia": {
+  "artist": "Blue moon in her eyes",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Early_morning_fog_in_Nebbiolo_vineyard.jpg"
+ },
+ "agnolotti": {
+  "artist": "Superchilum",
+  "license": "CC BY 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Agnolotti_del_Piemonte.jpg"
+ },
+ "vermouth": {
+  "artist": "Cavalcante9",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Vermouth_di_Torino.jpg"
  }
 }

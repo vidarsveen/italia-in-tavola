@@ -116,6 +116,10 @@ Debug URL parameters: `?instant` (skip font wait and camera tweens), `region=IT-
    is the intended behaviour. Full narration for every region is on the live site.
 8. **Publish.** Artifact tool, `file_path` = dist file, `url` = the artifact URL above, a short `label`.
 9. **Docs.** Update README (regions done), PLAN §6c status, and the memory note if something non-obvious was learned.
+10. **Never match an image key with `\w+`.** Keys may contain hyphens (`colosseum-arches`, `barolo-village`).
+    A hyphen-blind regex once judged referenced photos "unused" and they were deleted from two regions.
+    `tools/review_no.py <region> --check` now verifies that every referenced photo exists on disk and is
+    credited, and that no file sits unreferenced; run it before deleting anything from `assets/`.
 
 ### 4b. Norwegian style rules (learned from the September 2026 language review)
 

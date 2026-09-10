@@ -27,11 +27,6 @@ window.READINGS['IT-21'] = {
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File:1991_Barolo_(Pio_Cesare)_0059.jpg"
     },
-    "barolo-village": {
-        "artist": "Georgius LXXXIX",
-        "license": "CC BY-SA 3.0",
-        "source": "https://commons.wikimedia.org/wiki/File:Barolo_veduta.JPG"
-    },
     "truffle": {
         "artist": "Marco Plassio",
         "license": "CC BY-SA 3.0",
@@ -71,6 +66,36 @@ window.READINGS['IT-21'] = {
         "artist": "Clop",
         "license": "Public domain",
         "source": "https://commons.wikimedia.org/wiki/File:Gianduiotti.jpg"
+    },
+    "barolo-village": {
+        "artist": "Georgius LXXXIX",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Barolo_veduta.JPG"
+    },
+    "barbaresco": {
+        "artist": "Matteo Aresca 05",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Barbaresco_(CN).jpg"
+    },
+    "castiglione": {
+        "artist": "Christoph Strässler",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Castiglione_Falletto_and_La_Morra,_Piemonte,_Italy.jpg"
+    },
+    "nebbia": {
+        "artist": "Blue moon in her eyes",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Early_morning_fog_in_Nebbiolo_vineyard.jpg"
+    },
+    "agnolotti": {
+        "artist": "Superchilum",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Agnolotti_del_Piemonte.jpg"
+    },
+    "vermouth": {
+        "artist": "Cavalcante9",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Vermouth_di_Torino.jpg"
     }
 },
   lessons: [
@@ -89,6 +114,7 @@ window.READINGS['IT-21'] = {
 <figure data-img="nebbiolo"><figcaption>Nebbiolo at harvest: thin skins, high acidity, and tannins that need years to soften.</figcaption></figure>
 <p>What it gives, when it works, is a wine that looks light and drinks big. The colour is pale garnet, almost translucent, and misleads people expecting a dark, heavy red. The nose is where Nebbiolo announces itself: roses, tar, dried cherry, liquorice, a whiff of truffle and forest floor. On the palate come the tannins, firm and drying when young, and the acidity that keeps the wine alive for decades. Locals describe it as <em>tar and roses</em>, and once you have smelled it you will recognise it anywhere.</p>
 
+<figure data-img="nebbia"><figcaption>Autumn fog settling into a Nebbiolo vineyard. The grape is named for it: <em>nebbia</em> is Italian for fog.</figcaption></figure>
 <h2>Hills with names</h2>
 <p>The Langhe are not one vineyard but hundreds of small, named hillsides, and their names matter as much as the producer's. The Burgundian idea of the <em>cru</em>, a single site with its own character, took root here in the 1960s and was made official in 2010, when Barolo's vineyards were mapped into 181 <strong>Menzioni Geografiche Aggiuntive</strong>, additional geographic mentions that can appear on the label. Cannubi, Brunate, Rocche dell'Annunziata, Bussia, Vigna Rionda, Ginestra: to a Piedmontese these are as evocative as Chambertin or Montrachet to a Burgundian.</p>
 <figure data-img="serralunga"><figcaption>Serralunga d'Alba and its fourteenth-century castle, on the eastern ridge of the Barolo zone.</figcaption></figure>
@@ -134,6 +160,7 @@ window.READINGS['IT-21'] = {
 <p>The Barolo zone covers eleven villages south-west of Alba, five of them essential. <strong>La Morra</strong> and <strong>Barolo</strong> itself, on the younger, sandier marl to the west, give the most perfumed and approachable wines. <strong>Serralunga d'Alba</strong> and <strong>Monforte d'Alba</strong>, on older, denser soils to the east, give the darkest, most tannic and longest-lived. <strong>Castiglione Falletto</strong>, between them, has a bit of both. By law Barolo must age at least 38 months before release, 18 of them in wood; a Riserva waits 62 months. In practice the best need ten years to open and can live for forty.</p>
 <figure data-img="lamorra"><figcaption>Vineyards at La Morra, the highest village of the Barolo zone, on the perfumed western soils.</figcaption></figure>
 
+<figure data-img="barbaresco"><figcaption>Barbaresco under its eleventh-century tower. The zone is a third the size of Barolo and covers four villages.</figcaption></figure>
 <h2>The queen: Barbaresco</h2>
 <p>Barbaresco is smaller, just four villages north-east of Alba, and the hills are lower and closer to the Tanaro, which moderates the climate. The wines ripen a little earlier and are released a year sooner (26 months of ageing, 9 in wood). They are not lighter so much as more elegant: the same rose and tar, the same structure, but rounder and more fragrant. <strong>Barbaresco</strong>, <strong>Neive</strong> and <strong>Treiso</strong> are the villages to know, and the crus of Asili, Rabajà, Martinenga and Santo Stefano are as celebrated as anything in Barolo.</p>
 <aside class="facts"><h4>Reading the label</h4><ul>
@@ -144,6 +171,7 @@ window.READINGS['IT-21'] = {
 <li>Vintage matters more here than almost anywhere in Italy: cool years give lean, long-lived wines, warm years give richer ones.</li>
 </ul></aside>
 
+<figure data-img="castiglione"><figcaption>Castiglione Falletto on its ridge, with La Morra beyond. Every crest in the Barolo zone carries a village and its own soil.</figcaption></figure>
 <h2>The Barolo wars</h2>
 <p>In the 1980s and 1990s the Langhe split into two camps. The <strong>traditionalists</strong> fermented for weeks on the skins and aged the wine for years in large old Slavonian oak casks, the <em>botti</em>, making austere wines that needed a decade. The <strong>modernists</strong>, influenced by Burgundy and by the export market, shortened fermentations, used small new French barriques, and made darker, softer, oakier wines that could be drunk young. Families argued, neighbours stopped speaking, and journalists chose sides. Thirty years on the argument has largely dissolved: most producers use some of each, new oak is out of fashion, and the wines have settled into a modern-classic style that is cleaner than the old Barolo but recognisably Nebbiolo.</p>
 <figure data-img="nebbiolo"><figcaption>Nebbiolo bunches: the grape's tannin and acidity are what allow Barolo to age for decades.</figcaption></figure>
@@ -183,6 +211,7 @@ window.READINGS['IT-21'] = {
 <figure data-img="tajarin"><figcaption>Tajarin: hair-thin egg pasta made with up to forty yolks per kilo of flour.</figcaption></figure>
 <p>The classic vehicle is <strong>tajarin</strong>, the Piedmontese tagliolini, a pasta so rich in egg yolk that it is deep gold before it meets the butter. Dressed with melted butter and a few grams of shaved truffle, it is the dish that people cross Europe to eat in October. The second is a simple <strong>fried egg</strong> with truffle shaved on top, which is what the locals order. The black truffle, <em>Tuber melanosporum</em>, grows here too but belongs to winter and to cooking; the white one is eaten raw or not at all.</p>
 
+<figure data-img="agnolotti"><figcaption>Agnolotti del plin, pinched shut by hand and dressed with the roasting juices rather than a sauce.</figcaption></figure>
 <h2>Agnolotti and the Sunday table</h2>
 <p><strong>Agnolotti del plin</strong> are the region's ravioli: tiny parcels of roast meat, usually a mix of veal, pork and rabbit with cabbage, pinched closed with a <em>plin</em>, a pinch of the fingers. They are served in the roasting juices, or in butter and sage, or, the old way, in a napkin with nothing at all, so that the filling can be tasted. A Sunday lunch in the Langhe still runs to several courses: a plate of <strong>vitello tonnato</strong> to start, cold sliced veal under a sauce of tuna, capers and egg yolk that sounds odd and tastes wonderful; then agnolotti; then <strong>brasato</strong> or a <strong>bollito misto</strong>, the boiled meats served with salsa verde; then cheese; then <strong>bonet</strong>, the chocolate and amaretto pudding.</p>
 <figure data-img="vitello"><figcaption>Vitello tonnato: thin slices of poached veal under a sauce of tuna, anchovy, capers and egg.</figcaption></figure>
@@ -220,6 +249,7 @@ window.READINGS['IT-21'] = {
 <p>The building on every postcard began as a synagogue. Turin's Jewish community commissioned it in 1863, but the architect Alessandro Antonelli kept enlarging his design until the community could no longer pay, and the city took it over. Finished in 1889 at 167 metres, the <strong>Mole Antonelliana</strong> was the tallest masonry building in the world. Its spire has been rebuilt after storm and lightning damage, and since 2000 the interior has housed the National Cinema Museum, with a glass lift that rises through the empty dome to a terrace with the Alps in view. <em>Mole</em> simply means a massive building; Turinese use it as a compass point.</p>
 <figure data-img="sancarlo"><figcaption>Piazza San Carlo, the city's baroque drawing room, lined with the cafés where vermouth was born.</figcaption></figure>
 
+<figure data-img="vermouth"><figcaption>Vermouth di Torino: fortified white wine flavoured with wormwood and spices, invented in the city in 1786.</figcaption></figure>
 <h2>Vermouth and the aperitivo</h2>
 <p>In 1786 a distiller's apprentice named Antonio Benedetto Carpano began selling a white wine infused with wormwood, herbs and spices from a shop opposite the royal palace. He called it <strong>vermouth</strong>, from the German <em>Wermut</em>, wormwood, and it became the drink of the court within a year. Martini, Cinzano, Cora and Gancia followed, all Piedmontese houses, and Turin became the world's vermouth capital. It also invented the way to drink it: the <strong>aperitivo</strong>, a glass before dinner with something to eat, which in Turin's historic cafés still arrives with a small buffet. Vermouth di Torino has been a protected geographical indication since 2017; the sweet red is the classic, drunk on ice with a twist of lemon, or in a Negroni.</p>
 <aside class="facts"><h4>Key facts</h4><ul>

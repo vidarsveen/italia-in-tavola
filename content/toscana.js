@@ -17,8 +17,7 @@ window.READINGS['IT-52'] = {
         "license": "CC BY-SA 2.0",
         "source": "https://commons.wikimedia.org/wiki/File:Sangiovese_grapes_in_Montepulciano.JPG"
     },
-    "montalcino": {"artist": "Hans A. Rosbach", "license": "CC BY-SA 3.0", "source": "https://commons.wikimedia.org/wiki/File:Val-d_Orcia_landscape_20120926-1.JPG"},
-    "valdorcia": {
+    "montalcino": {
         "artist": "Hans A. Rosbach",
         "license": "CC BY-SA 3.0",
         "source": "https://commons.wikimedia.org/wiki/File:Val-d_Orcia_landscape_20120926-1.JPG"
@@ -53,10 +52,45 @@ window.READINGS['IT-52'] = {
         "license": "CC BY 4.0",
         "source": "https://commons.wikimedia.org/wiki/File:Florence,_Italy,_Brunelleschi's_Dome_of_Florence_Cathedral.jpg"
     },
-    "pisa": {
-        "artist": "MHoser",
+    "pranzo": {
+        "artist": "Tim Lucas from Sydney, Australia",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:A_late_lunch.jpg"
+    },
+    "fiaschi": {
+        "artist": "Arnaud 25",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Fiaschi_of_basic_Chianti.jpg"
+    },
+    "fortezza": {
+        "artist": "Mongolo1984",
         "license": "CC BY-SA 4.0",
-        "source": "https://commons.wikimedia.org/wiki/File:The_Duomo_and_Tower_of_Pisa_at_sunrise.jpg"
+        "source": "https://commons.wikimedia.org/wiki/File:Fortezza_di_Montalcino_01.jpg"
+    },
+    "montepulciano": {
+        "artist": "Michal Osmenda from Brussels, Belgium",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Piazza_Grande_of_Montepulciano.jpg"
+    },
+    "sangimignano": {
+        "artist": "Eric Kilby",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:San_Gimignano_Towers.jpg"
+    },
+    "pane": {
+        "artist": "Anna.Massini",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bread_of_Florence_(without_salt).jpg"
+    },
+    "frantoio": {
+        "artist": "PROPOLI87",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Toscana_(Italy)_Olio_in_uscita_dal_frantoio.jpg"
+    },
+    "pici": {
+        "artist": "Popo le Chien",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pici2.jpg"
     }
 },
   lessons: [
@@ -98,6 +132,7 @@ window.READINGS['IT-52'] = {
 
 <h2>Why it needs food</h2>
 <p>Sangiovese on its own can seem thin and sharp; with food it comes alive. That acidity cuts through the fat of a bistecca and the richness of a ragù, and the tannin is softened by protein. Tuscans have never drunk it as an aperitif. It is a wine designed, over centuries, for a table of grilled meat, beans, bread and olive oil, and the fourth reading is about that table.</p>
+<figure data-img="pranzo"><figcaption>A Tuscan lunch: cured meats, pecorino and a glass of red. Sangiovese is built for a table like this.</figcaption></figure>
 
 <div class="recap"><h4>Before you move on</h4><ul>
 <li>Sangiovese is Tuscany's one great grape: Chianti, Brunello, Vino Nobile and Morellino are all Sangiovese from different places.</li>
@@ -134,6 +169,7 @@ window.READINGS['IT-52'] = {
 
 <h2>The straw flask</h2>
 <p>The <em>fiasco</em>, the round-bottomed bottle wrapped in <em>sala</em> straw, was a practical invention: cheap blown glass that could not stand up alone. It made Chianti the most recognised wine in the world and then became an embarrassment, a symbol of the wine's decline. Almost no serious producer uses it today, though a few keep it as a wink to history. If you see one, expect simple Chianti, not Classico.</p>
+<figure data-img="fiaschi"><figcaption>Fiaschi in their straw jackets. The flask made Chianti the best-known wine in the world, and then made it hard to take seriously.</figcaption></figure>
 
 <aside class="tasting"><h4>In the glass: Chianti Classico Riserva</h4>
 <table><tr><th>Colour</th><td>Medium ruby with a garnet rim</td></tr>
@@ -161,6 +197,7 @@ window.READINGS['IT-52'] = {
 
 <h2>Brunello di Montalcino</h2>
 <p>Montalcino is a walled hill town forty kilometres south of Siena, drier and warmer than Chianti, with the sea's influence from the Maremma. In the 1870s <strong>Ferruccio Biondi-Santi</strong> isolated a strain of Sangiovese Grosso he called Brunello, "the little brown one", and made a wine to age rather than drink young; his 1888 was still alive a century later. For most of the twentieth century Brunello was a handful of estates. In 1980 it became the first Italian wine to be awarded DOCG status, and by the 1990s it was a hundred and then two hundred producers.</p>
+<figure data-img="fortezza"><figcaption>The fortress at Montalcino, the walled hill town whose Brunello became Italy's first DOCG.</figcaption></figure>
 <figure data-img="montalcino"><figcaption>The hills around Montalcino: Brunello vineyards from cool clay in the north to warm limestone in the south.</figcaption></figure>
 <aside class="facts"><h4>The rules of Montalcino</h4><ul>
 <li><b>Brunello di Montalcino</b>: 100% Sangiovese, released five years after the harvest (six for Riserva), of which at least two in wood.</li>
@@ -171,6 +208,7 @@ window.READINGS['IT-52'] = {
 
 <h2>Vino Nobile di Montepulciano</h2>
 <p>Twenty kilometres east, the Renaissance town of Montepulciano makes <strong>Vino Nobile</strong>, "noble wine", a name recorded in the seventeenth century when it supplied the papal court. The grape is Sangiovese again, locally <em>Prugnolo Gentile</em>, at least 70%, with Canaiolo and Mammolo allowed. It is aged two years (three for Riserva) and sits between Chianti Classico and Brunello in weight: rounder than the first, softer than the second, and often the best value of the three. Do not confuse it with Montepulciano d'Abruzzo, which is a grape, not a place.</p>
+<figure data-img="montepulciano"><figcaption>Piazza Grande in Montepulciano, the Renaissance hill town behind Vino Nobile.</figcaption></figure>
 
 <h2>The rebels of Bolgheri</h2>
 <p>In 1944 Marchese Mario Incisa della Rocchetta planted Cabernet Sauvignon at his estate, Tenuta San Guido, on the Maremma coast near <strong>Bolgheri</strong>, because he liked Bordeaux and the gravelly soil reminded him of the Médoc. The wine, <strong>Sassicaia</strong>, was for family use until his nephew Piero Antinori persuaded him to sell the 1968 vintage in 1971. It had no denomination, because no rules allowed Cabernet in Tuscany, so it was labelled <em>vino da tavola</em>, table wine, the lowest category. It sold for more than Barolo.</p>
@@ -187,6 +225,7 @@ window.READINGS['IT-52'] = {
 
 <h2>A white and a sweet one</h2>
 <p>Tuscany is red-wine country, but two others belong in the course. <strong>Vernaccia di San Gimignano</strong>, from the town of towers, was Italy's first DOC in 1966: a dry, slightly bitter white that Dante mentioned. And <strong>Vin Santo</strong>, "holy wine", is made from Trebbiano and Malvasia dried on mats through the winter, then aged for years in small sealed casks under the roof. Amber, nutty and sweet, it is poured at the end of every Tuscan meal with almond cantucci for dunking.</p>
+<figure data-img="sangimignano"><figcaption>The towers of San Gimignano. Vernaccia from these hills was Italy's first DOC, in 1966.</figcaption></figure>
 
 <div class="recap"><h4>Before you move on</h4><ul>
 <li>Brunello: 100% Sangiovese from Montalcino, five years before release, Italy's first DOCG. Rosso di Montalcino is the early-drinking version.</li>
@@ -206,6 +245,7 @@ window.READINGS['IT-52'] = {
 
 <h2>Bread without salt</h2>
 <p>The first surprise is the bread. <strong>Pane toscano</strong> is made without salt, a habit variously blamed on a medieval salt tax, a Pisan blockade of Florence's salt supply, or simply on the saltiness of everything eaten with it: prosciutto, pecorino, finocchiona, anchovies. It goes stale fast, which is the point: half of Tuscan cooking is a way of using yesterday's bread. <strong>Ribollita</strong>, "re-boiled", is a soup of cannellini beans, cavolo nero, carrot, onion and stale bread, cooked, left, and boiled again until it is thick enough to stand a spoon in. <strong>Pappa al pomodoro</strong> is bread cooked to a porridge with tomatoes, garlic and basil. <strong>Panzanella</strong> is bread soaked, squeezed and tossed with tomatoes, cucumber and onion for summer. And <strong>fettunta</strong>, "oiled slice", is the simplest of all: grilled bread rubbed with garlic and drowned in new oil in November.</p>
+<figure data-img="pane"><figcaption>Pane toscano, baked without salt. It goes stale quickly, and half the region’s cooking exists to use it up.</figcaption></figure>
 <figure data-img="ribollita"><figcaption>Ribollita: cannellini beans, cavolo nero and stale bread, the dish that defines Tuscan cucina povera.</figcaption></figure>
 <aside class="facts"><h4>Key facts</h4><ul>
 <li>Tuscan olive oil is picked early and green; it is peppery enough to make you cough, which Tuscans take as a sign of quality.</li>
@@ -213,6 +253,7 @@ window.READINGS['IT-52'] = {
 <li>The Chianina, the huge white cattle of the Val di Chiana, is one of the oldest breeds in the world.</li>
 <li>Pecorino Toscano DOP is milder than the Roman kind; the version from Pienza is the most prized.</li>
 </ul></aside>
+<figure data-img="frantoio"><figcaption>New oil running from the mill, green and cloudy. Tuscan oil is picked early and is peppery enough to catch the throat.</figcaption></figure>
 
 <h2>The steak</h2>
 <p><strong>Bistecca alla fiorentina</strong> has rules. It must be a T-bone or porterhouse from a Chianina steer, at least four fingers thick and weighing over a kilo, dry-aged. It is grilled over oak or olive-wood embers, a few minutes a side and then standing on the bone, so that the outside chars and the inside stays red: <em>al sangue</em>, and a Florentine waiter will look at you sadly if you ask for it well done. Salt and pepper go on after cooking, with a thread of oil; lemon never. It is served for two or more, sliced from the bone at the table, with cannellini beans and nothing else. The wine is Chianti Classico, whose acidity was made for this fat.</p>
@@ -223,6 +264,7 @@ window.READINGS['IT-52'] = {
 
 <h2>Pasta, game and the coast</h2>
 <p>Tuscany is not a pasta region in the way Emilia is, but it has its shapes: <strong>pici</strong>, thick hand-rolled strands from the Siena hills, with garlic and tomato or with breadcrumbs; and <strong>pappardelle</strong>, wide ribbons made for <em>ragù di cinghiale</em>, the wild boar that roams the Chianti woods and ends up in every trattoria. Game is autumn: pheasant, hare, boar, and porcini mushrooms from the Apennines. The coast at Livorno adds <strong>cacciucco</strong>, a fish stew of at least five kinds of fish with garlic, chilli and tomato, poured over garlic bread.</p>
+<figure data-img="pici"><figcaption>Pici, thick strands rolled by hand between the palms, the pasta of the hills around Siena.</figcaption></figure>
 <figure data-img="cantucci"><figcaption>Cantucci with Vin Santo: the almond biscuits of Prato, dunked in the sweet wine to end the meal.</figcaption></figure>
 
 <h2>Under the dome</h2>

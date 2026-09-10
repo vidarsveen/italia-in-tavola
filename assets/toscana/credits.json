@@ -48,5 +48,45 @@
   "artist": "Vyacheslav Argenberg",
   "license": "CC BY 4.0",
   "source": "https://commons.wikimedia.org/wiki/File:Florence,_Italy,_Brunelleschi's_Dome_of_Florence_Cathedral.jpg"
+ },
+ "pranzo": {
+  "artist": "Tim Lucas from Sydney, Australia",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:A_late_lunch.jpg"
+ },
+ "fiaschi": {
+  "artist": "Arnaud 25",
+  "license": "CC BY-SA 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Fiaschi_of_basic_Chianti.jpg"
+ },
+ "fortezza": {
+  "artist": "Mongolo1984",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Fortezza_di_Montalcino_01.jpg"
+ },
+ "montepulciano": {
+  "artist": "Michal Osmenda from Brussels, Belgium",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Piazza_Grande_of_Montepulciano.jpg"
+ },
+ "sangimignano": {
+  "artist": "Eric Kilby",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:San_Gimignano_Towers.jpg"
+ },
+ "pane": {
+  "artist": "Anna.Massini",
+  "license": "CC BY 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Bread_of_Florence_(without_salt).jpg"
+ },
+ "frantoio": {
+  "artist": "PROPOLI87",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Toscana_(Italy)_Olio_in_uscita_dal_frantoio.jpg"
+ },
+ "pici": {
+  "artist": "Popo le Chien",
+  "license": "CC0",
+  "source": "https://commons.wikimedia.org/wiki/File:Pici2.jpg"
  }
 }

@@ -161,8 +161,19 @@ def check(region):
     if r.returncode: print('PARSE FAILED', r.stderr.strip()[-400:]); return False
     E = open(os.path.join(ROOT, 'content', f'{region}.js'), encoding='utf-8').read()
     N = open(os.path.join(ROOT, 'content', f'{region}.no.js'), encoding='utf-8').read()
-    a, b = set(re.findall(r'data-img="(\w+)"', E)), set(re.findall(r'data-img="(\w+)"', N))
-    he, hn = re.findall(r'hero: "(\w+)"', E), re.findall(r'hero: "(\w+)"', N)
+    # image keys may contain hyphens (colosseum-arches, barolo-village), so never use \w+ on them:
+    # a hyphen-blind pattern once judged referenced photos unused and they were deleted.
+    a, b = set(re.findall(r'data-img="([\w-]+)"', E)), set(re.findall(r'data-img="([\w-]+)"', N))
+    he, hn = re.findall(r'hero: "([\w-]+)"', E), re.findall(r'hero: "([\w-]+)"', N)
+    # every referenced photo must exist on disk and be credited, and every file must be referenced
+    adir = os.path.join(ROOT, 'assets', region)
+    if os.path.isdir(adir):
+        have = {f[:-4] for f in os.listdir(adir) if f.lower().endswith('.jpg')}
+        cred = set(json.load(open(os.path.join(adir, 'credits.json'), encoding='utf-8')))
+        want = a | set(he)
+        if want - have: print('photo file missing:', sorted(want - have)); ok = False
+        if have - want: print('photo on disk but never shown:', sorted(have - want)); ok = False
+        if want - cred: print('photo without a credit:', sorted(want - cred)); ok = False
     ok = True
     if a != b: print('IMAGE KEYS differ: only EN', a - b, 'only NO', b - a); ok = False
     if he != hn: print('HERO keys differ', he, hn); ok = False

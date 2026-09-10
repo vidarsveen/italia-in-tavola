@@ -110,5 +110,13 @@
   "source": "https://commons.wikimedia.org/wiki/File:Pecorino_romano_cheese.jpg",
   "w": 1000,
   "h": 750
+ },
+ "colosseum-arches": {
+  "file": "Colosseum-Rome-May-2009.jpg",
+  "artist": "Acediscovery",
+  "license": "CC BY 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Colosseum-Rome-May-2009.jpg",
+  "w": 1000,
+  "h": 718
  }
 }
