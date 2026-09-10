@@ -12,7 +12,7 @@ illustrated, narrated readings in English and Norwegian (bokmål). Everything is
 and asset files; a build step produces a single-file version for the hosted preview.
 
 - Owner: Vidar (Norwegian). Both languages matter equally. Mobile first, always test on a phone viewport.
-- Done: **all twenty regions** have text EN+NO, photos and narration EN+NO (348 photos, 160 audio files).
+- Done: **all twenty regions** have text EN+NO, photos and narration EN+NO (363 photos, 160 audio files).
   Three content stems differ from the region name: IT-32 `trentino`, IT-36 `friuli`, IT-23 `valledaosta`.
 - Every wine in the region sheet links to Vinmonopolet; see §11.
 - Live site (the real course, full narration, no size limit): https://vidarsveen.github.io/italia-in-tavola/
@@ -241,36 +241,13 @@ script prints arrows or Norwegian letters on Windows.
 - Photo captions must be updated in BOTH language files when a photo is swapped.
 - Keep `dist/` under 16 MB; check the size line that `build.py` prints.
 
-## 13. Tasting cards, glossary and map labels (added 2026-09-10)
+## 10. Roadmap (short)
 
-**Tasting cards.** Every wine on a region sheet opens a card with colour, nose, palate, alcohol, serving and
-food. Data is `content/tasting.js` / `tasting.no.js`, keyed `IT-xx|Wine Name` where the name matches
-`COURSE.wines` character for character. The contract is `docs/tasting-format.md`. Thirty-one cards are lifted
-straight from the tasting tables in the readings by `tools/tastingextract.py`, so card and essay cannot drift;
-re-run it after editing such a table. `tools/tastinggap.py` lists wines with no card, `tools/tastingcheck.py`
-enforces the whole set. Cards are never spoken, so editing one never makes narration stale.
+Regions in order: Veneto, Campania, Sicilia, then Lombardia, Emilia-Romagna, Puglia, and the rest. After the
+reading pass: capital-city labels and label collision avoidance on the map, tasting cards, recap questions,
+glossary, accounts/progress sync, and a self-hosted deployment (`site/`) which removes the 16 MB limit and is
+where region four onwards gets its narration.
 
-**Glossary.** `content/glossary.js` / `glossary.no.js`, 48 terms. A term carries `short`, `long` and a `match`
-list of surface forms **per language**, because one key cannot match both: English "limestone" is Norwegian
-"kalkstein". Only the first mention in a reading is linked, and linking happens at render time so the stored
-text and the narration scripts stay identical. Terms that are also the tail of an appellation (Chianti
-Classico, Valtellina Superiore, Valpolicella Ripasso, Greco di Tufo) are skipped by shape, not by a list: a
-capitalised term preceded by another capitalised word is part of a name.
-
-**Map labels.** `CAPITAL_POS` holds the twenty regional capitals, each verified to fall inside its own region
-polygon. Capitals appear only when the camera is closer than 140 units. `updateOverlays()` now places labels by
-priority, selected region first, then regions, then capitals, and hides anything overlapping a box already
-placed rather than drawing on top.
-
-## 12. Recap questions (added 2026-09-10)
-
-Three multiple-choice questions close every reading, in both languages: 240 per language, 480 in all.
-Data lives in `content/quiz.js` (`window.QUIZ`) and `content/quiz.no.js` (`window.QUIZ_NO`), one array of four
-lessons per region, three questions each. The contract is `docs/quiz-format.md` and is enforced by
-`python tools/quizcheck.py` (shape, four answers, valid index, both languages matching, and a guard against the
-answer always sitting in the same position). A region with no entry renders nothing, so this degrades safely.
-The renderer is `quizHtml()` / `wireQuiz()` in the app, and the questions are NOT spoken: `narrate.py` never
-sees them, so adding or editing a question does not make any narration stale.
 
 ## 11. Vinmonopolet links (added 2026-09-10)
 
@@ -291,9 +268,35 @@ free-text search, because free text is fuzzy ("Barolo" also returns grappa and B
 - Wording stays neutral ("Se utvalget hos Vinmonopolet"), with no prices, scores or buy language, because
   Norway's alcohol-advertising ban covers links made to promote sales.
 
-## 10. Roadmap (short)
 
-Regions in order: Veneto, Campania, Sicilia, then Lombardia, Emilia-Romagna, Puglia, and the rest. After the
-reading pass: capital-city labels and label collision avoidance on the map, tasting cards, recap questions,
-glossary, accounts/progress sync, and a self-hosted deployment (`site/`) which removes the 16 MB limit and is
-where region four onwards gets its narration.
+## 12. Recap questions (added 2026-09-10)
+
+Three multiple-choice questions close every reading, in both languages: 240 per language, 480 in all.
+Data lives in `content/quiz.js` (`window.QUIZ`) and `content/quiz.no.js` (`window.QUIZ_NO`), one array of four
+lessons per region, three questions each. The contract is `docs/quiz-format.md` and is enforced by
+`python tools/quizcheck.py` (shape, four answers, valid index, both languages matching, and a guard against the
+answer always sitting in the same position). A region with no entry renders nothing, so this degrades safely.
+The renderer is `quizHtml()` / `wireQuiz()` in the app, and the questions are NOT spoken: `narrate.py` never
+sees them, so adding or editing a question does not make any narration stale.
+
+
+## 13. Tasting cards, glossary and map labels (added 2026-09-10)
+
+**Tasting cards.** Every wine on a region sheet opens a card with colour, nose, palate, alcohol, serving and
+food. Data is `content/tasting.js` / `tasting.no.js`, keyed `IT-xx|Wine Name` where the name matches
+`COURSE.wines` character for character. The contract is `docs/tasting-format.md`. Thirty-one cards are lifted
+straight from the tasting tables in the readings by `tools/tastingextract.py`, so card and essay cannot drift;
+re-run it after editing such a table. `tools/tastinggap.py` lists wines with no card, `tools/tastingcheck.py`
+enforces the whole set. Cards are never spoken, so editing one never makes narration stale.
+
+**Glossary.** `content/glossary.js` / `glossary.no.js`, 48 terms. A term carries `short`, `long` and a `match`
+list of surface forms **per language**, because one key cannot match both: English "limestone" is Norwegian
+"kalkstein". Only the first mention in a reading is linked, and linking happens at render time so the stored
+text and the narration scripts stay identical. Terms that are also the tail of an appellation (Chianti
+Classico, Valtellina Superiore, Valpolicella Ripasso, Greco di Tufo) are skipped by shape, not by a list: a
+capitalised term preceded by another capitalised word is part of a name.
+
+**Map labels.** `CAPITAL_POS` holds the twenty regional capitals, each verified to fall inside its own region
+polygon. Capitals appear only when the camera is closer than 140 units. `updateOverlays()` now places labels by
+priority, selected region first, then regions, then capitals, and hides anything overlapping a box already
+placed rather than drawing on top.
