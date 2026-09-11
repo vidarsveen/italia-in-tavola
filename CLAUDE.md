@@ -235,6 +235,7 @@ script prints arrows or Norwegian letters on Windows.
 - Touch flows over the DevTools protocol (needs `websocket-client`): `python tools/test/touchtest.py "<url>"`
   (chip → lesson → back → expand → lesson), `maptaptest.py` (taps on the terrain), `playertest.py` and
   `playertest_no.py` pattern (Listen → player state → skip → pause), `toggletest.py` (language switch),
+  `introtest.py` (the first-visit splash: shown once, language, dismissal, persistence, both ways back),
   `caftest.py` (CAF repackager hash check; it compares against `tools/test/ref.caf`, regenerate that with
   `ffmpeg -i assets/audio/lazio/en-2.ogg -c:a copy -f caf tools/test/ref.caf` if it is missing). Each uses its own Chrome profile dir; run at most three in parallel.
 - Always test: phone portrait overview shows all 20 regions; tapping a region on the terrain selects it; a lesson
@@ -363,3 +364,27 @@ that reading, and to its wine's Vinmonopolet search.
   Italian name is `<dish> alla <demonym>` and matching the demonym made Saltimbocca alla romana look covered by
   abbacchio alla romana. A chip with no reading behind it is written the Umbria way: open by connecting it
   honestly to what the reading does carry, then write the dish on its own terms.
+
+## 15. The intro (added 2026-09-11)
+
+A first-visit splash over the live map: what the course is, what is in it, a language choice and a way in.
+Shown once, remembered in localStorage as `iit-seen`.
+
+- **No screenshots of the app.** The map is already drawn behind it, so a picture of the map on top of the map
+  would be redundant and would cost bytes the 16 MB preview does not have. The backdrop is the real map dimmed,
+  and the three tiles preview what the map cannot show — a reading, a wine, a recipe — using photos already
+  inlined in the build (`assets/lazio/colosseum.jpg`, `piemonte/nebbiolo.jpg`, `campania/pizza.jpg`), so the
+  whole thing adds about 4 KB.
+- **The numbers are counted at render time**, never typed: `openIntro()` derives regions, readings, recipes and
+  wines from `ORDER`, `READINGS`, `RECIPES` and `COURSE.wines`, and exposes them on `window.__dbg.introNums`.
+  A hand-written "102 recipes" would be wrong the next time a recipe is added.
+- **Italy has twenty regions.** The course covers all twenty; nothing should ever say twenty-two.
+- The language buttons click the real `#lang` toggle rather than duplicating its logic, so picking Norsk on the
+  splash switches the whole page and the splash follows.
+- `html.intro-on` hides `#ui` while it is open, or the masthead and the hint bar show through and the title
+  appears twice.
+- **Not a dead end**: `#/about` reopens it, and so does tapping the masthead, which carries `role="button"` and
+  a translated `aria-label`.
+- `?instant` skips it, which is what keeps every other headless test working; `?intro` forces it for
+  screenshots. Its own test is `python tools/test/introtest.py` (first visit, language, dismissal, persistence,
+  both ways back).
