@@ -41,9 +41,17 @@ def lessons_from(path):
         out.append({'title': unesc(m.group(1)), 'kicker': unesc(m.group(2)), 'minutes': int(m.group(3)), 'summary': unesc(m.group(4)), 'html': m.group(5)})
     return out
 
-def to_script(lesson, lang, intro='full'):
+def to_script(lesson, lang, intro='full', drop=()):
     h = lesson['html']
     h = re.sub(r'<figure.*?</figure>', ' ', h, flags=re.S)
+    # Boxes that are lists rather than prose. Spoken, they interrupt the reading; on screen
+    # they are what the eye goes to. --drop facts,recap leaves them out of the narration only.
+    if 'facts' in drop:
+        h = re.sub(r'<aside class="facts">.*?</aside>', ' ', h, flags=re.S)
+    if 'recap' in drop:
+        h = re.sub(r'<div class="recap">.*?</div>', ' ', h, flags=re.S)
+    if 'tasting' in drop:
+        h = re.sub(r'<aside class="tasting">.*?</aside>', ' ', h, flags=re.S)
     # tables: "Colour: value."
     h = re.sub(r'<tr><th>(.*?)</th><td>(.*?)</td></tr>', lambda m: f' {m.group(1)}: {m.group(2)}.\n', h, flags=re.S)
     h = re.sub(r'<h4>(.*?)</h4>', r'\n\1.\n', h, flags=re.S)
@@ -64,11 +72,27 @@ async def synth(text, voice, out):
     c = edge_tts.Communicate(text, voice, rate=RATE)
     await c.save(out)
 
-def synth_openrouter(text, lang, out, model, voice, instructions=None):
+# Every existing Norwegian file sits between 126 and 157 words a minute. A rendering that
+# comes back far shorter than that means the model silently dropped part of the script, which
+# a preview TTS will do on a 5000-character input. Catch it here rather than on the phone.
+SLOWEST_WPM = 190
+
+def synth_openrouter(text, lang, out, model, voice, instructions=None, tries=2):
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-    import tts, voicelab
-    return tts.speak_to_file(text, out, model=model, voice=voice,
-                             instructions=instructions or voicelab.INSTRUCTIONS[lang])
+    import tts
+    # No tone steering unless asked for: only some providers honour `instructions`, and the
+    # voice was chosen from voicelab clips rendered without it. Match what was approved.
+    floor = len(text.split()) / SLOWEST_WPM * 60
+    for attempt in range(1, tries + 1):
+        info = tts.speak_to_file(text, out, model=model, voice=voice,
+                                 instructions=instructions)
+        if (info.get('seconds') or 0) >= floor:
+            return info
+        print(f'   short: {info["seconds"]}s for {len(text.split())} words '
+              f'(expected {floor:.0f}s+)' + (', retrying' if attempt < tries else ', KEEPING ANYWAY'),
+              flush=True)
+    info['short'] = True
+    return info
 
 def duration(path):
     ff = imageio_ffmpeg.get_ffmpeg_exe()
@@ -88,18 +112,24 @@ async def main():
     model = arg('--model')
     voice_override = arg('--voice')
     instructions = arg('--instructions')
+    drop = tuple(s.strip() for s in (arg('--drop') or '').split(',') if s.strip())
     if intro not in ('full', 'title', 'none'):
         sys.exit('--intro takes full, title or none')
+    bad = [d for d in drop if d not in ('facts', 'recap', 'tasting')]
+    if bad:
+        sys.exit(f'--drop takes facts, recap and/or tasting, not {bad}')
     outdir = os.path.join(ROOT, 'assets', 'audio', region); os.makedirs(outdir, exist_ok=True)
     manifest_path = os.path.join(outdir, 'manifest.json')
     manifest = json.load(open(manifest_path, encoding='utf-8')) if os.path.exists(manifest_path) else {}
+    want = arg('--lang')
     for lang, fname in [('en', f'{region}.js'), ('no', f'{region}.no.js')]:
+        if want and lang != want: continue
         path = os.path.join(ROOT, 'content', fname)
         if not os.path.exists(path): continue
         for i, L in enumerate(lessons_from(path), start=1):
             key = f'{lang}-{i}'
             if only and only != key: continue
-            script = to_script(L, lang, intro)
+            script = to_script(L, lang, intro, drop)
             open(os.path.join(outdir, f'{key}.txt'), 'w', encoding='utf-8').write(script)
             out = os.path.join(outdir, f'{key}.mp3'); lo = os.path.join(outdir, f'{key}.lo.mp3')
             print(f'{key}: {len(script.split())} words -> synthesising ({engine})', flush=True)
@@ -116,6 +146,7 @@ async def main():
             manifest[key] = {'seconds': duration(out), 'voice': used, 'bytes': os.path.getsize(out), 'lo_bytes': os.path.getsize(lo)}
             if cost: manifest[key]['cost'] = cost
             if intro != 'full': manifest[key]['intro'] = intro
+            if drop: manifest[key]['drop'] = ','.join(drop)
             print(f'   {manifest[key]}', flush=True)
             json.dump(manifest, open(manifest_path, 'w', encoding='utf-8'), indent=1)
     print('done')

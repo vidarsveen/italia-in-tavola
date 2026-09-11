@@ -33,6 +33,12 @@ CHUNK_CHARS = 3500
 PCM_ONLY = {'google/gemini-3.1-flash-tts-preview'}
 PCM_RATE = 24000
 
+# Gemini generates at roughly real time, so a 3500-character chunk is four minutes of waiting
+# and flirts with the read timeout. Smaller chunks come back reliably; they still split on
+# paragraph breaks, so the joins are inaudible.
+CHUNK_BY_MODEL = {'google/gemini-3.1-flash-tts-preview': 1800}
+TIMEOUT_BY_MODEL = {'google/gemini-3.1-flash-tts-preview': 600}
+
 # Every provider on this endpoint requires an explicit voice; there is no default.
 DEFAULT_VOICE = {'en': 'en-GB-SoniaNeural', 'no': 'nb-NO-PernilleNeural'}
 REFERER = 'https://vidarsveen.github.io/italia-in-tavola/'
@@ -204,8 +210,9 @@ def join_audio(parts, dst, bitrate='48k'):
 def speak_to_file(text, dst, model=DEFAULT_MODEL, voice=None, speed=None,
                   instructions=None, bitrate='48k', verbose=True):
     """Synthesise arbitrarily long text to one mp3. Returns {seconds, cost, chunks, ...}."""
-    pieces = chunks(text)
+    pieces = chunks(text, CHUNK_BY_MODEL.get(model, CHUNK_CHARS))
     fmt = 'pcm' if model in PCM_ONLY else 'mp3'
+    timeout = TIMEOUT_BY_MODEL.get(model, 300)
     t0 = time.time()
     total_cost, tmp, raw = 0.0, [], b''
     os.makedirs(os.path.dirname(os.path.abspath(dst)) or '.', exist_ok=True)
@@ -213,8 +220,8 @@ def speak_to_file(text, dst, model=DEFAULT_MODEL, voice=None, speed=None,
         for i, piece in enumerate(pieces, 1):
             if verbose and len(pieces) > 1:
                 print(f'    chunk {i}/{len(pieces)} ({len(piece)} chars)', flush=True)
-            audio, gid = speak(piece, model=model, voice=voice, fmt=fmt,
-                               speed=speed, instructions=instructions)
+            audio, gid = speak(piece, model=model, voice=voice, fmt=fmt, speed=speed,
+                               instructions=instructions, timeout=timeout)
             if fmt == 'pcm':
                 raw += audio          # raw samples concatenate without a seam
             else:

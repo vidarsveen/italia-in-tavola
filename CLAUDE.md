@@ -422,6 +422,14 @@ the voice pauses anyway), retries 429/5xx, and reads the real charge back from
   850-character sample cost $0.49. Gemini is 3–5× the price of MAI and about 3× slower.
 - **`tools/narrate.py --engine openrouter --voice <name> [--model <slug>]`** runs the real
   pipeline through it. Default stays `edge`, so nothing existing is disturbed.
+- **`--lang no`** restricts a run to one language; **`--drop facts,recap[,tasting]`** leaves
+  those boxes out of the spoken script only (they stay on screen). The Norwegian edition uses
+  `--drop facts,recap`: 79 `<aside class="facts">` boxes and all 80 `<div class="recap">`
+  closers are lists, not prose, and they interrupt a straight-through listen. Six of the
+  facts boxes are not `Nøkkelfakta` but titled boxes with content that exists nowhere else
+  (`Slik leser du etiketten`, `Reglene i Montalcino`, `Campanias fire DOCG-er`,
+  `Tre nivåer av Chianti Classico`, `Slektstreet`); dropping them was a deliberate choice and
+  is reversible by re-running without `--drop`.
 - **`--intro full|title|none`** controls the spoken opening. `full` (the default, and what all
   160 existing files have) reads the lesson title and then its one-line summary; `title` reads
   the title and goes straight into the prose; `none` starts at the prose. Changing it changes
@@ -434,3 +442,13 @@ the voice pauses anyway), retries 429/5xx, and reads the real charge back from
   Norwegian 7 h 50 m. Chapter titles are stored as UTF-8 (ffmpeg's console output mangles æøå
   on Windows, the file itself is correct — check bytes, not the terminal).
 - `voicelab/` and `audiobook/` are git-ignored scratch.
+
+**The Norwegian edition was re-recorded 2026-09-11** with `google/gemini-3.1-flash-tts-preview`
+voice `Kore`, `--intro title --drop facts,recap`, chosen by the owner from the voice lab. English
+still uses edge-tts `en-GB-SoniaNeural`, so the two languages now differ on purpose; the voice of
+each file is recorded in `assets/audio/<region>/manifest.json`. Practical notes for a repeat run:
+Gemini generates at roughly real time, so `tts.py` chunks it at 1800 characters with a 600 s read
+timeout (3500 characters timed out). One reading costs about $0.27 and takes about five minutes,
+so run regions in parallel; the whole Norwegian course is around $21. `narrate.py` checks every
+result against 190 words a minute and re-renders anything that comes back short, because a
+preview TTS will silently drop part of a long script.
