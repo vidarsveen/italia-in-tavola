@@ -123,5 +123,13 @@
   "artist": "Luca Nebuloni",
   "license": "CC BY 2.0",
   "source": "https://commons.wikimedia.org/wiki/File:Gricia_(7378890110).jpg"
+ },
+ "saltimbocca": {
+  "file": "Saltimbocca cooked (3).jpg",
+  "artist": "Fanny Schertzer",
+  "license": "CC BY 3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Saltimbocca_cooked_(3).jpg",
+  "w": 820,
+  "h": 546
  }
 }

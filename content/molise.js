@@ -96,6 +96,21 @@ window.READINGS['IT-67'] = {
         "artist": "Luca Aless",
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File:Termoli_-_trabucco.jpg"
+    },
+    "ragu": {
+        "artist": "GastRomagna",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Cavatelli_sagra.jpg"
+    },
+    "peperoni": {
+        "artist": "Gabriele De Giovanni",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Peperoni_secchi.jpg"
+    },
+    "fagioli": {
+        "artist": "valtercirillo",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pasta_e_fagioli_-_minestra.jpg"
     }
 },
   lessons: [

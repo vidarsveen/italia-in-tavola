@@ -92,7 +92,10 @@ try:
 
     # 6. a dish chip on the region sheet opens its recipe
     js("location.hash='#/IT-62'"); time.sleep(1.5)
-    check("chips linked", js("document.querySelectorAll('#sheet .dishes a').length"), 4)
+    want = js("(window.RECIPES['IT-62']||[]).filter(r => r.dish).length")
+    check("every Lazio dish with a recipe is linked",
+          js("document.querySelectorAll('#sheet .dishes a').length") == want, True)
+    print("   linked chips on the Lazio sheet:", want)
     tap(*at("#sheet .dishes a[href$='gricia']")); time.sleep(1)
     check("chip opened the recipe", js("location.hash"), "#/recipes/gricia")
 

@@ -34,8 +34,8 @@ Real terrain from 300 m elevation data (AWS Terrain Tiles), a baked shaded-relie
 (simplified from the openpolis ISTAT GeoJSON) drawn as a cased cartographic layer, a pin per region at the overview
 and a landmark model when a region is focused. All twenty regions are fully built out with four illustrated,
 narrated readings each in English and Norwegian, three recap questions per reading, a tasting card for each of the
-89 wines and a 48-term glossary. A recipe collection is starting: Lazio's Roman pastas, in both languages, with
-quantities that rescale to the number of portions. See `PLAN.md` for the roadmap from prototype to production.
+89 wines and a 48-term glossary. A recipe collection covers every cookable dish the course names: 102 recipes in
+both languages, with quantities that rescale to the number of portions. See `PLAN.md` for the roadmap from prototype to production.
 
 ## Files
 

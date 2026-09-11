@@ -12,7 +12,8 @@ illustrated, narrated readings in English and Norwegian (bokmål). Everything is
 and asset files; a build step produces a single-file version for the hosted preview.
 
 - Owner: Vidar (Norwegian). Both languages matter equally. Mobile first, always test on a phone viewport.
-- Done: **all twenty regions** have text EN+NO, photos and narration EN+NO (363 photos, 160 audio files).
+- Done: **all twenty regions** have text EN+NO, photos and narration EN+NO (407 photos, 160 audio files),
+  plus 102 recipes in both languages (§14).
   Three content stems differ from the region name: IT-32 `trentino`, IT-36 `friuli`, IT-23 `valledaosta`.
 - Every wine in the region sheet links to Vinmonopolet; see §11.
 - Live site (the real course, full narration, no size limit): https://vidarsveen.github.io/italia-in-tavola/
@@ -340,4 +341,25 @@ that reading, and to its wine's Vinmonopolet search.
   negotiable), 8-11 steps, two or three `notes` explaining why rather than what, and two or three `variations`.
   Roughly 700-900 words a recipe across the two languages. Write the headnote from the region's own reading so
   the two cannot contradict each other.
-- Done so far: Lazio, four recipes (gricia, cacio e pepe, amatriciana, carbonara).
+- **Done: all twenty regions, 102 recipes**, every cookable dish the course names. The ~30 chips still without
+  a recipe are things you buy rather than cook (Parmigiano, San Daniele, Fontina, the truffles, bergamot,
+  liquorice, the cheeses and salumi) plus six deliberate skips, each of which says so in its own text or was
+  reported as such: cannoli shells (a mould and a second frying), cicchetti (a category, not a dish),
+  lampredotto (abomasum, not sold outside Italy), pane carasau (a trade skill; pane frattau is written instead),
+  panettone (three days on a mother yeast) and limoncello (a maceration).
+- **Write what a kitchen can honestly do.** Where a dish cannot be reproduced at home, say so in the recipe's
+  own first paragraph rather than in a note the reader may not reach, and write what does travel. Sardegna's
+  porceddu is the model: "So this is not porceddu. It is what a kitchen can honestly borrow from it."
+- **Where no free photograph of a dish exists**, say so in the caption and show what the dish is built from —
+  see the seupa in `valledaosta.js`, pampanella in `molise.js`, the goat ragù in `calabria.js`. Do not pass off
+  a photograph of something else.
+- **The Norwegian earns its keep through sourcing notes**, which is the part that could not be translated into
+  existence: torrfisk is not klippfisk and only the unsalted kind whips; jarred *ansjos* in Norway is spiced
+  sprat, so buy sardeller; Norwegian surkal is boiled cabbage with caraway and sugar, not fermented kraut;
+  castrato, farekjott and lammekjott are three different things; most polenta sold here is instant; Norwegian
+  semulegryn is not semola rimacinata. Ask for these in every brief.
+- `tools/recipegap.py` reports what is left per region, and audits chips that appear in no reading of their
+  region (five of about 118). Matching is on the head of the dish name plus any capitalised word, because an
+  Italian name is `<dish> alla <demonym>` and matching the demonym made Saltimbocca alla romana look covered by
+  abbacchio alla romana. A chip with no reading behind it is written the Umbria way: open by connecting it
+  honestly to what the reading does carry, then write the dish on its own terms.

@@ -92,6 +92,21 @@ window.READINGS['IT-78'] = {
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File:Beim-lago-arvo-wald-ginster.jpg"
     },
+    "spada": {
+        "artist": "Auregann",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Sagra_del_pesce_spada_Aci_Trezza_2025_06.jpg"
+    },
+    "capre": {
+        "artist": "Marcuscalabresus",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Capre_in_località_Case_Provenzani_di_Placanica_(Calabria)_agosto_2011.jpg"
+    },
+    "ferretto": {
+        "artist": "Nebbie.nebula",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Ferrazzuoli2026.jpg"
+    },
     "aspromonte": {
         "artist": "Nicoletta Ielasi",
         "license": "CC BY-SA 4.0",

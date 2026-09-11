@@ -96,6 +96,16 @@ window.READINGS['IT-77'] = {
         "artist": "Rocco Sordetti",
         "license": "CC BY-SA 4.0",
         "source": "https://commons.wikimedia.org/wiki/File:Parco_del_pollino-pini_loricati.jpg"
+    },
+    "lagane": {
+        "artist": "GrandeMister2022",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lagane_e_ceci_alla_cosentina.jpg"
+    },
+    "baccala": {
+        "artist": "Rocco Lucia",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Baccal%C3%A0_Avigliano.jpg"
     }
 },
   lessons: [

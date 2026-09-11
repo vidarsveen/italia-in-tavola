@@ -202,6 +202,49 @@ from two regions.
 
 Next: the remaining regions in batches of four parallel workers, as with the readings.
 
+## 6p. Status 2026-09-11, the recipe collection is complete
+
+102 recipes, all twenty regions, both languages, roughly 175,000 words across the pair. Written by twenty
+workers in five batches of four, one region each, against `docs/recipe-format.md` and the long-form depth the
+owner chose after comparing a short and a long carbonara on a phone. Every recipe carries a headnote drawn from
+its own region's reading, 8-12 steps, mechanism notes and variations.
+
+The scope was "every cookable dish the course names". The ~30 chips left without a recipe are things you buy
+rather than cook, plus six deliberate skips that say so in their own text: cannoli shells, cicchetti (a
+category, not a dish), lampredotto, pane carasau, panettone and limoncello.
+
+What made the collection worth having, beyond the recipes themselves:
+
+**Honesty about what a kitchen can do.** Three dishes cannot be reproduced at home and say so in their own
+first paragraph rather than in a footnote -- porceddu ("So this is not porceddu. It is what a kitchen can
+honestly borrow from it"), porchetta and pane carasau. Bought filo for a strudel is rated "half honest".
+
+**Honesty about photographs.** Five dishes have no free photograph anywhere on Commons. Rather than pass off
+something else, the hero shows what the dish is built from and the caption says outright that no photograph of
+it exists: the seupa, fonduta, pampanella, grilled scamorza and the goat ragu.
+
+**Norwegian sourcing notes**, which are the part of this that could not have been translated into existence:
+torrfisk is not klippfisk and only the unsalted kind whips; jarred *ansjos* in Norway is spiced sprat, so buy
+sardeller; Norwegian surkal is boiled cabbage with caraway and sugar and would sweeten a jota; castrato,
+farekjott and lammekjott are three different things; semulegryn is not semola rimacinata; most polenta sold
+here is instant.
+
+**The work proofread the course.** Writing a recipe against a reading turned out to be a decent audit of the
+reading. It found the Piemonte reading calling bonet "the chocolate and amaretto pudding" (the liqueur) where
+the Norwegian correctly said amaretti; the Abruzzo sheet claiming bears roam the Gran Sasso park while the
+reading says the Marsican bear survives only in the Abruzzo, Lazio e Molise park; and five chips naming a dish
+no reading describes. One flag was investigated and rejected -- the Marche brodetto's "thirteen fish" is
+properly attributed to tradition and immediately qualified, so it stands.
+
+Tooling learned the same lessons. `recipecheck` no longer regex-scrapes the COURSE object (a dish name with an
+apostrophe defeated the pattern) and is now also a syntax guard on it; its cup-and-spoon rule no longer rejects
+the English verb "pound"; `recipegap` audits orphan chips; `cooktest` counts against `window.RECIPES` rather
+than literals that go stale every batch; and `tools/test/shot.py` replaces `shot3.sh`, which framed every
+screenshot for the wrong screen.
+
+Remaining roadmap: licensed narration (Azure Speech, about $12 for the whole course) to replace the unlicensed
+edge-tts route before publishing widely, and progress that syncs between devices.
+
 ## 7. Suggested order of work
 
 1. Validate the Lazio reading format with a few learners on phones (this round).
