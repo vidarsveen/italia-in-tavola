@@ -184,6 +184,10 @@ pre{white-space:pre-wrap;color:#cdc0b2;font-size:13px;margin:12px 0 0;
 
 # Filename fragment -> how the row should read. Longest match wins.
 LABELS = [
+    ('nb-kvinne-rolig-t095',       'NbAiLab · Kvinne — 95% speed', 'slowed with atempo'),
+    ('nb-kvinne-rolig-t090',       'NbAiLab · Kvinne — 90% speed', 'slowed with atempo'),
+    ('nb-kvinne-rolig-t085',       'NbAiLab · Kvinne — 85% speed', 'slowed with atempo'),
+    ('nb-kvinne-rolig-t080',       'NbAiLab · Kvinne — 80% speed', 'slowed with atempo'),
     ('nb-kvinne-rolig',            'NbAiLab · Kvinne (Rolig)',  'National Library, Norwegian-trained'),
     ('nb-kvinne-normal',           'NbAiLab · Kvinne (Normal)', 'National Library, Norwegian-trained'),
     ('nb-mann-rolig',              'NbAiLab · Mann (Rolig)',    'National Library, Norwegian-trained'),
@@ -200,8 +204,12 @@ LABELS = [
     ('grok-voice-tts-1-0-eve',     'Grok · Eve',                'multilingual'),
     ('grok-voice-tts-1-0-ara',     'Grok · Ara',                'multilingual'),
     ('grok-voice-tts-1-0-leo',     'Grok · Leo',                'multilingual, male'),
-    ('aura-2-andromeda',           'Aura-2 · Andromeda',        'English only'),
-    ('aura-2-helena',              'Aura-2 · Helena',           'English only'),
+    ('aura-2-andromeda',           'Aura-2 · Andromeda',        'English specialist'),
+    ('aura-2-thalia',              'Aura-2 · Thalia',           'English specialist, their default'),
+    ('aura-2-asteria',             'Aura-2 · Asteria',          'English specialist'),
+    ('minimax-graceful',           'MiniMax · Graceful Lady',   'arena top-15'),
+    ('minimax-narrator',           'MiniMax · Expressive Narrator', 'arena top-15'),
+    ('aura-2-helena',              'Aura-2 · Helena',           'English specialist'),
     ('opening-with',               'Opening — summary read out','flow test'),
     ('opening-without',            'Opening — straight to prose','flow test'),
 ]
@@ -229,7 +237,7 @@ def rebuild(langs=('no', 'en')):
         rows.append({'lang': lang, 'label': label, 'note': note, 'file': f,
                      'model': note, 'seconds': m.get('seconds'), 'cost': None, 'metrics': m})
     # steadiest first: the whole point of the page
-    rows.sort(key=lambda r: (r['lang'] != 'no', (r['metrics'] or {}).get('pitch_sd_st') or 99))
+    rows.sort(key=lambda r: (r['lang'] != 'no', (r['metrics'] or {}).get('wpm') or 0))
     samples = {}
     for lang in langs:
         try:
