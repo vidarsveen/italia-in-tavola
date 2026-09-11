@@ -443,8 +443,38 @@ the voice pauses anyway), retries 429/5xx, and reads the real charge back from
   on Windows, the file itself is correct — check bytes, not the terminal).
 - `voicelab/` and `audiobook/` are git-ignored scratch.
 
-**The Norwegian edition was re-recorded 2026-09-11** with `google/gemini-3.1-flash-tts-preview`
-voice `Kore`, `--intro title --drop facts,recap`, chosen by the owner from the voice lab. English
+### Where this stands (paused 2026-09-12, mid-task)
+
+**Done and committed:** all 80 Norwegian readings re-recorded with NbAiLab (§ below), Opus
+re-encoded for all 20 regions, `build.py` (dist 14.1 MB, under the cap), the §8 tests
+(playertest_no, toggletest, touchtest, introtest, cooktest, maptaptest, caftest, a phone
+screenshot — all pass), `tools/make_site.py` (site/ 404.7 MB) and the Norwegian audiobook
+(`audiobook/italia-in-tavola-no.m4b`, 6 h 22 m, 80 chapters).
+
+**Next step, not yet applied:** loudness normalisation. The re-record ranges from -19.4 to
+-25.4 LUFS reading to reading, a 6.0 dB jump between chapters, which is the same "reach for the
+volume" fault that got the Gemini attempt rejected. English sits at -19.3 to -19.5, so evening
+Norwegian to -19 also stops the level moving when the reader switches language.
+`python tools/normalise.py no --dry-run` reports before -25.4 to -19.4 (6.0 dB spread), after
+-19.4 to -19.0 (0.4 dB). To apply:
+
+    python tools/normalise.py no          # two-pass loudnorm, rewrites the 80 mp3s in place
+    for r in <all 20 regions>: python tools/opus.py $r 12    # .ogg is made from the mp3
+    python build.py && python tools/make_site.py
+    python tools/audiobook.py no
+
+**Not pushed.** Pushing to `main` deploys to GitHub Pages; the owner had not approved that yet.
+Three of the eighty first came back at about 65 words a minute (605 s of speech for 628 words,
+no duplication, normal pauses — the model simply generated more than the script); they were
+re-rendered and all 80 now pass `narrate.rate_ok`. English is untouched and is backlogged in
+PLAN.md §6q.
+
+**The Norwegian edition was re-recorded 2026-09-12** with `NbAiLab/nb-tts-voxcpm2-voices-2607`
+(`--engine nbtts`), voice «Kvinne · Oslo», pace Rolig, `--tempo 0.95`, `--intro title --drop
+facts,recap`, chosen by the owner from the voice lab. Free, and 168 minutes for all 80 files at
+two at a time. An earlier attempt with `google/gemini-3.1-flash-tts-preview` voice `Kore` was
+rejected on listening and then on measurement; see PLAN.md §6q for why, and do not repeat it.
+English
 still uses edge-tts `en-GB-SoniaNeural`, so the two languages now differ on purpose; the voice of
 each file is recorded in `assets/audio/<region>/manifest.json`. Practical notes for a repeat run:
 Gemini generates at roughly real time, so `tts.py` chunks it at 1800 characters with a 600 s read

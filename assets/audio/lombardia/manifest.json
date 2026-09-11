@@ -28,31 +28,39 @@
   "ogg_bytes": 613594
  },
  "no-1": {
-  "seconds": 376.1,
-  "voice": "nb-NO-PernilleNeural",
-  "bytes": 2256624,
-  "lo_bytes": 752624,
-  "ogg_bytes": 518794
+  "seconds": 297.6,
+  "voice": "nbtts/Kvinne \u00b7 Oslo@0.95",
+  "bytes": 1785980,
+  "lo_bytes": 595592,
+  "intro": "title",
+  "drop": "facts,recap",
+  "ogg_bytes": 431371
  },
  "no-2": {
-  "seconds": 429.8,
-  "voice": "nb-NO-PernilleNeural",
-  "bytes": 2578896,
-  "lo_bytes": 860048,
-  "ogg_bytes": 589393
+  "seconds": 336.9,
+  "voice": "nbtts/Kvinne \u00b7 Oslo@0.95",
+  "bytes": 2021852,
+  "lo_bytes": 674216,
+  "intro": "title",
+  "drop": "facts,recap",
+  "ogg_bytes": 484479
  },
  "no-3": {
-  "seconds": 403.8,
-  "voice": "nb-NO-PernilleNeural",
-  "bytes": 2422944,
-  "lo_bytes": 808064,
-  "ogg_bytes": 564330
+  "seconds": 346.7,
+  "voice": "nbtts/Kvinne \u00b7 Oslo@0.95",
+  "bytes": 2080604,
+  "lo_bytes": 693800,
+  "intro": "title",
+  "drop": "facts,recap",
+  "ogg_bytes": 502247
  },
  "no-4": {
-  "seconds": 401.4,
-  "voice": "nb-NO-PernilleNeural",
-  "bytes": 2408112,
-  "lo_bytes": 803096,
-  "ogg_bytes": 565430
+  "seconds": 327.1,
+  "voice": "nbtts/Kvinne \u00b7 Oslo@0.95",
+  "bytes": 1963100,
+  "lo_bytes": 654632,
+  "intro": "title",
+  "drop": "facts,recap",
+  "ogg_bytes": 479043
  }
 }
