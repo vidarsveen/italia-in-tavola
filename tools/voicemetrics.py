@@ -122,10 +122,13 @@ def script_for(path):
 
 
 if __name__ == '__main__':
-    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    argv = sys.argv[1:]
     words = None
-    if '--words' in sys.argv:
-        words = int(sys.argv[sys.argv.index('--words') + 1])
+    if '--words' in argv:
+        i = argv.index('--words')
+        words = int(argv[i + 1])
+        argv = argv[:i] + argv[i + 2:]          # do not treat the count as a filename
+    args = [a for a in argv if not a.startswith('--')]
     paths = [p for a in args for p in (glob.glob(a) if '*' in a else [a])]
     if not paths:
         sys.exit(__doc__)

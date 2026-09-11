@@ -115,6 +115,8 @@ td.note{color:#a99c8e;font-size:13px}
 td.num{color:#a99c8e;font-variant-numeric:tabular-nums;white-space:nowrap}
 audio{height:34px;width:260px;max-width:44vw;vertical-align:middle}
 .err{color:#e08a7a;font-size:13px}
+td.hot{color:#e0a97a}
+p.legend{color:#7d7168;font-size:12px;margin:10px 0 0;line-height:1.5}
 details{margin:18px 0;background:#1c1815;border:1px solid #2e2723;border-radius:10px;padding:12px 14px}
 summary{cursor:pointer;color:#e2c489;font-weight:600}
 pre{white-space:pre-wrap;color:#cdc0b2;font-size:13px;margin:12px 0 0;
@@ -133,22 +135,35 @@ pre{white-space:pre-wrap;color:#cdc0b2;font-size:13px;margin:12px 0 0;
         if not got:
             continue
         parts.append(f'<h2>{LANG_NAME.get(lang, lang)}</h2>')
-        parts.append('<table><tr><th>Voice</th><th>Listen</th><th>Length</th><th>Cost</th>'
-                     '<th class="note">Model</th></tr>')
+        parts.append('<table><tr><th>Voice</th><th>Listen</th><th>Pace</th>'
+                     '<th title="standard deviation of pitch in semitones: under 1.5 is flat, '
+                     'over 4 performs at you">Pitch</th>'
+                     '<th title="EBU R128 loudness range: over 8 LU means reaching for the '
+                     'volume">Level</th><th>Cost</th><th class="note">Model</th></tr>')
         for r in got:
             if r.get('error'):
                 parts.append(f'<tr><td class="voice">{H.escape(r["label"])}</td>'
-                             f'<td colspan="4" class="err">{H.escape(r["error"][:200])}</td></tr>')
+                             f'<td colspan="6" class="err">{H.escape(r["error"][:200])}</td></tr>')
                 continue
             src = H.escape(os.path.basename(r['file']))
-            secs = r.get('seconds')
-            length = f'{int(secs // 60)}:{int(secs % 60):02d}' if secs else '&mdash;'
-            cost = f'${r["cost"]:.4f}' if r.get('cost') else '&mdash;'
+            m = r.get('metrics') or {}
+            num = lambda v, s='': f'{v}{s}' if v is not None else '&mdash;'
+            # the two columns that decide whether a voice is tiring over hours
+            pitch, lra = m.get('pitch_sd_st'), m.get('lra')
+            pc = 'hot' if pitch and pitch > 4 else 'flat' if pitch and pitch < 1.5 else ''
+            lc = 'hot' if lra and lra > 8 else ''
             parts.append(f'<tr><td class="voice">{H.escape(r["label"])}</td>'
                          f'<td><audio controls preload="none" src="{src}"></audio></td>'
-                         f'<td class="num">{length}</td><td class="num">{cost}</td>'
+                         f'<td class="num">{num(m.get("wpm"))}</td>'
+                         f'<td class="num {pc}">{num(pitch, " st")}</td>'
+                         f'<td class="num {lc}">{num(lra, " LU")}</td>'
+                         f'<td class="num">{"$%.4f" % r["cost"] if r.get("cost") else "&mdash;"}</td>'
                          f'<td class="note">{H.escape(r["model"].split("/")[-1])}</td></tr>')
         parts.append('</table>')
+        parts.append('<p class="legend">Pace is words a minute (audiobooks sit near 150). '
+                     'Pitch is how far the voice swings, in semitones &mdash; steady narration '
+                     'is 2&ndash;3.5, over 4 performs at you. Level is EBU R128 loudness range; '
+                     'a wide one means adjusting the volume between chapters.</p>')
         parts.append(f'<details><summary>The text these clips read</summary>'
                      f'<pre>{H.escape(samples.get(lang, ""))}</pre></details>')
 
@@ -232,6 +247,15 @@ def main():
                     print(' ok')
                 except Exception as e:
                     print(f' FAILED: {str(e)[:140]}')
+
+    import voicemetrics
+    for r in rows:
+        if r.get('error') or not r.get('file'):
+            continue
+        try:
+            r['metrics'] = voicemetrics.measure(r['file'], words=len(samples[r['lang']].split()))
+        except Exception as e:
+            print(f'  metrics failed for {r["label"]}: {e}')
 
     meta = {'region': region, 'lesson': lesson, 'chars': chars, 'langs': langs,
             'built': time.strftime('%Y-%m-%d %H:%M')}
