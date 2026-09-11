@@ -245,6 +245,40 @@ screenshot for the wrong screen.
 Remaining roadmap: licensed narration (Azure Speech, about $12 for the whole course) to replace the unlicensed
 edge-tts route before publishing widely, and progress that syncs between devices.
 
+## 6q. Status 2026-09-11, the Norwegian narration re-recorded
+
+The Norwegian edition was re-recorded in the National Library of Norway's own voice
+(`NbAiLab/nb-tts-voxcpm2-voices-2607`, «Kvinne · Oslo», pace Rolig, stretched to 95%), free
+and keyless through its public Space. Openings are the lesson title only; the `Nøkkelfakta`
+box and the `Før du går videre` recap are no longer spoken, because read aloud they are lists
+that interrupt the prose. See CLAUDE.md §16 for the tooling and the numbers.
+
+The route there is worth remembering. Gemini 3.1 Flash TTS was tried first and rejected on
+listening: `tools/voicemetrics.py` put its pitch spread at 4.7–5.3 semitones against 3.5 for a
+steady narrator, and — worse for an audiobook — it drifted between files, 165–186 Hz and
+−16.6 to −18.2 LUFS across four readings where the old voice held 163–165 Hz and −21.8 LUFS.
+A narrator that changes character between chapters makes the listener reach for the volume.
+Note that Gemini is eighth in the world on the Artificial Analysis Speech Arena: that benchmark
+asks which of two short clips "sounds more natural", which rewards the expressiveness that
+makes long-form listening tiring. For a course, a narrator who disappears beats a charismatic one.
+
+### Backlog: English narration
+
+English still uses edge-tts `en-GB-SoniaNeural` and was deliberately left alone. Two separate
+items when it comes up:
+
+1. **Pace varies 138–166 wpm across readings** — `valledaosta en-3` at 165.9 is genuinely
+   rushed. The voice itself is rock-steady (F0 197.5–200 Hz, pitch 3.53–3.62, −19.3 to
+   −19.5 LUFS on every file measured); the variation comes from pause density in the text, so
+   it would survive any change of voice. A per-file `atempo` pass fixes it with no
+   re-synthesis and no cost.
+2. **A steadier voice, if wanted.** Deepgram Aura-2 is an English specialist (41 English
+   voices, no Norwegian at all) and sweeps the top of the measurements: Andromeda 2.95 st,
+   Thalia 3.24, Asteria 3.19, Helena 3.27, against Sonia's 3.47. Aura-2 runs quiet, −25 to
+   −27 LUFS, so it would need normalising to about −19 to sit beside the rest. Roughly $25 for
+   all 80 readings. Clips are in the voice lab; rebuild it with
+   `python tools/voicelab.py --rebuild`.
+
 ## 7. Suggested order of work
 
 1. Validate the Lazio reading format with a few learners on phones (this round).
