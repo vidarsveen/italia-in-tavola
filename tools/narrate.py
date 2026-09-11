@@ -75,40 +75,56 @@ async def synth(text, voice, out):
     c = edge_tts.Communicate(text, voice, rate=RATE)
     await c.save(out)
 
-# Every existing Norwegian file sits between 126 and 157 words a minute. A rendering that
-# comes back far shorter than that means the model silently dropped part of the script, which
-# a preview TTS will do on a 5000-character input. Catch it here rather than on the phone.
-SLOWEST_WPM = 190
+# Every existing Norwegian file sits between 126 and 157 words a minute. A rendering outside a
+# generous band around that is wrong in one of two ways, and both happen with neural TTS on a
+# long script: too few seconds for the words means the model silently dropped part of the text;
+# too many means it rambled or repeated a passage. Catch both here rather than on the phone.
+SLOWEST_WPM = 190          # faster than this => the audio is too short => text was dropped
+FASTEST_WPM = 95           # slower than this => the audio is too long => model rambled
+
+def rate_ok(seconds, words, tempo=1.0):
+    """(ok, wpm, why). tempo<1 stretches the audio, so scale the band with it."""
+    if not seconds or not words:
+        return True, None, ''
+    wpm = words / seconds * 60
+    lo, hi = FASTEST_WPM * tempo, SLOWEST_WPM * tempo
+    if wpm > hi:
+        return False, wpm, 'too short, text was dropped'
+    if wpm < lo:
+        return False, wpm, 'too long, the model rambled or repeated'
+    return True, wpm, ''
 
 def synth_openrouter(text, lang, out, model, voice, instructions=None, tries=2):
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import tts
     # No tone steering unless asked for: only some providers honour `instructions`, and the
     # voice was chosen from voicelab clips rendered without it. Match what was approved.
-    floor = len(text.split()) / SLOWEST_WPM * 60
+    words = len(text.split())
     for attempt in range(1, tries + 1):
         info = tts.speak_to_file(text, out, model=model, voice=voice,
                                  instructions=instructions)
-        if (info.get('seconds') or 0) >= floor:
+        ok, wpm, why = rate_ok(info.get('seconds'), words)
+        if ok:
             return info
-        print(f'   short: {info["seconds"]}s for {len(text.split())} words '
-              f'(expected {floor:.0f}s+)' + (', retrying' if attempt < tries else ', KEEPING ANYWAY'),
+        print(f'   {why}: {info["seconds"]}s for {words} words = {wpm:.0f} wpm'
+              + (f', retrying ({attempt}/{tries})' if attempt < tries else ', KEEPING ANYWAY'),
               flush=True)
-    info['short'] = True
+    info['suspect'] = why
     return info
 
-def synth_nbtts(text, out, voice, pace, tempo, tries=2):
+def synth_nbtts(text, out, voice, pace, tempo, tries=3):
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import nbtts
-    floor = len(text.split()) / SLOWEST_WPM * 60 * (1 / max(tempo, 0.01))
+    words = len(text.split())
     for attempt in range(1, tries + 1):
         info = nbtts.speak_to_file(text, out, voice=voice, pace=pace, tempo=tempo)
-        if (info.get('seconds') or 0) >= floor:
+        ok, wpm, why = rate_ok(info.get('seconds'), words, tempo)
+        if ok:
             return info
-        print(f'   short: {info["seconds"]}s for {len(text.split())} words '
-              f'(expected {floor:.0f}s+)' + (', retrying' if attempt < tries else ', KEEPING ANYWAY'),
+        print(f'   {why}: {info["seconds"]}s for {words} words = {wpm:.0f} wpm'
+              + (f', retrying ({attempt}/{tries})' if attempt < tries else ', KEEPING ANYWAY'),
               flush=True)
-    info['short'] = True
+    info['suspect'] = why
     return info
 
 def duration(path):
