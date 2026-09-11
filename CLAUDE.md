@@ -388,3 +388,49 @@ Shown once, remembered in localStorage as `iit-seen`.
 - `?instant` skips it, which is what keeps every other headless test working; `?intro` forces it for
   screenshots. Its own test is `python tools/test/introtest.py` (first visit, language, dismissal, persistence,
   both ways back).
+
+## 16. OpenRouter voices and the audiobook (added 2026-09-11)
+
+The 160 narration files were all made with `edge-tts` (free, unofficial). `tools/tts.py` adds a
+second engine: OpenRouter's OpenAI-compatible speech endpoint, `POST /api/v1/audio/speech`.
+The key lives in `.env` at the project root (git-ignored, `.env.example` shows the shape):
+
+    OPENROUTER_API_KEY=sk-or-v1-...
+
+**OpenAI's voices are not available there.** Every `openai/*tts*` slug the OpenRouter docs and
+model pages name answers `Model ... does not exist` (probed 2026-09-11: `gpt-4o-mini-tts`,
+`gpt-4o-mini-tts-2025-12-15`, `tts-1`, `tts-1-hd`, `gpt-audio-mini`). Do not spend time on it
+again; for alloy/nova/sage you need OpenAI directly, not OpenRouter. What does answer:
+
+| Model | Voices | Norwegian | Format |
+| --- | --- | --- | --- |
+| `microsoft/mai-voice-2` | Azure names (`en-GB-SoniaNeural`, `nb-NO-PernilleNeural`, …) | yes, real nb-NO voices | mp3 |
+| `google/gemini-3.1-flash-tts-preview` | Kore, Aoede, Puck, … | yes, 70+ languages | **pcm only**, `tts.py` encodes it |
+| `x-ai/grok-voice-tts-1.0` | Eve, Ara, Rex, Sal, Leo | yes, auto-detected | mp3 |
+| `deepgram/aura-2` | 90 voices, `aura-2-<name>-<lang>` | **no** (en/es/nl/it/de/ja/fr only) | mp3 |
+
+Every provider demands an explicit `voice`; there is no default. A bad voice name on
+`deepgram/aura-2` returns the full valid list in the error, which is the cheapest way to
+enumerate one. `tts.py` chunks at 3500 characters on paragraph boundaries (so joins land where
+the voice pauses anyway), retries 429/5xx, and reads the real charge back from
+`/api/v1/generation` rather than trusting a hardcoded price table.
+
+- **`tools/voicelab.py`** renders the same real spoken script in every candidate voice and
+  writes `voicelab/index.html`, a page with one player per voice, both languages, with duration
+  and actual cost. `--all` for the full catalogue, `--dry-run` to cost it first, `--intro` to
+  also render the opening with and without the summary read out. A full 24-clip run of an
+  850-character sample cost $0.49. Gemini is 3–5× the price of MAI and about 3× slower.
+- **`tools/narrate.py --engine openrouter --voice <name> [--model <slug>]`** runs the real
+  pipeline through it. Default stays `edge`, so nothing existing is disturbed.
+- **`--intro full|title|none`** controls the spoken opening. `full` (the default, and what all
+  160 existing files have) reads the lesson title and then its one-line summary; `title` reads
+  the title and goes straight into the prose; `none` starts at the prose. Changing it changes
+  the script, so `tools/review_no.py --stale` will correctly call those files stale.
+- **`tools/audiobook.py <lang>`** binds the 80 readings of one language, in `ORDER`, into
+  `audiobook/italia-in-tavola-<lang>.m4b` with one chapter per reading ("Lazio · 1. The
+  Castelli Romani and Frascati"), plus an `.m3u` and `chapters-<lang>.json`. `--list` prints
+  the running order with timecodes, `--per-region` makes twenty small books, `--gap` sets the
+  silence between readings, `--mp3` also writes a plain joined file. English is 7 h 52 m,
+  Norwegian 7 h 50 m. Chapter titles are stored as UTF-8 (ffmpeg's console output mangles æøå
+  on Windows, the file itself is correct — check bytes, not the terminal).
+- `voicelab/` and `audiobook/` are git-ignored scratch.

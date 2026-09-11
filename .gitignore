@@ -21,3 +21,10 @@ __pycache__/
 _review/
 # photo candidates downloaded by tools/commons.py
 _photos/
+
+# API keys (tools/tts.py reads OPENROUTER_API_KEY from here)
+.env
+
+# TTS scratch: voice comparison clips and built audiobooks
+voicelab/
+audiobook/

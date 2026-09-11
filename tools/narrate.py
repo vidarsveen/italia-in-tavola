@@ -8,7 +8,18 @@ sentences), synthesises it with a neural voice, and writes:
   assets/audio/<region>/<lang>-<n>.lo.mp3   20 kbit/s mono, small enough to inline in the artifact
   assets/audio/<region>/manifest.json       durations in seconds
 
+Two engines:
+  --engine edge        Microsoft Edge neural voices, free, the default (all 160 files use it)
+  --engine openrouter  OpenRouter's OpenAI-compatible speech endpoint (tools/tts.py, needs
+                       OPENROUTER_API_KEY in .env). Pick the voice with tools/voicelab.py.
+
+The spoken script normally opens with the lesson title and its one-line summary. --intro
+controls that: full (default, what every existing file has), title (title only, then straight
+into the prose) or none. Changing it changes the script, so every file rendered with a
+different setting is a deliberate re-record.
+
 Usage: python tools/narrate.py lazio [--only en-3]
+       python tools/narrate.py lazio --engine openrouter --voice nova --intro title
 """
 import asyncio, html, json, os, re, subprocess, sys
 import edge_tts, imageio_ffmpeg
@@ -16,6 +27,10 @@ import edge_tts, imageio_ffmpeg
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VOICES = {'en': 'en-GB-SoniaNeural', 'no': 'nb-NO-PernilleNeural'}
 RATE = '-4%'
+ARGS = sys.argv[1:]
+
+def arg(name, default=None):
+    return ARGS[ARGS.index(name) + 1] if name in ARGS else default
 
 def lessons_from(path):
     src = open(path, encoding='utf-8').read()
@@ -26,7 +41,7 @@ def lessons_from(path):
         out.append({'title': unesc(m.group(1)), 'kicker': unesc(m.group(2)), 'minutes': int(m.group(3)), 'summary': unesc(m.group(4)), 'html': m.group(5)})
     return out
 
-def to_script(lesson, lang):
+def to_script(lesson, lang, intro='full'):
     h = lesson['html']
     h = re.sub(r'<figure.*?</figure>', ' ', h, flags=re.S)
     # tables: "Colour: value."
@@ -39,13 +54,21 @@ def to_script(lesson, lang):
     h = html.unescape(h)
     h = re.sub(r'[ \t]+', ' ', h)
     h = re.sub(r'\n\s*\n+', '\n\n', h).strip()
-    intro = f"{lesson['title']}.\n\n{lesson['summary']}\n\n"
+    head = {'full': f"{lesson['title']}.\n\n{lesson['summary']}\n\n",
+            'title': f"{lesson['title']}.\n\n",
+            'none': ''}[intro]
     outro = "\n\nSlutt på leseteksten." if lang == 'no' else "\n\nEnd of this reading."
-    return intro + h + outro
+    return head + h + outro
 
 async def synth(text, voice, out):
     c = edge_tts.Communicate(text, voice, rate=RATE)
     await c.save(out)
+
+def synth_openrouter(text, lang, out, model, voice, instructions=None):
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import tts, voicelab
+    return tts.speak_to_file(text, out, model=model, voice=voice,
+                             instructions=instructions or voicelab.INSTRUCTIONS[lang])
 
 def duration(path):
     ff = imageio_ffmpeg.get_ffmpeg_exe()
@@ -59,7 +82,14 @@ def compress(src, dst):
 
 async def main():
     region = sys.argv[1]
-    only = sys.argv[sys.argv.index('--only')+1] if '--only' in sys.argv else None
+    only = arg('--only')
+    engine = arg('--engine', 'edge')
+    intro = arg('--intro', 'full')
+    model = arg('--model')
+    voice_override = arg('--voice')
+    instructions = arg('--instructions')
+    if intro not in ('full', 'title', 'none'):
+        sys.exit('--intro takes full, title or none')
     outdir = os.path.join(ROOT, 'assets', 'audio', region); os.makedirs(outdir, exist_ok=True)
     manifest_path = os.path.join(outdir, 'manifest.json')
     manifest = json.load(open(manifest_path, encoding='utf-8')) if os.path.exists(manifest_path) else {}
@@ -69,13 +99,23 @@ async def main():
         for i, L in enumerate(lessons_from(path), start=1):
             key = f'{lang}-{i}'
             if only and only != key: continue
-            script = to_script(L, lang)
+            script = to_script(L, lang, intro)
             open(os.path.join(outdir, f'{key}.txt'), 'w', encoding='utf-8').write(script)
             out = os.path.join(outdir, f'{key}.mp3'); lo = os.path.join(outdir, f'{key}.lo.mp3')
-            print(f'{key}: {len(script.split())} words -> synthesising', flush=True)
-            await synth(script, VOICES[lang], out)
+            print(f'{key}: {len(script.split())} words -> synthesising ({engine})', flush=True)
+            if engine == 'openrouter':
+                import tts as _tts
+                info = synth_openrouter(script, lang, out, model or _tts.DEFAULT_MODEL,
+                                        voice_override or 'nova', instructions)
+                used = f'{info["model"]}/{info["voice"]}'
+                cost = info.get('cost')
+            else:
+                await synth(script, voice_override or VOICES[lang], out)
+                used, cost = voice_override or VOICES[lang], None
             compress(out, lo)
-            manifest[key] = {'seconds': duration(out), 'voice': VOICES[lang], 'bytes': os.path.getsize(out), 'lo_bytes': os.path.getsize(lo)}
+            manifest[key] = {'seconds': duration(out), 'voice': used, 'bytes': os.path.getsize(out), 'lo_bytes': os.path.getsize(lo)}
+            if cost: manifest[key]['cost'] = cost
+            if intro != 'full': manifest[key]['intro'] = intro
             print(f'   {manifest[key]}', flush=True)
             json.dump(manifest, open(manifest_path, 'w', encoding='utf-8'), indent=1)
     print('done')
