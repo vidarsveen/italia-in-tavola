@@ -38,20 +38,39 @@ def client():
     return _client
 
 
-def speak_to_file(text, dst, voice='Kvinne · Oslo', pace='Normal', bitrate='48k'):
-    """Synthesise and transcode to mp3 so it sits beside the other voicelab clips."""
+def speak_to_file(text, dst, voice='Kvinne · Oslo', pace='Normal', bitrate='48k',
+                  tempo=1.0, retries=3):
+    """Synthesise and transcode to mp3 so it sits beside the other voicelab clips.
+
+    `tempo` below 1.0 stretches the delivery without moving the pitch: 'Rolig' is the slowest
+    setting the model offers and still reads at about 150 words a minute, which is brisk for a
+    course. The stretch happens in the same ffmpeg pass as the mp3 encode, so nothing is
+    encoded twice. atempo is clean down to about 0.8; below that it starts to smear.
+    """
     t0 = time.time()
-    out = client().predict(text=text, voice=voice, pace=pace, api_name='/synthesize')
+    delay = 10
+    for attempt in range(1, retries + 1):
+        try:
+            out = client().predict(text=text, voice=voice, pace=pace, api_name='/synthesize')
+            break
+        except Exception as e:
+            if attempt == retries:
+                raise
+            print(f'    Space error ({str(e)[:80]}), retrying in {delay}s', flush=True)
+            time.sleep(delay)
+            delay *= 2
+            globals()['_client'] = None          # the Space may have slept; reconnect
     wav = out[0] if isinstance(out, (list, tuple)) else out
     status = out[1] if isinstance(out, (list, tuple)) and len(out) > 1 else ''
     os.makedirs(os.path.dirname(os.path.abspath(dst)) or '.', exist_ok=True)
-    if dst.lower().endswith('.wav'):
+    if dst.lower().endswith('.wav') and tempo == 1.0:
         shutil.copy(wav, dst)
     else:
-        subprocess.run([tts.ffmpeg(), '-y', '-loglevel', 'error', '-i', wav, '-ac', '1',
-                        '-b:a', bitrate, '-codec:a', 'libmp3lame', dst], check=True)
+        af = ['-filter:a', f'atempo={tempo}'] if tempo != 1.0 else []
+        subprocess.run([tts.ffmpeg(), '-y', '-loglevel', 'error', '-i', wav] + af +
+                       ['-ac', '1', '-b:a', bitrate, '-codec:a', 'libmp3lame', dst], check=True)
     return {'path': dst, 'voice': voice, 'pace': pace, 'model': MODEL, 'cost': 0.0,
-            'seconds': tts.duration(dst), 'bytes': os.path.getsize(dst),
+            'tempo': tempo, 'seconds': tts.duration(dst), 'bytes': os.path.getsize(dst),
             'wall': round(time.time() - t0, 1), 'status': status.replace('\n', ' ')[:200]}
 
 

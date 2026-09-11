@@ -12,6 +12,9 @@ Two engines:
   --engine edge        Microsoft Edge neural voices, free, the default (all 160 files use it)
   --engine openrouter  OpenRouter's OpenAI-compatible speech endpoint (tools/tts.py, needs
                        OPENROUTER_API_KEY in .env). Pick the voice with tools/voicelab.py.
+  --engine nbtts       The National Library of Norway's Norwegian model (tools/nbtts.py), free,
+                       no key. --voice 'Kvinne · Oslo' or 'Mann · Oslo', --pace Rolig|Normal|Rask,
+                       --tempo 0.95 to stretch the delivery without moving the pitch.
 
 The spoken script normally opens with the lesson title and its one-line summary. --intro
 controls that: full (default, what every existing file has), title (title only, then straight
@@ -94,6 +97,20 @@ def synth_openrouter(text, lang, out, model, voice, instructions=None, tries=2):
     info['short'] = True
     return info
 
+def synth_nbtts(text, out, voice, pace, tempo, tries=2):
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import nbtts
+    floor = len(text.split()) / SLOWEST_WPM * 60 * (1 / max(tempo, 0.01))
+    for attempt in range(1, tries + 1):
+        info = nbtts.speak_to_file(text, out, voice=voice, pace=pace, tempo=tempo)
+        if (info.get('seconds') or 0) >= floor:
+            return info
+        print(f'   short: {info["seconds"]}s for {len(text.split())} words '
+              f'(expected {floor:.0f}s+)' + (', retrying' if attempt < tries else ', KEEPING ANYWAY'),
+              flush=True)
+    info['short'] = True
+    return info
+
 def duration(path):
     ff = imageio_ffmpeg.get_ffmpeg_exe()
     r = subprocess.run([ff, '-i', path], capture_output=True, text=True)
@@ -133,7 +150,12 @@ async def main():
             open(os.path.join(outdir, f'{key}.txt'), 'w', encoding='utf-8').write(script)
             out = os.path.join(outdir, f'{key}.mp3'); lo = os.path.join(outdir, f'{key}.lo.mp3')
             print(f'{key}: {len(script.split())} words -> synthesising ({engine})', flush=True)
-            if engine == 'openrouter':
+            if engine == 'nbtts':
+                info = synth_nbtts(script, out, voice_override or 'Kvinne · Oslo',
+                                   arg('--pace', 'Rolig'), float(arg('--tempo', '1.0')))
+                used = f'nbtts/{info["voice"]}@{info["tempo"]}'
+                cost = None
+            elif engine == 'openrouter':
                 import tts as _tts
                 info = synth_openrouter(script, lang, out, model or _tts.DEFAULT_MODEL,
                                         voice_override or 'nova', instructions)
