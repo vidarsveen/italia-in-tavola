@@ -15,7 +15,7 @@ duration, the wall-clock time and what OpenRouter actually charged.
 
 Open voicelab/index.html in a browser afterwards.
 """
-import html as H, json, os, re, sys, time
+import glob, html as H, json, os, re, sys, time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import tts
@@ -72,6 +72,9 @@ INSTRUCTIONS = {
 }
 
 LANG_NAME = {'en': 'English', 'no': 'Norsk'}
+
+# word counts of the standard 850-character sample, for words-per-minute
+WORDS = {'en': 139, 'no': 139}
 
 
 def sample(region, lesson, lang, chars, keep_intro=False):
@@ -177,10 +180,76 @@ pre{white-space:pre-wrap;color:#cdc0b2;font-size:13px;margin:12px 0 0;
     return path
 
 
+# ---------------------------------------------------------------- rebuild from disk
+
+# Filename fragment -> how the row should read. Longest match wins.
+LABELS = [
+    ('nb-kvinne-rolig',            'NbAiLab · Kvinne (Rolig)',  'National Library, Norwegian-trained'),
+    ('nb-kvinne-normal',           'NbAiLab · Kvinne (Normal)', 'National Library, Norwegian-trained'),
+    ('nb-mann-rolig',              'NbAiLab · Mann (Rolig)',    'National Library, Norwegian-trained'),
+    ('nb-mann-normal',             'NbAiLab · Mann (Normal)',   'National Library, Norwegian-trained'),
+    ('mai-voice-2-nb-no-pernille', 'MAI · Pernille',            'your original voice, Azure quality'),
+    ('mai-voice-2-nb-no-iselin',   'MAI · Iselin',              'native nb-NO'),
+    ('mai-voice-2-nb-no-finn',     'MAI · Finn',                'native nb-NO, male'),
+    ('mai-voice-2-en-gb-sonia',    'MAI · Sonia',               'your original English voice'),
+    ('mai-voice-2-en-gb-libby',    'MAI · Libby',               'native en-GB'),
+    ('mai-voice-2-en-gb-ryan',     'MAI · Ryan',                'native en-GB, male'),
+    ('gemini-3-1-flash-tts-preview-kore',  'Gemini · Kore',  'what the 24 re-recorded files use'),
+    ('gemini-3-1-flash-tts-preview-aoede', 'Gemini · Aoede', 'multilingual'),
+    ('gemini-3-1-flash-tts-preview-puck',  'Gemini · Puck',  'multilingual, male'),
+    ('grok-voice-tts-1-0-eve',     'Grok · Eve',                'multilingual'),
+    ('grok-voice-tts-1-0-ara',     'Grok · Ara',                'multilingual'),
+    ('grok-voice-tts-1-0-leo',     'Grok · Leo',                'multilingual, male'),
+    ('aura-2-andromeda',           'Aura-2 · Andromeda',        'English only'),
+    ('aura-2-helena',              'Aura-2 · Helena',           'English only'),
+    ('opening-with',               'Opening — summary read out','flow test'),
+    ('opening-without',            'Opening — straight to prose','flow test'),
+]
+
+
+def rebuild(langs=('no', 'en')):
+    """Rebuild index.html from the clips already on disk. Measures, never calls an API."""
+    import voicemetrics
+    rows = []
+    for f in sorted(glob.glob(os.path.join(OUT, '*.mp3'))):
+        base = os.path.basename(f)
+        if base.startswith('_'):
+            continue
+        lang = base.split('-')[0]
+        if lang not in langs:
+            continue
+        hit = max((l for l in LABELS if l[0] in base), key=lambda l: len(l[0]), default=None)
+        label, note = (hit[1], hit[2]) if hit else (base[:-4], '')
+        print(f'  measuring {base} …', flush=True)
+        try:
+            m = voicemetrics.measure(f, words=WORDS.get(lang))
+        except Exception as e:
+            print(f'    failed: {e}')
+            m = {}
+        rows.append({'lang': lang, 'label': label, 'note': note, 'file': f,
+                     'model': note, 'seconds': m.get('seconds'), 'cost': None, 'metrics': m})
+    # steadiest first: the whole point of the page
+    rows.sort(key=lambda r: (r['lang'] != 'no', (r['metrics'] or {}).get('pitch_sd_st') or 99))
+    samples = {}
+    for lang in langs:
+        try:
+            samples[lang] = sample('lazio', 1, lang, 850)
+        except SystemExit:
+            pass
+    meta = {'region': 'lazio', 'lesson': 1, 'chars': 850,
+            'langs': [l for l in langs if any(r['lang'] == l for r in rows)],
+            'built': time.strftime('%Y-%m-%d %H:%M')}
+    return render(rows, samples, meta)
+
+
 def main():
     a = sys.argv[1:]
     def opt(name, default=None):
         return a[a.index(name) + 1] if name in a else default
+
+    if '--rebuild' in a:
+        print('open ' + rebuild())
+        return
 
     region = opt('--region', 'lazio')
     lesson = int(opt('--lesson', '1'))
