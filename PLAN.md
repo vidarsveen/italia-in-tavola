@@ -347,6 +347,116 @@ Do not build a general course CMS. Two courses is not enough evidence for the ri
 and the time goes into framework instead of content. Extract what is demonstrably shared, copy
 what is cheap to copy, and let a third course show what actually generalises.
 
+## 10. The India course: shape and prose (proposed 2026-09-12)
+
+Direction from the owner: the point is Indian cuisine with some history, not detailed geography.
+He knows India less well than Italy, so the regional differences are the thing worth teaching.
+He wants a map, but it need not be as detailed. Wine has no Indian equivalent and the
+Vinmonopolet layer cannot come along. Nothing here is built yet; §9 lists what must be
+un-welded first.
+
+### What occupies the slot wine occupied
+
+**The spice pantry.** Wine earned two readings because it is a system with names, places and
+rules. Techniques (tandoor, dum, bhuna, tadka) cut across regions and belong in the glossary,
+and dishes are already reading three. What is genuinely regional and systematic is what sits in
+the masala dabba: Bengali panch phoron, Maharashtrian goda masala, Kashmiri ver, Chettinad's
+roasted spices, Gujarati dhana-jeera. It is also the thing a European most reliably gets wrong,
+"curry powder" being the equivalent of thinking all Italian red is Chianti.
+
+Proposed four-reading rhythm, which keeps the existing shape so `COURSE.lessons`, the kickers
+and every content format survive:
+
+1. The spice logic of this region: what is in the pantry and why (climate, trade, conquest).
+2. The staple and the table: rice, wheat or millet, and how a meal is built. The thali.
+3. The dishes.
+4. The place and its history: pre-colonial (Mughal kitchens, the Portuguese in Goa, Parsi
+   settlement, the spice trade) and what the British changed. History enough to explain the
+   food, not a history lesson. Readings 1-3 stay about food.
+
+**The tasting card becomes a spice card** - aroma, flavour, what it does, when to add it, what
+to substitute - which is a direct structural analogue of colour/nose/palate, so `tasting.js`,
+`tastingcheck.py` and the renderer survive with renamed fields.
+
+**The Vinmonopolet link becomes a sourcing note**, and this is an upgrade rather than a loss.
+§14 already records that the Norwegian recipes earn their keep through sourcing notes, the part
+that could not be translated into existence. For India in Norway that means asafoetida, fresh
+curry leaves, kokum, real jaggery, and whether the garam masala on a supermarket shelf is worth
+buying. Grønland in Oslo against ordering online. No commerce links, no shop IDs, no
+alcohol-advertising question.
+
+### The map
+
+Roughly **fourteen culinary regions built by grouping whole states**, not 28 states plus 8
+union territories: Kashmir and the Himalaya, Punjab and the north-west, Rajasthan, Gujarat,
+Awadh, Bengal, the North-East, Maharashtra, Goa and Konkan, Karnataka, Andhra and Telangana,
+Tamil Nadu, Kerala, the centre. Comparable to Italy's twenty, less work, and more accurate to
+the subject, because Indian food regions genuinely do not follow state lines. Grouping whole
+states keeps the polygon data a union of existing shapes, so nothing is hand-drawn.
+
+**Keep the 3D relief**, baked at a lower zoom than Italy's. For India it teaches more than it
+did for Italy: the Himalaya, the Gangetic plain, the Thar, the Western Ghats and the Deccan
+explain where the food comes from. Spice country is where it is because of those mountains and
+that monsoon.
+
+### Names in the Norwegian edition
+
+Translate ingredients (linser, kikerter, spisskummen, sennepsfrø), keep dish and spice-blend
+names in the original (dal, panch phoron, dosa, thali), and gloss the first mention. The same
+policy as the Italian course (§4b.8), and it works because Indian dish names have no Norwegian
+equivalent while the ingredients all do. Common English spelling, no diacritics: paneer, not
+panīr.
+
+### Vegetarian
+
+A marker, not a division: a small badge on dishes and recipes. India labels food this way
+formally, so it is authentic rather than imposed, and it is useful when scanning a region sheet.
+
+### 10b. Prose rules, from the owner's own reading
+
+The owner found some of the Italian English "not that engaging or hard to follow", citing the
+Lambrusco passage in `emiliaromagna.js`. He is right, and the cause is worth recording because
+it is systematic rather than a one-off.
+
+The text reads: *"Before the tank, Lambrusco was made the way every farm made it: fermentation
+stopped by the winter cold, wine bottled in spring with a little sugar left, and the warmth of
+May finishing the job in the bottle."* That is a colon followed by **three clauses with no
+finite verb in any of them**. On the page the eye re-scans and assembles it. Read aloud it is
+three noun phrases in a row with nobody doing anything, and a listener has nothing to hold.
+The next sentence wedges twenty words between "The Charmat method" and its verb "made", and the
+paragraph closes with a single sixty-word sentence carrying an appositive and a three-item list.
+
+**The root cause: the readings were written for the eye and are now listened to.** Audio cannot
+re-scan. Note the irony that these are close to the faults the Norwegian review already banned
+(§4b.3 no colon-led apposition, §4b.5 participle phrases become relative clauses). The Norwegian
+was repaired; the English original never got the same pass.
+
+Rules for the India course, and for the recipes:
+
+1. **Every clause gets a finite verb.** Never a colon followed by a list of fragments.
+2. **Subject and verb within about eight words of each other.**
+3. **Sentences average about eighteen words, ceiling about thirty-five.** Vary the rhythm, but
+   no sixty-word sentences and no run of verbless fragments.
+4. **Connect with logic, not commas**: because, so, which is why, and that meant. Facts placed
+   side by side make the reader do work the writer should have done.
+5. **Read every paragraph aloud before it ships.** It is narrated. If you lose the subject or
+   run out of breath, rewrite it.
+6. **Open a section with something concrete** - a scene, a person, a smell - then bring the
+   facts in behind it. Teach the mechanism rather than listing the stages.
+
+Worked example, same facts, nothing dropped:
+
+> Before the tank, every farm made Lambrusco the same way, and the calendar did the work.
+> Winter cold stopped the fermentation before the yeast had finished. In spring the wine went
+> into bottles with a little sugar still in it. Then May warmed the cellar, the yeast woke up,
+> and the wine finished fermenting where it lay. That is where the bubbles came from. What you
+> poured was cloudy, dry and alive, and you drank it inside the year.
+
+**Backlog for the Italian course:** the English readings would benefit from the same pass the
+Norwegian got. Eighty readings, and every edit makes its narration stale
+(`python tools/review_no.py <region> --stale` reports which), so it is a deliberate project
+rather than something to start casually.
+
 ## 8. The map, rethought (added 2026-09-09)
 
 **Diagnosis.** The current map fails as navigation for four reasons: borders are thin dark lines on similar earth tones and vanish at the oblique camera angle; the mountains and volcanoes are placeholder cones, so the terrain tells the learner nothing; twenty landmark models, vineyard rows, trees and labels all compete at the same visual weight; and the low camera angle foreshortens the south, so Sicily and Calabria are small and hard to hit.
