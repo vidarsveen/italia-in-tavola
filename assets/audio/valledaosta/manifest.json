@@ -34,7 +34,7 @@
   "lo_bytes": 521576,
   "intro": "title",
   "drop": "facts,recap",
-  "ogg_bytes": 374330
+  "ogg_bytes": 378070
  },
  "no-2": {
   "seconds": 250.3,
@@ -43,7 +43,7 @@
   "lo_bytes": 501056,
   "intro": "title",
   "drop": "facts,recap",
-  "ogg_bytes": 360245
+  "ogg_bytes": 362444
  },
  "no-3": {
   "seconds": 245.4,
@@ -61,6 +61,6 @@
   "lo_bytes": 570392,
   "intro": "title",
   "drop": "facts,recap",
-  "ogg_bytes": 418145
+  "ogg_bytes": 420687
  }
 }

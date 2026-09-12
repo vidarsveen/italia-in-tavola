@@ -443,31 +443,12 @@ the voice pauses anyway), retries 429/5xx, and reads the real charge back from
   on Windows, the file itself is correct — check bytes, not the terminal).
 - `voicelab/` and `audiobook/` are git-ignored scratch.
 
-### Where this stands (paused 2026-09-12, mid-task)
-
-**Done and committed:** all 80 Norwegian readings re-recorded with NbAiLab (§ below), Opus
-re-encoded for all 20 regions, `build.py` (dist 14.1 MB, under the cap), the §8 tests
-(playertest_no, toggletest, touchtest, introtest, cooktest, maptaptest, caftest, a phone
-screenshot — all pass), `tools/make_site.py` (site/ 404.7 MB) and the Norwegian audiobook
-(`audiobook/italia-in-tavola-no.m4b`, 6 h 22 m, 80 chapters).
-
-**Next step, not yet applied:** loudness normalisation. The re-record ranges from -19.4 to
--25.4 LUFS reading to reading, a 6.0 dB jump between chapters, which is the same "reach for the
-volume" fault that got the Gemini attempt rejected. English sits at -19.3 to -19.5, so evening
-Norwegian to -19 also stops the level moving when the reader switches language.
-`python tools/normalise.py no --dry-run` reports before -25.4 to -19.4 (6.0 dB spread), after
--19.4 to -19.0 (0.4 dB). To apply:
-
-    python tools/normalise.py no          # two-pass loudnorm, rewrites the 80 mp3s in place
-    for r in <all 20 regions>: python tools/opus.py $r 12    # .ogg is made from the mp3
-    python build.py && python tools/make_site.py
-    python tools/audiobook.py no
-
-**Not pushed.** Pushing to `main` deploys to GitHub Pages; the owner had not approved that yet.
-Three of the eighty first came back at about 65 words a minute (605 s of speech for 628 words,
-no duplication, normal pauses — the model simply generated more than the script); they were
-re-rendered and all 80 now pass `narrate.rate_ok`. English is untouched and is backlogged in
-PLAN.md §6q.
+The finished Norwegian narration measures: 134 words a minute nominal (121-157 across readings,
+the variation is pause density in the text, not the voice), median pitch 202-210 Hz, pitch
+spread 3.5-3.9 semitones, and -19.4 to -19.5 LUFS after `tools/normalise.py`. That last number
+matters: the raw re-record ranged -19.4 to -25.4, a 6 dB jump between chapters, and English
+sits at -19.3 to -19.5, so normalising to -19 also keeps the level steady when a reader
+switches language. Re-run `tools/opus.py` after normalising; the .ogg files are made from the mp3.
 
 **The Norwegian edition was re-recorded 2026-09-12** with `NbAiLab/nb-tts-voxcpm2-voices-2607`
 (`--engine nbtts`), voice «Kvinne · Oslo», pace Rolig, `--tempo 0.95`, `--intro title --drop

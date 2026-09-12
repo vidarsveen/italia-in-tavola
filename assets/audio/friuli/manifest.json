@@ -34,7 +34,7 @@
   "lo_bytes": 566432,
   "intro": "title",
   "drop": "facts,recap",
-  "ogg_bytes": 405098
+  "ogg_bytes": 410498
  },
  "no-2": {
   "seconds": 292.9,
@@ -43,7 +43,7 @@
   "lo_bytes": 586232,
   "intro": "title",
   "drop": "facts,recap",
-  "ogg_bytes": 422401
+  "ogg_bytes": 429952
  },
  "no-3": {
   "seconds": 278.1,
@@ -52,7 +52,7 @@
   "lo_bytes": 556496,
   "intro": "title",
   "drop": "facts,recap",
-  "ogg_bytes": 404217
+  "ogg_bytes": 407188
  },
  "no-4": {
   "seconds": 257.4,
@@ -61,6 +61,6 @@
   "lo_bytes": 515240,
   "intro": "title",
   "drop": "facts,recap",
-  "ogg_bytes": 375350
+  "ogg_bytes": 379231
  }
 }
