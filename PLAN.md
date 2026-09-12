@@ -457,6 +457,79 @@ Norwegian got. Eighty readings, and every edit makes its narration stale
 (`python tools/review_no.py <region> --stale` reports which), so it is a deliberate project
 rather than something to start casually.
 
+## 11. Starting the India repo: the first session's job (written 2026-09-12)
+
+Read §9 (what is reusable, what is welded to Italy) and §10 (course shape and prose rules)
+before touching anything. This section is the task list.
+
+### Why a separate repo, not a folder here
+
+Measured 2026-09-12: this repo's `.git` is **905 MB** and its published `site/` is **389 MB**
+against GitHub Pages' **1 GB hard limit** on a published site. Two courses in one repo would
+publish around 780 MB with no room to grow and carry a git history past 1.5 GB. So each course
+gets its own repo, its own Pages budget and its own history:
+
+    github.com/vidarsveen/italia-in-tavola  ->  vidarsveen.github.io/italia-in-tavola/
+    github.com/vidarsveen/<india-repo>      ->  vidarsveen.github.io/<india-repo>/
+
+Copy `.github/workflows/pages.yml` verbatim; it only runs `tools/make_site.py` and publishes
+`site/`.
+
+### Do not refactor the Italian course first
+
+Italy is finished and live. Refactoring a working course to extract a framework, for no user
+benefit, is how it gets broken, and the right abstraction is not knowable until India exists.
+Copy the course-agnostic tools across as they are and do the un-welding in the new repo, where
+the wine layer simply never gets written. Back-port to Italy later only if something proves
+genuinely worth it; most likely nothing will. No git submodule and no shared package for two
+courses - extract a shared kit only after fixing the same bug twice in two places.
+
+**Copies across unchanged:** `tools/tts.py`, `nbtts.py`, `narrate.py`, `opus.py`, `voicelab.py`,
+`voicemetrics.py`, `normalise.py`, `audiobook.py`, `build.py`, `tools/make_site.py`,
+`tools/test/*`, `recipecheck.py`, `quizcheck.py`, `tastingcheck.py`, and the app shell minus the
+wine code. **Does not come along:** `vmpmap.py`, `vmpcheck.py`, `vmpverify.py`, `vmpstores.py`,
+`tastingextract.py` (rewrite for spice cards), `VMP_STORES`, and everything keyed to `wines[]`.
+
+### The first session, in order
+
+1. **Create the repo and the skeleton.** Note `gh` is **not installed** on this machine
+   (checked: `gh: command not found`), so either create the repo on github.com by hand and
+   `git remote add`, or install the CLI first.
+2. **Decide the audio-in-git question before any audio exists.** This repo's history carries two
+   full copies of the Norwegian narration because it was re-recorded after being committed, and
+   that is most of the 905 MB. It is far cheaper to decide at the start of a repo than halfway
+   through. Options: commit it anyway and accept the growth, keep it out of git and generate in
+   CI, or attach built audio to a release.
+3. **Port the app shell**: strip `wines[]`, the Vinmonopolet layer, `VMP_STORES`, the Italian
+   `COURSE`, `REGIONS`, `ORDER`, `ASSET_DIRS`, `LABEL_POS`, `CAPITAL_POS`, terrain constants and
+   the 24 landmark builders. Keep the reader, cookbook, quiz, glossary, intro, progress, router,
+   language machinery and the audiobook page (§17 of CLAUDE.md).
+4. **Fix the two things §9 lists while porting**, because they are free at this point: make the
+   course filename a constant rather than naming `italia-course.html` in twelve tools, and
+   generate the content `<script src>` tags from a manifest instead of hand-editing HTML in
+   three places per region.
+5. **Region polygons**: about fourteen culinary regions, each a union of whole Indian states
+   (§10). Terrain baked at a lower zoom than Italy's z8; `tools/bake_terrain.py` has Italy's
+   tile ranges hardcoded.
+6. **Write region one end to end** - four readings, photos, recipes, both languages, narrated -
+   and have the owner listen to it **before** committing to fourteen. If the spice-pantry spine
+   turns out too thin to carry two readings a region, it is cheap to change now and expensive at
+   region ten.
+
+### Writing
+
+§10b is not optional. The readings are narrated, so they must be written to be read aloud:
+every clause gets a finite verb, subject and verb within about eight words, sentences averaging
+about eighteen words, facts joined by logic rather than placed side by side, and every paragraph
+read aloud before it ships. The owner found the Italian English hard to follow precisely where
+these rules were broken.
+
+### Naming
+
+Undecided, the owner's call. "Italia in Tavola" is Italy at the table. Candidates that match the
+spice-pantry spine: **Masala Dabba** (the spice box), or something plainer. Whatever is chosen
+becomes the repo name and therefore the URL.
+
 ## 8. The map, rethought (added 2026-09-09)
 
 **Diagnosis.** The current map fails as navigation for four reasons: borders are thin dark lines on similar earth tones and vanish at the oblique camera angle; the mountains and volcanoes are placeholder cones, so the terrain tells the learner nothing; twenty landmark models, vineyard rows, trees and labels all compete at the same visual weight; and the low camera angle foreshortens the south, so Sicily and Calabria are small and hard to hit.

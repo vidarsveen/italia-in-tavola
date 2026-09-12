@@ -4,6 +4,14 @@ Read this whole file before touching anything. It is written so a fresh session 
 without the original conversation. `README.md` is the user-facing summary, `PLAN.md` the roadmap; this file is
 the operating manual.
 
+## 0. Starting the India course?
+
+Read `PLAN.md` **§11** first (the kickoff task list), then **§9** (what is reusable, what is
+welded to Italy) and **§10** (course shape and the prose rules). The short version: a separate
+repo, not a folder here, because this one's `.git` is already 905 MB and its published site is
+389 MB of a 1 GB Pages limit; and do not refactor this course to extract a framework, because it
+is finished and live. Everything else below describes Italia in Tavola as it stands.
+
 ## 1. What this is
 
 A mobile-first course on Italian regions, wine and food. The navigation is a 3D relief map of Italy
