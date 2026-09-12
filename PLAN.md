@@ -290,6 +290,63 @@ items when it comes up:
 
 ---
 
+## 9. A second course: what is reusable and what is welded to Italy (assessed 2026-09-12)
+
+Written when the owner said the next course would be Indian cuisine. Surveyed, not guessed:
+`italia-course.html` is 2004 lines / 226 KB, of which the Italy-specific parts are mostly data
+concentrated in a few named constants, plus two features that are genuinely coupled.
+
+### Already course-agnostic, reusable untouched
+
+The whole narration pipeline (`narrate.py`, `tts.py`, `nbtts.py`, `opus.py`, `voicelab.py`,
+`voicemetrics.py`, `normalise.py`) contains no Italy knowledge. The audiobook page and
+`tools/audiobook.py` read `ORDER` and `ASSET_DIRS` and would work on any course. The content
+formats — readings, recipes (`docs/recipe-format.md`), quiz (`docs/quiz-format.md`), tasting
+cards (`docs/tasting-format.md`), glossary — are keyed by region code and are structurally
+generic. So are the reader, the cookbook, the quiz renderer, the intro, progress, the router,
+the language machinery and every test in `tools/test/`. `build.py` and `tools/make_site.py`
+know only the filename.
+
+### Italy data, which a new course replaces anyway
+
+`REGIONS` polygons, `COURSE` (23 KB — this *is* the course), `ORDER`, `ASSET_DIRS`,
+`LABEL_POS`, `CAPITAL_POS`, `FAMILY` areas, `TM` plus the baked terrain, the 24 landmark
+builders, and the decorative `VINEYARDS` / `ALPS` / `APENNINES` arrays. Not debt: content.
+
+### Three things to fix before starting course two
+
+1. **The wine layer is welded in.** 124 mentions of "wine" and 72 of `vmp` in the app: the
+   region sheet renders `C.wines.map(...)`, every wine links to Vinmonopolet, tasting cards are
+   keyed `IT-xx|Wine Name`, and five tools (`vmpmap`, `vmpcheck`, `vmpverify`, `vmpstores`,
+   `tastingextract`) exist only to serve it. Indian cuisine has no wine and no Vinmonopolet, so
+   this has to become a pluggable "products" concept or be switchable off. It is a content-design
+   decision before it is a code one: decide what occupies the slot wine occupies now.
+2. **`italia-course.html` is named in twelve tools.** One constant, but fix it while there is
+   still only one course.
+3. **The 67 content `<script src>` tags and 20 audio manifest tags are hand-maintained**, so
+   adding a region means editing HTML in three places (§4.4). Generate them from a manifest.
+   With India's 28 states plus 8 union territories this stops being a nuisance and becomes a
+   source of mistakes.
+
+### Genuinely new problems for India
+
+- 28 states and 8 union territories against 20 regions: nearly double the content, and a much
+  denser map, so label collision avoidance (§6n) stops being optional.
+- India is roughly eleven times Italy's area. The zoom-8 Terrarium approach in
+  `tools/bake_terrain.py` does not transfer directly (its tile ranges are hardcoded for Italy);
+  expect zoom 7 and a different crop.
+- A transliteration rule, decided before any writing: the Italian course keeps wine, dish and
+  place names untranslated (§4b.8), and Devanagari, Tamil and the rest need an equivalent policy
+  that survives both English and Norwegian editions.
+- The four-reading rhythm is currently wine / wine / food / landmark. Decide the Indian
+  equivalent before writing region one, because `COURSE.lessons` and the kickers encode it.
+
+### What not to do
+
+Do not build a general course CMS. Two courses is not enough evidence for the right abstraction,
+and the time goes into framework instead of content. Extract what is demonstrably shared, copy
+what is cheap to copy, and let a third course show what actually generalises.
+
 ## 8. The map, rethought (added 2026-09-09)
 
 **Diagnosis.** The current map fails as navigation for four reasons: borders are thin dark lines on similar earth tones and vanish at the oblique camera angle; the mountains and volcanoes are placeholder cones, so the terrain tells the learner nothing; twenty landmark models, vineyard rows, trees and labels all compete at the same visual weight; and the low camera angle foreshortens the south, so Sicily and Calabria are small and hard to hit.
