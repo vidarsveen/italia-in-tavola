@@ -389,6 +389,37 @@ Shown once, remembered in localStorage as `iit-seen`.
   screenshots. Its own test is `python tools/test/introtest.py` (first visit, language, dismissal, persistence,
   both ways back).
 
+## 17. The audiobook (added 2026-09-12)
+
+`#/audiobook` is a third full-screen page beside `#reader` and `#cook`: the whole course as one
+continuous listen, reached from an **Audiobook** button in `#top`. Chapters are the eighty
+readings of the current language in `ORDER`, and the audio is the same files the reader streams
+(`resolveAudio`), so the feature adds no bytes to the site. It is deliberately **not** wired
+into the course: its own progress key, no marking of readings as read, and no links back and
+forth. The reader's own Listen stays as it is for a single reading.
+
+- **Own progress**, `iit-book:<lang>` = `{i, t}` (chapter index, seconds). Kept per language,
+  because the two editions are different lengths and you listen to them separately. `save()`
+  writes under `curLang`, the language the loaded audio belongs to, **not** the live `lang`:
+  `applyLang()` moves `lang` before telling the book to rebuild, and keying off the live value
+  wrote the Norwegian chapter into the English slot.
+- **Plays straight through.** The `ended` handler advances to the next chapter and keeps going;
+  `−15s` at the start of a chapter steps back into the end of the previous one.
+- **MediaSession** carries chapter title, region and previous/next handlers, so the lock screen
+  shows where you are and its buttons work with the screen off.
+- **Closing pauses**, it does not play on: audio whose controls you cannot see is worse than
+  audio that stops where you left it. The position is saved either way, so reopening resumes.
+- Opening the audiobook stops the reader's player and vice versa; they never share the speakers.
+- **The button hides itself** when `AUDIO_MANIFEST` is empty, which is the artifact build
+  (`HOSTED_AUDIO = []` inlines no narration). No audiobook is offered where there is nothing to
+  play. On the live site all 160 files are there.
+- Test: `python tools/test/booktest.py` (opens, 80 chapters grouped by the 20 regions, plays,
+  jumps by chapter, next/previous, saves and resumes, leaves course progress alone, and keeps
+  the two languages' positions apart).
+- The `.m4b` files that `tools/audiobook.py` builds are a separate thing, for a real audiobook
+  app; they are git-ignored and not published. This page is what a visitor gets.
+
+
 ## 16. OpenRouter voices and the audiobook (added 2026-09-11)
 
 The 160 narration files were all made with `edge-tts` (free, unofficial). `tools/tts.py` adds a
