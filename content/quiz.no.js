@@ -1129,7 +1129,7 @@ window.QUIZ_NO['IT-32'] = [
     {q:"Hva endret seg i Alto Adige fra 1980-tallet?",
      a:["Schiava ble revet opp og hvite druer plantet i de beste skråningene","Samvirkelagene ble erstattet av private gårder","Provinsen gikk fra DOC til IGT","Rankene ble flyttet ned på dalbunnen"],
      c:0,
-     why:"Samvirkelagene og noen få gårder byttet ut bulkdruen Schiava med hvite druer, og i løpet av tjue år laget provinsen Italias mest pålitelige hvitviner."},
+     why:"Kjellermestere som Hans Terzer kuttet avlingene, rev opp bulkdruen Vernatsch og plantet hvite druer, og i dag vokser det hvite druer i tre femdeler av vinmarkene."},
     {q:"Hva var det som gjorde Trento DOC fra 1993 spesiell?",
      a:["Den var Italias første DOCG","Den var den første DOC-en som tillot Chardonnay","Den var den første tospråklige betegnelsen","Den var Italias første betegnelse forbeholdt musserende vin etter tradisjonell metode"],
      c:3,
@@ -1139,7 +1139,7 @@ window.QUIZ_NO['IT-32'] = [
     {q:"Hvor har Gewürztraminer navnet sitt fra?",
      a:["Fra de tyske ordene for krydret vin","Fra Tramin, landsbyen sør for Bolzano","Fra en dyrker på 1800-tallet","Fra en familie som foredlet den i Alsace"],
      c:1,
-     why:"Druen er oppkalt etter Tramin på Weinstrasse, der Traminer-familien av druer ble nedtegnet i middelalderen."},
+     why:"Vin kalt Traminer ble nedtegnet i Tramin i middelalderen, men druen som i dag heter Gewürztraminer, kom til Sør-Tirol nordfra først i 1848."},
     {q:"Hvor trives Lagrein best?",
      a:["På porfyrjorden i Terlano","På terrassene i Val di Cembra","I 900 meters høyde i Valle Isarco","På den varme grusen i bydelen Gries i Bolzano"],
      c:3,
@@ -1147,9 +1147,9 @@ window.QUIZ_NO['IT-32'] = [
     {q:"Hvilke druer fyller vinmarkene i Valle Isarco?",
      a:["Kerner, Sylvaner, Müller-Thurgau og Riesling","Schiava og Lagrein","Chardonnay og Pinot Nero","Teroldego og Marzemino"],
      c:0,
-     why:"Den trange dalen mot Brenner dyrker germanske druer som ingen andre steder i Italia bryr seg om, alle knusktørre."}
+     why:"Den trange dalen mot Brenner dyrker druene fra Tyskland og Østerrike opp til rundt 900 meter, og vinene blir knusktørre."}
   ],
-  [ // lesetekst 3: Speck, melboller og strudel
+  [ // lesetekst 3: Speck, brødboller og strudel
     {q:"Hvilken regel siterer speck-produsentene?",
      a:["Mye salt, mye røyk og lite luft","Lite salt, lite røyk og rikelig med frisk fjelluft","Ikke salt, kraftig røyk og lang modning","Bare salt, og ingen røyk i det hele tatt"],
      c:1,
@@ -1161,20 +1161,20 @@ window.QUIZ_NO['IT-32'] = [
     {q:"Hva er Törggelen?",
      a:["Høstritualet med ny vin, gårdsmat og ristede kastanjer","Vårvelsignelsen av vinmarkene","En kraftig røykt type speck","Navnet på eplehøsten"],
      c:0,
-     why:"I oktober og november åpner gårdene sin Buschenschank for ny vin, byggsuppe, pølser og kastanjer; navnet kommer fra Torggl, vinpressen."}
+     why:"Fra begynnelsen av oktober til advent åpner gårdene sin Buschenschank for ny vin, byggsuppe, pølser og kastanjer; navnet kommer fra Torggl, vinpressen."}
   ],
   [ // lesetekst 4: Dolomittene: fjell av stein og lys
     {q:"Hva består Dolomittene av?",
-     a:["Granitt presset opp da Alpene ble til","Et fossilt korallrev omdannet til magnesiumrik kalkstein","Vulkansk tuff fra et eldgammelt utbrudd","Breavsetninger presset sammen til stein"],
+     a:["Granitt presset opp da Alpene ble til","Revplattformene fra et tropisk hav, bygd mest av mikrober og alger","Vulkansk tuff fra et eldgammelt utbrudd","Breavsetninger presset sammen til stein"],
      c:1,
-     why:"For to hundre og femti millioner år siden var dette et tropisk hav, og toppene er korallrevene derfra, omdannet til bergarten dolomitt."},
-    {q:"Hvor kommer via ferrata-rutene fra?",
-     a:["Fjellturismen på 1800-tallet","Ladinske gjetere som flyttet buskapen","Fronten under første verdenskrig, da begge hærer boltet stiger og vaiere fast i fjellet","Byggingen av skiheisene i Sella Ronda"],
+     why:"For mellom 240 og 220 millioner år siden bygde mikrober og alger, sammen med svamper og noen koraller, revplattformer i et varmt hav, og de ble til bergarten dolomitt."},
+    {q:"Hva etterlot første verdenskrig på fjellryggene i Dolomittene?",
+     a:["Skiheiser til Sella Ronda","De første fjellhyttene i de ladinske dalene","Den første jernbanen over Brenner","Stiger, tunneler og vaiere festet til fjellet"],
+     c:3,
+     why:"Fra 1915 til 1917 gikk fronten langs ryggene, og begge hærene festet stiger og vaiere og gravde tunneler. Turgåere klatrer nå mange av de ryggene på via ferrata, selv om de første slike rutene er eldre enn krigen."},
+    {q:"Hva utgjorde nesten halvparten av Ötzis siste måltid?",
+     a:["Grøt av enkorn","Tørket frukt og nøtter","Fett, det meste fra steinbukk","Fisk fra et fjellvann"],
      c:2,
-     why:"Fra 1915 til 1917 gikk frontlinjen langs disse ryggene, og begge hærer bygde stiger, tunneler og taubaner over toppene."},
-    {q:"Hva forandret kobberøksen som ble funnet sammen med Ötzi?",
-     a:["Historien om metallbearbeiding i Europa","Dateringen av det ladinske språket","Grensen mellom Italia og Østerrike","Traseen for Sella Ronda"],
-     c:0,
-     why:"Øksen som lå ved kroppen, skrev om det man visste om metallbearbeiding i Europa."}
+     why:"En studie av mageinnholdet fra 2018 viste at nesten halvparten av måltidet var fett, med fett og kjøtt fra steinbukk, hjort, enkorn og rester av einstape."}
   ]
 ];

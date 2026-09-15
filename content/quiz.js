@@ -1129,7 +1129,7 @@ window.QUIZ['IT-32'] = [
     {q:"What changed in Alto Adige from the 1980s?",
      a:["Schiava was pulled out and white grapes planted on the best slopes","Cooperatives were replaced by private estates","The province gave up DOC for IGT","Vines were moved down onto the valley floor"],
      c:0,
-     why:"The cooperatives and a few estates replaced bulk Schiava with white grapes, and within twenty years the province made Italy's most reliable whites."},
+     why:"Cellar masters such as Hans Terzer cut yields, pulled out bulk Vernatsch and planted white grapes; today three fifths of the vineyards grow white grapes."},
     {q:"What was the significance of Trento DOC in 1993?",
      a:["It was Italy's first DOCG","It was the first DOC to allow Chardonnay","It was the first bilingual appellation","It was Italy's first appellation reserved for traditional-method sparkling wine"],
      c:3,
@@ -1139,7 +1139,7 @@ window.QUIZ['IT-32'] = [
     {q:"Where does Gewürztraminer get its name?",
      a:["From the German words for spiced wine","From Tramin, the village south of Bolzano","From a nineteenth-century grower","From a family who bred it in Alsace"],
      c:1,
-     why:"The grape is named after Tramin on the Weinstrasse, where the Traminer family of grapes was recorded in the Middle Ages."},
+     why:"Wine called Traminer was recorded at Tramin in the Middle Ages, though the grape now called Gewürztraminer reached South Tyrol from the north only in 1848."},
     {q:"Where does Lagrein grow best?",
      a:["On the porphyry soils of Terlano","On the terraces of the Val di Cembra","At 900 metres in the Valle Isarco","On the warm gravel of the Gries district in Bolzano"],
      c:3,
@@ -1147,7 +1147,7 @@ window.QUIZ['IT-32'] = [
     {q:"Which grapes fill the vineyards of the Valle Isarco?",
      a:["Kerner, Sylvaner, Müller-Thurgau and Riesling","Schiava and Lagrein","Chardonnay and Pinot Nero","Teroldego and Marzemino"],
      c:0,
-     why:"The narrow valley towards the Brenner grows Germanic grapes that nowhere else in Italy bothers with, all of them bone dry."}
+     why:"The narrow valley towards the Brenner grows the grapes of Germany and Austria, up to about 900 metres, and makes them bone dry."}
   ],
   [ // lesson 3: Speck, dumplings and strudel
     {q:"What is the rule the speck makers quote?",
@@ -1161,20 +1161,20 @@ window.QUIZ['IT-32'] = [
     {q:"What is Törggelen?",
      a:["The autumn ritual of new wine, farm food and roasted chestnuts","The spring blessing of the vineyards","A style of heavily smoked speck","The name of the apple harvest"],
      c:0,
-     why:"In October and November the farms open their Buschenschank for new wine, barley soup, sausages and chestnuts; the name comes from Torggl, the wine press."}
+     why:"From early October until Advent the farms open their Buschenschank for new wine, barley soup, sausages and chestnuts; the name comes from Torggl, the wine press."}
   ],
   [ // lesson 4: The Dolomites: mountains of stone and light
     {q:"What are the Dolomites made of?",
-     a:["Granite pushed up as the Alps rose","A fossil coral reef turned to magnesium-rich limestone","Volcanic tuff from an ancient eruption","Glacial gravel compressed into rock"],
+     a:["Granite pushed up as the Alps rose","The reef platforms of a tropical sea, built mostly by microbes and algae","Volcanic tuff from an ancient eruption","Glacial gravel compressed into rock"],
      c:1,
-     why:"Two hundred and fifty million years ago this was a tropical sea, and the peaks are its coral reefs, turned to the rock called dolomite."},
-    {q:"Where do the via ferrata come from?",
-     a:["Nineteenth-century mountain tourism","Ladin shepherds moving their flocks","The First World War front, when both armies bolted ladders and cables to the rock","The building of the Sella Ronda ski lifts"],
+     why:"Between about 240 and 220 million years ago microbes and algae, with sponges and some corals, built reef platforms in a warm sea, and they became the rock called dolomite."},
+    {q:"What did the First World War leave on the Dolomite ridges?",
+     a:["Ski lifts for the Sella Ronda","The first mountain huts of the Ladin valleys","The first railway over the Brenner","Ladders, tunnels and cables fixed to the rock"],
+     c:3,
+     why:"From 1915 to 1917 the front ran along the ridges, and both armies fixed ladders and cables and dug tunnels; walkers now climb many of those ridges on via ferrata, though the first such routes are older than the war."},
+    {q:"What was nearly half of Ötzi's last meal?",
+     a:["Einkorn porridge","Dried fruit and nuts","Fat, most of it from ibex","Fish from a mountain lake"],
      c:2,
-     why:"From 1915 to 1917 the front line ran along these ridges, and both armies built ladders, tunnels and cable ways across the peaks."},
-    {q:"What did the copper axe found with Ötzi change?",
-     a:["The history of metalworking in Europe","The dating of the Ladin language","The border between Italy and Austria","The route of the Sella Ronda"],
-     c:0,
-     why:"The axe found with the body rewrote what was known about metalworking in Europe."}
+     why:"A 2018 study of his stomach found that nearly half of the meal was fat, with ibex fat and meat, red deer, einkorn and scraps of bracken."}
   ]
 ];

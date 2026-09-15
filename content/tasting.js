@@ -53,7 +53,7 @@ Object.assign(window.TASTING, {
   "IT-32|Gewürztraminer": {
     colour: "Deep straw to pale gold",
     nose: "Lychee, rose petal, ginger, orange peel, honeysuckle; intense",
-    palate: "Dry, full and oily, low acidity, spicy, a long perfumed finish with a faint bitterness",
+    palate: "Off-dry, full and oily, low acidity, spicy, a long perfumed finish with a faint bitterness",
     alcohol: "13.5–15%",
     serve: "10–12 °C; best from one to five years, a few keep longer",
     table: "Speck and Graukäse, spiced dishes, foie gras, strong cheese, Asian food; too big for delicate fish"

@@ -251,6 +251,7 @@ Norwegian follows the English one region behind, written from the facts and the 
 | Piemonte 1–4 | done 2026-09-15 | done | research pass first, then reader + fact each (old text = `bd062f3`), NO reader each | stale | ledger `docs/rewrite/piemonte.md`; glossary +3 (botte, barrique, trifolau); seven old-text errors fixed (Vienna, DOP cheeses, tar and roses, 6%, truffle season, gold, San Carlo); two in the recipes |
 | Liguria 1–4 | done 2026-09-15 | done | research pass (two agents, ~60 claims), reader + fact each (old text = `338414b`), NO reader each | stale | ledger `docs/rewrite/liguria.md`; glossary +4 (preboggion, sciamadda, caruggi, stockfish); about twenty old-text errors fixed (flood deaths, stockfish from "Norway and Iceland", sweet-and-sour cima, Biosfera date, San Lorenzo shell, largest port and old town, 0.2%…); quiz 1.2, 2.3, 4.2, 4.3 and the pesto recipe corrected |
 | Lombardia 1–4 | done 2026-09-15 | done | research pass (two agents, ~65 claims), reader + fact each (old text = `33e7af2`), NO reader each | stale | ledger `docs/rewrite/lombardia.md`; glossary +4 (mondina, marcita, fruttaio, mantecatura); about twenty-five old-text errors fixed (only bottle-fermented appellation, UNESCO candidacy, a third of Italy's milk, the Radetzky letter, only Gothic cathedral, Fashion Week 1958, Satèn "instead of six"…); design and fashion moved to the box, reading 4 now reaches the bar (Campari, espresso machines); quiz 1.1, 1.2, 4.1 and the risotto and cotoletta recipes corrected |
+| Trentino-Alto Adige 1–4 | done 2026-09-15 | done | research pass (two agents, ~70 claims), reader + fact each (old text = `b65c869`), NO reader each | stale | ledger `docs/rewrite/trentino.md`; glossary +5 (Buschenschank, Marende, arele, enrosadira, rifugio); about twenty-five old-text errors fixed (Trentino Austrian too, "a tenth of Puglia", bulk wine to Switzerland not Austria, Gewürztraminer's origin and sugar, coral reefs, beech, cranberry, carne salada's home, Ötzi's axe…); reading 4 reaches the table through the Alpe di Siusi hay count, the ice city's food, Ötzi's last meal and the Torre Aquila months; quiz 1.2, 2.1, 2.3, 3.3, 4.1–4.3, the Gewürztraminer card and the strudel headnote corrected |
 
 ### START HERE, next session (written 2026-09-15 for a fresh session, any model)
 
@@ -280,8 +281,14 @@ Norwegian follows the English one region behind, written from the facts and the 
    `docs/rewrite/lombardia.md`). Lessons: the fact reviewers now list every descriptive word dropped from the old text
    ("soft and pungent", "a full white"), so restore them in the box rather than argue; a reader reviewer applies the
    delete-the-food test to a landmark reading when asked, and it moved design week, the towers and fashion into the box
-   and kept the paragraphs that reach a cup or a glass. **Next: Trentino-Alto Adige** (stem `trentino`; the rejected
-   2026-09-13 Tyrol draft is the warning, see memory `history-serves-the-food`), then Veneto. For the record, the original step 2: Toscana 1–3 were drafted in `content/toscana.js` and published to the preview unreviewed. Run the reader
+   and kept the paragraphs that reach a cup or a glass. **Done 2026-09-15: Trentino-Alto Adige 1–4**, same shape
+   (ledger `docs/rewrite/trentino.md`); South Tyrol's politics appear only as one sentence of dates and a box line.
+   Lessons: the reader reviewers heard what no single review of one reading can, that four chapters in a row opened on a
+   date ("In 1789…", "In January 1841…"); give each reader reviewer the openings of the two chapters before it and vary
+   the grammatical shape of the lead, not only its subject. Write patch scripts to files with the Write tool, never as
+   bash heredocs (one silently did nothing). A landmark reading about mountains reaches the table through sourced
+   numbers about feeding people up there (a 1600 hay count, two tonnes a day for a glacier garrison, a stomach study).
+   **Next: Veneto** (stem `veneto`), then Friuli. For the record, the original step 2: Toscana 1–3 were drafted in `content/toscana.js` and published to the preview unreviewed. Run the reader
    and fact reviews on each (the prompts are the ones in this session's pattern: brief + rules §4 + the lesson +
    for the fact review `git show HEAD:content/toscana.js` as the old text and the ledger section), apply the
    second pass, lint (`python tools/prose_lint.py toscana --lang en`), then write the Norwegian for all three

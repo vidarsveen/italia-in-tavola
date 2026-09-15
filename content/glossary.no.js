@@ -289,6 +289,26 @@ Object.assign(window.GLOSSARY_NO, {
 
   'mantecatura': {short:"Siste trinn i en risotto: kaldt smør og revet ost røres inn med kjelen av platen.",
     long:"Det gjør risen kremet og løs nok til å bevege seg som en bølge når tallerkenen vippes. I Milano kalles det all'onda.",
-    match:["mantecaturaen","mantecatura"]}
+    match:["mantecaturaen","mantecatura"]},
+
+  'Buschenschank': {short:"En gårdskro som bare får servere vin gården selv har presset.",
+    long:"I Sør-Tirol er navnet vernet ved lov. Bonden er vinbonde, kjellermester og vert på én gang, og henger en Buschen, en kvast av kvister, over døren når kroen åpner, tradisjonelt når Törggelen begynner om høsten.",
+    match:["Buschenschanken","Buschenschank"]},
+
+  'Marende': {short:"Ettermiddagsmåltidet i Sør-Tirol, med speck, pølse, ost og rugbrød.",
+    long:"Ordet kommer fra latin merenda. Gårdsarbeiderne spiste det rundt klokken fire, med Schüttelbrot, et hardt og flatt rugbrød.",
+    match:["Marenden","Marende"]},
+
+  'arele': {short:"Rister der druene til Vino Santo fra Trentino tørker.",
+    long:"Nosiola-druene fra Valle dei Laghi ligger på dem gjennom vinteren. Reglene tillater pressing fra februar, og etter skikken presses druene i den stille uke.",
+    match:["arele"]},
+
+  'enrosadira': {short:"Den rosa gløden over Dolomittene når solen står lavt, i skumringen og ved soloppgang.",
+    long:"Et ladinsk ord for å bli rosa. I noen minutter kaster den lyse dolomitten tilbake det røde lyset fra den lave solen. Det ladinske sagnet forteller at kong Laurin forbannet rosehagen sin, så ingen skulle se den verken om dagen eller om natten, og at han glemte skumringen og morgengryet.",
+    match:["enrosadira"]},
+
+  'rifugio': {short:"En betjent fjellhytte der turgåere spiser og sover.",
+    long:"I Dolomittene fraktes forsyningene til rifugiene med materialtaubane, med helikopter når sesongen begynner og båret på ryggen, og de serverer maten fra dalene nedenfor: canederli, byggsuppe og strudel.",
+    match:["rifugiene","rifugi","rifugio"]}
 
 });

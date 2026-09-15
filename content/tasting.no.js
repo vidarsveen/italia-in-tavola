@@ -53,7 +53,7 @@ Object.assign(window.TASTING_NO, {
   "IT-32|Gewürztraminer": {
     colour: "Dyp strågul til lys gyllen",
     nose: "Litchi, rosenblad, ingefær, appelsinskall, kaprifol; intens",
-    palate: "Tørr, full og oljeaktig, lav syre, krydret, en lang og parfymert avslutning med en svak bitterhet",
+    palate: "Litt restsødme, fyldig og oljeaktig, lav syre, krydret, en lang og parfymert avslutning med en svak bitterhet",
     alcohol: "13,5–15 %",
     serve: "10–12 °C; best fra ett til fem år, noen få holder seg lenger",
     table: "Speck og Graukäse, krydrede retter, foie gras, kraftig ost, asiatisk mat; for stor til delikat fisk"

@@ -289,6 +289,26 @@ Object.assign(window.GLOSSARY, {
 
   'mantecatura': {short:"The last step of a risotto: cold butter and grated cheese beaten in off the heat.",
     long:"It makes the rice creamy and loose enough to move in a wave when the plate is tilted, which Milan calls all'onda.",
-    match:["mantecatura"]}
+    match:["mantecatura"]},
+
+  'Buschenschank': {short:"A farm tavern allowed to serve only the wine the farm presses itself.",
+    long:"In South Tyrol the name is protected by provincial law. The farmer is grower, cellar master and innkeeper at once, and hangs a Buschen, a bunch of twigs, over the door when the tavern opens, traditionally at the start of the Törggelen season in autumn.",
+    match:["Buschenschank"]},
+
+  'Marende': {short:"The South Tyrolean afternoon meal of speck, sausage, cheese and rye bread.",
+    long:"The word comes from the Latin merenda. Farmworkers ate it at about four in the afternoon, with Schüttelbrot, a hard, flat rye bread.",
+    match:["Marende"]},
+
+  'arele': {short:"Racks on which grapes are laid to dry for Trentino's Vino Santo.",
+    long:"The Nosiola grapes of the Valle dei Laghi dry on them through the winter. The rules allow pressing from February, and by custom the grapes are pressed in Holy Week.",
+    match:["arele"]},
+
+  'enrosadira': {short:"The pink glow of the Dolomites in the low sun of dusk and dawn.",
+    long:"A Ladin word for turning pink. For a few minutes the pale dolomite reflects the red light of the low sun. The Ladin legend says King Laurin cursed his rose garden to be unseen by day and by night, and forgot the dusk and the dawn.",
+    match:["enrosadira"]},
+
+  'rifugio': {short:"A staffed mountain hut where walkers eat and sleep.",
+    long:"In the Dolomites the rifugi are supplied by goods cableway, by helicopter at the start of the season and on people's backs, and they serve the food of the valleys below: canederli, barley soup, strudel.",
+    match:["rifugi","rifugio"]}
 
 });
