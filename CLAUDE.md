@@ -315,8 +315,9 @@ sees them, so adding or editing a question does not make any narration stale.
 **Tasting cards.** Every wine on a region sheet opens a card with colour, nose, palate, alcohol, serving and
 food. Data is `content/tasting.js` / `tasting.no.js`, keyed `IT-xx|Wine Name` where the name matches
 `COURSE.wines` character for character. The contract is `docs/tasting-format.md`. Thirty-one cards are lifted
-straight from the tasting tables in the readings by `tools/tastingextract.py`, so card and essay cannot drift;
-re-run it after editing such a table. `tools/tastinggap.py` lists wines with no card, `tools/tastingcheck.py`
+straight from the tasting tables in the readings by `tools/tastingextract.py`. **Do not re-run it**: it rewrites
+both files with only those 31 cards and deletes the 58 written by hand (found 2026-09-15). After editing a table,
+edit the matching card in `content/tasting.js` / `tasting.no.js` by hand and run `tools/tastingcheck.py`. `tools/tastinggap.py` lists wines with no card, `tools/tastingcheck.py`
 enforces the whole set. Cards are never spoken, so editing one never makes narration stale.
 
 **Glossary.** `content/glossary.js` / `glossary.no.js`, 48 terms. A term carries `short`, `long` and a `match`
