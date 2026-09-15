@@ -233,13 +233,31 @@ def stale(region, quiet=False):
             txt = os.path.join(d, f'{key}.txt')
             cur = open(txt, encoding='utf-8').read() if os.path.exists(txt) else None
             words = len(cur.split()) if cur else 0
-            secs = man.get(key, {}).get('seconds', 0)
-            if (cur is None or cur.strip() != to_script(L, lang).strip()
+            rec = man.get(key, {})
+            secs = rec.get('seconds', 0)
+            # Compare against the script the file was actually read from: the Norwegian edition
+            # was recorded with --intro title --drop facts,recap, and judging it against the
+            # full script called all eighty files stale for ever.
+            intro = rec.get('intro', 'full')
+            drop = tuple(s for s in (rec.get('drop') or '').split(',') if s)
+            outro = rec.get('outro', 'line')
+            if (cur is None or cur.strip() != to_script(L, lang, intro, drop, outro).strip()
                     or not os.path.exists(os.path.join(d, f'{key}.mp3'))
                     or key not in man or secs < 0.28 * words):
                 out.append(key)
     if not quiet: print(f'{region}: stale narrations: {out or "none"}')
     return out
+
+# How each language is recorded now. English is edge-tts Sonia as it always was; Norwegian is
+# the National Library voice chosen in the 2026-09-12 re-record (CLAUDE.md §16), and running
+# plain narrate.py would silently put the old Edge voice back. Both use the standard script
+# (title, then prose, no boxes and no headings) from narrate.py.
+def narrate_args(lang):
+    from narrate import STANDARD_INTRO, STANDARD_DROP, STANDARD_OUTRO
+    common = ['--intro', STANDARD_INTRO, '--drop', STANDARD_DROP, '--outro', STANDARD_OUTRO, '--lang', lang]
+    if lang == 'no':
+        return common + ['--engine', 'nbtts', '--voice', 'Kvinne · Oslo', '--pace', 'Rolig', '--tempo', '0.95']
+    return common
 
 def narrate(region):
     keys = stale(region, quiet=True)
@@ -247,15 +265,19 @@ def narrate(region):
     env = dict(os.environ, PYTHONIOENCODING='utf-8')
     d = os.path.join(ROOT, 'assets', 'audio', region)
     for k in keys:
+        lang = k.split('-')[0]
         for attempt in range(3):
             print(f'== {region} {k} (attempt {attempt+1})', flush=True)
-            subprocess.run([sys.executable, 'tools/narrate.py', region, '--only', k], check=True, cwd=ROOT, env=env)
+            subprocess.run([sys.executable, 'tools/narrate.py', region, '--only', k] + narrate_args(lang),
+                           check=True, cwd=ROOT, env=env)
             words = len(open(os.path.join(d, f'{k}.txt'), encoding='utf-8').read().split())
             secs = json.load(open(os.path.join(d, 'manifest.json'), encoding='utf-8'))[k]['seconds']
             if secs >= 0.28 * words: break
             print(f'!! {k} truncated ({secs}s for {words} words), retrying', flush=True)
         else:
             print(f'!! {k} still short after 3 attempts; check it by ear', flush=True)
+    # loudness first (the .ogg is made from the mp3), then opus
+    subprocess.run([sys.executable, 'tools/normalise.py', 'both', '--region', region], check=True, cwd=ROOT, env=env)
     subprocess.run([sys.executable, 'tools/opus.py', region, '12'], check=True, cwd=ROOT, env=env)
     print(f'{region}: regenerated {keys}. Now run build.py, then commit and push (Pages rebuilds site/).')
 

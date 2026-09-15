@@ -193,6 +193,30 @@ Object.assign(window.GLOSSARY, {
 
   'secco': {short:"Dry: the yeast has eaten essentially all the sugar.",
     long:"Worth looking for on a label where the same name covers several styles. Dry Lambrusco is labelled secco, and it is a different drink from the sweet version that made the wine's reputation abroad in the 1970s.",
-    match:["secco"]}
+    match:["secco"]},
+
+  'demijohn': {short:"A big glass bottle in a wicker or plastic jacket, holding up to 54 litres, once the normal way to buy wine in bulk.",
+    long:"Before bottling became universal, families and trattorie bought wine from the grower by the demijohn, a fat glass balloon in a wicker cage that holds anything from a few litres up to 54. It was decanted into bottles at home or straight into the jug on the table. In Italian it is the damigiana, and a wine drunk from the demijohn means a wine sold in bulk and never bottled, which is how much of Romagna's Sangiovese was sold until the 1990s.",
+    match:["demijohn","demijohns"]},
+
+  'battitore': {short:"The man who tests every wheel of Parmigiano at twelve months by tapping it with a small hammer.",
+    long:"Literally the beater. He walks the shelves of the ageing store, taps each wheel all over and listens for the hollows and cracks that mean the cheese has not formed properly. A wheel that passes is fire-branded with the consortium's oval mark; one that fails has its rind scored off and is sold as plain table cheese. It is the oldest kind of quality control there is: one person, one tool, one wheel at a time.",
+    match:["battitore"]},
+
+  'sfoglina': {short:"A woman who rolls egg pasta by hand into the sheet, the sfoglia, that Bologna cuts its pasta from.",
+    long:"The sfoglia is flour and eggs only, one egg to a hundred grams of flour, kneaded and then rolled out with a pin a metre long, the mattarello, until it covers the board and the grain of the wood shows through. A good sfoglina makes a sheet a metre across in about twenty minutes. Tagliatelle, tortellini and lasagne are all cut from it, and the trade is still taught, at Casa Artusi among other places.",
+    match:["sfoglina","sfogline","sfoglia"]},
+
+  'spungone': {short:"The yellow, shell-filled sandstone under Bertinoro in Romagna, which gives its Sangiovese structure and a salty edge.",
+    long:"A local name for a soft sandstone made of compacted shells, laid down when the Adriatic covered these hills. It drains well and holds little water, so the vines work harder, and growers in Bertinoro credit it with the firm, faintly saline character of their Riserva wines. Soil names like this are what a sub-zone on a Romagna label is really telling you.",
+    match:["spungone"]},
+
+  'batteria': {short:"The row of five or more barrels of decreasing size in which traditional balsamic vinegar ages, in an attic.",
+    long:"Each barrel is a different wood, oak, chestnut, cherry, mulberry, ash or juniper, and each is smaller than the last. Every year the smallest gives up a little vinegar for bottling and is topped up from the next one along, and so on down the line, so young cooked must enters at one end and vinegar decades old leaves the other. The attic matters: summer heat drives the fermentation and winter cold stops it. Families in Modena keep a batteria of their own and give one to a daughter when she marries.",
+    match:["batteria","batterie"]},
+
+  'lampredotto': {short:"Florence's street food: the cow's fourth stomach, simmered for hours and served in a bun dipped in the broth.",
+    long:"The abomasum, the fourth stomach of the cow, simmered with tomato and celery until it is tender, chopped, piled into a bun that has been dipped in the cooking broth, and dressed with green sauce and chilli oil. It is sold from carts around the markets, eaten standing up from mid-morning, and by every class of Florentine. It belongs to the same logic as Rome's fifth quarter: the poor ate what the rich would not, and made it into something the rich now queue for.",
+    match:["lampredotto"]}
 
 });

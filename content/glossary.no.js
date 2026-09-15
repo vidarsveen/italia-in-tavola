@@ -193,6 +193,30 @@ Object.assign(window.GLOSSARY_NO, {
 
   'secco': {short:"Tørr: gjæren har spist opp så godt som alt sukkeret.",
     long:"Verdt å se etter på etiketten der samme navn dekker flere stiler. Tørr Lambrusco merkes secco, og det er en annen drikk enn den søte utgaven som skapte vinens rykte i utlandet på 1970-tallet.",
-    match:["secco"]}
+    match:["secco"]},
+
+  'demijohn': {short:"Ei stor glassflaske i kurv eller plast, på opptil 54 liter, som lenge var den vanlige måten å kjøpe vin i bulk på.",
+    long:"Før flasketapping ble vanlig overalt, kjøpte familier og trattoriaer vin fra dyrkeren på damejeanne, en stor glassballong i en kurv av vidjer som rommer alt fra noen få liter til 54. Vinen ble tappet over på flasker hjemme eller rett i muggen på bordet. På italiensk heter den damigiana, og en vin som drikkes fra damejeannen, er en vin solgt i bulk og aldri tappet på flaske, slik mye av Sangiovesen i Romagna ble solgt fram til 1990-tallet.",
+    match:["damejeanne","damejeannen","damejeanner"]},
+
+  'battitore': {short:"Mannen som tester hvert hjul Parmigiano etter tolv måneder ved å banke på det med en liten hammer.",
+    long:"Ordet betyr den som banker. Han går langs hyllene i lagerhuset, banker hele veien rundt hvert hjul og lytter etter hulrommene og sprekkene som betyr at osten ikke har satt seg riktig. Et hjul som består, brennmerkes med konsortiets ovale merke; et som stryker, får skorpen skrapt av og selges som vanlig bordost. Det er den eldste formen for kvalitetskontroll som finnes: én person, ett redskap, ett hjul om gangen.",
+    match:["battitore","battitoren"]},
+
+  'sfoglina': {short:"En kvinne som kjevler eggpasta for hånd til platen, sfogliaen, som Bologna skjærer pastaen sin av.",
+    long:"Sfogliaen er bare mel og egg, ett egg per hundre gram mel, som eltes og kjevles ut med en kjevle på en meter, mattarello, til den dekker brettet og treverkets årer synes gjennom. En dyktig sfoglina lager en plate på en meter i tverrmål på rundt tjue minutter. Tagliatelle, tortellini og lasagne skjæres alle av den, og håndverket læres fortsatt bort, blant annet på Casa Artusi.",
+    match:["sfoglina","sfoglinaen","sfogline","sfoglinene","sfoglia","sfogliaen"]},
+
+  'spungone': {short:"Den gule, skjellfylte sandsteinen under Bertinoro i Romagna, som gir Sangiovesen derfra struktur og en salt kant.",
+    long:"Et lokalt navn på en myk sandstein av sammenpressede skjell, avsatt da Adriaterhavet dekket disse åsene. Den drenerer godt og holder lite på vannet, så rankene må arbeide hardere, og dyrkerne i Bertinoro gir den æren for det faste, svakt salte preget i Riserva-vinene sine. Slike jordnavn er det en undersone på en etikett fra Romagna egentlig forteller deg.",
+    match:["spungone"]},
+
+  'batteria': {short:"Rekken av fem eller flere fat i synkende størrelse der tradisjonell balsamicoeddik modnes, på et loft.",
+    long:"Hvert fat er av et annet treslag, eik, kastanje, kirsebær, morbær, ask eller einer, og hvert er mindre enn det forrige. Hvert år gir det minste fra seg litt eddik til tapping og fylles opp fra det neste i rekken, og slik nedover, så ung kokt most går inn i den ene enden og eddik som er flere tiår gammel, kommer ut i den andre. Loftet er avgjørende: sommervarmen driver gjæringen, og vinterkulden stanser den. Familier i Modena har sin egen batteria og gir en til datteren når hun gifter seg.",
+    match:["batteria","batteriaen","batterie"]},
+
+  'lampredotto': {short:"Firenzes gatemat: kuas fjerde mage, småkokt i timevis og servert i et rundstykke dyppet i kraften.",
+    long:"Løpen, kuas fjerde mage, småkokes med tomat og selleri til den er mør, hakkes, legges i et rundstykke som er dyppet i kokekraften, og toppes med grønn saus og chiliolje. Den selges fra vogner rundt markedene, spises stående fra sent på formiddagen, og av florentinere fra alle samfunnslag. Den hører til den samme logikken som Romas femte fjerdedel: de fattige spiste det de rike ikke ville ha, og gjorde det til noe de rike nå står i kø for.",
+    match:["lampredotto","lampredottoen"]}
 
 });

@@ -590,7 +590,7 @@ window.QUIZ_NO['IT-36'] = [
 ];
 
 window.QUIZ_NO['IT-45'] = [
-  [ // 1: Lambrusco, riktig forstått
+  [ // 1: Lambrusco, vinen som var to viner
     {q:"Hvilken Lambrusco er den lyseste og mest syrlige?",
      a:["Grasparossa di Castelvetro","Salamino di Santa Croce","di Sorbara","Maestri"],
      c:2,

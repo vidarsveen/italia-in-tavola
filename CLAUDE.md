@@ -113,9 +113,19 @@ Debug URL parameters: `?instant` (skip font wait and camera tweens), `region=IT-
 4. **Wire it.** In `italia-course.html`: add `'IT-xx':'<region>'` to `ASSET_DIRS`; add three script tags after
    the previous region's: `content/<region>.js`, `content/<region>.no.js`, `assets/audio/<region>/manifest.js`.
 5. **Narration.** `python tools/review_no.py <region> --narrate` regenerates every stale file with a truncation
-   retry and re-encodes Opus (preferred). Underneath it is `python tools/narrate.py <region>` (≈2 min per lesson, run in the background; needs
-   `edge-tts` and `imageio-ffmpeg`, install with `python -m pip install`). Voices: en-GB-SoniaNeural,
-   nb-NO-PernilleNeural. Then `python tools/opus.py <region> 12`. Regenerate one file with `--only no-3`.
+   retry, normalises loudness and re-encodes Opus (preferred). It passes the right settings per language:
+   English is edge-tts `en-GB-SoniaNeural`; Norwegian is `--engine nbtts --voice 'Kvinne · Oslo' --pace Rolig
+   --tempo 0.95` (§16), and running bare `narrate.py` on a Norwegian file would silently put the old Edge voice
+   back. **The spoken script standard since 2026-09-14 is `--intro title --drop facts,recap,tasting,headings
+   --outro none`** (`STANDARD_INTRO`/`STANDARD_DROP`/`STANDARD_OUTRO` in `narrate.py`): title, then prose,
+   and no "End of this reading." line, because the audiobook plays readings straight through. The summary line, the boxes, the
+   tasting table and the section headings are for the eye; read aloud they were the "cryptic messages" the owner
+   heard at the start of every chapter. The 80 English files recorded before that date use `--intro full` with
+   nothing dropped and the 80 Norwegian ones `--intro title --drop facts,recap`; each file's own settings are in
+   `manifest.json` and `--stale` compares against those, so nothing is reported stale merely because the
+   standard moved. Underneath: `python tools/narrate.py <region> --intro title --drop facts,recap,tasting,headings`
+   (≈2 min per lesson, background; needs `edge-tts`, `imageio-ffmpeg`), `python tools/normalise.py both --region
+   <region>`, `python tools/opus.py <region> 12`. Regenerate one file with `--only no-3`.
 6. **Build and test.** `python build.py` (writes dist/ and the audio `manifest.js` files), then §8 tests,
    then `python tools/make_site.py`.
 7. **Hosted size.** `dist/italia-course.html` must stay under 16 MB; it is at about 9 MB after Friuli and Liguria (twelve regions of photos re-encoded by build.py to 620 px, quality 45,
@@ -427,6 +437,23 @@ forth. The reader's own Listen stays as it is for a single reading.
 - The `.m4b` files that `tools/audiobook.py` builds are a separate thing, for a real audiobook
   app; they are git-ignored and not published. This page is what a visitor gets.
 
+
+## 18. The glossary page and the prose rewrite (added 2026-09-14)
+
+- `#/glossary` lists every glossary term of the current language, alphabetically with letter headings, each
+  folding open to its long explanation, with a search box. It borrows the recipe page's container (`#cook`,
+  `cooking = {gloss:true}`), so the back button, Escape and the language switch need nothing new
+  (`openGloss`, `glossIndexHtml` next to `openCook`). Ways in: the "All terms ›" link at the foot of the
+  term popup, and the Glossary · Recipes line on the intro/about card. There is deliberately no button in
+  `#top`, which is full at 390 px.
+- The glossary grows with the rewrite: every specialist word a new reading introduces gets an inline gloss
+  for the ear and an entry for the finger, in both languages (`match` forms listed per language, the
+  Norwegian with its definite forms: «damejeannen», «sfoglinene»). Added so far: demijohn, battitore,
+  sfoglina, spungone, batteria, lampredotto.
+- The prose rewrite of both courses is documented in `docs/prose-plan.md` (rules §4, method §5b, progress
+  §5a) with one outline-and-ledger file per rewritten reading in `docs/rewrite/`. `tools/prose_lint.py`
+  runs on every draft. Reviewer briefs for the fresh-context subagent reviews are
+  `docs/rewrite/REVIEW_READER.md` and `REVIEW_FACTS.md`.
 
 ## 16. OpenRouter voices and the audiobook (added 2026-09-11)
 

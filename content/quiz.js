@@ -590,7 +590,7 @@ window.QUIZ['IT-36'] = [
 ];
 
 window.QUIZ['IT-45'] = [
-  [ // 1: Lambrusco, properly understood
+  [ // 1: Lambrusco, the wine that was two wines
     {q:"Which Lambrusco is the palest and most acidic?",
      a:["Grasparossa di Castelvetro","Salamino di Santa Croce","di Sorbara","Maestri"],
      c:2,

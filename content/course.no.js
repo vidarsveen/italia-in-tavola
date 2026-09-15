@@ -31,7 +31,7 @@ window.COURSE_NO = {
  'IT-45':{intro:"Italias matdal. Parmigiano Reggiano, prosciutto di Parma, balsamicoeddik fra Modena og fersk eggpasta kommer alle fra den flate Po-sletten, skylt ned med perlende, munter Lambrusco.",
    landmark:{name:'De to tårnene, Bologna', desc:'Asinelli (97 m) og det skjeve nabotårnet Garisenda, middelalderske familietårn som fortsatt rager over byen med buegangene.'},
    pairing:'Tørr Lambrusco til et brett med salumi og Parmigiano; Sangiovese di Romagna til tagliatelle al ragù.',
-   lessons:["Lambrusco, riktig forstått","Sangiovese på Romagna-siden","Parmigiano, prosciutto og balsamico: tre beskyttede skatter","Bologna la Grassa og sfogliaen"]},
+   lessons:["Lambrusco, vinen som var to viner","Sangiovese på Romagna-siden","Parmigiano, prosciutto og balsamico: tre beskyttede skatter","Bologna la Grassa og sfogliaen"]},
  'IT-52':{intro:"Sypressåser, renessansebyer og Sangiovese i alle former: Chianti Classico, Brunello di Montalcino, Vino Nobile. Matlagingen er stolt bondekost: brød, bønner, olivenolje og en tykk florentinsk biff.",
    landmark:{name:'Det skjeve tårnet i Pisa og Brunelleschis kuppel', desc:'Pisas klokketårn har hellet siden 1170-tallet; i Firenze er Brunelleschis kuppel fra 1436 fortsatt den største murkuppelen som noen gang er bygget.'},
    pairing:'Chianti Classico til bistecca alla fiorentina; Vin Santo til cantucci som dyppes i glasset.',
