@@ -273,6 +273,22 @@ Object.assign(window.GLOSSARY_NO, {
 
   'stockfish': {short:"Torsk som er tørket hard i friluft, uten salt.",
     long:"Italias stoccafisso er norsk tørrfisk, og Italia kjøper mer enn sju tideler av det Norge eksporterer. Den må ikke forveksles med klippfisk, som saltes før den tørkes og heter baccalà i det meste av Italia. I Venezia betyr baccalà likevel tørrfisk.",
-    match:["stoccafisso","tørrfisken","tørrfisk"]}
+    match:["stoccafisso","tørrfisken","tørrfisk"]},
+
+  'mondina': {short:"Kvinne som luket de vannfylte rismarkene i Nord-Italia for hånd.",
+    long:"Hver vår, helt til maskiner og ugressmidler tok over arbeidet på 1960-tallet, reiste kvinner fra Emilia, Veneto og Lombardia til rismarkene rundt Vercelli, Novara og Pavia for rundt førti dager. De sto barbeint og foroverbøyd i vannet, og en del av lønnen var ris. I Vercelli fikk de gjennom åtte timers arbeidsdag i 1906.",
+    match:["mondinene","mondine","mondina"]},
+
+  'marcita': {short:"Eng der et tynt lag rennende vann holder gresset i vekst gjennom vinteren.",
+    long:"Cistercienserne i Chiaravalle sør for Milano utviklet metoden. De beste marcitene ble slått åtte eller ni ganger i året, fire eller fem av dem om vinteren, og kyrne fikk friskt gress fra slutten av februar. Det er en del av grunnen til at den lombardiske sletten hadde så mye melk.",
+    match:["marcitene","marcite","marcita"]},
+
+  'fruttaio': {short:"Luftig loft der druer legges ut til tørk.",
+    long:"I Valtellina ligger klasene til Sforzato der i små kasser eller på rister fram til desember og mister en tredjedel av vekten eller mer. I Valpolicella brukes det samme ordet om loftene der druene til Amarone tørkes.",
+    match:["fruttaiene","fruttai","fruttaio"]},
+
+  'mantecatura': {short:"Siste trinn i en risotto: kaldt smør og revet ost røres inn med kjelen av platen.",
+    long:"Det gjør risen kremet og løs nok til å bevege seg som en bølge når tallerkenen vippes. I Milano kalles det all'onda.",
+    match:["mantecaturaen","mantecatura"]}
 
 });

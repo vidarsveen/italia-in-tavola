@@ -273,6 +273,22 @@ Object.assign(window.GLOSSARY, {
 
   'stockfish': {short:"Cod dried hard in the open air, without salt.",
     long:"Italy's stockfish, stoccafisso, is Norwegian, and Italy buys more than seven tenths of what Norway exports. It is not salt cod, which is salted before it is dried and is called baccalà in most of Italy. In Venice, though, baccalà means stockfish.",
-    match:["stockfish","stoccafisso"]}
+    match:["stockfish","stoccafisso"]},
+
+  'mondina': {short:"A woman who weeded the flooded rice fields of northern Italy by hand.",
+    long:"Every spring, until machines and herbicides ended the work in the 1960s, women came from Emilia, the Veneto and Lombardy to the paddies of Vercelli, Novara and Pavia for about forty days. They worked barefoot and bent double in the water, and part of their pay was rice. At Vercelli in 1906 they won an eight-hour day.",
+    match:["mondine","mondina"]},
+
+  'marcita': {short:"A meadow kept under a thin sheet of running water so that the grass grows through the winter.",
+    long:"The Cistercians of Chiaravalle, south of Milan, perfected the method. The best marcite were mown eight or nine times a year, four or five of them in winter, and the cattle had fresh grass from late February. It is part of why the Lombard plain had so much milk.",
+    match:["marcite","marcita"]},
+
+  'fruttaio': {short:"An airy loft where grapes are laid out to dry.",
+    long:"In the Valtellina the bunches for Sforzato lie there in small crates or on racks until December and lose a third or more of their weight. The Valpolicella uses the same word for the lofts where the grapes for Amarone dry.",
+    match:["fruttai","fruttaio"]},
+
+  'mantecatura': {short:"The last step of a risotto: cold butter and grated cheese beaten in off the heat.",
+    long:"It makes the rice creamy and loose enough to move in a wave when the plate is tilted, which Milan calls all'onda.",
+    match:["mantecatura"]}
 
 });
