@@ -217,6 +217,26 @@ Object.assign(window.GLOSSARY, {
 
   'lampredotto': {short:"Florence's street food: the cow's fourth stomach, simmered for hours and served in a bun dipped in the broth.",
     long:"The abomasum, the fourth stomach of the cow, simmered with tomato and celery until it is tender, chopped, piled into a bun that has been dipped in the cooking broth, and dressed with green sauce and chilli oil. It is sold from carts around the markets, eaten standing up from mid-morning, and by every class of Florentine. It belongs to the same logic as Rome's fifth quarter: the poor ate what the rich would not, and made it into something the rich now queue for.",
-    match:["lampredotto"]}
+    match:["lampredotto"]},
+
+  'galestro': {short:"The crumbly marl of the Chianti Classico hills, which breaks into flakes.",
+    long:"A soft rock of clay and marl that breaks into flakes and gravel in the hand. It drains fast and holds little water, so vines on it stay small and their grapes concentrated, and growers in Chianti Classico link it with perfumed, finely built wines. It shares the hills with alberese, the harder limestone, and many vineyards have both.",
+    match:["galestro"]},
+
+  'alberese': {short:"The hard, pale limestone of the Chianti hills, often found beside galestro.",
+    long:"A compact, whitish limestone that breaks up into stones rather than flakes. It drains well, and growers expect more body and firmness from vines on it than from vines on galestro.",
+    match:["alberese"]},
+
+  'fiasco': {short:"The round-bottomed Chianti flask in a straw jacket, which cannot stand up without it.",
+    long:"Cheap blown glass came out round at the bottom, so the flask was wrapped in dried marsh grass called sala, which gave it a base and protected it on the road. For much of the twentieth century it made Chianti the most recognised wine in the world, and then, as the wine inside declined, the emblem of cheap Italian red. The plural is fiaschi, and English borrowed its word fiasco, a total failure, from the Italian phrase far fiasco.",
+    match:["fiasco","fiaschi"]},
+
+  'Gran Selezione': {short:"Chianti Classico's top tier since 2014: estate-grown grapes and at least 30 months' ageing.",
+    long:"It sits above the everyday Annata and the Riserva. The grapes must come from the producer's own vineyards, the wine must age for at least 30 months, and from 2021 it must be at least 90 per cent Sangiovese. A Gran Selezione may also name one of the zone's eleven villages, the Unità Geografiche Aggiuntive, on its label.",
+    match:["Gran Selezione"]},
+
+  'vino da tavola': {short:"Table wine: Italy's lowest category, where the first Super Tuscans had to be sold.",
+    long:"The category was meant for plain wine sold in bulk. In the 1970s Tuscany's most ambitious wines ended up there too, because the DOC rules had no room for Cabernet, or for Chianti made without white grapes. Sassicaia and Tignanello both went out as vino da tavola, and Sassicaia still sold for more than Barolo. IGT was created in 1992 to give such wines a name, and since the European wine reform of 2009 the lowest tier has been labelled simply vino.",
+    match:["vino da tavola"]}
 
 });

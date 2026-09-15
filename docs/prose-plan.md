@@ -246,7 +246,7 @@ Norwegian follows the English one region behind, written from the facts and the 
 | Emilia-Romagna 1 | done | done | owner + outside | recorded (standard script, still with outro) | first pilot |
 | Toscana 4 | done | done | reader + fact + NO reader | stale | second pilot |
 | Emilia-Romagna 2–4 | done | done | reader + fact + NO reader, each | stale | first batch region; ledgers in `docs/rewrite/` |
-| Toscana 1–3 | **drafted, lint-clean, unreviewed** | not written | none: all six review agents died on a session rate limit 2026-09-14 late evening | stale | ledger `docs/rewrite/toscana-1-3.md` |
+| Toscana 1–3 | done (second pass 2026-09-15) | done | reader + fact each (old text = `bb7ff7f`), NO reader | stale | ledger `docs/rewrite/toscana-1-3.md`; glossary +5 |
 
 ### START HERE, next session (written 2026-09-15 for a fresh session, any model)
 
@@ -254,7 +254,11 @@ Norwegian follows the English one region behind, written from the facts and the 
    and the memory notes. Then read, yourself, Emilia-Romagna 1–4 in `content/emiliaromagna.js` and Toscana 4 in
    `content/toscana.js`: they are the approved standard, and the owner's words on them were "much better,
    great, no negative feedback".
-2. Toscana 1–3 are drafted in `content/toscana.js` and published to the preview unreviewed. Run the reader
+2. **Done 2026-09-15** (steps 2 and 3): Toscana 1–3 went through reader + fact reviews, a second pass, Norwegian and
+   a Norwegian review, gained five glossary terms, and were published; every decision is in `docs/rewrite/toscana-1-3.md`.
+   Lesson learned: the fact review's old text is the commit *before* the drafts (`bb7ff7f`), not HEAD, and a
+   Norwegian reviewer can catch facts too (Ricasoli's premiership). **Next is step 4: Valle d'Aosta** (first in
+   `ORDER`, stem `valledaosta`). For the record, the original step 2: Toscana 1–3 were drafted in `content/toscana.js` and published to the preview unreviewed. Run the reader
    and fact reviews on each (the prompts are the ones in this session's pattern: brief + rules §4 + the lesson +
    for the fact review `git show HEAD:content/toscana.js` as the old text and the ledger section), apply the
    second pass, lint (`python tools/prose_lint.py toscana --lang en`), then write the Norwegian for all three
@@ -263,8 +267,9 @@ Norwegian follows the English one region behind, written from the facts and the 
 3. Add glossary entries (both files, both languages' match forms) for any new specialist word: from Toscana
    1–3 the candidates are galestro, alberese, fiasco, Gran Selezione, vino da tavola.
 4. Then the next region in the batch order below. One region per stretch of work; publish after each.
-5. **Nothing is committed in either repo.** Recommend to the owner a commit of the whole state before going
-   further (`git add -A && git commit` in both repos; no push needed for the preview). The recordings are
+5. The first day is committed (`bf79ee8`); the Toscana 1–3 second pass of 2026-09-15 is not, until the owner
+   asks. Note that `tools/test/shot.py` defaults to `dist/`; set `IIT_URL=http://127.0.0.1:8765/italia-course.html`
+   to screenshot unbuilt edits. The recordings are
    deliberately not being regenerated during review; `review_no.py <stem> --stale` lists what is stale.
 
 Owner's verdicts so far: Lambrusco "good" after two passes; Toscana 4 "much better, great, no negative

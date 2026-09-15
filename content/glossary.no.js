@@ -217,6 +217,26 @@ Object.assign(window.GLOSSARY_NO, {
 
   'lampredotto': {short:"Firenzes gatemat: kuas fjerde mage, småkokt i timevis og servert i et rundstykke dyppet i kraften.",
     long:"Løpen, kuas fjerde mage, småkokes med tomat og selleri til den er mør, hakkes, legges i et rundstykke som er dyppet i kokekraften, og toppes med grønn saus og chiliolje. Den selges fra vogner rundt markedene, spises stående fra sent på formiddagen, og av florentinere fra alle samfunnslag. Den hører til den samme logikken som Romas femte fjerdedel: de fattige spiste det de rike ikke ville ha, og gjorde det til noe de rike nå står i kø for.",
-    match:["lampredotto","lampredottoen"]}
+    match:["lampredotto","lampredottoen"]},
+
+  'galestro': {short:"Den smuldrende mergelen i Chianti Classico-åsene, som brytes opp i flak.",
+    long:"En myk bergart av leire og mergel som smuldrer til flak og grus når du klemmer den. Den drenerer raskt og holder lite på vannet, så rankene holder seg små og druene konsentrerte, og dyrkerne i Chianti Classico forbinder den med duftende viner med fin struktur. Den deler åsene med alberese, den hardere kalksteinen, og mange vinmarker har begge deler.",
+    match:["galestro","galestroen"]},
+
+  'alberese': {short:"Den harde, lyse kalksteinen i Chianti-åsene, som ofte ligger side om side med galestro.",
+    long:"En tett, hvitaktig kalkstein som brytes opp i steiner i stedet for flak. Den drenerer godt, og dyrkerne venter seg fyldigere og fastere viner fra ranker på alberese enn fra ranker på galestro.",
+    match:["alberese"]},
+
+  'fiasco': {short:"Chianti-flasken med rund bunn og kappe av strå, som ikke kan stå uten kappen.",
+    long:"Billig blåst glass fikk rund bunn, så flasken ble kledd i tørket siv, sala, som ga den noe å stå på og beskyttet den underveis. I store deler av 1900-tallet gjorde den Chianti til verdens mest gjenkjennelige vin, og da vinen i den ble dårligere, ble den selve symbolet på billig italiensk rødvin. Flertall er fiaschi, og det norske ordet fiasko kommer av det italienske uttrykket far fiasco, å mislykkes totalt.",
+    match:["fiasco","fiascoen","fiaschi"]},
+
+  'Gran Selezione': {short:"Toppnivået i Chianti Classico siden 2014: druer fra egne vinmarker og minst 30 måneders lagring.",
+    long:"Det ligger over hverdagsvinen Annata og over Riserva. Druene må komme fra produsentens egne vinmarker, vinen må lagres i minst 30 måneder, og fra 2021 må den være minst 90 prosent Sangiovese. En Gran Selezione kan også oppgi en av sonens elleve landsbyer, Unità Geografiche Aggiuntive, på etiketten.",
+    match:["Gran Selezione"]},
+
+  'vino da tavola': {short:"Bordvin: Italias laveste kategori, der de første supertoskanerne måtte selges.",
+    long:"Kategorien var tenkt for enkel vin i bulk. På 1970-tallet havnet også Toscanas mest ærgjerrige viner der, fordi DOC-reglene ikke ga plass til Cabernet eller til Chianti uten hvite druer. Både Sassicaia og Tignanello ble solgt som vino da tavola, og Sassicaia solgte likevel for mer enn Barolo. IGT ble opprettet i 1992 for å gi slike viner et navn, og siden den europeiske vinreformen i 2009 heter det laveste nivået bare vino.",
+    match:["vino da tavola"]}
 
 });

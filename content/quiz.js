@@ -658,7 +658,7 @@ window.QUIZ['IT-52'] = [
      a:["Prugnolo Gentile","Morellino","Brunello","Canaiolo"],
      c:2,
      why:"The large-berried strain is Brunello in Montalcino and Prugnolo Gentile in Montepulciano."},
-    {q:"Why has Tuscany never drunk Sangiovese as an aperitif?",
+    {q:"Why do Tuscans not drink Sangiovese as an aperitif?",
      a:["It is far too high in alcohol","Its acidity and tannin need food","It is always served warm","It is too sweet on its own"],
      c:1,
      why:"On its own it can seem thin and sharp; the acidity cuts fat and the tannin is softened by protein."}

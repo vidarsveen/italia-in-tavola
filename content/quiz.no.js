@@ -658,7 +658,7 @@ window.QUIZ_NO['IT-52'] = [
      a:["Prugnolo Gentile","Morellino","Brunello","Canaiolo"],
      c:2,
      why:"Varianten med store bær heter Brunello i Montalcino og Prugnolo Gentile i Montepulciano."},
-    {q:"Hvorfor har toskanerne aldri drukket Sangiovese som aperitiff?",
+    {q:"Hvorfor drikker ikke toskanerne Sangiovese som aperitiff?",
      a:["Den har altfor høy alkohol","Syren og tanninen trenger mat","Den serveres alltid lunken","Den er for søt alene"],
      c:1,
      why:"Alene kan den virke tynn og skarp; syren skjærer gjennom fett, og tanninen mykner mot protein."}

@@ -9,27 +9,27 @@ window.READINGS_NO['IT-52'] = {
     minutes: 7,
     hero: "sangiovese",
     heroCaption: "Sangiovese, «Jupiters blod»: Italias mest plantede drue og ryggraden i enhver stor toskansk rødvin.",
-    summary: "Chianti, Brunello og Vino Nobile er alle den samme druen dyrket på forskjellige steder. Hvordan Sangiovese smaker, hvorfor den forandrer seg så mye, og hvordan du leser den i glasset.",
+    summary: "Chianti og Brunello smaker som viner fra to land, men begge er Sangiovese fra vinmarker en time fra hverandre, og vinen fra denne druen smaker av stedet den vokste på og av hvor omhyggelig den ble stelt.",
     html: `
-<p class="lead">Spør hva Toscanas vin er, og svaret er ett ord: <strong>Sangiovese</strong>. Det er druen i Chianti, i Brunello di Montalcino, i Vino Nobile di Montepulciano og i Morellino di Scansano, og det er den mest utbredte druesorten i Italia. Likevel kan en Chianti Classico og en Brunello smake like forskjellig som to viner fra hvert sitt land. Den første leksjonen om Toscana er å forstå hvorfor.</p>
+<p class="lead">Heller du opp en Chianti Classico og en Brunello di Montalcino ved siden av hverandre, vil de fleste tro at vinene kommer fra to forskjellige land. Den ene er lettere og skarpere og dufter av surkirsebær og tørkede urter. Den andre er mørkere og tettere, og den er laget for å lagres i ti år eller mer. Det er den samme druen, <strong>Sangiovese</strong>, og vinmarkene ligger en times kjøretur fra hverandre. Ingen annen drue dekker mer av Italias vinmarker. Vinen smaker av åsen druene vokste på og av hvor omhyggelig vinmarken ble stelt, så en dårlig beliggenhet eller slurvete arbeid merkes i glasset.</p>
 
-<h2>En drue som forteller om stedet</h2>
-<p>Sangiovese er ingen enkel drue. Den modner sent, skyter tidlig og har tynt skall som råtner i en våt september. Får den lov, bærer den rikelig, og det er grunnen til at så mye toskansk vin var tynn og sur på 1970-tallet. Den er også en av de druene som avslører mest: den viser nøyaktig hvor den ble dyrket, og hvor godt den ble stelt. I en kjølig leireskråning 500 meter over havet gir den en blek, nervøs, urteaktig vin; i de varme kalksteinsskråningene sør for Montalcino gir den noe mørkt, tett og langlivet. Samme drue, nytt ansikt.</p>
-<figure data-img="chianti"><figcaption>Vinmarker i Chianti Classico-åsene mellom Firenze og Siena, med sypressene og steingårdene som definerer landskapet.</figcaption></figure>
-<p>Familien har flere medlemmer. <strong>Sangiovese Grosso</strong>, varianten med store bær, kalles <em>Brunello</em> i Montalcino og <em>Prugnolo Gentile</em> i Montepulciano. <em>Sangiovese Piccolo</em>, med mindre bær, dominerte i Chianti før i tiden. Moderne kloneforskning har visket ut disse grensene, men navnene lever videre på etikettene og i lokal stolthet.</p>
+<h2>En vanskelig drue</h2>
+<p>Sangiovese er ingen lettstelt drue. Den skyter tidlig, så en vårfrost kan ta avlingen. Den modner sent og har tynt skall, så en våt september kan få druene til å råtne på ranken. Og får den lov, bærer den rikelig. Derfor var så mye toskansk vin tynn og sur på 1970-tallet, for rankene bar langt mer frukt enn de klarte å modne. Men en drue som reagerer på alt, reagerer også på stedet. I en kjølig leireskråning 500 meter over havet gir den en lys og nervøs vin med urtepreg. I de varme kalksteinsskråningene sør for Montalcino gir den samme druen en mørk vin som tåler lang lagring.</p>
+<figure data-img="chianti"><figcaption>Vinmarker i Chianti Classico-åsene mellom Firenze og Siena, med sypressene og gårdshusene i stein som preger landskapet.</figcaption></figure>
+<p>Familien har flere medlemmer, og navnene betyr noe på en etikett. <strong>Sangiovese Grosso</strong>, varianten med store bær, kalles <em>Brunello</em> i Montalcino og <em>Prugnolo Gentile</em> i Montepulciano. <em>Sangiovese Piccolo</em>, som har mindre bær, dominerte i Chianti før i tiden. Moderne kloneforskning har visket ut disse skillene, men navnene lever videre på flaskene og i lokalpatriotismen.</p>
 
-<h2>Hvordan den smaker</h2>
-<p>Sangiovese handler mer om syre og tannin enn om farge og tyngde. Fargen er middels rubinrød og går mot murstein med alderen; en Sangiovese som ser svart ut, er som regel blandet med noe annet. Duften er først og fremst <strong>surkirsebær</strong>, med tørkede urter, tomatblad, lær, fioler og, i lagrede viner, te og tobakk. I munnen er den smaksrik og fast, med en frisk syre som gjør den til en av verdens store matviner, og tanniner som spenner fra myke i Morellino til strenge i en ung Brunello.</p>
+<h2>I glasset</h2>
+<p>Sangiovese har høy syre og mye tannin, men bare middels farge og fylde. Fargen er middels rubinrød og får en mursteinsrød kant når vinen blir eldre, så en Sangiovese som ser svart ut, er som regel blandet med noe annet. Duften er først og fremst surkirsebær, deretter tørkede urter, tomatblad, lær og fioler, og en gammel vin dufter av te og tobakk. I munnen er den smaksrik og fast. Syren er frisk, og derfor vil vinen ha mat. Tanninene spenner fra myke i en Morellino til strenge i en ung Brunello.</p>
+
+<h2>Fire steder</h2>
+<p>Fire toskanske viner er Sangiovese med navn etter stedet der druen vokser. I åsene mellom Firenze og Siena heter vinen <strong>Chianti Classico</strong>. Dette er det historiske hjertet, og det har fått et eget kapittel. Sør for Siena er landet varmere og tørrere. Der lager åsbyen <strong>Montalcino</strong> Brunello, den kraftigste og dyreste av de fire, og <strong>Montepulciano</strong>, lenger øst, lager Vino Nobile, som er mildere og mindre kjent. Nede ved Maremma-kysten blir druen til <strong>Morellino di Scansano</strong>. Det er en varm vin med preg av plomme, og den skal drikkes ung.</p>
+<figure data-img="montalcino"><figcaption>Val d'Orcia nedenfor Montalcino, der det er varmere og tørrere enn i Chianti. Her dyrkes Brunello.</figcaption></figure>
 <aside class="facts"><h4>Nøkkelfakta</h4><ul>
 <li>Sangiovese dekker rundt 10 % av Italias vinmarker, mer enn noen annen drue; to tredjedeler av den står i Toscana.</li>
 <li>Navnet forklares som regel som <em>sanguis Jovis</em>, Jupiters blod, selv om opprinnelsen er usikker.</li>
 <li>Jord: <em>galestro</em> (smuldrende mergel) og <em>alberese</em> (kalkstein) i Chianti Classico; vulkansk jord og leire i Montalcino; sandholdig leire i Montepulciano.</li>
 <li>Utenfor Toscana er den hoveddruen i Romagna, i Montefalco Rosso i Umbria og i store deler av Marche.</li>
 </ul></aside>
-
-<h2>Det toskanske kartet</h2>
-<p>Fire navn bærer druens rykte. <strong>Chianti Classico</strong>, åsene mellom Firenze og Siena, er det historiske hjertet og emnet for neste lesetekst. <strong>Montalcino</strong>, en åsby sør for Siena, lager Brunello, det kraftigste og dyreste uttrykket. <strong>Montepulciano</strong>, lenger øst, lager Vino Nobile, mildere og mindre berømt. Og Maremma-kysten lager <strong>Morellino di Scansano</strong>, en varm, plommeaktig Sangiovese som skal drikkes ung, side om side med Bolgheris supertoskanere i Bordeaux-stil.</p>
-<figure data-img="montalcino"><figcaption>Val d'Orcia nedenfor Montalcino: varmere og tørrere enn Chianti, og Brunello-land.</figcaption></figure>
 
 <aside class="tasting"><h4>I glasset: Sangiovese</h4>
 <table><tr><th>Farge</th><td>Middels rubinrød, murstein i kanten med alderen</td></tr>
@@ -39,13 +39,14 @@ window.READINGS_NO['IT-52'] = {
 <tr><th>Serveres</th><td>16–18 °C; dekanter Brunello og Riserva</td></tr>
 <tr><th>Ved bordet</th><td>Grillet kjøtt, tomatbaserte retter, pecorino, bønne- og brødsupper</td></tr></table></aside>
 
-<h2>Hvorfor den trenger mat</h2>
-<p>Sangiovese alene kan virke tynn og skarp; med mat våkner den til liv. Syren skjærer gjennom fettet i en bistecca og fylden i en ragù, og tanninene mykner mot proteinet. Toskanerne har aldri drukket den som aperitiff. Det er en vin som gjennom århundrer er formet for et bord med grillet kjøtt, bønner, brød og olivenolje, og den fjerde leseteksten handler om det bordet.</p>
+<h2>Ved bordet</h2>
+<p>Alene kan Sangiovese virke tynn og skarp. Til mat smaker den helt annerledes, fordi syren skjærer gjennom fettet i en bistecca og fylden i en ragù, og proteinet gjør tanninene mykere. Toskanerne drikker den ikke som aperitiff. Gjennom århundrer er vinen laget for et bord med grillet kjøtt, bønner, brød og olivenolje, og det er det bordet det siste kapitlet i denne regionen handler om.</p>
 <figure data-img="pranzo"><figcaption>En toskansk lunsj: spekemat, pecorino og et glass rødvin. Sangiovese er laget for et bord som dette.</figcaption></figure>
+<p>Setter du de to glassene ved siden av hverandre igjen, er forskjellen ikke lenger noen gåte. Den ene vinen kommer fra de høyere og kjøligere åsene mellom Firenze og Siena. Den andre kommer fra skråningene sør for Montalcino, der det er varmere og tørrere og sjøluften når inn fra Maremma.</p>
 
 <div class="recap"><h4>Før du går videre</h4><ul>
 <li>Sangiovese er Toscanas ene store drue: Chianti, Brunello, Vino Nobile og Morellino er alle Sangiovese fra forskjellige steder.</li>
-<li>Vent deg surkirsebær, urter, høy syre og faste tanniner; middels farge, aldri svart.</li>
+<li>Regn med surkirsebær, urter, høy syre og faste tanniner; middels farge, aldri svart.</li>
 <li>Den er en matvin: syre og tannin er laget for kjøtt, bønner og brød.</li>
 </ul></div>`
   },
@@ -55,29 +56,29 @@ window.READINGS_NO['IT-52'] = {
     minutes: 7,
     hero: "castellina",
     heroCaption: "Castellina in Chianti, en av de ni landsbyene i Classico-sonen, i åsene mellom Firenze og Siena.",
-    summary: "Vinen som kom i en stråflaske, falt i vanry og klatret tilbake: Chianti Classico-sonen, reglene, hanen og hvordan du velger en flaske i dag.",
+    summary: "Chianti gikk fra stråflasken på bordene i trattoriaer i utlandet til en vin ingen tok på alvor, og dyrkerne der vinen hører hjemme, brukte førti år på å skrive om reglene og gjenreise den.",
     html: `
-<p class="lead">I store deler av 1900-tallet betydde Chianti en lubben flaske i stråkurv med et stearinlys stukket i flaskehalsen, på en trattoria i utlandet. Vinen inni var ofte dårlig: Sangiovese fra overbelastede ranker, drøyd ut med hvite druer og laget etter regler som belønnet mengde, ikke kvalitet. De siste førti årene handler om hvordan sonens historiske kjerne, <strong>Chianti Classico</strong>, frigjorde seg fra det bildet og ble en av Italias fineste viner.</p>
+<p class="lead">I store deler av 1900-tallet var Chianti en bukete flaske i stråkurv som sto med et stearinlys i halsen på et trattoriabord et sted i utlandet. Vinen i flasken var ofte dårlig. Den var laget av Sangiovese fra ranker som bar for mye, den var drøyd ut med hvite druer, og reglene den fulgte, var skrevet for å gi store mengder. Vinen hører hjemme i åsene mellom Firenze og Siena, og de siste førti årene har dyrkerne der arbeidet for å få folk til å glemme den flasken. De endret reglene, og <strong>Chianti Classico</strong> ble en av Italias fineste viner.</p>
 
 <h2>En grense, en hane og et kappløp</h2>
-<p>Sonen ligger i åsene mellom Firenze og Siena, to republikker som kjempet om den i århundrer. Legenden sier at grensen ble avgjort ved et kappløp: hver by skulle sende en rytter ved hanegal, og grensen skulle trekkes der de møttes. Siena valgte en hvit hane og fôret den godt; Firenze valgte en svart og sultet den, så den gol lenge før daggry, og den florentinske rytteren var nesten ved Sienas murer da de møttes. <strong>Gallo Nero</strong>, den svarte hanen, ble emblemet til Chianti-ligaen på 1300-tallet og til vinens konsortium i 1924.</p>
-<figure data-img="chianti"><figcaption>Chianti Classico-land nær Castellina: eikeskog, oliven og vinranker på skråninger av galestro og kalkstein.</figcaption></figure>
-<p>Chianti-sonen som helhet er enorm og strekker seg over det meste av Midt-Toscana, og vinen derfra, vanlig <em>Chianti</em>, kan være hyggelig og billig. <strong>Chianti Classico</strong> er bare den opprinnelige åssonen, rundt 7 000 hektar vinranker fordelt på ni landsbyer, og siden 1996 har den vært en egen betegnelse med egne regler.</p>
+<p>Firenze og Siena kjempet om disse åsene i århundrer, og legenden sier at grensen ble avgjort ved et kappløp. Hver by skulle sende ut en rytter ved hanegal, og grensen skulle trekkes der de to møttes. Siena valgte en hvit hane og fôret den godt. Firenze valgte en svart hane og sultet den, så den gol lenge før daggry, og den florentinske rytteren var nesten ved Sienas murer da de møttes. <strong>Gallo Nero</strong>, den svarte hanen, ble emblemet til Chianti-ligaen på 1300-tallet og til vinens konsortium i 1924. Siden 2005 har den vært trykt på halsen av hver eneste flaske Chianti Classico.</p>
+<figure data-img="chianti"><figcaption>Chianti Classico-land nær Castellina, der stilen på vinene ligger mellom Radda og Panzano. Eikeskog, oliven og vinranker vokser på skråninger av galestro og kalkstein.</figcaption></figure>
+<p>Chianti-sonen som helhet er enorm. Den strekker seg over det meste av Midt-Toscana, og vinen derfra, vanlig <em>Chianti</em>, kan smake godt og koste lite. <strong>Chianti Classico</strong> er bare den opprinnelige åssonen, rundt 7 000 hektar vinranker fordelt på ni landsbyer, og siden 1996 har den vært en egen betegnelse med egne regler.</p>
 
-<h2>Reglene, før og nå</h2>
-<p>I 1872 skrev baron Bettino Ricasoli, senere Italias statsminister, ned oppskriften som ble Chianti: mest Sangiovese, litt Canaiolo for mykhet, og litt hvit Malvasia for å gjøre vinen drikkbar ung. Den formelen, med for mye hvit drue, ble lov i 1967 og drepte nesten vinens rykte. Dagens regler er det motsatte: minst 80 % Sangiovese, ingen hvite druer overhodet siden 2006, resten fra Canaiolo, Colorino eller internasjonale sorter.</p>
+<h2>Baronens oppskrift</h2>
+<p>Baron Bettino Ricasoli hadde vært Italias statsminister to ganger da han i 1872 skrev ned oppskriften som ble Chianti. Den besto mest av Sangiovese, med litt Canaiolo for å gjøre vinen mykere og litt hvit Malvasia, slik at den kunne drikkes ung. I 1967 ble oppskriften gjort til lov, men loven tillot opptil tretti prosent hvite druer, de fleste av dem Trebbiano, og det var nær ved å ødelegge vinens rykte. Dagens regler går motsatt vei. En Chianti Classico består av minst 80 prosent Sangiovese, den har ikke hatt hvite druer overhodet siden 2006, og resten kommer fra Canaiolo, Colorino eller internasjonale sorter.</p>
 <aside class="facts"><h4>Tre nivåer av Chianti Classico</h4><ul>
-<li><b>Annata</b>: hverdagsvinen, sluppet ett år etter innhøstingen. Frisk, kirsebærduftende, til tomat og pasta.</li>
-<li><b>Riserva</b>: 24 måneders lagring, mer dybde; hverdagsflasken i en seriøs kjeller.</li>
-<li><b>Gran Selezione</b>: toppnivået siden 2014. Druer fra egen eiendom, 30 måneders lagring, fra 2021 minst 90 % Sangiovese, og mulighet til å oppgi en av elleve landsbyer (<em>Unità Geografiche Aggiuntive</em>) som Radda, Gaiole, Panzano eller Lamole på etiketten.</li>
+<li><b>Annata</b>: hverdagsvinen, som slippes ett år etter innhøstingen. Den er frisk, dufter av kirsebær og passer til tomat og pasta.</li>
+<li><b>Riserva</b>: 24 måneders lagring og mer dybde; ukedagsflasken for den som har en seriøs kjeller.</li>
+<li><b>Gran Selezione</b>: toppnivået siden 2014. Druene kommer fra egne vinmarker, vinen lagres i 30 måneder, fra 2021 er den minst 90 % Sangiovese, og etiketten kan oppgi en av elleve landsbyer (<em>Unità Geografiche Aggiuntive</em>), som Radda, Gaiole, Panzano eller Lamole.</li>
 </ul></aside>
 
 <h2>Landsbyene</h2>
-<p>Chianti Classico er, som Langhe, i ferd med å lære seg å snakke om steder. <strong>Radda</strong> og <strong>Gaiole</strong>, høyt og kjølig, gir fine, stramme, langlivede viner. <strong>Panzanos</strong> gylne skål, <em>Conca d'Oro</em>, gir modnere og rundere viner. <strong>Castellina</strong> ligger mellom dem; <strong>Greve</strong> er varmere og nærmere Firenze; <strong>Castelnuovo Berardenga</strong> i sør, nær Siena, gir de modneste vinene av alle. Landsbynavnene fra 2021 er første skritt mot et kart i Burgund-stil, og de beste produsentene tapper allerede enkeltvinmarker.</p>
+<p>Som i Langhe snakker folk nå om landsbyene i Chianti Classico. I <strong>Radda</strong> og <strong>Gaiole</strong>, som ligger høyt og kjølig, blir vinene fine og stramme og tåler lang lagring. I den gylne skålen ved <strong>Panzano</strong>, <em>Conca d'Oro</em>, blir de modnere og rundere. <strong>Greve</strong> ligger nærmere Firenze og er varmere, og <strong>Castelnuovo Berardenga</strong> i sør, nær Siena, gir de modneste vinene av alle. Siden 2021 kan toppnivået, <strong>Gran Selezione</strong>, oppgi landsbyen på etiketten. Det er første skritt mot et kart som Burgunds, og de beste produsentene tapper allerede vin fra enkeltvinmarker.</p>
 <figure data-img="sangiovese"><figcaption>Sangiovese som modner i september; innhøstingen i Classico-åsene går fra midten av september og ut i oktober.</figcaption></figure>
 
 <h2>Stråflasken</h2>
-<p><em>Fiascoen</em>, flasken med rund bunn pakket inn i <em>sala</em>-strå, var en praktisk oppfinnelse: billig blåst glass som ikke kunne stå av seg selv. Den gjorde Chianti til verdens mest gjenkjennelige vin, og ble siden et pinlig symbol på vinens forfall. Nesten ingen seriøs produsent bruker den i dag, selv om noen beholder den som et nikk til historien. Ser du en, kan du regne med vanlig Chianti, ikke Classico.</p>
+<p><em>Fiascoen</em> er en flaske med rund bunn og en kappe av tørket siv, <em>sala</em>. Den begynte som en praktisk løsning, fordi billig blåst glass ikke kunne stå av seg selv. Flasken gjorde Chianti til verdens mest gjenkjennelige vin, og siden ble den et pinlig symbol på at vinen forfalt. Nesten ingen seriøse produsenter bruker den i dag, selv om noen få beholder den som et nikk til historien. Ser du en, kan du regne med vanlig Chianti, ikke Classico. En flaske fra Radda har i dag en svart hane på halsen og ikke et strå.</p>
 <figure data-img="fiaschi"><figcaption>Fiaschi i stråkappene sine. Flasken gjorde Chianti til den mest kjente vinen i verden, og gjorde den siden vanskelig å ta på alvor.</figcaption></figure>
 
 <aside class="tasting"><h4>I glasset: Chianti Classico Riserva</h4>
@@ -100,29 +101,29 @@ window.READINGS_NO['IT-52'] = {
     minutes: 7,
     hero: "bolgheri",
     heroCaption: "Sypressalleen i Bolgheri på Maremma-kysten, der Cabernet Sauvignon startet en revolusjon i 1968.",
-    summary: "Toscanas tre andre store rødviner: Sangiovese-aristokraten fra Montalcino, den mildere slektningen i Montepulciano, og opprørerne med Bordeaux-blandinger som brøt reglene og vant.",
+    summary: "En markis plantet Cabernet til eget bord, og vinen ble solgt som bordvin og kostet mer enn Barolo, mens Montalcino og Montepulciano inne i landet laget Sangiovese etter strengere regler.",
     html: `
-<p class="lead">Om Chianti Classico er Toscanas hverdagsaristokrat, utgjør tre andre viner adelen. To er Sangiovese dyrket sør for Siena, i Montalcino og Montepulciano, etter regler strengere enn Chiantis. Den tredje er en familie av viner som ikke hadde noen regler i det hele tatt da de begynte, laget av franske druer ved kysten, solgt som bordvin og priset som den fineste Bordeaux. De kalles <strong>supertoskanerne</strong>, og de forandret italiensk vin.</p>
+<p class="lead">I 1944 plantet markis Mario Incisa della Rocchetta Cabernet Sauvignon på eiendommen sin, Tenuta San Guido, nær <strong>Bolgheri</strong> på Maremma-kysten, fordi han likte Bordeaux og den grusholdige jorden minnet ham om Médoc. Vinen var til familien, og i et kvart århundre kom den aldri lenger enn til hans eget bord. Så overtalte nevøen Piero Antinori ham i 1971 til å selge 1968-årgangen. Ingen toskanske regler tillot Cabernet, så vinen ble solgt som <em>vino da tavola</em>, bordvin, den laveste kategorien som fantes. Den kostet mer enn Barolo. Den het <strong>Sassicaia</strong>.</p>
+<figure data-img="bolgheri"><figcaption>Sypressalleen i Bolgheri er fem kilometer lang. Carducci skrev dikt om den, og i dag er den veien til kystens store eiendommer.</figcaption></figure>
 
-<h2>Brunello di Montalcino</h2>
-<p>Montalcino er en murkranset åsby førti kilometer sør for Siena, tørrere og varmere enn Chianti, med sjøluft fra Maremma. På 1870-tallet isolerte <strong>Ferruccio Biondi-Santi</strong> en variant av Sangiovese Grosso han kalte Brunello, «den lille brune», og laget en vin for lagring i stedet for å drikkes ung; hans 1888-årgang var fortsatt levende et århundre senere. I mesteparten av 1900-tallet var Brunello en håndfull gårder. I 1980 fikk den som første italienske vin DOCG-status, og på 1990-tallet var det hundre og deretter to hundre produsenter.</p>
+<h2>Den lille brune</h2>
+<p>Inne i landet, sør for Siena, lager to åsbyer Sangiovese etter regler som er strengere enn i Chianti. Den første er Montalcino, en by med ringmur førti kilometer fra Siena. Her er det tørrere og varmere enn i Chianti, og sjøluften fra Maremma når helt inn. På 1870-tallet isolerte <strong>Ferruccio Biondi-Santi</strong> her en variant av Sangiovese Grosso som han kalte Brunello, «den lille brune», og han laget en vin som skulle lagres i stedet for å drikkes ung. Hans 1888-årgang levde fortsatt hundre år senere. I det meste av 1900-tallet var Brunello en håndfull gårder. Så ble den i 1980 den første italienske vinen som fikk DOCG-status, og håndfullen vokste til hundre produsenter på 1990-tallet og deretter til to hundre. I 2008 ble noen av dem tatt i å blande inn andre druer. Skandalen endte med at regelen ble stadfestet: Brunello er Sangiovese og ingenting annet. Den slippes fortsatt fem år etter innhøstingen. Fra de samme vinmarkene kommer også <strong>Rosso di Montalcino</strong>, som slippes etter ett år, og den lar deg smake Montalcino uten å vente.</p>
 <figure data-img="fortezza"><figcaption>Festningen i Montalcino, den murkransede åsbyen der Brunello ble Italias første DOCG.</figcaption></figure>
-<figure data-img="montalcino"><figcaption>Åsene rundt Montalcino: Brunello-vinmarker fra kjølig leire i nord til varm kalkstein i sør.</figcaption></figure>
-<aside class="facts"><h4>Reglene i Montalcino</h4><ul>
-<li><b>Brunello di Montalcino</b>: 100 % Sangiovese, sluppet fem år etter innhøstingen (seks for Riserva), hvorav minst to på fat.</li>
-<li><b>Rosso di Montalcino</b>: den yngre vinen fra de samme vinmarkene, sluppet etter ett år: måten å smake Montalcino på uten å vente.</li>
-<li>«Brunellogate»-skandalen i 2008, da produsenter ble tatt i å blande inn andre druer, endte med at 100 %-regelen ble stadfestet.</li>
-<li>De beste årgangene trenger 10–15 år og lever i 30.</li>
+<figure data-img="montalcino"><figcaption>Åsene rundt Montalcino, der Brunello-vinmarkene går fra kjølig leire i nord til varm kalkstein i sør.</figcaption></figure>
+
+<h2>Den edle vinen</h2>
+<p>Tjue kilometer lenger øst lager renessansebyen Montepulciano <strong>Vino Nobile</strong>, «edel vin». Navnet er nedtegnet på 1600-tallet, da byen leverte vin til pavehoffet. Druen er igjen Sangiovese, som her heter <em>Prugnolo Gentile</em> og skal utgjøre minst 70 prosent, og Canaiolo og Mammolo er tillatt. Vinen er rundere enn Chianti Classico og mykere enn Brunello, og den er ofte det beste kjøpet av de tre. Ikke forveksle den med Montepulciano d'Abruzzo, som er en drue og ikke et sted.</p>
+<figure data-img="montepulciano"><figcaption>Piazza Grande i Montepulciano, renessansebyen på åsen som står bak Vino Nobile.</figcaption></figure>
+<aside class="facts"><h4>Reglene</h4><ul>
+<li><b>Brunello di Montalcino</b>: 100 % Sangiovese, som slippes fem år etter innhøstingen (seks for Riserva), og minst to av årene på fat. «Brunellogate»-skandalen i 2008 endte med at regelen ble stadfestet. De beste årgangene trenger 10–15 år og kan lagres i 30.</li>
+<li><b>Rosso di Montalcino</b>: den yngre vinen fra de samme vinmarkene, som slippes etter ett år.</li>
+<li><b>Vino Nobile di Montepulciano</b>: minst 70 % Sangiovese (Prugnolo Gentile), to års lagring, tre for Riserva.</li>
+<li><b>Bolgheri DOC</b> ble opprettet i 1994, og Sassicaia fikk sin egen betegnelse i 2013. <em>IGT Toscana</em> er kategorien for viner som ikke følger noen tradisjonell oppskrift.</li>
+<li><b>Vernaccia di San Gimignano</b> ble Italias første DOC, i 1966.</li>
 </ul></aside>
 
-<h2>Vino Nobile di Montepulciano</h2>
-<p>Tjue kilometer lenger øst lager renessansebyen Montepulciano <strong>Vino Nobile</strong>, «edel vin», et navn nedtegnet på 1600-tallet da den forsynte pavehoffet. Druen er igjen Sangiovese, lokalt <em>Prugnolo Gentile</em>, minst 70 %, med Canaiolo og Mammolo tillatt. Den lagres i to år (tre for Riserva) og ligger mellom Chianti Classico og Brunello i tyngde: rundere enn den første, mykere enn den andre, og ofte det beste kjøpet av de tre. Ikke forveksle den med Montepulciano d'Abruzzo, som er en drue, ikke et sted.</p>
-<figure data-img="montepulciano"><figcaption>Piazza Grande i Montepulciano, renessansebyen på åsen som står bak Vino Nobile.</figcaption></figure>
-
-<h2>Opprørerne i Bolgheri</h2>
-<p>I 1944 plantet markien Mario Incisa della Rocchetta Cabernet Sauvignon på eiendommen sin, Tenuta San Guido, på Maremma-kysten nær <strong>Bolgheri</strong>, fordi han likte Bordeaux og den grusholdige jorden minnet ham om Médoc. Vinen, <strong>Sassicaia</strong>, ble laget til eget bruk inntil nevøen Piero Antinori overtalte ham til å selge 1968-årgangen i 1971. Den hadde ingen opprinnelsesbetegnelse, fordi ingen regler tillot Cabernet i Toscana, så den ble merket <em>vino da tavola</em>, bordvin, den laveste kategorien. Den solgte for mer enn Barolo.</p>
-<figure data-img="bolgheri"><figcaption>Bolgheris sypressallé, fem kilometer lang, besunget av Carducci og i dag veien til kystens store eiendommer.</figcaption></figure>
-<p>Antinori fulgte i 1971 med <strong>Tignanello</strong>, Sangiovese med Cabernet og uten hvite druer, lagret på franske barriques, også solgt som bordvin fordi den brøt Chianti-reglene. Andre fulgte: Solaia, Ornellaia, Masseto. På 1990-tallet tok loven dem igjen: <strong>Bolgheri DOC</strong> ble opprettet i 1994, Sassicaia fikk sin egen betegnelse i 2013, og den anonyme kategorien <em>IGT Toscana</em> ble funnet opp for viner som ikke følger noen tradisjonell oppskrift. Opprørerne ble etablissementet, og underveis tvang de Chianti Classico til å reformere sine egne regler.</p>
+<h2>Opprørerne blir etablissementet</h2>
+<p>Antinori fulgte opp onkelens vin i 1971 med <strong>Tignanello</strong>, som var Sangiovese med Cabernet, uten hvite druer og lagret på franske barriquer. Også den ble solgt som bordvin, fordi den brøt Chianti-reglene. Etter den kom Solaia, Ornellaia og Masseto, bordviner som kostet like mye som den fineste Bordeaux-vinen. På 1990-tallet hadde loven tatt dem igjen. Bolgheri fikk sin egen DOC. Opprørerne forandret italiensk vin, og de tvang Chianti Classico til å skrive om reglene sine.</p>
 
 <aside class="tasting"><h4>I glasset: Brunello di Montalcino</h4>
 <table><tr><th>Farge</th><td>Middels til dyp granatrød</td></tr>
@@ -133,8 +134,9 @@ window.READINGS_NO['IT-52'] = {
 <tr><th>Ved bordet</th><td>Lammestek, villsvin, lagret pecorino di Pienza, bistecca</td></tr></table></aside>
 
 <h2>En hvit og en søt</h2>
-<p>Toscana er rødvinsland, men to andre hører med i kurset. <strong>Vernaccia di San Gimignano</strong>, fra tårnenes by, var Italias første DOC i 1966: en tørr, lett bitter hvitvin som Dante nevnte. Og <strong>Vin Santo</strong>, «hellig vin», lages av Trebbiano og Malvasia tørket på matter gjennom vinteren, og lagres deretter i årevis på små, forseglede fat under taket. Den er ravgul, nøtteaktig og søt, og skjenkes ved slutten av hvert måltid i Toscana, med mandelkjeksene cantucci til å dyppe i den.</p>
+<p>Toscana er rødvinsland, men to andre viner hører også hjemme her. <strong>Vernaccia di San Gimignano</strong>, fra byen med tårnene, ble Italias første DOC i 1966. Det er en tørr, lett bitter hvitvin, og Dante nevnte den. <strong>Vin Santo</strong>, «hellig vin», lages av Trebbiano og Malvasia som tørkes på matter gjennom vinteren, og vinen lagres så i årevis på små, forseglede fat under taket. Den blir ravgul og søt med preg av nøtter, og den skjenkes ved slutten av et toskansk måltid, med mandelkjeksene cantucci til å dyppe i den.</p>
 <figure data-img="sangimignano"><figcaption>Tårnene i San Gimignano. Vernaccia fra disse åsene ble Italias første DOC, i 1966.</figcaption></figure>
+<p>Vinen markisen laget til sitt eget bord, har nå en betegnelse helt for seg selv. Og en toskansk vin som ikke følger noen tradisjonell oppskrift, kan fortsatt selges som <em>IGT Toscana</em>, den kategorien som ble laget for viner som hans.</p>
 
 <div class="recap"><h4>Før du går videre</h4><ul>
 <li>Brunello: 100 % Sangiovese fra Montalcino, fem år før den slippes, Italias første DOCG. Rosso di Montalcino er utgaven som drikkes ung.</li>
