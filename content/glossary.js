@@ -299,8 +299,8 @@ Object.assign(window.GLOSSARY, {
     long:"The word comes from the Latin merenda. Farmworkers ate it at about four in the afternoon, with Schüttelbrot, a hard, flat rye bread.",
     match:["Marende"]},
 
-  'arele': {short:"Racks on which grapes are laid to dry for Trentino's Vino Santo.",
-    long:"The Nosiola grapes of the Valle dei Laghi dry on them through the winter. The rules allow pressing from February, and by custom the grapes are pressed in Holy Week.",
+  'arele': {short:"Racks of bamboo or wood on which grapes are laid to dry.",
+    long:"In the Valpolicella the grapes for Amarone and Recioto dry on them in the fruttaio. In Trentino the Nosiola grapes for Vino Santo dry on them through the winter; the rules allow pressing from February, and by custom they are pressed in Holy Week.",
     match:["arele"]},
 
   'enrosadira': {short:"The pink glow of the Dolomites in the low sun of dusk and dawn.",
@@ -309,6 +309,26 @@ Object.assign(window.GLOSSARY, {
 
   'rifugio': {short:"A staffed mountain hut where walkers eat and sleep.",
     long:"In the Dolomites the rifugi are supplied by goods cableway, by helicopter at the start of the season and on people's backs, and they serve the food of the valleys below: canederli, barley soup, strudel.",
-    match:["rifugi","rifugio"]}
+    match:["rifugi","rifugio"]},
+
+  'bàcaro': {short:"A small Venetian wine bar where cicchetti are eaten standing, with a glass of wine.",
+    long:"Most are near the Rialto market and in Cannaregio, and they open early and close early. The name is often traced to Bacchus. The writer Elio Zorzi told of a gondolier who, some time after 1869, tasted a Puglian wine sold in Venice and called it 'un vin da bàcaro', a wine for making merry.",
+    match:["bàcari","bàcaro"]},
+
+  'ombra': {short:"A small glass of wine, in Venice.",
+    long:"The usual story is that the wine sellers on Piazza San Marco followed the shade of the Campanile through the day. Nothing records it, and the dictionaries take the word to mean a small amount, as in a shadow of salt.",
+    match:["ombra"]},
+
+  'ciglioni': {short:"Grassy terraces that hold the vines on the steep Prosecco hills.",
+    long:"They are banks of earth covered in grass rather than walls of stone. On the steepest slopes between Conegliano and Valdobbiadene every job is done by hand, 800 to 900 hours of work a hectare a year.",
+    match:["ciglioni"]},
+
+  'col fondo': {short:"Prosecco refermented in the bottle and left cloudy on its yeast.",
+    long:"The old farmhouse style of the Prosecco hills, 'with the bottom'. The tank replaced it in the first half of the twentieth century. The DOCG now labels it Sui lieviti, always in the driest style and never disgorged.",
+    match:["col fondo"]},
+
+  'saor': {short:"Venetian for flavour: fried fish kept under onions stewed in vinegar.",
+    long:"Sardines are the usual fish, with raisins and pine nuts. A Venetian cookbook of the fourteenth century already has fish 'a savore', made sour and spiced. Venetians eat sarde in saor in their boats on the night of the Redentore in July.",
+    match:["saor"]}
 
 });

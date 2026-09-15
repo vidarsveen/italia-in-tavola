@@ -252,6 +252,7 @@ Norwegian follows the English one region behind, written from the facts and the 
 | Liguria 1–4 | done 2026-09-15 | done | research pass (two agents, ~60 claims), reader + fact each (old text = `338414b`), NO reader each | stale | ledger `docs/rewrite/liguria.md`; glossary +4 (preboggion, sciamadda, caruggi, stockfish); about twenty old-text errors fixed (flood deaths, stockfish from "Norway and Iceland", sweet-and-sour cima, Biosfera date, San Lorenzo shell, largest port and old town, 0.2%…); quiz 1.2, 2.3, 4.2, 4.3 and the pesto recipe corrected |
 | Lombardia 1–4 | done 2026-09-15 | done | research pass (two agents, ~65 claims), reader + fact each (old text = `33e7af2`), NO reader each | stale | ledger `docs/rewrite/lombardia.md`; glossary +4 (mondina, marcita, fruttaio, mantecatura); about twenty-five old-text errors fixed (only bottle-fermented appellation, UNESCO candidacy, a third of Italy's milk, the Radetzky letter, only Gothic cathedral, Fashion Week 1958, Satèn "instead of six"…); design and fashion moved to the box, reading 4 now reaches the bar (Campari, espresso machines); quiz 1.1, 1.2, 4.1 and the risotto and cotoletta recipes corrected |
 | Trentino-Alto Adige 1–4 | done 2026-09-15 | done | research pass (two agents, ~70 claims), reader + fact each (old text = `b65c869`), NO reader each | stale | ledger `docs/rewrite/trentino.md`; glossary +5 (Buschenschank, Marende, arele, enrosadira, rifugio); about twenty-five old-text errors fixed (Trentino Austrian too, "a tenth of Puglia", bulk wine to Switzerland not Austria, Gewürztraminer's origin and sugar, coral reefs, beech, cranberry, carne salada's home, Ötzi's axe…); reading 4 reaches the table through the Alpe di Siusi hay count, the ice city's food, Ötzi's last meal and the Torre Aquila months; quiz 1.2, 2.1, 2.3, 3.3, 4.1–4.3, the Gewürztraminer card and the strudel headnote corrected |
+| Veneto 1–4 | done 2026-09-15 | done | research pass (two agents, ~90 claims), reader + fact each (old text = `0bfea47`), NO reader each | stale | ledger `docs/rewrite/veneto.md`; glossary +5 (bàcaro, ombra, ciglioni, col fondo, saor), arele widened; about thirty old-text errors fixed (the 1936 Amarone "accident" is a legend its own archive contradicts, the 2019 blend rule, Soave "west" of Verona, Rialto "highest ground", Arsenale 1104 and sixteen thousand workers, Querini bringing stockfish home, the ombra and scurvy stories, Galileo and the doge…); quiz 1.3, 3.1–3.3, 4.2, four recipe headnotes and the NO Prosecco card corrected |
 
 ### START HERE, next session (written 2026-09-15 for a fresh session, any model)
 
@@ -288,7 +289,15 @@ Norwegian follows the English one region behind, written from the facts and the 
    the grammatical shape of the lead, not only its subject. Write patch scripts to files with the Write tool, never as
    bash heredocs (one silently did nothing). A landmark reading about mountains reaches the table through sourced
    numbers about feeding people up there (a 1600 hay count, two tonnes a day for a glacier garrison, a stomach study).
-   **Next: Veneto** (stem `veneto`), then Friuli. For the record, the original step 2: Toscana 1–3 were drafted in `content/toscana.js` and published to the preview unreviewed. Run the reader
+   **Done 2026-09-15: Veneto 1–4**, same shape (ledger `docs/rewrite/veneto.md`). Lessons: reviewers now catch the
+   *shape* of a lead, not only its subject: "a traveller with a date" and "a voyage with a date" were flagged as echoes of
+   Trentino 4, so two leads now open on a quotation and on what was seen; the fix is cheap if you log the grammatical shape of
+   each lead in the ledger header. A landmark reading about a city of trade reaches the table through documented food and drink
+   (a sugar banquet, a shipyard's wine fountain, the malvasie wine shops, coffee houses), and the Campanile stays only because
+   it is the map landmark and a quiz answer. Keep the neighbouring regions' landmark readings open while planning: Liguria 4 had
+   already used ship's biscuit, the 1596 stockfish cargoes and the Council of Trent. Tell a legend once and doubt it once; four
+   "no document shows it" in one reading became a formula. **Next: Friuli** (stem `friuli`; `quiz.no.js` Friuli jota still
+   says «surkål», fix it there), then Marche. For the record, the original step 2: Toscana 1–3 were drafted in `content/toscana.js` and published to the preview unreviewed. Run the reader
    and fact reviews on each (the prompts are the ones in this session's pattern: brief + rules §4 + the lesson +
    for the fact review `git show HEAD:content/toscana.js` as the old text and the ledger section), apply the
    second pass, lint (`python tools/prose_lint.py toscana --lang en`), then write the Norwegian for all three

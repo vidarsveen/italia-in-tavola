@@ -75,7 +75,7 @@ Object.assign(window.TASTING_NO, {
     table: "Braisert oksekjøtt eller hestekjøtt, vilt, lagret Monte Veronese og Asiago, eller alene"
   },
   "IT-34|Prosecco Superiore": {
-    colour: "Blek strågul, fine vedvarende bobler",
+    colour: "Lys strågul, fine vedvarende bobler",
     nose: "Grønt eple, pære, hvit fersken, akasieblomst",
     palate: "Lett fylde, frisk syre, myk mousse, ren tørr avslutning",
     alcohol: "11–12 %",

@@ -299,8 +299,8 @@ Object.assign(window.GLOSSARY_NO, {
     long:"Ordet kommer fra latin merenda. Gårdsarbeiderne spiste det rundt klokken fire, med Schüttelbrot, et hardt og flatt rugbrød.",
     match:["Marenden","Marende"]},
 
-  'arele': {short:"Rister der druene til Vino Santo fra Trentino tørker.",
-    long:"Nosiola-druene fra Valle dei Laghi ligger på dem gjennom vinteren. Reglene tillater pressing fra februar, og etter skikken presses druene i den stille uke.",
+  'arele': {short:"Rister av bambus eller tre der druer legges til tørk.",
+    long:"I Valpolicella tørker druene til Amarone og Recioto på dem i fruttaioet. I Trentino ligger Nosiola-druene til Vino Santo på dem gjennom vinteren; reglene tillater pressing fra februar, og etter skikken presses druene i den stille uke.",
     match:["arele"]},
 
   'enrosadira': {short:"Den rosa gløden over Dolomittene når solen står lavt, i skumringen og ved soloppgang.",
@@ -309,6 +309,26 @@ Object.assign(window.GLOSSARY_NO, {
 
   'rifugio': {short:"En betjent fjellhytte der turgåere spiser og sover.",
     long:"I Dolomittene fraktes forsyningene til rifugiene med materialtaubane, med helikopter når sesongen begynner og båret på ryggen, og de serverer maten fra dalene nedenfor: canederli, byggsuppe og strudel.",
-    match:["rifugiene","rifugi","rifugio"]}
+    match:["rifugiene","rifugi","rifugio"]},
+
+  'bàcaro': {short:"En liten venetiansk vinbar der folk spiser cicchetti stående med et glass vin.",
+    long:"De fleste ligger ved Rialto-markedet og i Cannaregio, og de åpner og stenger tidlig. Navnet føres ofte tilbake til Bacchus. Forfatteren Elio Zorzi fortalte om en gondoliere som en gang etter 1869 smakte en vin fra Puglia i Venezia og kalte den «un vin da bàcaro», en vin til fest og moro.",
+    match:["bàcariene","bàcaroen","bàcari","bàcaro"]},
+
+  'ombra': {short:"Et lite glass vin, på venetiansk.",
+    long:"Ifølge den vanlige forklaringen fulgte vinselgerne på Piazza San Marco skyggen av Campanilen gjennom dagen. Ingen kilde bekrefter det, og ordbøkene forstår ordet som en liten mengde, slik man kan si en skygge av salt.",
+    match:["ombraen","ombra"]},
+
+  'ciglioni': {short:"Gresskledde terrasser som holder vinstokkene i de bratte Prosecco-åsene.",
+    long:"De er jordvoller dekket av gress, ikke murer av stein. I de bratteste skråningene mellom Conegliano og Valdobbiadene gjøres alt arbeid for hånd, 800 til 900 timer per hektar i året.",
+    match:["ciglioni"]},
+
+  'col fondo': {short:"Prosecco som har gjæret på nytt i flasken og blir liggende uklar på gjæren.",
+    long:"Den gamle gårdsstilen i Prosecco-åsene, «med bunnen». Tanken tok over i første halvdel av 1900-tallet. I DOCG-området heter stilen nå Sui lieviti, og den lages alltid helt tørr, uten at bunnfallet fjernes.",
+    match:["col fondo"]},
+
+  'saor': {short:"Venetiansk for smak: stekt fisk som legges under løk kokt i eddik.",
+    long:"Sardiner er det vanlige, med rosiner og pinjekjerner. En venetiansk kokebok fra 1300-tallet har allerede fisk «a savore», syrlig og krydret. Venetianerne spiser sarde in saor i båtene sine natten til Redentore i juli.",
+    match:["saoren","saor"]}
 
 });
