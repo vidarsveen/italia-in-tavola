@@ -349,6 +349,26 @@ Object.assign(window.GLOSSARY_NO, {
 
   'osmiza': {short:"En gård på Karst ovenfor Trieste som åpner noen dager for å selge sin egen vin og mat.",
     long:"Keiser Josef II tillot det i 1784, i åtte dager uten skatt, og navnet kommer av det slovenske ordet for åtte. En eføygren og en rød trepil ved veien viser at en av dem er åpen.",
-    match:["osmizene","osmize","osmiza"]}
+    match:["osmizene","osmize","osmiza"]},
+
+  'norcino': {short:"En svineslakter, oppkalt etter byen Norcia; butikken hans er en norcineria.",
+    long:"Ordet ble også brukt om mannen som kastrerte grisene i tillegg til å slakte og speke dem. Menn fra Norcia dro til Roma og Toscana for vinterslaktingen, og det romerske navnet på butikkene deres, norcineria, står fortsatt på skilt.",
+    match:["norcineriene","norcinerier","norcineria","norcinoen","norcino","norcini"]},
+
+  'testo': {short:"En tung skive av stein eller jern som varmes i peisen og brukes til å steke flatbrød på.",
+    long:"Torta al testo fra Umbria stekes tørt på den og deles for å fylles. I Gubbio heter varianten crescia og i den øvre Tiberdalen ciaccia. Ordet kommer av latin testum.",
+    match:["testo"]},
+
+  'mostacciolo': {short:"En romersk mandelkake søtet med sukker eller honning.",
+    long:"Frans av Assisi ba om mostaccioli på dødsleiet i 1226, og følgesvennene hans forklarte ordet: noe søtt som romerne laget av mandler med sukker eller honning. Varianter med honning, most og krydder bakes til festdagen hans 4. oktober.",
+    match:["mostaccioli","mostacciolo"]},
+
+  'leccarda': {short:"Dryppannen under kjøtt som stekes på spidd, og som brukes til å øse kjøttet.",
+    long:"I Orvieto stekes due alla leccarda på spidd og øses fra pannen med vin, salvie og oliven. Ghiotta er et annet navn på den samme pannen.",
+    match:["leccarda"]},
+
+  'camorganne': {short:"Stativer av siv som bøndene i Montefalco tørket Sagrantino-druer på til passito.",
+    long:"Klasene lå på camorganne til jul. Så ble bærene plukket av for hånd og presset i små presser, og den søte vinen modnet i minst to år før den ble åpnet til jul og påske.",
+    match:["camorganne"]}
 
 });

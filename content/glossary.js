@@ -349,6 +349,26 @@ Object.assign(window.GLOSSARY, {
 
   'osmiza': {short:"A farm on the Karst above Trieste that opens for a few days to sell its own wine and food.",
     long:"Joseph II allowed it in 1784, for eight days without tax, and the name comes from the Slovene word for eight. An ivy branch and a red wooden arrow by the lane show that one is open.",
-    match:["osmize","osmiza"]}
+    match:["osmize","osmiza"]},
+
+  'norcino': {short:"A pork butcher, named after the town of Norcia; his shop is a norcineria.",
+    long:"The word also meant the man who castrated pigs as well as butchering and curing them. Men from Norcia went to Rome and Tuscany for the winter slaughter, and the Roman name for their shops, norcineria, is still on shop signs.",
+    match:["norcineria","norcino","norcini"]},
+
+  'testo': {short:"A heavy disc of stone or iron, heated in the hearth to bake flat bread on.",
+    long:"Umbria's torta al testo is cooked dry on it and split open to be filled; Gubbio calls its version crescia and the upper Tiber valley ciaccia. The word comes from the Latin testum.",
+    match:["testo"]},
+
+  'mostacciolo': {short:"A Roman almond sweet, made with sugar or honey.",
+    long:"Francis of Assisi asked for mostaccioli on his deathbed in 1226, and his companions explained the word: a sweet the Romans made of almonds with sugar or honey. Versions with honey, must and spices are baked for his feast day on 4 October.",
+    match:["mostaccioli","mostacciolo"]},
+
+  'leccarda': {short:"The dripping pan set under meat roasting on a spit, used to baste it.",
+    long:"In Orvieto pigeon alla leccarda is roasted on the spit and basted from the pan with wine, sage and olives; ghiotta is another name for the same pan.",
+    match:["leccarda"]},
+
+  'camorganne': {short:"Racks of reeds on which Montefalco farmers dried Sagrantino grapes for passito.",
+    long:"The bunches lay on the camorganne until Christmas. Then the berries were stripped by hand and pressed in small presses, and the sweet wine aged for at least two years before it was opened at Christmas and Easter.",
+    match:["camorganne"]}
 
 });

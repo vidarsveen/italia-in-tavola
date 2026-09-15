@@ -709,14 +709,14 @@ window.QUIZ_NO['IT-52'] = [
 
 window.QUIZ_NO['IT-55'] = [
   [ // 1: Vinmarken uten kyst
-    {q:"Hva gjør mangelen på kyst med vinen i Umbria?",
-     a:["Den gjør vinene lysere og lettere","Kalde netter og varme dager gir mørkere og fastere viner","Den forkorter vekstsesongen","Den gjør vinene merkbart søtere"],
-     c:1,
-     why:"Uten hav som demper temperaturen bygger spranget mellom dag og natt farge, tannin og fenoler."},
+    {q:"Hvilken drue viste det seg at Gamay del Trasimeno egentlig er?",
+     a:["Gamay","Sangiovese","Grenache","Sagrantino"],
+     c:2,
+     why:"Gentester på 2000-tallet viste at Gamay-druen ved innsjøen er Grenache. Navnet kom trolig av at rankene ble dyrket som lave busker, slik Gamay dyrkes i Beaujolais."},
     {q:"Hvordan var Orvieto gjennom det meste av historien?",
      a:["Tørr, lys og frisk","Gyllen, honningsøt og mildt søt","Lett musserende","En lys rødvin"],
      c:1,
-     why:"Druene ble lagt inn i de fuktige tuffgrottene, Botrytis la seg på dem, og vinen kom ut abboccato, altså mildt søt."},
+     why:"I de kalde tuffkjellerne gikk gjæringen saktere da vinteren kom, og den stoppet ofte før alt sukkeret var gjæret, så vinen ble abboccato, altså mildt søt."},
     {q:"Hvilke to DOCG-er har Umbria?",
      a:["Orvieto og Torgiano Rosso Riserva","Montefalco Sagrantino og Orvieto","Montefalco Sagrantino og Torgiano Rosso Riserva","Torgiano og Colli del Trasimeno"],
      c:2,
@@ -726,29 +726,29 @@ window.QUIZ_NO['IT-55'] = [
     {q:"Hvordan ble Sagrantino drukket gjennom det meste av historien?",
      a:["Som tørr bordvin","Som søt passito","Blandet inn i Chianti","Som sterkvin"],
      c:1,
-     why:"Druen var udrikkelig ung, så klasene ble tørket og laget til en søt vin til påske og til bryllup."},
+     why:"Klasene ble tørket på stativer av siv fram til jul, og den søte vinen ble skjenket hjemme til jul og påske."},
     {q:"Hva krever Montefalco Sagrantino DOCG?",
-     a:["100 % Sagrantino og minst 37 måneders lagring","Minst 70 % Sagrantino sammen med Sangiovese","Sagrantino med en andel Merlot","Lagring bare på flaske, aldri på fat"],
+     a:["100 % Sagrantino og mer enn tre år før vinen slippes","Minst 70 % Sagrantino sammen med Sangiovese","Sagrantino med en andel Merlot","Lagring bare på flaske, aldri på fat"],
      c:0,
-     why:"Vinen må være 100 % Sagrantino og vente minst 37 måneder før den slippes, hvorav tolv på fat."},
+     why:"Vinen må være 100 % Sagrantino og lagres i minst 33 måneder, tolv av dem på fat, og deretter fire måneder til på flaske."},
     {q:"Hva er Montefalco Rosso?",
      a:["Passito-utgaven av Sagrantino","Riserva-tappingen av Sagrantino","For det meste Sangiovese med litt Sagrantino","Hvitvinen fra det samme området"],
      c:2,
-     why:"Det er hverdagsrødvinen fra de samme åsene, drikkeklar mange år tidligere og til en brøkdel av prisen."}
+     why:"Den er 60–80 % Sangiovese med 10–25 % Sagrantino fra de samme åsene, og den er drikkeklar mange år tidligere."}
   ],
   [ // 3: Norcia, trøffel, salumi og norcinoen
     {q:"Hva betyr norcineria på italiensk?",
      a:["Et trøffelmarked","En svineslakterbutikk","Et fjellmeieri","En linsegård"],
      c:1,
-     why:"Ordet kommer fra Norcia, der slakterne var så dyktige at bynavnet ble det italienske ordet for faget."},
+     why:"Menn fra Norcia dro til Roma hver vinter for å slakte og speke svin, og det romerske navnet på butikken deres, laget av bynavnet, ble stående."},
     {q:"Hvordan brukes den svarte vintertrøffelen i Umbria?",
      a:["Bare høvlet rå helt til slutt","Tilberedt, fordi den tåler varme","Tørket og malt til pulver","Konservert i olje gjennom sommeren"],
      c:1,
-     why:"I motsetning til den hvite trøffelen fra Alba tåler den varme, så den rives ned i varm olje med hvitløk og ansjos og vendes gjennom pastaen."},
+     why:"I motsetning til den hvite trøffelen fra Alba tåler duften mild varme, så den rives ned i lun olje med hvitløk, ofte med ansjos, og vendes gjennom pastaen."},
     {q:"Hva er spesielt med linsene fra Castelluccio?",
-     a:["De vokser i 1 400 meters høyde og trenger ikke bløtlegging","De er de største linsene som dyrkes i Italia","De tørkes over bøkerøyk","De dyrkes under trøffeleikene"],
+     a:["De vokser høyt oppe på Piano Grande og trenger ikke bløtlegging","De er de største linsene som dyrkes i Italia","De tørkes over bøkerøyk","De dyrkes under trøffeleikene"],
      c:0,
-     why:"Piano Grande ligger rundt 1 400 meter over havet, og linsene er små og tynnskallede nok til å kokes rett fra posen."}
+     why:"Sletten nedenfor Castelluccio ligger rundt 1 270 meter over havet, og linsene har så tynt skall at de kan kokes uten bløtlegging."}
   ],
   [ // 4: Assisi og åsbyene
     {q:"Hva er uvanlig med basilikaen San Francesco?",
@@ -758,8 +758,8 @@ window.QUIZ_NO['IT-55'] = [
     {q:"Hva gjorde jordskjelvet i 1997?",
      a:["Det ødela hele overkirken","Det tok ned deler av hvelvet og kostet fire mennesker livet","Det skadet bare krypten under","Det lot freskene være urørt"],
      c:1,
-     why:"Deler av hvelvet i overkirken falt ned, drepte to munker og to fagfolk og ødela fresker av Cimabue."},
-    {q:"Hva er de eugubinske tavlene?",
+     why:"Deler av hvelvet i overkirken falt ned, drepte to munker og to teknikere fra kulturminnevernet og ødela fresker av Cimabue."},
+    {q:"Hva er de iguvinske tavlene?",
      a:["Romerske altere funnet ved Spoleto","Sju bronsetavler på det umbriske språket","Steinbenkene i katedralen i Orvieto","Middelalderske jordebøker i Perugia"],
      c:1,
      why:"Gubbio oppbevarer sju bronsetavler med innskrifter som er hovedkilden vi har til det gamle umbriske språket."}
