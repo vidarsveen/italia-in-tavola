@@ -223,7 +223,7 @@ window.QUIZ['IT-23'] = [
     {q:"Why does such a small region have around a hundred castles?",
      a:["The Challant family built one for each of their sons","The valley is a pass corridor, and whoever held it taxed the traffic","The Romans fortified every village against the Salassi","Napoleon's campaign forced the Savoys to fortify the road"],
      c:1,
-     why:"Everything crossing between the Italian plain and France or Switzerland funnelled through the valley, and whoever held it taxed what went past."},
+     why:"Much of the traffic between the Italian plain and France or Switzerland came through the valley, and whoever held it taxed what went past."},
     {q:"Why was Fénis built as it is, with its double ring of towers?",
      a:["To hold the road against an army from France","As an administrative seat and a display of standing","To guard the Great St Bernard pass","To house the royal hunting parties"],
      c:1,

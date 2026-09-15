@@ -237,6 +237,14 @@ Object.assign(window.GLOSSARY, {
 
   'vino da tavola': {short:"Table wine: Italy's lowest category, where the first Super Tuscans had to be sold.",
     long:"The category was meant for plain wine sold in bulk. In the 1970s Tuscany's most ambitious wines ended up there too, because the DOC rules had no room for Cabernet, or for Chianti made without white grapes. Sassicaia and Tignanello both went out as vino da tavola, and Sassicaia still sold for more than Barolo. IGT was created in 1992 to give such wines a name, and since the European wine reform of 2009 the lowest tier has been labelled simply vino.",
-    match:["vino da tavola"]}
+    match:["vino da tavola"]},
+
+  'a piede franco': {short:"On its own roots: a vine that was never grafted onto American rootstock.",
+    long:"Italian for 'on a free foot'. After phylloxera almost every European vine had to be grafted onto an American root that the louse cannot kill. The exceptions survive only where the louse cannot live, in sand, as on Etna, or in ground too cold for its life cycle, as at Morgex and La Salle under Mont Blanc. Such vines can be very old, and growers value them for it.",
+    match:["a piede franco"]},
+
+  'alpage': {short:"A high summer pasture in the Alps, where the herds graze and the cheese is made on the spot.",
+    long:"The French word, used in Valle d'Aosta; in Italian it is alpeggio. In summer the cows are taken up from the valley to the high meadows, and the milk is made into cheese up there rather than carried down. Fontina made at the alpage is prized because it tastes of the flowers and grasses the cows have been eating.",
+    match:["alpage","alpeggio"]}
 
 });

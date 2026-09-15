@@ -237,6 +237,14 @@ Object.assign(window.GLOSSARY_NO, {
 
   'vino da tavola': {short:"Bordvin: Italias laveste kategori, der de første supertoskanerne måtte selges.",
     long:"Kategorien var tenkt for enkel vin i bulk. På 1970-tallet havnet også Toscanas mest ærgjerrige viner der, fordi DOC-reglene ikke ga plass til Cabernet eller til Chianti uten hvite druer. Både Sassicaia og Tignanello ble solgt som vino da tavola, og Sassicaia solgte likevel for mer enn Barolo. IGT ble opprettet i 1992 for å gi slike viner et navn, og siden den europeiske vinreformen i 2009 heter det laveste nivået bare vino.",
-    match:["vino da tavola"]}
+    match:["vino da tavola"]},
+
+  'a piede franco': {short:"På egen rot: en ranke som aldri er podet på amerikansk grunnstamme.",
+    long:"Italiensk for «på fri fot». Etter vinlusen måtte nesten hver eneste europeiske ranke podes på en amerikansk rot som lusen ikke klarer å drepe. Unntakene finnes bare der lusen ikke kan leve: i sand, som på Etna, eller i jord som er for kald for den, som i Morgex og La Salle under Mont Blanc. Slike ranker kan være svært gamle, og dyrkerne setter stor pris på dem.",
+    match:["a piede franco"]},
+
+  'alpage': {short:"Sommerbeitet høyt oppe i Alpene, der buskapen går og osten lages på stedet.",
+    long:"Det franske ordet, som brukes i Valle d'Aosta; på italiensk heter det alpeggio, og det nærmeste norske er setra. Om sommeren drives kyrne opp fra dalen til fjellbeitene, og melken ystes der oppe i stedet for å bæres ned. Fontina fra en alpage er ettertraktet fordi den smaker av blomstene og gresset kyrne har spist.",
+    match:["alpage","alpagen","alpeggio"]}
 
 });

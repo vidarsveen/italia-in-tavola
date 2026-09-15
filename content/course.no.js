@@ -3,7 +3,7 @@ window.COURSE_NO = {
  'IT-23':{intro:"Italias minste region klatrer fra elven Dora Baltea opp mot Matterhorn og Mont Blanc. Vinrankene klamrer seg til terrasser i opptil 1 200 meters høyde, og kjøkkenet er bygget på smør, rugbrød og fjellost.",
    landmark:{name:'Castello di Fénis og Matterhorn', desc:'Et eventyrslott fra middelalderen som vokter dalen, med Cervino (Matterhorn) som reiser seg 4 478 meter i enden av dalen.'},
    pairing:'Et glass Torrette til carbonada, den langkokte oksegryten som serveres over polenta.',
-   lessons:["Europas høyeste vinmarker","Alpine hvitviner og fjellrødviner","Fontina og bordet i Alpene","Slottene i Aostadalen"]},
+   lessons:["Europas høyeste vinmarker","Hvitviner fra Alpene og rødviner fra fjellet","Fontina og bordet i Alpene","Slottene i Aostadalen"]},
  'IT-21':{intro:"Ved foten av fjellene: tåkelagte Langhe-åser der Nebbiolo blir til Barolo og Barbaresco, hvit trøffel fra Alba, og en kafékultur i Torino som ga verden vermut og gianduja.",
    landmark:{name:'Mole Antonelliana, Torino', desc:'Spiret på 167 meter som definerer Torinos silhuett, påbegynt i 1863 som synagoge og i dag nasjonalt filmmuseum.'},
    pairing:'Barolo til brasato al Barolo, eller en ung Barbera til tajarin med smør og revet hvit trøffel.',

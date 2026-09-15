@@ -132,7 +132,7 @@ window.QUIZ_NO['IT-23'] = [
      c:1,
      why:"Kort vekstsesong og kalde netter gir høy syre og lav alkohol, og det er nettopp det en musserende grunnvin trenger."}
   ],
-  [ // lesetekst 2: Alpine hvitviner og fjellrødviner
+  [ // lesetekst 2: Hvitviner fra Alpene og rødviner fra fjellet
     {q:"Hvilken drue er ryggraden i både Torrette og Enfer d'Arvier?",
      a:["Nebbiolo","Fumin","Petit Rouge","Cornalin"],
      c:2,
@@ -164,7 +164,7 @@ window.QUIZ_NO['IT-23'] = [
     {q:"Hvorfor har en så liten region rundt hundre slott?",
      a:["Challant-familien bygget ett til hver sønn","Dalen er en passkorridor, og den som holdt den, tok toll av trafikken","Romerne befestet hver landsby mot salasserne","Napoleons felttog tvang Savoia til å befeste veien"],
      c:1,
-     why:"Alt som skulle mellom den italienske sletten og Frankrike eller Sveits, måtte gjennom dalen, og den som holdt den, tok toll av det som passerte."},
+     why:"Mye av trafikken mellom den italienske sletten og Frankrike eller Sveits gikk gjennom dalen, og den som holdt den, tok toll av det som passerte."},
     {q:"Hvorfor ble Fénis bygget slik det er, med dobbel ring av tårn?",
      a:["For å sperre veien for en hær fra Frankrike","Som forvaltningssete og oppvisning i status","For å vokte Store St. Bernhard-passet","For å huse de kongelige jaktselskapene"],
      c:1,
