@@ -257,6 +257,22 @@ Object.assign(window.GLOSSARY_NO, {
 
   'trifolau': {short:"Trøffeljeger, på piemontesisk.",
     long:"Han går inn i skogene i Langhe, Roero og Monferrato med en dressert hund, etter tradisjonen om natten, og holder stedene sine hemmelige. Siden 1985 har italiensk lov krevd at det brukes hund. Griser finner også trøffel, men de roter opp jorden.",
-    match:["trifolauen","trifolau"]}
+    match:["trifolauen","trifolau"]},
+
+  'preboggion': {short:"En blanding av ville urter og bladgrønnsaker, på ligurisk dialekt.",
+    long:"Den sankes i åsene om våren og er aldri helt lik fra gang til gang. Agurkurt, vill sikori, løvetann, pimpinelle, kjørvel, brennesle og mangold kan være med. Blandingen brukes i pansoti, grønnsakspaier og omeletter.",
+    match:["preboggion"]},
+
+  'sciamadda': {short:"En genovesisk butikk med vedovn, som selger farinata og paier.",
+    long:"Navnet kommer av det genovesiske ordet for et bål som flammer opp. Siden minst 1700-tallet har sciamaddene solgt farinata, grønnsakspaier, panissa og fritert klippfisk som spises på stedet.",
+    match:["sciamaddaen","sciamaddene","sciamadda","sciamadde"]},
+
+  'caruggi': {short:"De trange smugene i gamlebyen i Genova, på genovesisk.",
+    long:"Husene møtes nesten over hodet, og de fleste smugene er for trange for en bil. Få historiske bysentre i Europa er så tett bebodd.",
+    match:["caruggiene","caruggi"]},
+
+  'stockfish': {short:"Torsk som er tørket hard i friluft, uten salt.",
+    long:"Italias stoccafisso er norsk tørrfisk, og Italia kjøper mer enn sju tideler av det Norge eksporterer. Den må ikke forveksles med klippfisk, som saltes før den tørkes og heter baccalà i det meste av Italia. I Venezia betyr baccalà likevel tørrfisk.",
+    match:["stoccafisso","tørrfisken","tørrfisk"]}
 
 });

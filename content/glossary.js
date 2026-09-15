@@ -257,6 +257,22 @@ Object.assign(window.GLOSSARY, {
 
   'trifolau': {short:"A truffle hunter, in Piedmontese.",
     long:"He goes into the woods of the Langhe, the Roero and the Monferrato with a trained dog, traditionally at night, and keeps his places secret. Since 1985 Italian law has required a dog; pigs, which also find truffles, tear up the ground.",
-    match:["trifolau"]}
+    match:["trifolau"]},
+
+  'preboggion': {short:"A mix of wild herbs and greens, in Ligurian dialect.",
+    long:"It is gathered on the hills in spring and is never the same twice. Borage, wild chicory, dandelion, burnet, chervil, nettle and chard can all be in it. It fills pansoti, vegetable pies and frittatas.",
+    match:["preboggion"]},
+
+  'sciamadda': {short:"A Genoese shop with a wood-fired oven, selling farinata and pies.",
+    long:"The name comes from the Genoese word for a blaze. Since at least the eighteenth century the sciamadde have sold farinata, vegetable pies, panissa and fried salt cod to eat on the spot.",
+    match:["sciamadda","sciamadde"]},
+
+  'caruggi': {short:"The narrow alleys of Genoa's old town, in Genoese.",
+    long:"The houses almost touch overhead and most of the alleys are too narrow for a car. Few historic centres in Europe are as densely lived in.",
+    match:["caruggi"]},
+
+  'stockfish': {short:"Cod dried hard in the open air, without salt.",
+    long:"Italy's stockfish, stoccafisso, is Norwegian, and Italy buys more than seven tenths of what Norway exports. It is not salt cod, which is salted before it is dried and is called baccalà in most of Italy. In Venice, though, baccalà means stockfish.",
+    match:["stockfish","stoccafisso"]}
 
 });

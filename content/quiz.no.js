@@ -1011,7 +1011,7 @@ window.QUIZ_NO['IT-42'] = [
     {q:"Hva gjorde flommen i 2011 så ødeleggende?",
      a:["En uvanlig varm sommer","Terrasser som var forlatt og fikk falle sammen","Byggingen av jernbanen langs kysten","For mye planting av druen Bosco"],
      c:1,
-     why:"Forlatte terrasser ga falne murer og løse skråninger; skredene begravde Vernazza og Monterosso og kostet ni mennesker livet."},
+     why:"Beretningene om flommen nevner de forlatte terrassene blant årsakene. Leiren begravde Vernazza og Monterosso og kostet fire mennesker livet der og tretten i hele uværet."},
     {q:"Hva er Sciacchetrà?",
      a:["En tørr hvitvin av Bosco og Albarola","En rødvin fra Colli di Luni","En søt vin av de samme druene tørket på rister","En musserende vin fra Riomaggiore"],
      c:2,
@@ -1029,7 +1029,7 @@ window.QUIZ_NO['IT-42'] = [
     {q:"Hva er Ormeasco?",
      a:["Dolcetto dyrket i fjellene bak Imperia","En hvit drue fra sletten ved Albenga","Det lokale navnet på Vermentino","En søt vin fra Pornassio"],
      c:0,
-     why:"Ved Pornassio krysser Piemontes Dolcetto fjellene og dyrkes i opptil 700 meters høyde under navnet Ormeasco."}
+     why:"Ved Pornassio krysser Piemontes Dolcetto fjellene og dyrkes i opptil rundt 800 meters høyde under navnet Ormeasco."}
   ],
   [ // lesetekst 3: Pesto, focaccia og oliven
     {q:"Hvorfor insisterer puristene på morter framfor stavmikser til pesto?",
@@ -1053,11 +1053,11 @@ window.QUIZ_NO['IT-42'] = [
     {q:"Hvorfor heter cappon magro, «mager kapun», nettopp det?",
      a:["Det ligger kapun under fisken","Den ble oppfunnet av en kokk ved navn Cappone","Det er en fasterett av fisk og grønnsaker, helt uten kjøtt","Den serveres kald, som en kapungalantin"],
      c:2,
-     why:"Navnet er en spøk: en ruvende festdagspyramide av fisk, skalldyr og grønnsaker, i en by som spiste fisk fordi den måtte."},
-    {q:"Hvorfor spiser Genova så mye tørrfisk?",
-     a:["Bukta er for urolig til fiske etter fersk fisk","Kjøpmennene tok den med hjem fra Norge og Island","Den var billigere enn den lokale ansjosen","Republikken forbød fersk fisk i fasten"],
+     why:"«Magro», mager, er Kirkens ord for en dag uten kjøtt. Retten er fisk og grønnsaker på skipskjeks, og ingen vet sikkert hvor kapunen i navnet kommer fra."},
+    {q:"Hvorfor ble norsk tørrfisk en del av italiensk mat?",
+     a:["Bukta ved Genova er for urolig til fiske etter fersk fisk","Kirkens fastedager krevde en fisk som holdt seg og tålte transport","Den var billigere enn den lokale ansjosen","Republikken forbød fersk fisk i fasten"],
      c:1,
-     why:"Genovesiske galeier fraktet salt og tørket fisk, og byens kjøpmenn tok med seg tørrfisk hjem fra nord."}
+     why:"Etter at konsilet i Trient strammet inn fastereglene, gikk husholdningene uten kjøtt mange dager i året, og en tørket fisk som holdt seg, passet godt. De første lastene man kjenner til, kom til Venezia fra Bergen i 1596."}
   ]
 ];
 

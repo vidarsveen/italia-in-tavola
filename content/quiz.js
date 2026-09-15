@@ -1011,7 +1011,7 @@ window.QUIZ['IT-42'] = [
     {q:"What made the floods of 2011 so destructive?",
      a:["An unusually warm summer","Terraces that had been abandoned and left to collapse","The building of the coastal railway","Overplanting of the Bosco grape"],
      c:1,
-     why:"Abandoned terraces meant fallen walls and loose slopes; the mudslides buried Vernazza and Monterosso and killed nine people."},
+     why:"Accounts of the flood name the abandoned terraces, with their walls fallen and their slopes loose, among the causes; the mud buried Vernazza and Monterosso and killed four people there, and thirteen in the whole storm."},
     {q:"What is Sciacchetrà?",
      a:["A dry white from Bosco and Albarola","A red from the Colli di Luni","A sweet wine from the same grapes dried on racks","A sparkling wine made at Riomaggiore"],
      c:2,
@@ -1029,7 +1029,7 @@ window.QUIZ['IT-42'] = [
     {q:"What is Ormeasco?",
      a:["Dolcetto grown in the mountains behind Imperia","A white grape of the Albenga plain","The local name for Vermentino","A sweet wine from Pornassio"],
      c:0,
-     why:"At Pornassio the Piedmontese Dolcetto crosses the mountains and is grown at up to 700 metres under the name Ormeasco."}
+     why:"At Pornassio the Piedmontese Dolcetto crosses the mountains and is grown at up to about 800 metres under the name Ormeasco."}
   ],
   [ // lesson 3: Pesto, focaccia and the olive
     {q:"Why do purists insist on a mortar rather than a blender for pesto?",
@@ -1053,11 +1053,11 @@ window.QUIZ['IT-42'] = [
     {q:"Why is cappon magro, lean capon, called that?",
      a:["There is capon hidden under the fish","It was invented by a cook named Cappone","It is a Lenten dish of fish and vegetables, with no meat at all","It is served cold, like a capon galantine"],
      c:2,
-     why:"The name is a joke: a towering feast-day pyramid of fish, shellfish and vegetables, for a city that ate fish because it had to."},
-    {q:"Why does Genoa eat so much stockfish?",
-     a:["The gulf is too rough for fresh fishing","Its merchants brought it home from Norway and Iceland","It was cheaper than the local anchovies","The republic banned fresh fish during Lent"],
+     why:"Magro, lean, is the Church's word for a day without meat. The dish is fish and vegetables on ship's biscuit, and where the capon in the name comes from is disputed."},
+    {q:"Why did Norwegian stockfish become part of Italian cooking?",
+     a:["The Gulf of Genoa is too rough for fresh fishing","The Church's fasting days called for a fish that kept and travelled","It was cheaper than the local anchovies","The republic banned fresh fish during Lent"],
      c:1,
-     why:"Genoese galleys carried salt and dried fish, and the city's merchants brought stockfish back from the north."}
+     why:"After the Council of Trent tightened the fasting rules, households went without meat on many days, and a dried fish that kept suited them; the first cargoes on record reached Venice from Bergen in 1596."}
   ]
 ];
 
