@@ -245,6 +245,18 @@ Object.assign(window.GLOSSARY_NO, {
 
   'alpage': {short:"Sommerbeitet høyt oppe i Alpene, der buskapen går og osten lages på stedet.",
     long:"Det franske ordet, som brukes i Valle d'Aosta; på italiensk heter det alpeggio, og det nærmeste norske er setra. Om sommeren drives kyrne opp fra dalen til fjellbeitene, og melken ystes der oppe i stedet for å bæres ned. Fontina fra en alpage er ettertraktet fordi den smaker av blomstene og gresset kyrne har spist.",
-    match:["alpage","alpagen","alpeggio"]}
+    match:["alpage","alpagen","alpeggio"]},
+
+  'botte': {short:"Et stort trefat, ofte av gammel slavonsk eik, som rommer tusenvis av liter.",
+    long:"Flertall botti. Fordi fatet er stort og gammelt, er det lite tre i forhold til vinmengden, og vinen får nesten ingen eikesmak. Den modnes langsomt og blir lys og stram. Tradisjonalistene i Barolo lagrer vinen i årevis på botti, og nettopp det står striden med barriquen om.",
+    match:["botti","botte"]},
+
+  'barrique': {short:"Et lite eikefat på rundt 225 liter, som regel fransk og ofte nytt.",
+    long:"Ordet er lånt fra Bordeaux. I et lite fat kommer vinen i mye tettere kontakt med treet, så den mykner raskere og får smak av vanilje, ristet brød og krydder. I Langhe på 1980- og 1990-tallet ble fatet kjennetegnet på modernistene, som ville ha Barolo som kunne drikkes ung.",
+    match:["barriquene","barriquer","barriquen","barrique"]},
+
+  'trifolau': {short:"Trøffeljeger, på piemontesisk.",
+    long:"Han går inn i skogene i Langhe, Roero og Monferrato med en dressert hund, etter tradisjonen om natten, og holder stedene sine hemmelige. Siden 1985 har italiensk lov krevd at det brukes hund. Griser finner også trøffel, men de roter opp jorden.",
+    match:["trifolauen","trifolau"]}
 
 });

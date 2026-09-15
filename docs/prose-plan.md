@@ -248,6 +248,7 @@ Norwegian follows the English one region behind, written from the facts and the 
 | Emilia-Romagna 2–4 | done | done | reader + fact + NO reader, each | stale | first batch region; ledgers in `docs/rewrite/` |
 | Toscana 1–3 | done (second pass 2026-09-15) | done | reader + fact each (old text = `bb7ff7f`), NO reader | stale | ledger `docs/rewrite/toscana-1-3.md`; glossary +5 |
 | Valle d'Aosta 1–4 | done 2026-09-15 | done | reader + fact each (old text = `8d976cf`), NO reader each | stale | ledger `docs/rewrite/valledaosta.md`; glossary +2 (a piede franco, alpage); two old-text errors fixed (Issogne fresco date, Chambave "north-facing") |
+| Piemonte 1–4 | done 2026-09-15 | done | research pass first, then reader + fact each (old text = `bd062f3`), NO reader each | stale | ledger `docs/rewrite/piemonte.md`; glossary +3 (botte, barrique, trifolau); seven old-text errors fixed (Vienna, DOP cheeses, tar and roses, 6%, truffle season, gold, San Carlo); two in the recipes |
 
 ### START HERE, next session (written 2026-09-15 for a fresh session, any model)
 
@@ -263,7 +264,12 @@ Norwegian follows the English one region behind, written from the facts and the 
    commit. Lessons: the old text has errors worth checking before drafting (a fresco date, a slope facing the wrong
    way); a landmark reading reaches the table honestly through one sourced detail (Issogne's painted cheese shop), not
    by forcing food into every paragraph; a fact reviewer flags true-but-unsourced geography, so put the map facts in
-   the ledger up front. **Next: Piemonte** (stem `piemonte`), then Liguria. For the record, the original step 2: Toscana 1–3 were drafted in `content/toscana.js` and published to the preview unreviewed. Run the reader
+   the ledger up front. **Done 2026-09-15: Piemonte 1–4**, same shape, but with a research subagent run *before* the
+   outline on every doubtful or wanted claim (twenty items, sources in the ledger); it found seven errors in the old text
+   and two in the recipes, and supplied the sourced stories the readings now open on (sweet Barolo and Staglieno, Cavazza,
+   Altare, the salt roads). Do that first for every region from now on. Lesson: fact reviewers catch superlatives the
+   writer adds for a hook ("the first vine to bud and the last to be picked"). **Next: Liguria** (stem `liguria`), then
+   Lombardia. For the record, the original step 2: Toscana 1–3 were drafted in `content/toscana.js` and published to the preview unreviewed. Run the reader
    and fact reviews on each (the prompts are the ones in this session's pattern: brief + rules §4 + the lesson +
    for the fact review `git show HEAD:content/toscana.js` as the old text and the ledger section), apply the
    second pass, lint (`python tools/prose_lint.py toscana --lang en`), then write the Norwegian for all three

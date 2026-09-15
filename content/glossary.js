@@ -245,6 +245,18 @@ Object.assign(window.GLOSSARY, {
 
   'alpage': {short:"A high summer pasture in the Alps, where the herds graze and the cheese is made on the spot.",
     long:"The French word, used in Valle d'Aosta; in Italian it is alpeggio. In summer the cows are taken up from the valley to the high meadows, and the milk is made into cheese up there rather than carried down. Fontina made at the alpage is prized because it tastes of the flowers and grasses the cows have been eating.",
-    match:["alpage","alpeggio"]}
+    match:["alpage","alpeggio"]},
+
+  'botte': {short:"A large wooden cask, often of old Slavonian oak, holding thousands of litres.",
+    long:"The plural is botti. Because the cask is big and old, the wine inside touches little wood for its volume and takes almost no oak flavour; it ages slowly and stays pale and austere. Barolo's traditionalists age their wine for years in botti, which is the heart of the argument with the barrique.",
+    match:["botti","botte"]},
+
+  'barrique': {short:"A small oak barrel of about 225 litres, usually French and often new.",
+    long:"Borrowed from Bordeaux. A small barrel gives the wine much more contact with the wood, so it softens faster and takes on flavours of vanilla, toast and spice. In the Langhe of the 1980s and 1990s it became the badge of the modernists who wanted Barolo that could be drunk young.",
+    match:["barriques","barrique"]},
+
+  'trifolau': {short:"A truffle hunter, in Piedmontese.",
+    long:"He goes into the woods of the Langhe, the Roero and the Monferrato with a trained dog, traditionally at night, and keeps his places secret. Since 1985 Italian law has required a dog; pigs, which also find truffles, tear up the ground.",
+    match:["trifolau"]}
 
 });
