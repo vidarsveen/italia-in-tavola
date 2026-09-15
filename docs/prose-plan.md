@@ -253,6 +253,7 @@ Norwegian follows the English one region behind, written from the facts and the 
 | Lombardia 1–4 | done 2026-09-15 | done | research pass (two agents, ~65 claims), reader + fact each (old text = `33e7af2`), NO reader each | stale | ledger `docs/rewrite/lombardia.md`; glossary +4 (mondina, marcita, fruttaio, mantecatura); about twenty-five old-text errors fixed (only bottle-fermented appellation, UNESCO candidacy, a third of Italy's milk, the Radetzky letter, only Gothic cathedral, Fashion Week 1958, Satèn "instead of six"…); design and fashion moved to the box, reading 4 now reaches the bar (Campari, espresso machines); quiz 1.1, 1.2, 4.1 and the risotto and cotoletta recipes corrected |
 | Trentino-Alto Adige 1–4 | done 2026-09-15 | done | research pass (two agents, ~70 claims), reader + fact each (old text = `b65c869`), NO reader each | stale | ledger `docs/rewrite/trentino.md`; glossary +5 (Buschenschank, Marende, arele, enrosadira, rifugio); about twenty-five old-text errors fixed (Trentino Austrian too, "a tenth of Puglia", bulk wine to Switzerland not Austria, Gewürztraminer's origin and sugar, coral reefs, beech, cranberry, carne salada's home, Ötzi's axe…); reading 4 reaches the table through the Alpe di Siusi hay count, the ice city's food, Ötzi's last meal and the Torre Aquila months; quiz 1.2, 2.1, 2.3, 3.3, 4.1–4.3, the Gewürztraminer card and the strudel headnote corrected |
 | Veneto 1–4 | done 2026-09-15 | done | research pass (two agents, ~90 claims), reader + fact each (old text = `0bfea47`), NO reader each | stale | ledger `docs/rewrite/veneto.md`; glossary +5 (bàcaro, ombra, ciglioni, col fondo, saor), arele widened; about thirty old-text errors fixed (the 1936 Amarone "accident" is a legend its own archive contradicts, the 2019 blend rule, Soave "west" of Verona, Rialto "highest ground", Arsenale 1104 and sixteen thousand workers, Querini bringing stockfish home, the ombra and scurvy stories, Galileo and the doge…); quiz 1.3, 3.1–3.3, 4.2, four recipe headnotes and the NO Prosecco card corrected |
+| Friuli-Venezia Giulia 1–4 | done 2026-09-15 | done | research pass (two agents, ~55 claims), reader + fact each (old text = `f6de69b`), NO reader each | stale | ledger `docs/rewrite/friuli.md`; glossary +5 (ponca, tajut, qvevri, cramâr, osmiza); about forty old-text errors fixed (60% white → 86% and the highest, Schiopetto from Capriva → Udine, Vintage Tunina and Terre Alte not Collio Bianco, COF "from Cormons", Tocai lost "when Hungary joined the EU" → the 1993 agreement, the cramârs' seasons reversed, Aria di Festa ended in 2023, "the only Habsburg port", Illy "invented the pressurised machine"…); reading 4 reaches the table through the counter words, the coffee duties, the osmize and Buffet da Pepi; quiz 1.1–1.3, 2.1, 2.3, 3.1, 3.3, 4.1–4.3, NO 3.2 «surkål», and the frico, cjarsons and brovada recipes (vinegar is allowed; New Year, not Christmas Eve) corrected |
 
 ### START HERE, next session (written 2026-09-15 for a fresh session, any model)
 
@@ -296,8 +297,14 @@ Norwegian follows the English one region behind, written from the facts and the 
    (a sugar banquet, a shipyard's wine fountain, the malvasie wine shops, coffee houses), and the Campanile stays only because
    it is the map landmark and a quiz answer. Keep the neighbouring regions' landmark readings open while planning: Liguria 4 had
    already used ship's biscuit, the 1596 stockfish cargoes and the Council of Trent. Tell a legend once and doubt it once; four
-   "no document shows it" in one reading became a formula. **Next: Friuli** (stem `friuli`; `quiz.no.js` Friuli jota still
-   says «surkål», fix it there), then Marche. For the record, the original step 2: Toscana 1–3 were drafted in `content/toscana.js` and published to the preview unreviewed. Run the reader
+   "no document shows it" in one reading became a formula. **Done 2026-09-15: Friuli-Venezia Giulia 1–4**, same shape (ledger
+   `docs/rewrite/friuli.md`). Lessons: check the old text's claims against the regulation itself when a recipe depends on them
+   (the brovada disciplinare allows red wine and wine vinegar, and the recipe said "no vinegar goes anywhere near"); log the
+   *story arc* of each lead as well as its grammatical shape, because two adjacent chapters that both follow a winemaker abroad who
+   comes home convinced were heard as an echo; the "no document shows it" formula came back (four times in reading 3) even with the
+   Veneto lesson written down, so count doubts before sending to review; and save the research returns to a file beside the ledger,
+   because the fact reviewers again reported sourced details as unsupported when they sat only in the returns. **Next: Umbria**
+   (stem `umbria`), which is next in `ORDER` (Toscana, Umbria, Marche; the batch line below had Marche first), then Marche. For the record, the original step 2: Toscana 1–3 were drafted in `content/toscana.js` and published to the preview unreviewed. Run the reader
    and fact reviews on each (the prompts are the ones in this session's pattern: brief + rules §4 + the lesson +
    for the fact review `git show HEAD:content/toscana.js` as the old text and the ledger section), apply the
    second pass, lint (`python tools/prose_lint.py toscana --lang en`), then write the Norwegian for all three
@@ -316,7 +323,7 @@ feedback". No third pilot; batches from here. Nothing committed as of 2026-09-14
 
 **Batch order from here (owner, 2026-09-14: "just keep working, Italy first").** Toscana 1–3 to complete
 that region, then the rest of Italy in course order (`ORDER`): Valle d'Aosta, Piemonte, Liguria, Lombardia,
-Trentino-Alto Adige, Veneto, Friuli, Marche, Umbria, Lazio, Abruzzo, Molise, Campania, Puglia, Basilicata,
+Trentino-Alto Adige, Veneto, Friuli, Umbria, Marche, Lazio, Abruzzo, Molise, Campania, Puglia, Basilicata,
 Calabria, Sicilia, Sardegna. Then the twenty region intros as audiobook bridges. Then India as an edit pass.
 Each region: outline+ledger files, EN drafts, lint, reader+fact reviews, second pass, NO, NO reviews,
 glossary entries for new terms, build, publish. Recordings wait until the owner asks.

@@ -329,6 +329,26 @@ Object.assign(window.GLOSSARY_NO, {
 
   'saor': {short:"Venetiansk for smak: stekt fisk som legges under løk kokt i eddik.",
     long:"Sardiner er det vanlige, med rosiner og pinjekjerner. En venetiansk kokebok fra 1300-tallet har allerede fisk «a savore», syrlig og krydret. Venetianerne spiser sarde in saor i båtene sine natten til Redentore i juli.",
-    match:["saoren","saor"]}
+    match:["saoren","saor"]},
+
+  'ponca': {short:"Det lokale navnet i Friuli på flysch, tynne lag av mergel og sandstein som ble avsatt på bunnen av et urhav.",
+    long:"Den ligger under Collio og Colli Orientali. Sandsteinen lar vannet renne unna, mergelen holder på noe av det, og jorden er mager, så ranken slår dype røtter.",
+    match:["ponca-jorden","ponca"]},
+
+  'tajut': {short:"Et glass vin på en osteria, på friulisk, gjerne før lunsj eller middag.",
+    long:"Hvor ordet kommer fra, er usikkert. Friulano er den vanlige vinen, og allerede på 1500-tallet smakte bystyret i Udine på vinen osteriaene solgte, på plassen som da het Piazza del Vino.",
+    match:["tajut"]},
+
+  'qvevri': {short:"En stor georgisk leirkrukke, gravd ned i jorden, som vinen gjærer og lagres i.",
+    long:"Rester i georgiske krukker er datert til rundt 6000 f.Kr. Josko Gravner i Oslavia har gjæret vinene sine i qvevri nedgravd til kanten i kjellergulvet siden 2001-årgangen.",
+    match:["qvevri"]},
+
+  'cramâr': {short:"En kramkar fra Carnia som solgte krydder og medisiner nord for Alpene.",
+    long:"Fra 1600-tallet til tidlig på 1800-tallet dro de av sted om høsten med en treskuff-kiste, crassigne, på ryggen, helt til Ungarn og Transilvania, og kom hjem på senvåren. Navnet kommer av det tyske Krämer, en som driver krambod.",
+    match:["cramârene","cramârs","cramâr"]},
+
+  'osmiza': {short:"En gård på Karst ovenfor Trieste som åpner noen dager for å selge sin egen vin og mat.",
+    long:"Keiser Josef II tillot det i 1784, i åtte dager uten skatt, og navnet kommer av det slovenske ordet for åtte. En eføygren og en rød trepil ved veien viser at en av dem er åpen.",
+    match:["osmizene","osmize","osmiza"]}
 
 });

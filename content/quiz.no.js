@@ -535,21 +535,21 @@ window.QUIZ_NO['IT-36'] = [
     {q:"Hva er ponca?",
      a:["En måte å binde opp rankene på","En smuldrende flysch av mergel og sandstein","Det lokale navnet på bora-vinden","En blanding av hvite druer"],
      c:1,
-     why:"Ponca er det lokale navnet på flysch, lagdelt mergel og sandstein som drenerer raskt, holder lite vann og tvinger ranken til å grave dypt."},
-    {q:"Hva endret Schiopetto og Felluga på 1960-tallet?",
-     a:["De innførte kald gjæring på ståltank og tapping på gården","De plantet åsene om med franske druer","De opprettet Collio DOC","De gjenopplivet gjæring på skallene"],
+     why:"Ponca er det lokale navnet på flysch, tynne lag av mergel og sandstein. Sandsteinen lar vannet renne unna, mergelen holder på noe av det, og den magre jorden tvinger ranken til å slå dype røtter."},
+    {q:"Hva gjorde Mario Schiopetto i 1965?",
+     a:["Han laget en Tocai helt og holdent på ståltank","Han plantet åsene om med franske druer","Han opprettet Collio DOC","Han gjenopplivet gjæring på skallene"],
      c:0,
-     why:"Kald gjæring på stål, tappet ung på gården og oppkalt etter druen, ble oppskriften på den moderne italienske hvitvinen."},
-    {q:"Hvilken sone strekker seg nordover fra Cormons forbi Cividale?",
+     why:"Jobben som lastebilsjåfør tok ham til Rhinland, der en ekspert rådet ham til å bruke stål. Tocaien fra 1965 ble ren og tørr og smakte av druen."},
+    {q:"Hvilken sone strekker seg nordover fra Manzano forbi Cividale?",
      a:["Collio","Carso","Friuli Grave","Colli Orientali"],
      c:3,
-     why:"Colli Orientali del Friuli, «de østlige åsene», går nordover fra Cormons forbi Cividale mot Alpene."}
+     why:"Colli Orientali del Friuli, «de østlige åsene», begynner ved Corno di Rosazzo og Manzano og går nordover forbi Cividale til Nimis."}
   ],
   [ // 2: Friulano, Ribolla og oransjevin
     {q:"Hvorfor står det ikke lenger Tocai på etiketten?",
-     a:["Druen viste seg å være Sauvignonasse","Ungarn vant striden om navnet","Produsentene ville ha et navn knyttet til regionen","Ordet var allerede varemerket i Italia"],
+     a:["Druen viste seg å være Sauvignonasse","En EU-avtale beskyttet ungarsk Tokaji","Produsentene ville ha et navn knyttet til regionen","Ordet var allerede varemerket i Italia"],
      c:1,
-     why:"Vinen har ingenting med Tokaji å gjøre, men Ungarn vant navnestriden da landet ble EU-medlem, og fra 2007 står det Friulano."},
+     why:"Friulano har ingenting med Tokaji å gjøre, men etter en avtale mellom EF og Ungarn fra 1993 kunne ingen italiensk vin hete Tocai etter mars 2007."},
     {q:"Hva er oransjevin?",
      a:["Hvitvin smakt til med appelsinskall","Hvite druer gjæret på skallene","En rosé av Ribolla og Refosco","En søt vin av tørkede hvite druer"],
      c:1,
@@ -557,35 +557,35 @@ window.QUIZ_NO['IT-36'] = [
     {q:"Hva tok Gravner i bruk i 2001?",
      a:["Nedgravde georgiske leiramforaer","Gjæringsegg i betong","Temperaturstyrte ståltanker","Nye franske barriquefat"],
      c:0,
-     why:"Han dro til Georgia, der vin har vært laget i nedgravde leirkrukker i åtte tusen år, og gjæret alt i qvevri gravd ned i kjellergulvet."}
+     why:"Han reiste til Georgia i 2000, der man laget vin i leirkrukker for rundt åtte tusen år siden, og fra 2001-årgangen gjæret han vinene i qvevri nedgravd til kanten i kjellergulvet."}
   ],
   [ // 3: San Daniele, frico og det karniske kjøkkenet
     {q:"Hva mer enn svinekjøtt går i Prosciutto di San Daniele?",
      a:["Havsalt og pepper","Bare havsalt","Salt og einer","Salt og smult"],
      c:1,
-     why:"Bare havsalt: ingen krydder, ingen nitritter og ingen røyk, og deretter minst tretten måneder hengende i vinden."},
+     why:"Bare havsalt, uten krydder og uten nitritt, og deretter minst fire hundre dagers speking regnet fra saltingen."},
     {q:"Hva er frico?",
-     a:["En suppe av bønner og surkål","Neper gjæret i pressrester fra druer","Stekt Montasio, med potet eller alene","Den fylte pastaen fra Carnia"],
+     a:["En suppe av bønner og syrnet kål","Neper gjæret i pressrester fra druer","Stekt Montasio, med potet eller alene","Den fylte pastaen fra Carnia"],
      c:2,
      why:"Revet Montasio stekes langsomt med potet og løk til en myk kake, eller alene til en tynn og sprø skive."},
     {q:"Hva er uvanlig med cjarsons?",
      a:["De kokes i vin","De fylles med innsjøfisk","De er søte og salte på én gang","De lages helt uten mel"],
      c:2,
-     why:"Fyllet kan inneholde rosiner, kakao, kanel og syltetøy ved siden av spinat og ricotta, en arv etter kramkarene som arbeidet i Østerrike."}
+     why:"Fyllet kan blande rosiner, kakao og kanel med spinat og ricotta. I Carnia sier man at krydderet kom hjem med kramkarene, men ingen dokumenter viser det."}
   ],
   [ // 4: Trieste, kaffe, habsburgere og bora-vinden
     {q:"Hva erklærte keiser Karl VI i 1719?",
      a:["Trieste som frihavn","Trieste som hovedstad i Friuli","Kaffe som statlig monopol","Bora som en offentlig fare"],
      c:0,
-     why:"Fritaket for toll trakk kjøpmenn fra hvert hjørne av riket og gjorde byen rik og kosmopolitisk."},
+     why:"Karl VI gjorde Trieste og Fiume til frihavner samme dag. Varer kunne losses uten toll, kjøpmenn kom til, og Trieste ble Østerrikes viktigste havn."},
     {q:"Hva er bora?",
      a:["En varm vind fra Adriaterhavet","En kald nordøstavind som faller ned fra Karst","En tåke som legger seg over bukta","En havstrøm langs kysten av Istria"],
      c:1,
-     why:"Det er en tørr, kald nordøstavind fra Karst; det er målt kast på over 150 km/t, og det er spent opp tau langs gatene."},
+     why:"Det er en kald, tørr nordøstavind fra Karst. I 1954 ble det målt et vindkast på 171 km/t, og en gang var det spent opp tau langs gatene."},
     {q:"Hva er Cividale del Friuli kjent for?",
-     a:["Det største romerske mosaikkgulvet i Vesten","Å ha vært langobardenes første hovedstad i Italia","Maximilians slott over bukta","Byens eldste kaffehus"],
+     a:["Det største romerske mosaikkgulvet i Vesten","Å ha vært sete for det første langobardiske hertugdømmet i Italia","Maximilians slott over bukta","Byens eldste kaffehus"],
      c:1,
-     why:"Cividale var langobardenes første hovedstad etter invasjonen i 568, og har beholdt Tempietto Longobardo fra 700-tallet."}
+     why:"Cividale ble sete for det første langobardiske hertugdømmet i Italia etter 568, og har beholdt Tempietto Longobardo fra 700-tallet."}
   ]
 ];
 

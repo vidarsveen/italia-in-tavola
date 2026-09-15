@@ -329,6 +329,26 @@ Object.assign(window.GLOSSARY, {
 
   'saor': {short:"Venetian for flavour: fried fish kept under onions stewed in vinegar.",
     long:"Sardines are the usual fish, with raisins and pine nuts. A Venetian cookbook of the fourteenth century already has fish 'a savore', made sour and spiced. Venetians eat sarde in saor in their boats on the night of the Redentore in July.",
-    match:["saor"]}
+    match:["saor"]},
+
+  'ponca': {short:"The local name in Friuli for flysch: thin layers of marl and sandstone laid down on an ancient sea floor.",
+    long:"It lies under the Collio and the Colli Orientali. The sandstone lets water drain away and the marl holds some of it, and the soil is poor, so the vine roots deep.",
+    match:["ponca"]},
+
+  'tajut': {short:"A glass of wine in an osteria, in Friulian, usually before lunch or dinner.",
+    long:"Where the word comes from is uncertain. Friulano is the usual wine for it, and in the sixteenth century Udine's council was already tasting the wine its osterie sold, in the Piazza del Vino.",
+    match:["tajut"]},
+
+  'qvevri': {short:"A large Georgian clay jar, buried in the ground, in which wine ferments and ages.",
+    long:"Residues in Georgian jars date from about 6000 BC. Josko Gravner at Oslavia has fermented his wines in qvevri buried to the rim in his cellar floor since the 2001 vintage.",
+    match:["qvevri"]},
+
+  'cramâr': {short:"A pedlar from Carnia who sold spices and medicines north of the Alps.",
+    long:"From the seventeenth century to the early nineteenth they left in autumn with a wooden chest of drawers, the crassigne, on their backs, went as far as Hungary and Transylvania, and came home in late spring. The name comes from German Krämer, a shopkeeper.",
+    match:["cramârs","cramâr"]},
+
+  'osmiza': {short:"A farm on the Karst above Trieste that opens for a few days to sell its own wine and food.",
+    long:"Joseph II allowed it in 1784, for eight days without tax, and the name comes from the Slovene word for eight. An ivy branch and a red wooden arrow by the lane show that one is open.",
+    match:["osmize","osmiza"]}
 
 });

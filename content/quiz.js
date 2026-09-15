@@ -535,21 +535,21 @@ window.QUIZ['IT-36'] = [
     {q:"What is ponca?",
      a:["A way of training the vines","A crumbling flysch of marl and sandstone","The local name for the bora","A blend of white grapes"],
      c:1,
-     why:"Ponca is the local name for flysch, layered marl and sandstone that drains fast, holds little water and forces the vine to dig."},
-    {q:"What did Schiopetto and Felluga change in the 1960s?",
-     a:["They brought in cold fermentation and estate bottling","They replanted the hills with French grapes","They founded the Collio DOC","They revived fermentation on the skins"],
+     why:"Ponca is the local name for flysch, thin layers of marl and sandstone: the sandstone lets water drain, the marl holds some of it, and the poor soil makes the vine root deep."},
+    {q:"What did Mario Schiopetto do in 1965?",
+     a:["He made a Tocai entirely in stainless steel","He replanted his hills with French grapes","He founded the Collio DOC","He revived fermentation on the skins"],
      c:0,
-     why:"Cold fermentation in steel, bottled young by the estate and named by grape, became the formula for the modern Italian white."},
-    {q:"Which zone runs north from Cormons past Cividale?",
+     why:"A haulage job took him to the Rhineland, where an expert told him to use steel; his 1965 Tocai came out clean, dry and tasting of its grape."},
+    {q:"Which zone runs north from Manzano past Cividale?",
      a:["The Collio","The Carso","Friuli Grave","The Colli Orientali"],
      c:3,
-     why:"The Colli Orientali del Friuli, the eastern hills, run north from Cormons past Cividale towards the Alps."}
+     why:"The Colli Orientali del Friuli, the eastern hills, begin at Corno di Rosazzo and Manzano and run north past Cividale to Nimis."}
   ],
   [ // 2: Friulano, Ribolla and orange wine
     {q:"Why is the wine no longer labelled Tocai?",
-     a:["The grape turned out to be Sauvignonasse","Hungary won the argument over the name","Producers wanted a name tied to the region","The word was already trademarked in Italy"],
+     a:["The grape turned out to be Sauvignonasse","An EU agreement protected Hungary's Tokaji","Producers wanted a name tied to the region","The word was already trademarked in Italy"],
      c:1,
-     why:"The wine has nothing to do with Tokaji, but Hungary won the naming dispute on joining the EU, and from 2007 the label reads Friulano."},
+     why:"Friulano has nothing to do with Tokaji, but under a 1993 agreement between the European Community and Hungary no Italian wine could be labelled Tocai after March 2007."},
     {q:"What is orange wine?",
      a:["A white wine flavoured with orange peel","White grapes fermented on their skins","A rosé of Ribolla and Refosco","A sweet wine from dried white grapes"],
      c:1,
@@ -557,13 +557,13 @@ window.QUIZ['IT-36'] = [
     {q:"What did Gravner adopt in 2001?",
      a:["Buried Georgian clay amphorae","Concrete fermentation eggs","Temperature-controlled steel","New French barriques"],
      c:0,
-     why:"He went to Georgia, where wine has been made in buried jars for eight thousand years, and fermented everything in qvevri sunk in his cellar floor."}
+     why:"He went to Georgia in 2000, where wine was made in clay jars about eight thousand years ago, and from the 2001 vintage fermented his wines in qvevri buried to the rim in his cellar floor."}
   ],
   [ // 3: San Daniele, frico and the Carnic kitchen
     {q:"What goes into Prosciutto di San Daniele besides pork?",
      a:["Sea salt and pepper","Sea salt only","Salt and juniper","Salt and lard"],
      c:1,
-     why:"Only sea salt: no spices, no nitrates and no smoke, then at least thirteen months hanging in the wind."},
+     why:"Only sea salt, with no spice and no nitrite, then at least four hundred days of curing from the salting."},
     {q:"What is frico?",
      a:["A soup of beans and sauerkraut","Turnips fermented in grape pomace","Montasio fried, with potato or alone","The filled pasta of Carnia"],
      c:2,
@@ -571,21 +571,21 @@ window.QUIZ['IT-36'] = [
     {q:"What makes cjarsons unusual?",
      a:["They are boiled in wine","They are filled with lake fish","They are sweet and savoury at once","They are made without any flour"],
      c:2,
-     why:"The filling can hold raisins, cocoa, cinnamon and jam alongside spinach and ricotta, a legacy of the pedlars who worked in Austria."}
+     why:"The filling can mix raisins, cocoa and cinnamon with spinach and ricotta; Carnia says the spices came home with its pedlars, though no document shows it."}
   ],
   [ // 4: Trieste, coffee, Habsburgs and the bora
     {q:"What did the emperor Charles VI declare in 1719?",
      a:["Trieste a free port","Trieste the capital of Friuli","Coffee a state monopoly","The bora a public danger"],
      c:0,
-     why:"Exemption from customs duties drew merchants from every corner of the empire and made the city rich and cosmopolitan."},
+     why:"Charles VI made Trieste and Fiume free ports on the same day; goods landed without customs duty drew merchants, and Trieste became Austria's main port."},
     {q:"What is the bora?",
      a:["A warm wind off the Adriatic","A cold north-east wind falling off the Karst","A fog that settles over the gulf","A current along the Istrian coast"],
      c:1,
-     why:"It is a dry, cold north-east wind off the Karst; gusts above 150 km/h have been recorded and ropes are strung along the streets."},
+     why:"It is a cold, dry north-east wind off the Karst; a gust of 171 km/h was measured in 1954, and ropes were once strung along the streets."},
     {q:"What is Cividale del Friuli known for?",
-     a:["The largest Roman mosaic floor in the west","Being the first Lombard capital in Italy","Maximilian's castle above the bay","The oldest coffee house in the city"],
+     a:["The largest Roman mosaic floor in the west","Being the seat of the first Lombard duchy in Italy","Maximilian's castle above the bay","The oldest coffee house in the city"],
      c:1,
-     why:"Cividale was the first capital of the Lombards after they invaded in 568, and keeps the eighth-century Tempietto Longobardo."}
+     why:"Cividale became the seat of the first Lombard duchy in Italy after 568, and keeps the eighth-century Tempietto Longobardo."}
   ]
 ];
 
