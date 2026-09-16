@@ -332,10 +332,10 @@ window.QUIZ_NO['IT-62'] = [
      a:["Pepperen brenner seg hvis den ristes i pannen","Saueost trenger fløte for å smelte jevnt","Osten klumper seg hvis kjelen er for varm","Tonnarelli gir fra seg for lite stivelse"],
      c:2,
      why:"Stivelsen i pastavannet binder pecorinoen til en emulsjon, men for mye varme får osten til å klumpe seg, og derfor vendes pastaen med kjelen av platen."},
-    {q:"Hvorfor regnes carbonara som den yngste av de fire?",
+    {q:"Hva viser de skriftlige kildene om carbonara?",
      a:["De første skriftlige oppskriftene kom først etter andre verdenskrig","Den ble laget til EU-registreringen i 2020","Egg var ikke å få kjøpt i Roma før 1900","Den ble til i Amatrice etter jordskjelvet i 2016"],
      c:0,
-     why:"Historien om kullbrennerne er gammel, men oppskriftene er det ikke: de dukker opp etter krigen, trolig da romersk pasta møtte amerikanske rasjoner i 1944."}
+     why:"Navnet står på trykk i 1939, men ingen oppskrift: den første er amerikansk, fra Chicago i 1952, og den første italienske kom i 1954."}
   ],
   [ // lesson 4: Roma: Colosseum og det evige bordet
     {q:"Hvor kommer navnet Colosseum trolig fra?",
@@ -347,9 +347,9 @@ window.QUIZ_NO['IT-62'] = [
      c:1,
      why:"Mye av den ytre ringen på sørsiden raste sammen i jordskjelv i middelalderen, og steinen gikk til palasser og kirker over hele byen."},
     {q:"Hva var quinto quarto, og hvorfor ble den tilberedt i Testaccio?",
-     a:["Den femte dagens fangst, solgt billig på markedet","Den femtedelen av avlingen som tilfalt pavegodset","Innmaten, gitt til slakteriarbeiderne som del av lønnen","Den femte etasjen i amfiteateret, der de fattige satt"],
+     a:["Den femte dagens fangst, solgt billig på markedet","Den femtedelen av avlingen som tilfalt pavegodset","Innmaten som blir igjen når skrotten er delt i fire","Den femte etasjen i amfiteateret, der de fattige satt"],
      c:2,
-     why:"Arbeiderne ved Mattatoio fikk delvis lønn i det slakterne ikke fikk solgt: hale, innmat, tarmer, hode og hjerte."}
+     why:"En skrott deles i fire, og den femte delen er det som blir igjen: hode, hale, føtter og innmat. Folk i Roma sier at arbeiderne ved Mattatoio fikk deler av lønnen i den, men ingen lønnsavtale eller laugsvedtekt bekrefter det."}
   ]
 ];
 

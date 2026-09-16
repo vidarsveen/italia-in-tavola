@@ -115,6 +115,22 @@ Object.assign(window.GLOSSARY, {
     long:"The traditional training of the Adige valley and Valtellina. Lifting the canopy protects the fruit from a fierce sun and lets air move underneath in a damp climate, and the grower works standing up. Modern quality vineyards often replace it with wires to cut the crop.",
     match:["pergola"]},
 
+  'fraschetta': {short:"A Roman grower's tavern, marked by a leafy branch hung over the door.",
+    long:"The branch is the frasca, usually laurel, and hanging it out meant there was new wine to sell. Nearly all the fraschette belonged to the growers themselves, so the man who made the wine also owned the room you drank it in. There was no kitchen: customers brought their own food from home, and the people who did so were called fagottari, the bundle-people.",
+    match:["fraschetta","fraschette","frasca"]},
+
+  'fojetta': {short:"The half-litre jug that Roman wine was sold by, one rung on a ladder of measures.",
+    long:"Rome measured wine by name rather than by volume: a barzilai was two litres, a tubo one, a fojetta a half, a quartino a quarter, a chierichetto a fifth, down to the sciacquadenti, a tooth-rinse, at a twentieth. Pope Sixtus V regulated the glasses in 1588 to stop innkeepers shaving the level, marking the correct height with a line called the capello, the hair. Under that law a foglietta held 0.4557 litres; on the street it was a half.",
+    match:["fojetta","foglietta","quartino","barzilai"]},
+
+  'quinto quarto': {short:"The fifth quarter: what is left of a carcass after the four are sold.",
+    long:"A carcass divides into four quarters, and the remainder is the head, the tail, the feet and the offal. It is the raw material of Testaccio's cooking, around Rome's old slaughterhouse, and of coda alla vaccinara, trippa alla romana and pajata. Romans say the slaughterhouse workers were paid partly in it, though no wage agreement or guild rule records the practice.",
+    match:["quinto quarto","fifth quarter"]},
+
+  'guanciale': {short:"Cured pig's cheek, cut from the throat, with far more fat than lean.",
+    long:"It is salted and hung to dry for at least thirty days under the Amatrice rules, usually two or three months, with pepper or chilli on the cut face. What distinguishes it from pancetta is the cut and the proportion rather than the time: pancetta is belly, and Pancetta Piacentina actually matures longer. The fat is the point, because it renders into a clear, sweet, almost nutty liquid that is the base of gricia, amatriciana and carbonara.",
+    match:["guanciale"]},
+
   'tendone': {short:"A high, wide pergola built for volume rather than concentration.",
     long:"The vines are trained flat overhead on a large frame, giving heavy crops of dilute fruit. It covers much of Puglia and Abruzzo and is the reason those regions were long known for bulk wine; the serious growers there have gone back to alberello or wires.",
     match:["tendone"]},

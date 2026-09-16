@@ -332,10 +332,10 @@ window.QUIZ['IT-62'] = [
      a:["The pepper burns if it is toasted in the pan","Sheep's cheese needs cream to melt smoothly","Cheese seizes into clumps if the pan is too hot","Tonnarelli release too little starch to bind it"],
      c:2,
      why:"Starch in the pasta water binds the pecorino into an emulsion, but too much heat makes the cheese clump, so the tossing is done off the heat."},
-    {q:"Why is carbonara reckoned the youngest of the four?",
+    {q:"What does the written record show about carbonara?",
      a:["Its first written recipes appear only after the Second World War","It was invented for the 2020 European registration","Eggs were unavailable in Rome before 1900","It was created in Amatrice after the 2016 earthquake"],
      c:0,
-     why:"The charcoal-burner story is old but the recipes are not: they appear after the war, most plausibly when Roman pasta met American rations in 1944."}
+     why:"The name is in print in 1939, but no recipe is: the first is American, from Chicago in 1952, and the first Italian one appeared in 1954."}
   ],
   [ // lesson 4: Rome: the Colosseum and the eternal table
     {q:"Where does the name Colosseum most probably come from?",
@@ -347,9 +347,9 @@ window.QUIZ['IT-62'] = [
      c:1,
      why:"Much of the outer ring on the south side fell in medieval earthquakes, and the stone went into palaces and churches across the city."},
     {q:"What was the quinto quarto, and why did Testaccio cook it?",
-     a:["The fifth day's catch, sold cheaply at the market","The fifth of the harvest owed to the papal estate","The offal, given to slaughterhouse workers as part of their pay","The fifth tier of the amphitheatre, where the poor sat"],
+     a:["The fifth day's catch, sold cheaply at the market","The fifth of the harvest owed to the papal estate","The offal left after the carcass is divided into four","The fifth tier of the amphitheatre, where the poor sat"],
      c:2,
-     why:"Workers at the Mattatoio were partly paid in what the butchers could not sell: tail, tripe, intestines, head and heart."}
+     why:"A carcass divides into four quarters, and the fifth is what is left: head, tail, feet and offal. Romans say the Mattatoio workers were paid partly in it, though no wage agreement or guild rule records it."}
   ]
 ];
 

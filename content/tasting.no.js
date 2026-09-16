@@ -148,10 +148,10 @@ Object.assign(window.TASTING_NO, {
   },
   "IT-62|Cesanese del Piglio": {
     colour: "Middels rubinrød, granatrød med alderen",
-    nose: "Røde kirsebær, plomme, sort pepper, nellik, fiol",
+    nose: "Røde kirsebær, plomme, sort pepper, nellik, fiol; lakris og tjære med alderen",
     palate: "Middels til fyldig, myke tanniner, varm, salt og bitter avslutning",
-    alcohol: "13,5–15 %",
-    serve: "16–18 °C; dekanter ung Riserva i en time",
+    alcohol: "12 % for basisvinen, 13 % Superiore, 14 % Riserva",
+    serve: "16–18 °C; dekanter ung Riserva i en time. Ikke en vin som skal lagres lenge, men de beste flaskene av Superiore og Riserva blir bedre i fem til åtte år",
     table: "Abbacchio, coda alla vaccinara, amatriciana, porchetta, lagret pecorino"
   },
   "IT-65|Montepulciano d'Abruzzo": {

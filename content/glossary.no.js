@@ -115,6 +115,22 @@ Object.assign(window.GLOSSARY_NO, {
     long:"Den tradisjonelle oppbindingen i Adige-dalen og Valtellina. Å løfte løvverket beskytter druene mot en steik sol og slipper luft under i et fuktig klima, og dyrkeren arbeider stående. Moderne kvalitetsvinmarker bytter den ofte ut med tråd for å redusere avlingen.",
     match:["pergola","pergolaen"]},
 
+  'fraschetta': {short:"Et romersk vinbondevertshus, merket med en løvkvist hengt over døren.",
+    long:"Kvisten er en frasca, som regel laurbær, og å henge den ut betydde at det var ny vin å få kjøpt. Nesten alle fraschettaene hørte til vinbøndene selv, så mannen som lagde vinen, eide også rommet du drakk den i. Kjøkken fantes ikke: gjestene tok med mat hjemmefra, og de som gjorde det, ble kalt fagottari, buntefolkene.",
+    match:["fraschetta","fraschettaen","fraschettaene","frasca","frascaen"]},
+
+  'fojetta': {short:"Halvlitersmuggen romersk vin ble solgt i, ett trinn på en stige av mål.",
+    long:"Roma målte vin etter navn heller enn etter volum: en barzilai var to liter, en tubo én, en fojetta en halv, en quartino en kvart, en chierichetto en femtedel, ned til sciacquadenti, en tannskyll, på en tjuedel. Pave Sixtus V regulerte glassene i 1588 for å hindre at vertene snøt på målet, og merket den riktige høyden med en strek som ble kalt capello, håret. Etter den loven rommet en foglietta 0,4557 liter; på gaten var det en halv.",
+    match:["fojetta","fojettaen","foglietta","quartino","barzilai"]},
+
+  'quinto quarto': {short:"Den femte fjerdedelen: det som blir igjen av en skrott når de fire er solgt.",
+    long:"En skrott deles i fire, og resten er hodet, halen, føttene og innmaten. Det er råstoffet i kjøkkenet i Testaccio, rundt det gamle slakteriet i Roma, og i coda alla vaccinara, trippa alla romana og pajata. Romerne sier at slakteriarbeiderne fikk deler av lønnen i den, men ingen lønnsavtale eller laugsvedtekt viser at det var slik.",
+    match:["quinto quarto","den femte fjerdedelen","femte fjerdedel"]},
+
+  'guanciale': {short:"Speket svinekjake, skåret fra strupen, med langt mer fett enn magert kjøtt.",
+    long:"Den saltes og henges til tørk i minst tretti dager etter reglene i Amatrice, som regel to eller tre måneder, med pepper eller chili på snittflaten. Det som skiller den fra pancetta, er snittet og forholdet mellom delene heller enn tiden: pancetta er buk, og Pancetta Piacentina modner faktisk lenger. Fettet er poenget, for det smelter ut til en klar, søt, nesten nøtteaktig væske som er grunnlaget i gricia, amatriciana og carbonara.",
+    match:["guanciale","guancialen"]},
+
   'tendone': {short:"En høy, vid pergola bygget for mengde framfor konsentrasjon.",
     long:"Rankene bindes flatt over hodet på et stort stativ og gir store avlinger av tynn frukt. Systemet dekker store deler av Puglia og Abruzzo og er grunnen til at de regionene lenge var kjent for bulkvin; de seriøse dyrkerne der har gått tilbake til alberello eller tråd.",
     match:["tendone"]},

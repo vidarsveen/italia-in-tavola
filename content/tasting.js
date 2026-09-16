@@ -148,10 +148,10 @@ Object.assign(window.TASTING, {
   },
   "IT-62|Cesanese del Piglio": {
     colour: "Medium ruby, garnet with age",
-    nose: "Red cherry, plum, black pepper, clove, violet",
+    nose: "Red cherry, plum, black pepper, clove, violet; liquorice and tar with age",
     palate: "Medium-full, soft tannin, warm, savoury bitter finish",
-    alcohol: "13.5–15%",
-    serve: "16–18 °C; decant young Riserva for an hour",
+    alcohol: "12% for the basic wine, 13% Superiore, 14% Riserva",
+    serve: "16–18 °C; decant young Riserva for an hour. Not a wine for long ageing, though the best Superiore and Riserva improve for five to eight years",
     table: "Abbacchio, coda alla vaccinara, amatriciana, porchetta, aged pecorino"
   },
   "IT-65|Montepulciano d'Abruzzo": {
