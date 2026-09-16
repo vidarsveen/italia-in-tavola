@@ -453,6 +453,30 @@ Object.assign(window.GLOSSARY, {
 
   'garum': {short:"The fermented fish sauce that flavoured most Roman cooking.",
     long:"Fish were layered with salt and left in the sun for months, and the liquid pressed off was strained and sold in jars. Pompeii had its own producer, Aulus Umbricius Scaurus, whose name is on nearly a third of the fish-sauce jars found in the two buried towns, and who had his own labels laid in mosaic on the floor of his atrium. The prestige version came from Spain and cost a small fortune.",
-    match:["garum"]}
+    match:["garum"]},
+
+  'lacrima': {short:"The rosato method in which the juice is never pressed out at all.",
+    long:"The grapes are destemmed and left about a day, and only the free-run juice, roughly a third of the mass, is drawn off and fermented on its own. It is one of three ways the Salento takes a deep pink wine off the skins inside a day: salasso bleeds part of the liquid from the tank as the cap rises, and a vino di una notte gives the skins a single night. Squinzano writes its timings into its own rulebook, so there the method is fixed by law.",
+    match:["lacrima"]},
+
+  'salasso': {short:"Bleeding part of the juice off a red fermentation, to make a rosé and to concentrate what is left.",
+    long:"The word means bloodletting. Thirty to forty per cent of the liquid is run off as the cap of skins rises, generally eighteen to twenty-four hours after crushing, and it ferments on its own as a rosato. The red left behind has more skin to less juice and comes out darker and firmer, so one vat yields two wines. It is the historic Salice Salentino variant.",
+    match:["salasso"]},
+
+  'chiancarelle': {short:"The thin limestone slabs laid in overlapping courses to make the outer skin of a trullo roof.",
+    long:"They are five to seven centimetres thick and shed rain off the cone; the thicker slabs, used for paving and for the inner shell, are chianche. A trullo cone is two shells, an inner corbelled dome built without any formwork and this weatherproof skin over it. The same word turns up on the table in the Valle d'Itria, where a kind of orecchiette is named after the roof slabs.",
+    match:["chiancarelle","chianche"]},
+
+  'manteca': {short:"Butter sealed inside a skin of aged stretched curd so that it would keep without ice.",
+    long:"The cheese is the wrapper and the butter is the cargo. Burrata is the same trick done fresh, with cream and torn curd inside a skin made that morning, and that is how the dossier behind the protected name explains the invention. Manteca is on Puglia's own list of traditional products, so the ancestor is local rather than borrowed.",
+    match:["manteca","mantèche"]},
+
+  'lampante': {short:"Olive oil too high in acid to eat, burned in lamps instead.",
+    long:"It was the grade Puglia exported in quantity. Gallipoli shipped something like seventy per cent of the Salento's oil, and it lit streets in London, Amsterdam and Stockholm, greased looms in the English mills and filled lamps in Russian churches until electric light ended the trade. The word is still the legal grade for oil that has to be refined before anyone can eat it.",
+    match:["lampante"]},
+
+  'fornello pronto': {short:"A butcher's shop that grills what you have just chosen at the counter and charges by weight.",
+    long:"The meat is threaded onto skewers and stood upright inside a stone dome, cooking beside the fire rather than over it, so the fat drips onto coals away from the meat. Martina Franca, Cisternino, Locorotondo, Ceglie Messapica and Ostuni all have them, and the speciality is the bombetta, a thin slice of pork neck rolled round cheese. The butchers turned fully into restaurants during the economic crisis of the 1990s.",
+    match:["fornello pronto","fornello"]}
 
 });

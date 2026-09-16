@@ -453,6 +453,30 @@ Object.assign(window.GLOSSARY_NO, {
 
   'garum': {short:"Den gjærede fiskesausen som smaksatte det meste av romersk mat.",
     long:"Fisk ble lagt lagvis med salt og latt stå i solen i måneder, og væsken som ble presset av, ble silt og solgt på krukker. Pompeii hadde sin egen produsent, Aulus Umbricius Scaurus, som har navnet sitt på nesten en tredjedel av fiskesauskrukkene fra de to begravde byene, og som fikk etikettene sine lagt i mosaikk i gulvet i atriet. Den fineste sorten kom fra Spania og kostet en formue.",
-    match:["garum"]}
+    match:["garum"]},
+
+  'lacrima': {short:"Rosato-metoden der mosten aldri presses i det hele tatt.",
+    long:"Druene avstilkes og blir liggende omtrent et døgn, og bare den frittrennende saften, rundt en tredel av massen, tappes av og gjæres for seg. Salento har tre måter å få en dyp rosa vin av skallene innen et døgn: salasso tapper av en del av væsken når hatten stiger, og vino di una notte gir skallene én natt. Squinzano har skrevet tidene inn i sitt eget regelverk, så der er metoden fastsatt i lov.",
+    match:["lacrima","lacrimaen"]},
+
+  'salasso': {short:"Avtappingen av en del av saften fra en rødvinsgjæring, som gir både en rosévin og en mørkere rødvin.",
+    long:"Ordet betyr årelating. Tretti til førti prosent av væsken tappes av når hatten av skall stiger, som regel atten til tjuefire timer etter knusingen, og den gjæres for seg som rosato. Rødvinen som blir igjen, har mer skall mot mindre saft og kommer ut mørkere og fastere, så ett kar gir to viner. Dette er den historiske varianten i Salice Salentino.",
+    match:["salasso","salassoen"]},
+
+  'chiancarelle': {short:"De tynne kalksteinshellene som legges i overlappende lag og danner det ytre skallet på et trullo-tak.",
+    long:"De er fem til sju centimeter tykke og leder regnet av kjeglen; de tykkere hellene, som brukes til gulv og til det indre skallet, heter chianche. En trullo-kjegle er to skall, en innvendig utkraget kuppel bygget helt uten forskaling og denne værhuden utenpå. Det samme ordet dukker opp på bordet i Valle d'Itria, der en type orecchiette er oppkalt etter takhellene.",
+    match:["chiancarelle","chianche"]},
+
+  'manteca': {short:"Smør lukket inne i et skinn av lagret pasta filata, slik at det holdt seg uten is.",
+    long:"Osten er innpakningen og smøret er lasten. Burrata er det samme trikset gjort ferskt, med fløte og revet ostemasse inne i et skinn laget samme morgen, og slik forklarer dokumentet bak det beskyttede navnet oppfinnelsen. Manteca står på Puglias egen liste over tradisjonsprodukter, så forgjengeren er lokal og ikke lånt utenfra.",
+    match:["manteca","mantecaen"]},
+
+  'lampante': {short:"Olivenolje med for høy syre til å spises, brent i lamper i stedet.",
+    long:"Det var kvaliteten Puglia eksporterte i mengde. Gallipoli skipet ut noe slikt som sytti prosent av oljen fra Salento, og den lyste opp gater i London, Amsterdam og Stockholm, smurte vevstoler i engelske fabrikker og fylte lamper i russiske kirker til det elektriske lyset tok knekken på handelen. Ordet er fortsatt den juridiske betegnelsen på olje som må raffineres før noen kan spise den.",
+    match:["lampante"]},
+
+  'fornello pronto': {short:"En slakterbutikk som griller det du nettopp har valgt i disken, og tar betalt etter vekt.",
+    long:"Kjøttet tres på spidd og settes stående inne i en steinkuppel, der det steker ved siden av ilden og ikke over den, så fettet drypper ned på glør et stykke unna. Martina Franca, Cisternino, Locorotondo, Ceglie Messapica og Ostuni har alle slike, og spesialiteten er bombetta, en tynn skive svinenakke rullet rundt ost. Slakterne ble fullt ut restauranter under den økonomiske krisen på 1990-tallet.",
+    match:["fornello pronto","fornello"]}
 
 });

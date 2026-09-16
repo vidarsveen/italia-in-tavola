@@ -864,6 +864,44 @@ names, and the duplicated trullo counts in reading 4, which were already in its 
   a round tin and sells by the wedge, and the recipe's own hero caption already said "round tin" while the
   headnote contradicted it two lines later.
 
+### The Norwegian edition and its four reviews
+
+Written from the ledger and the facts rather than translated from the English sentences, mirroring the
+English structure exactly (7/3, 6/3, 9/5 and 8/4 sections and figures, identical image keys). Lint came back
+clean after four fixes — three rhythm runs and one cleft the widened «Det …, er» rule caught — at 16.4–17.8
+mean words and a 32–35 word ceiling. Then four fresh-context reader reviews with the eleven §4b rules
+**inlined** and one reading each, per the Molise lesson: agents made to read whole files first stalled at
+600 s with nothing to show. All four returned inside four minutes.
+
+What they found, by category rather than by reading:
+
+- **Verbless ellipsis carried straight over from English.** «Ogliarola Salentina kom tilbake smittet i hver
+  eneste plante, Leccino i halvparten» — the second clause inherits a verb that cannot govern it. The same
+  fault in reading 2's chain of dates, «Ampelografene var enige i 1972, enzymanalysen i 1975», where an
+  enzyme assay cannot be *enig*.
+- **Words that do not exist, or mean something else.** «forskningsutvalg» is a *committee of researchers*,
+  not a variety selected by research; «opprykningsordning» is not a word, and «opprykk» means promotion
+  where the EU scheme is a grubbing-up scheme; «gikk under» reads as *perished*; «dressing» is salad
+  dressing; «et grønt plastbelagt et» is English «a green plastic-coated one» with the pronoun left in;
+  «tregangene» reads as *the three times* rather than the wooden walkways. **«landet» appeared again**, the
+  false friend that claimed Italy in Molise — here it made Frederick sell his grain out of *the country*
+  rather than out of his own realm. And the emperor is **Fredrik 2.** in Norwegian, not Frederik.
+- **Clefts and participle openers the linter cannot see.** «var det som holdt bønder og gjetere gående» and
+  «Tørkede bondebønner, skrelt og bløtlagt …, kokes ned» sit inside sentences the widened cleft rule does
+  not reach — the Molise finding again: the linter catches the form, not the move.
+- **The audio fault, twice, in places the English pass missed.** Reading 3's reviewer found that **«Pane di
+  Altamura» is never spoken**, and reading 4's that **«Otranto» is never spoken** — heading, box, caption
+  and recap only, every one of which narration drops. **Checking the English showed both faults there too**,
+  and none of the four English reviewers had caught either. Reading 2's «de fjorten til seksten prosentene»
+  points with a definite article at a figure that lives only in the tasting box, which is also dropped.
+
+**The lesson that generalises: the "named in spoken prose" sweep must run mechanically on both languages
+before either review, and neither set of reviewers can be relied on to catch it for the other.** The English
+pass caught Castel del Monte and missed Pane di Altamura and Otranto; the Norwegian pass caught both of
+those and had no way of knowing Castel del Monte was already fixed. That is three instances in one region.
+For every proper noun a reading is about: is it spoken in the prose at all, and is it spoken before it is
+referred to?
+
 ### Still owed
 
 - **Capocollo di Martina Franca — checked at source on 16 September 2026, and the reading's wording is
