@@ -90,8 +90,16 @@ LINT = [
 ]
 
 def regions():
+    """Region stems, from the app's script tags. Only files that actually declare
+    READINGS_NO count: content/{quiz,tasting,glossary,course}.no.js match the same
+    tag pattern and are not regions."""
     src = open(os.path.join(ROOT, 'italia-course.html'), encoding='utf-8').read()
-    return [r for r in re.findall(r'<script src="content/(\w+)\.no\.js">', src) if r != 'course']
+    out = []
+    for r in re.findall(r'<script src="content/(\w+)\.no\.js">', src):
+        p = os.path.join(ROOT, 'content', f'{r}.no.js')
+        if os.path.exists(p) and re.search(r"READINGS_NO\['IT-\d+'\]", open(p, encoding='utf-8').read()):
+            out.append(r)
+    return out
 
 def code_of(region):
     src = open(os.path.join(ROOT, 'content', f'{region}.no.js'), encoding='utf-8').read()

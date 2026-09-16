@@ -163,9 +163,9 @@ Object.assign(window.TASTING_NO, {
     table: "Spaghetti alla chitarra med pallottine, grillet lam, ventricina, lagret pecorino"
   },
   "IT-65|Cerasuolo d'Abruzzo": {
-    colour: "Kirsebærrød til dyp korall, mye mørkere enn en rosé fra Provence",
+    colour: "Kirsebærrosa, fra lys til dyp; mørkere enn en rosé fra Provence",
     nose: "Markjordbær, tørket kirsebær, appelsinskall, et hint av kanel og mandel",
-    palate: "Middels fylde, frisk syre, et lett grep av tannin, tørr med en svakt bitter avslutning",
+    palate: "Middels fylde, frisk syre, et lett grep av tannin, tørr med en svakt mandelpreget avslutning",
     alcohol: "12,5–13,5 %",
     serve: "12 °C, i et vinglass og ikke i en flute; drikkes innen to år, de beste holder seg i ti",
     table: "Arrosticini, fritert fisk fra Adriaterhavet, brodetto, pizza, ventricina, ung pecorino"

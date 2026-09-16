@@ -830,29 +830,29 @@ window.QUIZ_NO['IT-67'] = [
     {q:"Hvordan ble Molise en egen region?",
      a:["Den ble skilt ut fra tre provinser i Puglia i 1948","Gamle Abruzzi e Molise ble delt i to i 1963","Den ble skilt fra Campania etter en folkeavstemning","Den ble til da Isernia ble egen provins i 1970"],
      c:1,
-     why:"Molise ble en egen region i 1963, da Abruzzi e Molise ble delt, og det gjør den til den yngste regionen i Italia."},
+     why:"En grunnlovsendring av 27. desember 1963 delte Abruzzi e Molise. Regionen ble til 19. januar 1964 og hadde bare én provins til Isernia ble opprettet i 1970."},
     {q:"Hvorfor har en norsk leser trolig aldri drukket vin fra Molise?",
      a:["Regionen dyrker bare hvite druer til blanding","Vinene får ikke lovlig eksporteres","Nesten alt drikkes på sauemarkedet i Foggia","Produksjonen er svært liten, og nesten ingenting forlater regionen"],
      c:3,
-     why:"Molise har noen få dusin gårder som tapper på flaske, det meste av avlingen går til samvirkelag eller bulkkjøpere, og Vinmonopolet fører for tiden én vin fra Molise."},
+     why:"Biferno DOC er førtiåtte hektar og Molise DOC hundre og syttisju. Til sammen er de under tre prosent av de 319 000 hektoliterne regionen lager, og det meste av resten går gjennom samvirkelagene."},
     {q:"Hvorfor ble Montepulciano fjernet fra Molise DOC i 2000?",
      a:["Toskanske produsenter gikk til sak om bruken av navnet","Druen ble ikke moden i den påkrevde høyden","Den ble erstattet av Tintilia i regelverket","Dyrkerne stemte for å forbeholde den for Biferno"],
      c:0,
-     why:"Druen var tillatt under betegnelsen fram til en rettslig innsigelse fra toskanske produsenter om navnet Montepulciano, som også er en toskansk by."}
+     why:"Regione Toscana, provinsen Siena og Consorzio del Vino Nobile di Montepulciano gikk til forvaltningsdomstolen i Roma mot departementet, og et dekret av 10. oktober 2000 strøk typen."}
   ],
   [ // lesson 2: Tintilia: en drue reddet fra utryddelse
-    {q:"Hva oppnår 200-metersregelen i Tintilia-betegnelsen?",
-     a:["Den løfter vinmarkene opp av frosten","Den begrenser betegnelsen til skråningene i Matese","Den bevarer friskheten og duften i vinen","Den tvinger fram en senere høsting enn i Biferno"],
-     c:2,
-     why:"På lavlandet modner druene raskt og slapt; mellom 200 og 600 meter er nettene kalde, og den forskjellen gir vinen syre og duft."},
+    {q:"Hva krever Tintilia-betegnelsen faktisk av en vinmark?",
+     a:["At den ligger mellom 200 og 600 meter","At den ligger i hellende terreng, ikke lavere enn 200 meter","At den vender mot sør, over Biferno-dalen","At den er plantet under 500 meter, slik Biferno er"],
+     c:1,
+     why:"Reglene godtar bare vinmarker i hellende terreng og ikke lavere enn 200 meter, altså to vilkår og ikke ett. Biferno setter et tak på 500 meter ovenfra, så de to betegnelsene deler én li mellom seg."},
     {q:"Hva er faktisk dokumentert om Tintilia?",
      a:["Et agronomhåndskrift fra 1810 beskriver den i Molise","At navnet kommer av det italienske ordet tingere","At den nedstammer fra Bovale-druene på Sardinia","At spanske herskere brakte den til Napoli"],
      c:0,
-     why:"Håndskriftet fra 1810 gjør den til en ekte gammel lokal sort; opphavet til navnet er ikke bevist, og DNA-arbeid har skilt den fra Bovale-druene på Sardinia."},
+     why:"Raffaele Pepe fra Civitacampomarano beskrev den i 1810 — og kalte den ved et fransk navn. Opphavet til navnet er ikke bevist, og DNA-arbeid har skilt den fra Bovale-druene på Sardinia."},
     {q:"Hvilken beskrivelse passer på Tintilia?",
      a:["Lys, lav i tannin og med duft av roser","Søt, aromatisk og drukket etter middagen","Myk, syltetøyaktig og høy i alkohol","Mørk og pepret, med fast tannin og frisk syre"],
      c:3,
-     why:"Surkirsebær og bjørnebær ligger under sort pepper, tørkede urter og et vilt drag, og derfor sammenlignes den med Syrah fra nordlige Rhône."}
+     why:"Surkirsebær og bjørnebær ligger under sort pepper, tørkede urter og et vilt drag, og reglene kaller selv Riservaen speziato, altså krydret."}
   ],
   [ // lesson 3: Caciocavallo og drifteveiene
     {q:"Hvor bred var en kongelig tratturo?",
@@ -862,25 +862,25 @@ window.QUIZ_NO['IT-67'] = [
     {q:"Hvor kommer navnet caciocavallo fra?",
      a:["Osten ble fraktet i saltasker på hesteryggen","Den ble betalt i toll for hester på drifteveien","Ostene henger parvis over en bjelke","Ostemassen strekkes over en trehest"],
      c:2,
-     why:"Ostene bindes med en snor og henges parvis over en bjelke, a cavallo, altså skrevs over."},
+     why:"Ostene bindes med en snor og henges parvis over en bjelke, a cavallo, altså skrevs over. Det er den vanlige forklaringen; ordbøkene nevner også formen, et merke som ble preget inn i skorpen, og det tyrkiske kaşkaval."},
     {q:"Hva er pampanella?",
      a:["Svinekjøtt gnidd inn med tørket rød paprika og bakt i vedovn","En sauragù kokt hele formiddagen til cavatelli","En myk pølse smakt til med fennikel og pepper","Et flatbrød stekt på varm stein"],
      c:0,
-     why:"Rimeligere stykker av svin, ofte ribbe, gnis inn med søt og sterk tørket paprika, hvitløk og eddik og bakes til utsiden er teglrød."}
+     why:"Sideflesk, capocollo, skinke og ribbe gnis inn med søt og sterk tørket paprika, hvitløk og eddik, pakkes inn i vinbladene retten har navn etter, og bakes til utsiden er teglrød."}
   ],
   [ // lesson 4: Campobasso og åslandsbyene
     {q:"Hvorfor er den romerske byen Saepinum så godt bevart?",
-     a:["Den ble bygget opp som museum på 1950-tallet","Den ble begravd av et jordras og gravd ut intakt","Den ble vernet av sauetollen i Foggia","Bønder flyttet inn i den og brukte ruinene som løer"],
-     c:3,
-     why:"Byen var aldri verdt å rive; fra 1700-tallet bygde bønder inntil de romerske murene og brukte ruinene i stedet for å bryte dem ned."},
-    {q:"Hva forteller innskriften på Porta Bojano om?",
-     a:["Navnene på embetsmennene som muret byen","En keiserlig ordre om å slutte å plage de vandrende gjeterne","Tollen som skulle betales for hvert dyr inn i byen","En hyllest til keiseren fra saueeierne"],
-     c:1,
-     why:"Byens embetsmenn hadde stanset gjeterne og anklaget dem for tyveri, og Romas svar, som ba dem la flokkene være, ble hugget inn i porten."},
-    {q:"Hva er uvanlig med teateret i Pietrabbondante?",
-     a:["Det ble bygget inne i et romersk tempel","Scenen vender bort fra dalen","Steinsetene er hugget med buet rygg og formet sete","Det var fortsatt i bruk i middelalderen"],
+     a:["Den ble bygget opp som museum på 1950-tallet","Den ble begravd av et jordras og gravd ut intakt","Bønder bygde hus av steinen fra den, inne i teateret","Den ble vernet av sauetollen i Foggia"],
      c:2,
-     why:"Setene har formet rygg og sete, en bekvemmelighet du ikke finner i et romersk teater, og helligdommen ble forlatt rundt 95 f.Kr. og aldri tatt i bruk igjen."}
+     why:"Folk flyttet opp til Castellum Sepini på 800-tallet. Fra 1700-tallet kom bønder tilbake og bygde med stein fra ruinene inne i teateret, langs buen i tilskuerplassene, og antikvariet ligger i de husene i dag."},
+    {q:"Hva forteller innskriften på Porta Bojano om?",
+     a:["En keiserlig ordre som vernet gjeterne av omtanke for dem","Tollen som skulle betales for hvert dyr inn i byen","En hyllest til keiseren fra saueeierne","To pretorianprefekter som ba embetsmenn slutte å beslaglegge flokkene"],
+     c:3,
+     why:"Det er en samling på tre brev fra 169–172 e.Kr., med prefektene Bassaeus Rufus og Macrinius Vindex øverst. Grunnen de oppgir, er magna fisci iniuria, alvorlig skade for statskassen: flokkene var keiserlig eiendom, og det var gjeterne også."},
+    {q:"Hva er uvanlig med teateret i Pietrabbondante?",
+     a:["Det ble bygget inne i et romersk tempel","Steinsetene er hugget med buet rygg og formet sete","Scenen vender bort fra dalen","Det var fortsatt i bruk i middelalderen"],
+     c:1,
+     why:"Setene har formet rygg og sete, noe Franco Valente kaller uten sidestykke, fordi dette var et forsamlingsbygg i form av et teater. Helligdommen ble konfiskert etter Sullas seier, rundt 82–80 f.Kr."}
   ]
 ];
 

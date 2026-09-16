@@ -190,7 +190,7 @@ window.RECIPES['IT-67'] = [
   blurb:{en:'Beans, a little cured pork and cavatelli in one pot. The reading calls beans one of the three sauces of Molise, and this is the winter one.',
          no:'Bønner, litt spekemat og cavatelli i én gryte. Lesteksten kaller bønner en av de tre sausene i Molise, og dette er vinterutgaven.'},
   heroCaption:{en:'Pasta e fagioli as it is eaten all along the Apennines. There is no free photograph of the Molisan version, which uses cavatelli.',
-               no:'Pasta e fagioli slik den spises langs hele Apenninene. Det finnes ikke noe fritt bilde av utgaven fra Molise, som bruker cavatelli.'},
+               no:'Pasta e fagioli slik den spises langs hele Appenninene. Det finnes ikke noe fritt bilde av utgaven fra Molise, som bruker cavatelli.'},
   wines:['Biferno Rosso'],
   headnote:{
     en:'<p>Molise\'s food reading lists three things that go on cavatelli: a slow lamb ragù, garlic and chilli, and beans. Beans are the winter one, and they answer a question the region kept asking. What do you eat in a hill village in February, when the flocks are away on the plain and the garden is finished? Dried beans keep from one harvest to the next, and a piece of preserved pork keeps alongside them.</p>'
@@ -284,12 +284,12 @@ window.RECIPES['IT-67'] = [
                no:'Det finnes ikke noe fritt bilde av pampanella. Dette er råstoffet i krydderet: søte røde paprika hengt til tørk på en husvegg.'},
   wines:['Tintilia del Molise'],
   headnote:{
-    en:'<p>Pampanella comes from San Martino in Pensilis, a town on the low hills behind Molise\'s short stretch of coast, and it is the one dish from the region that outsiders remember. Pieces of pork, usually the cheaper cuts and often the ribs, are rubbed with sweet and hot dried red pepper, garlic and vinegar, then baked in a wood oven until the meat is soft and the outside has gone brick red and slightly sticky. It is sold by the portion, wrapped in paper, and eaten with bread and nothing else.</p>'
-      + '<p>The name explains the original method. <em>Pampane</em> are vine leaves. The meat was laid on them in the oven, so the leaves took the direct heat of the bricks and gave off steam while the pork cooked. A domestic oven cannot reproduce the falling heat of a bread oven, but it can reproduce the two things that matter: a covered, humid first hour that softens the meat, and a short blast at the end that dries the surface and lacquers it.</p>'
-      + '<p>The paprika is the whole seasoning, so it decides the dish. Molise grows its own peppers and dries and grinds them, and the sweet kind there carries more perfume and more heat than the mild Hungarian paprika that fills most Norwegian spice jars. Buy the freshest sweet paprika you can find, use more of it than feels sensible, and make up the missing fire with hot paprika or chilli rather than settling for a pale, dusty rub.</p>',
-    no:'<p>Pampanella kommer fra San Martino in Pensilis, en by på de lave åsene bak den korte kyststripen i Molise, og det er den retten fra regionen tilreisende husker best. Biter av svinekjøtt, som regel de billigere stykkene og ofte ribbe, gnis inn med søt og sterk tørket paprika, hvitløk og eddik, og bakes så i vedovn til kjøttet er mørt og utsiden er teglrød og litt klebrig. Den selges i porsjoner, pakket i papir, og spises med brød og ingenting annet.</p>'
-      + '<p>Navnet forteller hvordan retten opprinnelig ble laget. <em>Pampane</em> er vinblader. Kjøttet ble lagt på dem i ovnen, slik at bladene tok den direkte varmen fra teglsteinen og ga fra seg damp mens svinet stekte. En vanlig stekeovn kan ikke gjenskape den fallende varmen i en bakerovn, men den kan gjenskape de to tingene som betyr noe: en tildekket og fuktig første time som gjør kjøttet mørt, og en kort omgang på full varme til slutt som tørker overflaten og lakkerer den.</p>'
-      + '<p>Paprikaen er hele krydringen, og derfor avgjør den retten. Molise dyrker sine egne paprika og tørker og maler dem selv, og den søte sorten der har mer duft og mer styrke enn den milde ungarske paprikaen som står i de fleste norske krydderhyller. Kjøp den ferskeste søte paprikaen du finner, bruk mer av den enn det virker fornuftig, og hent inn den manglende styrken med sterk paprika eller chili i stedet for å slå deg til ro med en blek og støvete krydderblanding.</p>'},
+    en:'<p>Pampanella comes from San Martino in Pensilis, a town on the low hills behind Molise\'s short stretch of coast, and it is the one dish from the region that outsiders remember. Pieces of pork — belly, capocollo, leg and ribs — are rubbed with sweet and hot dried red pepper, garlic and vinegar, then baked in a wood oven until the meat is soft and the outside has gone brick red and slightly sticky. It is sold by the portion, wrapped in paper, and eaten with bread and nothing else.</p>'
+      + '<p>The name explains the original method. <em>Pampane</em> are vine leaves, and the meat was wrapped in them before it went into the oven, so that it cooked inside a leaf that gave off steam and kept the direct heat of the bricks off its surface. A domestic oven cannot reproduce the falling heat of a bread oven, but it can reproduce the two things that matter: a covered, humid first hour that softens the meat, and a short blast at the end that dries the surface and lacquers it.</p>'
+      + '<p>The paprika is the whole seasoning, so it decides the dish. The dried sweet pepper used there carries more perfume and more heat than the mild Hungarian paprika that fills most Norwegian spice jars. Buy the freshest sweet paprika you can find, use more of it than feels sensible, and make up the missing fire with hot paprika or chilli rather than settling for a pale, dusty rub.</p>',
+    no:'<p>Pampanella kommer fra San Martino in Pensilis, en by på de lave åsene bak den korte kyststripen i Molise, og det er den retten fra regionen tilreisende husker best. Biter av svinekjøtt — sideflesk, capocollo, skinke og ribbe — gnis inn med søt og sterk tørket paprika, hvitløk og eddik, og bakes så i vedovn til kjøttet er mørt og utsiden er teglrød og litt klebrig. Den selges i porsjoner, pakket i papir, og spises med brød og ingenting annet.</p>'
+      + '<p>Navnet forteller hvordan retten opprinnelig ble laget. <em>Pampane</em> er vinblader, og kjøttet ble pakket inn i dem før det gikk i ovnen, slik at det stekte inne i et blad som ga fra seg damp og holdt den direkte varmen fra teglsteinen unna overflaten. En vanlig stekeovn kan ikke gjenskape den fallende varmen i en bakerovn, men den kan gjenskape de to tingene som betyr noe: en tildekket og fuktig første time som gjør kjøttet mørt, og en kort omgang på full varme til slutt som tørker overflaten og lakkerer den.</p>'
+      + '<p>Paprikaen er hele krydringen, og derfor avgjør den retten. Den tørkede søte paprikaen som brukes der, har mer duft og mer styrke enn den milde ungarske paprikaen som står i de fleste norske krydderhyller. Kjøp den ferskeste søte paprikaen du finner, bruk mer av den enn det virker fornuftig, og hent inn den manglende styrken med sterk paprika eller chili i stedet for å slå deg til ro med en blek og støvete krydderblanding.</p>'},
   ingredients:[
     { group:{en:'The meat', no:'Kjøttet'}, items:[
       {q:1.2, u:'kg', n:{en:'pork on the bone', no:'svinekjøtt med bein'},
@@ -302,8 +302,8 @@ window.RECIPES['IT-67'] = [
        note:{en:'ground dried sweet red pepper, as fresh and as red as you can buy. Smoked paprika is a different spice and does not belong here. Reckon on a generous handful for this much meat',
              no:'malt tørket søt paprika, så fersk og så rød som mulig. Røkt paprika er et annet krydder og hører ikke hjemme her. Regn med en romslig neve til denne kjøttmengden'}, scale:'none'},
       {u:'', n:{en:'hot paprika or ground chilli', no:'sterk paprika eller malt chili'},
-       note:{en:'to taste. Molisan sweet pepper carries heat of its own, so this is what makes up the difference',
-             no:'etter smak. Den søte paprikaen fra Molise har styrke i seg selv, så dette henter inn forskjellen'}, scale:'none'},
+       note:{en:'to taste. The sweet pepper used there carries heat of its own, so this is what makes up the difference',
+             no:'etter smak. Den søte paprikaen som brukes der, har styrke i seg selv, så dette henter inn forskjellen'}, scale:'none'},
       {q:4, u:'', n:{en:'garlic cloves', no:'hvitløksfedd'},
        note:{en:'crushed to a paste with a pinch of salt', no:'knust til en glatt masse med en klype salt'}, round:'half'},
       {q:60, u:'ml', n:{en:'white wine vinegar', no:'hvitvinseddik'}},
@@ -312,7 +312,7 @@ window.RECIPES['IT-67'] = [
     { group:{en:'The dish, and the table', no:'Formen, og bordet'}, items:[
       {q:60, u:'ml', n:{en:'water', no:'vann'}, note:{en:'poured down the side of the dish, not over the meat', no:'helles ned langs kanten av formen, ikke over kjøttet'}},
       {u:'', n:{en:'vine leaves', no:'vinblader'},
-       note:{en:'optional, to line the dish. Fig leaves, or nothing at all, also work', no:'valgfritt, til å kle bunnen av formen. Fikenblader, eller ingenting, fungerer også'}, scale:'none'},
+       note:{en:'optional, to wrap the meat in. Fig leaves, or nothing at all, also work', no:'valgfritt, til å pakke kjøttet inn i. Fikenblader, eller ingenting, fungerer også'}, scale:'none'},
       {q:400, u:'g', n:{en:'country bread', no:'grovt landbrød'}, note:{en:'to eat with it', no:'til å spise til'}},
     ]},
   ],
@@ -329,8 +329,8 @@ window.RECIPES['IT-67'] = [
      no:'Dekk kjøttet til, og sett det kaldt i minst fire timer, gjerne over natten.'},
     {en:'Take it out an hour before cooking so it loses its chill, and heat the oven to 160 °C.',
      no:'Ta det ut en time før steking så det mister kjølen, og varm ovnen til 160 °C.'},
-    {en:'Line a deep dish with vine leaves if you have them, lay the meat in one layer and pour the water down the side.',
-     no:'Kle bunnen av en dyp form med vinblader hvis du har dem, legg kjøttet i ett lag, og hell vannet ned langs kanten.'},
+    {en:'Wrap each piece in a vine leaf if you have them, lay the meat in one layer in a deep dish, and pour the water down the side.',
+     no:'Pakk hver bit inn i et vinblad hvis du har dem, legg kjøttet i ett lag i en dyp form, og hell vannet ned langs kanten.'},
     {en:'Cover the dish tightly with a lid or foil and bake for an hour, until a fork goes into the meat without resistance.',
      no:'Dekk formen tett med lokk eller folie, og stek i en time, til en gaffel går inn i kjøttet uten motstand.'},
     {en:'Uncover the dish, raise the oven to 220 °C and bake on until the rub darkens, basting once with the juices in the dish.',
@@ -350,19 +350,19 @@ window.RECIPES['IT-67'] = [
      body:{en:'An hour under a lid at a low temperature is steaming rather than roasting: the water in the dish keeps the air saturated, the meat stays below 100 °C, and the collagen turns to gelatine without the surface drying out. Only then does the oven go up. Reverse the order and you get a hard red crust over pork that is still tough inside.',
            no:'En time under lokk på lav temperatur er damping og ikke steking. Vannet i formen holder luften mettet, kjøttet holder seg under 100 °C, og kollagenet blir til gelatin uten at overflaten tørker. Først da skal ovnen opp. Gjør du det motsatt, får du en hard rød skorpe over svinekjøtt som fortsatt er seigt inni.'}},
     {title:{en:'Paprika is not a background spice here', no:'Paprika er ikke et bakgrunnskrydder her'},
-     body:{en:'Ground pepper loses its aroma within months of milling and keeps only its colour, which is how an old jar produces a dish that looks right and tastes of nothing. Buy a small tin, smell it before you use it — it should smell sweet and faintly of dried fruit — and keep it in the dark. The sweet Hungarian paprika on most Norwegian shelves is milder than the Molisan kind, so add hot paprika or chilli until the rub has an edge to it.',
-           no:'Malt paprika mister aromaen i løpet av noen måneder og beholder bare fargen, og derfor gir en gammel krukke en rett som ser riktig ut og ikke smaker noe. Kjøp en liten boks, lukt på den før du bruker den — den skal lukte søtt og svakt av tørket frukt — og oppbevar den mørkt. Den søte ungarske paprikaen i de fleste norske butikker er mildere enn den molisiske, så tilsett sterk paprika eller chili til krydderet har litt bitt.'}},
+     body:{en:'Ground pepper loses its aroma within months of milling and keeps only its colour, which is how an old jar produces a dish that looks right and tastes of nothing. Buy a small tin, smell it before you use it — it should smell sweet and faintly of dried fruit — and keep it in the dark. The sweet Hungarian paprika on most Norwegian shelves is milder than what this dish is built on, so add hot paprika or chilli until the rub has an edge to it.',
+           no:'Malt paprika mister aromaen i løpet av noen måneder og beholder bare fargen, og derfor gir en gammel krukke en rett som ser riktig ut og ikke smaker noe. Kjøp en liten boks, lukt på den før du bruker den — den skal lukte søtt og svakt av tørket frukt — og oppbevar den mørkt. Den søte ungarske paprikaen i de fleste norske butikker er mildere enn det denne retten er bygget på, så tilsett sterk paprika eller chili til krydderet har litt bitt.'}},
   ],
   variations:[
     {title:{en:'On the grill', no:'På grillen'},
      body:{en:'Rub ribs the same way, leave them overnight, then cook them slowly over indirect charcoal with the lid down for an hour before finishing them directly over the coals for a few minutes a side. It is further from the bread oven than the oven method, but the wood smoke gives back something an electric oven cannot.',
            no:'Gni inn ribbe på samme måte, la den ligge over natten, og stek den langsomt over indirekte trekull med lokket nede i en time. Avslutt rett over glørne noen minutter på hver side. Det ligger lenger fra bakerovnen enn ovnsmetoden, men vedrøyken gir tilbake noe en elektrisk ovn ikke kan gi.'}},
     {title:{en:'The leaves', no:'Bladene'},
-     body:{en:'Vine leaves are the original lining and the reason for the name, but fresh ones are hard to buy in Norway outside late summer. Leaves in brine from a Turkish or Greek shop work if you rinse them well, fig leaves give a coconut-like scent that suits pork, and a bare dish loses nothing but the story.',
-           no:'Vinblader er det opprinnelige underlaget og grunnen til navnet, men ferske blader er vanskelige å få kjøpt i Norge utenom sensommeren. Blader på lake fra en tyrkisk eller gresk butikk fungerer hvis du skyller dem godt. Fikenblader gir en duft i retning kokos som kler svinekjøttet, og en form uten blader mister ingenting annet enn historien.'}},
+     body:{en:'Vine leaves are the original wrapping and the reason for the name, but fresh ones are hard to buy in Norway outside late summer. Leaves in brine from a Turkish or Greek shop work if you rinse them well, fig leaves give a coconut-like scent that suits pork, and a bare dish loses nothing but the story.',
+           no:'Vinblader er det opprinnelige omslaget og grunnen til navnet, men ferske blader er vanskelige å få kjøpt i Norge utenom sensommeren. Blader på lake fra en tyrkisk eller gresk butikk fungerer hvis du skyller dem godt. Fikenblader gir en duft i retning kokos som kler svinekjøttet, og en form uten blader mister ingenting annet enn historien.'}},
     {title:{en:'What to drink with it', no:'Hva du skal drikke til'},
-     body:{en:'The course pairs pampanella with Tintilia del Molise, and the match is acidity against fat and black pepper against paprika. Serve it a little cool. Biferno Rosso does the same job more softly, and a deep-pink Tintilia rosato is the summer answer when the meat comes off a grill.',
-           no:'Kurset setter Tintilia del Molise til pampanella, og poenget er syre mot fett og sort pepper mot paprika. Skjenk den litt kjølig. Biferno Rosso gjør den samme jobben mykere, og en dypt rosa Tintilia rosato er sommersvaret når kjøttet kommer fra grillen.'}},
+     body:{en:'The course pairs pampanella with Tintilia del Molise, and the match is acidity against fat and black pepper against paprika. Serve it a little cool. Biferno Rosso does the same job more softly, and a Tintilia rosato is the summer answer when the meat comes off a grill.',
+           no:'Kurset setter Tintilia del Molise til pampanella, og poenget er syre mot fett og sort pepper mot paprika. Skjenk den litt kjølig. Biferno Rosso gjør den samme jobben mykere, og en Tintilia rosato er sommersvaret når kjøttet kommer fra grillen.'}},
   ],
 },
 

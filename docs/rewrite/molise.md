@@ -616,3 +616,36 @@ classed as risk-free**.
   fished from, protected by a regional law of 2020. The Tremiti, in Puglia, reached from Molise.
 - Ending: an image, not a summary. The two trabucchi, or the farmhouse standing in the Roman theatre, or the
   tile — a callback to Detfri and Amica, whose feet are still in the clay.
+
+## Decisions taken while drafting the English (2026-09-16)
+
+- **Reading 4's sections were reordered.** The old text ran Campobasso → Saepinum → Pietrabbondante → Agnone →
+  coast. Because the lead is now the roof tile, Pietrabbondante has to come first, so the order is
+  Pietrabbondante → Saepinum (with the letter, and then why the town is still standing) → Campobasso →
+  Agnone → Termoli. Every photograph keeps its old lesson, so `--check` still passes.
+- **The Latin is attributed as a transcription, in the box, not in the prose.** The research could not reach a
+  printed CIL or the EDR site itself (D1), and the third letter of the dossier was never obtained (D2). The
+  prose therefore paraphrases and quotes only *magna fisci iniuria*, and the box says where the text came from.
+- **San Giuliano di Puglia is in the box and nowhere else**, as the ledger required, as the last term of a
+  series of three earthquakes that shaped the buildings the reading describes — 1456, 1805, 2002 — with the
+  one structural consequence, the redrawn seismic map. It opens nothing and colours nothing.
+- **Reading 1's lead does not say Tuscany "sued Molise's growers"**, per the research's explicit caution: the
+  parties were a region, a province and a consortium, the respondent was the ministry, and the remedy was the
+  annulment of a decree.
+- **The Vinmonopolet sentence is gone**, replaced by the sourced arithmetic (48 ha + 177 ha ≈ 7,690 hl against
+  319,000, under three per cent). The old claim was unverifiable and perishable, and the quiz `why` that
+  depended on it has been re-founded on the same figures.
+- **Molise's reading 3 does not re-tell Abruzzo's tratturi.** It takes the crossroads figure (450 km inside one
+  small region), the hierarchy below the royal road, the R.T. stones, Moscati's line, and the names in the
+  Foggia register — Mattia Pizzella and a chapel running 21,210 sheep. The width, the fortnight, the Dogana's
+  founding and the 1592 count stay in Abruzzo. Pezzata is named but deliberately not given the callara's
+  treatment or its position: one clause concedes that both sides of the border solved the same problem the
+  same way.
+- **Quiz:** 1.1, 1.2 and 1.3's explanations rewritten; 2.1 replaced outright (the old answer rested on an
+  unsourced 200–600 m band and on the false claim that Molise sits on the latitude of Naples); 2.2 and 2.3's
+  explanations corrected; 3.2 hedged to Treccani's four etymologies; 3.3's cuts corrected; 4.1 and 4.2
+  replaced outright, because the old answers said farmers used the ruins "as barns" and called the Porta
+  Bojano text an imperial order; 4.3's explanation corrected from "abandoned around 95 BC". Answer positions
+  were re-spread so no lesson has all three in the same slot. Both languages moved together.
+- Still to do for Molise: the Norwegian, a Norwegian reader review per reading, and the glossary check for any
+  new specialist word (candidates: *tratturo*, *pasta filata*, *burrino/manteca*, *De.Co.*, *caecum*).

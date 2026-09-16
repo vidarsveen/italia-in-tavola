@@ -8,7 +8,7 @@ window.READINGS_NO['IT-55'] = {
     kicker: "Vin · Lesetekst 1 av 4",
     minutes: 7,
     hero: "vineyard",
-    heroCaption: "Vinranker nedenfor Montefalco seint på høsten, med Apenninene som lukker horisonten. Umbria er den eneste regionen på den italienske halvøya uten kystlinje.",
+    heroCaption: "Vinranker nedenfor Montefalco seint på høsten, med Appenninene som lukker horisonten. Umbria er den eneste regionen på den italienske halvøya uten kystlinje.",
     summary: "Hvitvinen fra Orvieto var søt i århundrer fordi kjellerne i fjellet var for kalde til at gjæringen ble ferdig, og resten av Umbria, langt fra havet, lærte å tappe rødvinen på flaske og presse sin egen olje.",
     html: `
 <p class="lead">En tradisjonell vinkjeller i <strong>Orvieto</strong> går tre etasjer ned i fjellet. Øverst ble druene knust, mosten rant gjennom rør av leire ned til etasjen under for å gjære, og den unge vinen ble flyttet enda lenger ned for å modnes. Dypt inne i tuffen holdt kjelleren seg kald. Når vinteren kom, gikk gjæringen saktere, og ofte stoppet den før alt sukkeret var blitt til alkohol. Derfor var Orvieto gjennom det meste av historien <em>abboccato</em>, altså mildt søt. Vinen var gyllen, smakte av honning og perlet ofte svakt. I 1931 kom Giorgio Garavini, en inspektør fra departementet, for å trekke grensene for vinområdet, og han noterte at abboccato var både den mest ettertraktede og den vanligste stilen.</p>

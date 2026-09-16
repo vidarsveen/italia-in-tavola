@@ -830,29 +830,29 @@ window.QUIZ['IT-67'] = [
     {q:"How did Molise become a region of its own?",
      a:["It was carved out of three Puglian provinces in 1948","The old Abruzzi e Molise was split in two in 1963","It separated from Campania after a referendum","It was formed when Isernia became a province in 1970"],
      c:1,
-     why:"Molise became a region in its own right in 1963, when Abruzzi e Molise was divided, which makes it the youngest region in Italy."},
+     why:"A constitutional law of 27 December 1963 divided Abruzzi e Molise; the region came into being on 19 January 1964 and had a single province until Isernia was created in 1970."},
     {q:"Why has a Norwegian reader probably never drunk a wine from Molise?",
      a:["The region grows only white grapes for blending","Its wines may not legally be exported","Almost all of it is drunk at the Foggia sheep fair","Production is tiny and almost none of it leaves the region"],
      c:3,
-     why:"Molise has a few dozen bottling estates, most of the crop goes to cooperatives or bulk buyers, and Vinmonopolet currently lists a single Molise wine."},
+     why:"Biferno DOC is forty-eight hectares and Molise DOC a hundred and seventy-seven; together they are under three per cent of the 319,000 hectolitres the region makes, and most of the rest goes through the co-operatives."},
     {q:"Why was Montepulciano removed from the Molise DOC in 2000?",
      a:["Tuscan producers challenged the use of the name","The grape failed to ripen at the required altitude","It was replaced by Tintilia in the rules","Growers voted to reserve it for Biferno"],
      c:0,
-     why:"The grape was permitted under the appellation until a legal challenge from Tuscan producers over the name Montepulciano, which is also a Tuscan town."}
+     why:"The Regione Toscana, the Provincia di Siena and the Consorzio del Vino Nobile di Montepulciano challenged the ministry at the administrative court in Rome, and a decree of 10 October 2000 struck the type out."}
   ],
   [ // lesson 2: Tintilia: a grape saved from extinction
-    {q:"What does the 200-metre rule in the Tintilia appellation achieve?",
-     a:["It lifts the vineyards above the reach of frost","It limits the appellation to the slopes of the Matese","It preserves the wine's freshness and perfume","It forces a later harvest than in Biferno"],
-     c:2,
-     why:"On the low ground the grapes ripen fast and flabby; between 200 and 600 metres the nights are cold, and that swing gives the wine its acidity and scent."},
+    {q:"What does the Tintilia appellation actually require of a vineyard?",
+     a:["That it lie between 200 and 600 metres","That it stand on hillside land, no lower than 200 metres","That it face south, above the Biferno valley","That it be planted below 500 metres, as Biferno is"],
+     c:1,
+     why:"The rules admit only vineyards on hillside land and no lower than 200 metres — two conditions, not one. Biferno's rules cap its vineyards at 500 metres from above, so the two appellations divide one hillside between them."},
     {q:"What is actually documented about Tintilia?",
      a:["An agronomist's manuscript of 1810 describes it in Molise","That its name comes from the Italian word tingere","That it descends from the Bovale grapes of Sardinia","That Spanish rulers brought it to Naples"],
      c:0,
-     why:"The 1810 manuscript makes it a genuinely old regional variety; the etymology is unproven, and DNA work has separated it from the Sardinian Bovale grapes."},
+     why:"Raffaele Pepe of Civitacampomarano described it in 1810 — and called it by a French name. The etymology is unproven, and DNA work has separated it from the Sardinian Bovale grapes."},
     {q:"Which description fits Tintilia?",
      a:["Pale, low in tannin and scented with roses","Sweet, aromatic and drunk after dinner","Soft, jammy and high in alcohol","Dark and peppery, with firm tannin and fresh acidity"],
      c:3,
-     why:"Sour cherry and blackberry sit under black pepper, dried herbs and a wild edge, which is why it draws comparisons with northern Rhône Syrah."}
+     why:"Sour cherry and blackberry sit under black pepper, dried herbs and a wild edge; the rules themselves call the Riserva speziato, spiced."}
   ],
   [ // lesson 3: Caciocavallo and the transhumance routes
     {q:"How wide was a royal tratturo?",
@@ -862,25 +862,25 @@ window.QUIZ['IT-67'] = [
     {q:"Where does the name caciocavallo come from?",
      a:["The cheese was carried in saddlebags on horseback","It was paid as a toll for horses using the tratturo","The cheeses hang in pairs astride a beam","The curd is stretched over a wooden horse"],
      c:2,
-     why:"The cheeses are tied with a cord and hung over a beam in pairs, a cavallo, astride."},
+     why:"The cheeses are tied with a cord and hung over a beam in pairs, a cavallo, astride. That is the usual explanation; the dictionaries also offer the shape, a mark once stamped on the rind, and the Turkish kaşkaval."},
     {q:"What is pampanella?",
      a:["Pork rubbed with dried red pepper and baked in a wood oven","A mutton ragù cooked all morning for cavatelli","A soft sausage flavoured with fennel and pepper","A flatbread cooked on a hot stone"],
      c:0,
-     why:"Cheaper cuts of pork, often the ribs, are rubbed with sweet and hot dried pepper, garlic and vinegar and baked until the outside is brick red."}
+     why:"Belly, capocollo, leg and ribs are rubbed with sweet and hot dried pepper, garlic and vinegar, wrapped in the vine leaves the dish is named after, and baked until the outside is brick red."}
   ],
   [ // lesson 4: Campobasso and the hill villages
     {q:"Why is the Roman town of Saepinum so complete?",
-     a:["It was rebuilt as a museum in the 1950s","It was buried by a landslide and excavated intact","It was protected by the sheep customs at Foggia","Farmers reoccupied it and used the ruins as barns"],
-     c:3,
-     why:"The town was never worth destroying; from the eighteenth century farmers built against the Roman walls and used the ruins rather than quarrying them."},
-    {q:"What does the inscription on the Porta Bojano record?",
-     a:["The names of the magistrates who walled the town","An imperial order to stop harassing the migrating shepherds","The toll due on every animal entering the town","A dedication to the emperor by the sheep owners"],
-     c:1,
-     why:"The town's officials had been stopping the shepherds and accusing them of theft, and Rome's reply, telling the magistrates to leave the flocks alone, was carved on the gate."},
-    {q:"What is unusual about the theatre at Pietrabbondante?",
-     a:["It was built inside a Roman temple","Its stage faces away from the valley","Its stone seats are cut with a curved back and a shaped seat","It was still in use in the Middle Ages"],
+     a:["It was rebuilt as a museum in the 1950s","It was buried by a landslide and excavated intact","Farmers built houses out of its stone, inside the theatre","It was protected by the sheep customs at Foggia"],
      c:2,
-     why:"The seats have a shaped back and seat, a comfort you will not find in a Roman theatre, and the sanctuary was abandoned around 95 BC and never reused."}
+     why:"The people left for Castellum Sepini in the ninth century; from the eighteenth, farmers came back and built with the robbed stone inside the theatre, following the curve of the seating. The Antiquarium is in those houses today."},
+    {q:"What does the inscription on the Porta Bojano record?",
+     a:["An imperial order protecting the shepherds out of concern for them","The toll due on every animal entering the town","A dedication to the emperor by the sheep owners","Two praetorian prefects telling magistrates to stop seizing the flocks"],
+     c:3,
+     why:"It is a dossier of three letters, AD 169–172, headed by the prefects Bassaeus Rufus and Macrinius Vindex. The reason they give is magna fisci iniuria, grave damage to the treasury: the flocks were imperial property, and so were the shepherds."},
+    {q:"What is unusual about the theatre at Pietrabbondante?",
+     a:["It was built inside a Roman temple","Its stone seats are cut with a curved back and a shaped seat","Its stage faces away from the valley","It was still in use in the Middle Ages"],
+     c:1,
+     why:"The seats have a shaped back and seat, which Franco Valente calls unprecedented, because this was an assembly building in the shape of a theatre. The sanctuary was confiscated after Sulla's victory, around 82–80 BC."}
   ]
 ];
 

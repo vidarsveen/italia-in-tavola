@@ -49,7 +49,7 @@ window.COURSE_NO = {
    pairing:'Frascati til carciofi alla giudia; Cesanese til abbacchio alla romana eller amatriciana.',
    lessons:["Castelli Romani og Frascati","Cesanese: Lazios glemte rødvin","De fire romerske pastarettene","Roma: Colosseum og det evige bordet"]},
  'IT-65':{intro:"Fjellvillmark over, Adriaterhavet under. Bjørn og ulv streifer i nasjonalparkene, gjetere griller arrosticini over glør, og Montepulciano d'Abruzzo er hverdagsrødvinen i halve landet.",
-   landmark:{name:'Rocca Calascio og Gran Sasso', desc:'En festning fra 900-tallet på 1 460 meter, den høyeste i Apenninene, under Corno Grande på 2 912 meter.'},
+   landmark:{name:'Rocca Calascio og Gran Sasso', desc:'En festning fra 900-tallet på 1 460 meter, den høyeste i Appenninene, under Corno Grande på 2 912 meter.'},
    pairing:'Cerasuolo til arrosticini rett fra grillen; Montepulciano til spaghetti alla chitarra e pallottine.',
    lessons:["Montepulciano: druen, ikke byen","Cerasuolo og Adriaterhavets rosé","Arrosticini og gjeterkjøkkenet","Gran Sasso og fjellfestningene"]},
  'IT-67':{intro:"Italias yngste og minst besøkte region, skilt fra Abruzzo i 1963. Eldgamle drifteveier for sau (tratturi) krysser åsene, Tintilia er den lokale rødvinsdruen, og ostene heter caciocavallo og scamorza.",

@@ -179,7 +179,7 @@ window.READINGS_NO['IT-52'] = {
 </ul></aside>
 
 <h2>Høst og kyst</h2>
-<p>Toscana er ikke pastaland slik Emilia er, men det har sine egne former. I åsene rundt Siena rulles <strong>pici</strong> mellom håndflatene til tykke, ujevne tråder og vendes med hvitløk og tomat, eller med stekte brødsmuler. <strong>Pappardelle</strong> skjæres brede fordi de er laget for <em>ragù di cinghiale</em>, villsvinet som kommer ut av skogene i Chianti om høsten. Høsten er viltsesong her, med fasan og hare så vel som villsvin, og med steinsopp fra Apenninene. Ved kysten i Livorno er fiskernes gryte <strong>cacciucco</strong>, minst fem fiskeslag kokt med hvitløk, chili og tomat og helt over hvitløksbrød. Måltidene avsluttes med mandelkjeksen cantucci dyppet i Vin Santo.</p>
+<p>Toscana er ikke pastaland slik Emilia er, men det har sine egne former. I åsene rundt Siena rulles <strong>pici</strong> mellom håndflatene til tykke, ujevne tråder og vendes med hvitløk og tomat, eller med stekte brødsmuler. <strong>Pappardelle</strong> skjæres brede fordi de er laget for <em>ragù di cinghiale</em>, villsvinet som kommer ut av skogene i Chianti om høsten. Høsten er viltsesong her, med fasan og hare så vel som villsvin, og med steinsopp fra Appenninene. Ved kysten i Livorno er fiskernes gryte <strong>cacciucco</strong>, minst fem fiskeslag kokt med hvitløk, chili og tomat og helt over hvitløksbrød. Måltidene avsluttes med mandelkjeksen cantucci dyppet i Vin Santo.</p>
 <figure data-img="pici"><figcaption>Pici, tykke tråder rullet for hånd mellom håndflatene, pastaen fra åsene ved Siena.</figcaption></figure>
 <figure data-img="cantucci"><figcaption>Cantucci med Vin Santo: mandelkjeksene fra Prato, dyppet i den søte vinen for å avslutte måltidet.</figcaption></figure>
 

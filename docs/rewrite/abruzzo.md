@@ -478,7 +478,53 @@ wine in 2007"), and Abruzzo 4 was recast off its fronted time phrase onto the co
 
 ### Outstanding, deliberately
 
-`content/tasting.no.js` still carries the old Norwegian Cerasuolo card ("Kirsebærrød til dyp korall", "svakt
-bitter avslutning"). It is **not** being changed yet: the Norwegian reading's tasting table still says the old
-thing, and CLAUDE.md §13 requires card and table to match character for character. Both move together in the
-Norwegian pass.
+`content/tasting.no.js` carried the old Norwegian Cerasuolo card ("Kirsebærrød til dyp korall", "svakt bitter
+avslutning") until the Norwegian pass. Card and table moved together, as CLAUDE.md §13 requires, and both now
+read «Kirsebærrosa, fra lys til dyp» and «en svakt mandelpreget avslutning».
+
+## The Norwegian (2026-09-16)
+
+Written from the outline, the ledger and the facts rather than from the English sentences, then linted, then
+put through four fresh-context reviews, one per reading, each given CLAUDE.md §4b and asked to read every
+sentence aloud without the English in view.
+
+**The lint caught the clefts; the reviewers caught the meaning.** `prose_lint.py --lang no` found five
+«Det som …, er …» constructions, three rhythm runs and one long sentence — all real, all fixed. But the four
+reviewers then found, between them, **three false friends that changed a fact and would have shipped**:
+
+- «de hvite **mases** med føttene» — *mase* means to nag or pester. The sentence said the white grapes were
+  being nagged at. Crushing by foot is «tråkkes» or «moses».
+- «en **ysterkar**» among the people walking the drove road — a *ysterkar* is the cheese **vat**. The listener
+  would hear a piece of equipment walking with the flock, in the one sentence whose whole point is that a
+  *person* went along. Now «en mann som ystet». «Hundeholdere» went the same way: that is the legal term for a
+  dog's owner, not for someone working dogs with a flock — «hundeførere».
+- «Aurum … er **konjakk** og et uttrekk av appelsiner» — *konjakk* in Norwegian means Cognac, a protected
+  French appellation, and **Vinmonopolet keeps Konjakk and Brandy as separate categories**. A course that links
+  straight into that shop cannot blur them. Aurum is made with Italian brandy.
+
+Two more that changed meaning without being false friends: «sekstifem år **foran** rødvinens egen appellasjon»
+— *foran* in a Norwegian time expression reads as *later*, reversing the argument the paragraph exists to make
+(now «før»); and «mot fire tusen **to hundreår** tidligere», which read aloud is heard as *fire tusen to hundre
+år* — four thousand two hundred years instead of four thousand kilos two centuries earlier. That one is now
+three plain sentences.
+
+**The lesson, and it confirms the Lazio note:** the Norwegian lint finds the structural faults and almost none
+of the semantic ones. Every false friend above passed the linter cleanly. A fresh-context Norwegian reader is
+not optional, and the prompt should say explicitly — as it did here — that a mistranslation which changes a
+fact must be reported even though style is the brief.
+
+Also fixed: «i innhøstingen» three times (a preposition calque; «under innhøstingen»); «tilskriver … fortjenesten
+for» («gir … æren for»); «i begynnelsen av femtiårene», which reads as the 1950s rather than a man's age;
+«det meste av veien fett», which has no meaning in Norwegian at all; «det går … med på», which means *to
+consent*; «apenninerulven» and «gemsen fra Abruzzo», which are coinages where Norwegian has «den italienske
+ulven» and «abruzzogemsen»; an imperative-plus-«og» opener (rule 6); two more clefts the lint missed; a
+dimension written the English way round («atten kilometer ganger åtte»); and a spelled-out five-word height in
+the closing sentence.
+
+**Open question for the owner, deliberately not acted on.** The reviewer of reading 4 says Store norske
+leksikon spells the mountain range **«Appenninene»**, with a double p, and that «Apenninene» is the Italian word
+with a letter dropped. The project uses the single-p form **consistently — all twenty-two occurrences across
+eleven files**, including six regions whose Norwegian was language-reviewed and signed off, and which are
+committed and published. That is a project-wide rename, not an Abruzzo fix, and it rests on one subagent's
+assertion. **Verify against SNL directly before changing anything**, and if it is confirmed, change all
+twenty-two in one commit rather than leaving the course inconsistent with itself.
