@@ -55,7 +55,15 @@ TELLS = {
     ],
     'no': [
         (r"\bikke bare [^.]{0,60}\bmen (også|og)\b", 'ikke bare … men også'),
-        (r"\b[Dd]et som [^,]{2,60}, er\b", 'cleft (Det som …, er)'),
+        # Headless clefts, not only the «Det som …, er» shape: the Molise review of
+        # 2026-09-16 found «Det dekretet fra 2000 fjernet, var …» and «Det høyde gjør
+        # …, er …», both of which the narrower pattern missed.
+        # A cleft opens its clause, so anchor there: an unanchored «det» matched the middle of
+        # ordinary sentences («den ærlige måten å si det på, er at …»). It still over-reports on
+        # «Det <adj> <noun> som …, er» (a plain definite subject with a long relative clause,
+        # where rule 7 actually requires that comma). That is the intended trade: this file
+        # reports, a human decides, and the narrow rule silently passed two real clefts.
+        (r"(?:^|(?<=[.!?] )|\bog |\bmen )[Dd]et (?!er\b|var\b|finnes\b|fantes\b|går\b|gikk\b|står\b|sto\b|blir\b|ble\b)[^,.]{2,60}, (er|var)\b", 'cleft (Det …, er/var)'),
         (r"\bverdt å (merke seg|vite|kjenne|huske)\b", 'announces interest'),
         (r"\bfortjener (en kommentar|oppmerksomhet)\b", 'announces interest'),
         (r"\b(det|som) forteller deg\b", 'announces interest'),

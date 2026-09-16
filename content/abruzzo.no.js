@@ -14,7 +14,7 @@ window.READINGS_NO['IT-65'] = {
 <p class="lead">Familien Valentini i Loreto Aprutino laget ingen rødvin i 2007. De laget ingen i 2008 heller. Hvitvinen tappes i omtrent sju av ti årganger, og selv fra en innhøsting de er fornøyd med, holder de igjen rundt fem deler av hundre. Resten av druene selges lokalt. Den vinen som ikke går på flaske, går ut av kjellerdøren uten etikett og billig, til hvem som helst som kommer etter den. Gabriele Valentini kaller det en gammel tradisjon og et ulønnsomt valg. Under innhøstingen vet ingen ennå hva som blir solgt løst og hva som blir tappet, sier han, og derfor får alt den samme omsorgen.</p>
 
 <h2>Oppkjøperne som kom under innhøstingen</h2>
-<p>De fleste dyrkerne i regionen solgte også vin som aldri fikk en etikett, og det av motsatt grunn. Oppkjøpere som ble kalt <em>cariarelli</em>, mange av dem fra Campania, kom under innhøstingen og tok avlingen som den sto. Det de var ute etter, var <strong>Montepulciano</strong>, og bransjen skrev rett ut hva de skulle bruke den til: <em>taglio nobilitante</em>, en foredlende tilsetning, farge og ekstrakt til tynnere viner laget andre steder. I et svakt år gikk den nordover til Piemonte og Veneto. Gjennom det meste av 1900-tallet lå verdien av druen i hva den kunne gjøre med andres vin.</p>
+<p>De fleste dyrkerne i regionen solgte også vin som aldri fikk en etikett, og det av motsatt grunn. Oppkjøpere som ble kalt <em>cariarelli</em>, mange av dem fra Campania, kom under innhøstingen og tok avlingen som den sto. De var ute etter <strong>Montepulciano</strong>, og bransjen skrev rett ut hva de skulle bruke den til: <em>taglio nobilitante</em>, en foredlende tilsetning, farge og ekstrakt til tynnere viner laget andre steder. I et svakt år gikk den nordover til Piemonte og Veneto. Gjennom det meste av 1900-tallet lå verdien av druen i hva den kunne gjøre med andres vin.</p>
 <p>Strukturen som vokste fram rundt dette, står fremdeles. Abruzzo har rundt førti samvirkelag, de fleste i provinsen Chieti. En undersøkelse fra midten av 2000-tallet fant at de solgte 86 prosent av det de laget, i bulk, mens de private gårdene solgte 85 prosent av sitt på flaske. To vinbransjer vokste ut av én drue.</p>
 
 <h2>Navnet</h2>
@@ -38,7 +38,7 @@ window.READINGS_NO['IT-65'] = {
 </ul></aside>
 
 <h2>Hva den smaker</h2>
-<p>Vinen kommer ut så mørk at den er nesten ugjennomsiktig, med lav syre og tannin som er myk heller enn fast. Lages den billig, gir det en mørk og mild rødvin som ingen kan innvende noe mot og ingen husker. Lages den omhyggelig, gir den mørkt kirsebær og plomme, tørkede urter, lakris og tobakk, og en svakt bitter avslutning under som hindrer frukten i å bli søtlig. De beste flaskene tåler femten eller tjue år og dreier mot lær og tjære. Nebbiolo er mer duftende og Sangiovese skarpere. Det denne druen har i stedet, er dybde.</p>
+<p>Vinen kommer ut så mørk at den er nesten ugjennomsiktig, med lav syre og tannin som er myk heller enn fast. Lages den billig, gir det en mørk og mild rødvin som ingen kan innvende noe mot og ingen husker. Lages den omhyggelig, gir den mørkt kirsebær og plomme, tørkede urter, lakris og tobakk, og en svakt bitter avslutning under som hindrer frukten i å bli søtlig. De beste flaskene tåler femten eller tjue år og dreier mot lær og tjære. Nebbiolo er mer duftende og Sangiovese skarpere. Denne druen har dybde i stedet.</p>
 
 <aside class="tasting"><h4>I glasset: Montepulciano d'Abruzzo</h4>
 <table><tr><th>Farge</th><td>Dyp rubinrød til purpur, nesten ugjennomsiktig; granatrød med alder</td></tr>

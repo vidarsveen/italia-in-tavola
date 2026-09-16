@@ -338,8 +338,9 @@ Norwegian follows the English one region behind, written from the facts and the 
    clefts, a dangling participle and a false friend that changed a fact («strengt tatt» for *strictly*) were all
    unflagged. **Done 2026-09-16: Abruzzo 1–4 in English**, through the whole of §5b: outline for readings 3–4 added to the
    ledger, four drafts, lint, eight parallel reviews, second pass, lint again (clean: longest sentence 33–35
-   words, means 16.6–19.8). **The Norwegian is not written yet, and `content/tasting.no.js` still holds the old
-   Cerasuolo card on purpose** — card and table must move together, so both change in the Norwegian pass.
+   words, means 16.6–19.8). **The Norwegian and the corrected Cerasuolo card in `content/tasting.no.js` both followed
+   on 2026-09-16** — card and table must move together, and they did: cherry **pink** with an almondy finish,
+   matching the new tables character for character in both languages.
    Lessons: **log the grammatical opening move of each lead, not only its subject and story arc.** A reader
    reviewer heard Lazio 2, Lazio 3 and Abruzzo 1 as one formula because all three fronted a prepositional or
    adverbial phrase before the subject, even though the subjects were quite different — and this ledger had
@@ -362,7 +363,32 @@ Norwegian follows the English one region behind, written from the facts and the 
    text's reason for the 200-metre floor left nothing saying why altitude matters at all — state the
    mechanism, attribute the application to the growers, and say the rules give a line and no reason); and
    **check a causal claim against its own dates** (the catch-all shape of the Molise DOC predates the
-   annulment that was said to explain it). **Next: the Norwegian for Molise** (stem `molise`), then Campania.
+   annulment that was said to explain it). **Done 2026-09-16: Molise's Norwegian**, through §5b including four fresh-context reviews. Note on running
+   those: the first attempt stalled all four agents at 600 s with zero findings, because each had to read the
+   whole of CLAUDE.md plus the brief plus two lessons before it could think. Relaunched with the eleven §4b
+   rules **inlined**, one file and one lesson per agent, all four returned. Two lessons that generalise past
+   this region. **An antecedent that reaches back into an `<h2>` dangles when spoken**: «Den eldste er Biferno»
+   took its subject from the heading above it, and narration has dropped headings since 2026-09-14, so in audio
+   it followed «…har falt siden» with nothing to attach to. Sweep every region for a demonstrative, superlative
+   or ellipsis whose antecedent is a heading. **An elliptical English construction is where a translation
+   inverts a fact**: "Molise asked in 1998 and did not" pairs "did not" with "kept it", and the Norwegian
+   resolved the ellipsis as a *refused request*, contradicting its own lead — the ellipsis must be resolved
+   before it can be carried, and resolving it wrongly is invisible in the target language. Two false friends no
+   linter can see: «landet» for *the region* claimed **Italy** was 55.3 % mountain, and «folketellingstallene»
+   turned an agricultural census into a population one.
+   **`tools/prose_lint.py` now catches headless clefts**, and this corrects a claim made in commit `c939183`
+   that the Molise Norwegian had no clefts and was the first region where rule 1 held on the first pass. The
+   *linter* found none; the reviewers found three. The old rule matched only the literal «Det som …, er», so any
+   other lead-in passed straight through, and because it ended in `er` every cleft in the **past tense** did
+   too. Widened to «Det …, er/var» anchored to a clause start; it immediately found a fourth cleft in Molise 2
+   that all four reviewers had missed and two in Abruzzo 1, all now fixed. It over-reports on
+   «Det <adj> <noun> som …, er», an ordinary definite subject with a long relative clause where §4b rule 7
+   *requires* that comma — that is the intended trade, since the narrow version's silence cost three real
+   clefts, and the four current such hits are named in `docs/rewrite/molise.md`. **Two real clefts are left
+   standing on purpose**: **Lazio 4** (finished, committed, narration **not** stale, so re-recording it is the
+   owner's call, not a quiet edit) and **Sardegna 2** (catch it in its own pass).
+   **Next: Campania** (stem `campania`). **Six regions are left**: Campania, Puglia, Basilicata, Calabria,
+   Sicilia, Sardegna.
    Its research is **done** — both agents' returns are saved as
    `docs/rewrite/molise-research-wine.md` (W1–W32, nine candidate openings, 26 unguarded claims) and
    `-food.md` (F1–F43, D1–D11) — and the ledger with outlines for all four readings is written in

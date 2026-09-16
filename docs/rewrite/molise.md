@@ -647,8 +647,92 @@ classed as risk-free**.
   replaced outright, because the old answers said farmers used the ruins "as barns" and called the Porta
   Bojano text an imperial order; 4.3's explanation corrected from "abandoned around 95 BC". Answer positions
   were re-spread so no lesson has all three in the same slot. Both languages moved together.
-- Still to do for Molise: the Norwegian, a Norwegian reader review per reading, and the glossary check for any
-  new specialist word (candidates: *tratturo*, *pasta filata*, *burrino/manteca*, *De.Co.*, *caecum*).
+- **Glossary: done.** Six terms added to both `content/glossary.js` and `content/glossary.no.js`, shared with
+  Abruzzo, which had never had its own glossary step either: **tratturo, fornacella, castrato, pasta filata,
+  burrino, De.Co.** Keys verified identical and in the same order across the two files, 107 each. *Caecum* was
+  not added: the reading glosses it in place as the gut the village calls *la zia*, and a Latin anatomical term
+  is not what the glossary is for.
+- **The Norwegian: first draft done 2026-09-16** (committed `c939183`), written from the outline and the facts
+  rather than from the English sentences. The lint found five long sentences and one rhythm run and **no clefts
+  at all** — the first region where CLAUDE.md §4b rule 1 held on the first pass — and a targeted grep for the
+  false friends the Abruzzo reviewers caught (*mase* for treading, *ysterkar* for a cheesemaker, *konjakk* for
+  brandy, single-p *Apenninene*, *i innhøstingen*) finds none of them. Those lessons transferred.
+## The Norwegian second pass (2026-09-16), after four fresh-context reviews
+
+**Correct the record first.** The commit of the first draft said the Norwegian had "no clefts at all — the
+first region where rule 1 held on the first pass". That was wrong. The *linter* found none; the reviewers
+found three: «Det dekretet fra 2000 fjernet, var …», «Det høyde gjør …, er …» and «Det som skiller Riservaen,
+er …». `prose_lint.py` matched only the literal «Det som …, er» shape, so headless clefts with any other
+lead-in passed straight through — and the third sat in a Key facts `<li>`, which suggests the linter does not
+read box items at all. **The regex is now widened** to «Det …, er/var» with a lookahead excluding the ordinary
+«Det er / var / finnes / går / står» openers. The box-linting gap is logged and not yet fixed.
+
+**Two mistranslations that changed facts**, neither of which any linter could see:
+
+- «**Landet** er 55,3 prosent fjell» — *landet* reads as *the country*, so the Norwegian said **Italy** was
+  55.3 % mountain. Now «Regionen».
+- «Én kilde oppgir **folketellingstallene**» — a *folketelling* is a **population** census. The hectares come
+  from the agricultural one. Now «tallene fra landbrukstellingen».
+
+**One place where the Norwegian contradicted my own English.** The English reads "Abruzzo … had held the name
+since 1968 and kept it. Molise asked in 1998 and did not", where "did not" pairs with "kept it". The Norwegian
+broke that parallel into «Molise spurte i 1998 og fikk det ikke» — which says the request was refused, when
+the lead has just said Molise *was granted* the denomination in 1998 and lost the word in 2000. Now «Molise
+fikk navnet i 1998 og fikk ikke beholde det». **An elliptical English construction is where a translation
+inverts a fact**, because the ellipsis has to be resolved before it can be carried, and resolving it wrongly
+is invisible in the target language.
+
+**A new check, and it generalises past this region.** «Den eldste er Biferno, fra 1983» took its antecedent
+from the `<h2>` above it. Since 2026-09-14 the narration standard drops headings, so in audio that sentence
+follows «…har falt siden» with nothing to attach to. **Any demonstrative, superlative or ellipsis that reaches
+back into a heading dangles when spoken.** Now «Den eldste av de fire betegnelsene». Worth sweeping for in
+every region, not just this one.
+
+Also fixed: «bremse nettene» (nights are cooled, not braked — and it was the mechanism sentence added in the
+English second pass, so the repair itself needed repairing); «en tretti talls kjellere», not Norwegian in any
+spelling; «kjørte markører over prøver», a straight carry of "ran markers across samples"; «skrev i 1810 ned»,
+with the year wedged between verb and particle; «la drifteveiene loven for», which is "laid down the law" and
+personifies the roads besides (§4d.15); «Ung, etter tre måneder, er den …», the adjective-in-apposition opener
+rule 5 bans; «ragù av lam eller sau», the animal standing for the meat; «*tratturelli* på tjue eller ti», where
+the unit noun was missing so the measurement vanishes when heard; «en middels opptil to tusen» and «som Albas
+eller Acqualagnas», both missing their head noun; «hvis» as a relative pronoun (rule 11); «riksantikvaren» for
+an Italian regional soprintendente; «antikvariet», which a Norwegian reads as a second-hand bookshop;
+«pretorianprefekt» → «pretorianerprefekt»; and «sjøknelt», which is not a Norwegian fish name — the mantis
+shrimp has none, so it is cut from the list rather than invented.
+
+**What the reviewers confirmed holds**, and must survive any later edit: the three fact distinctions in
+reading 2 (the 1810 document's French name, the crop limit kept separate from the press yield, and the rosé
+rule permitting pale as well as deep); the whole Porta Bojano framing in reading 4, including that the
+shepherds were protected because somebody owned them; and the trade vocabulary in reading 3 — blindtarmen,
+sideflesk, capocollo, spekk, villfennikel, durumsemule, strukket ostemasse, sauekjøtt — with **no repeat of
+the ysterkar/hundefører class of error from Abruzzo**. The Abruzzo lessons transferred on vocabulary. They did
+not prevent a different set of faults, which is the honest way to read this.
+
+**What the widened pattern found the moment it ran**, which is the argument for having widened it: a fourth
+cleft in Molise reading 2 that all four reviewers and the old rule missed — «…og det som gikk i jorden igjen,
+**var** Montepulciano og Trebbiano». The old regex ended in `er`, so every cleft in the **past tense** was
+invisible to it, and this one sat inside a three-«og» heap besides. Both are fixed in one rewrite: «Etter dem
+ble det plantet Montepulciano og Trebbiano, som ga mer og var lettere å selge.» Two more in **Abruzzo** reading
+1, also missed by its review: «Det de var ute etter, var Montepulciano» and «Det denne druen har i stedet, er
+dybde». Fixed, since Abruzzo's narration is stale anyway.
+
+**Two real clefts are left standing on purpose, and must not be forgotten:**
+
+- **Lazio reading 4** — «…og det som hadde skylt inn og blitt liggende, var frukt». Lazio is finished, committed
+  and its narration is **not** stale. Fixing it re-records two files, so it is the owner's call, not a quiet edit.
+- **Sardegna reading 2** — «Det druen gjør her, er det mindre strid om». Sardegna has not been rewritten yet;
+  catch it in its own pass.
+
+Four further hits are **not** clefts and were left: Abruzzo 2 «det eneste spørsmålet vinmakeren sitter igjen
+med, er …», Calabria 1 «Det flate landet som fantes ved kysten, var …», Friuli 3 «det første dokumentet som
+nevner kaken, er fra 1576», Lazio 2 «Det meste som vokser i de gamle radene, er …». All are ordinary definite
+subjects carrying a long relative clause, where rule 7 *requires* that comma. The rule over-reports on that
+shape by design — `prose_lint.py` reports and a human decides, and the narrow version's silence cost three
+real clefts.
+
+- **Still to do for Molise:** commit the second pass.
+  Then, when the owner asks for them: `python build.py`, the §8 tests, `tools/make_site.py`, and the artifact
+  republish. All eight narration files for Molise are stale, as are all eight for Abruzzo; recordings wait.
 
 ## Second pass (2026-09-16), after eight fresh-context reviews
 
