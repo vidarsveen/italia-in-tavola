@@ -181,7 +181,7 @@ Object.assign(window.TASTING_NO, {
   "IT-72|Taurasi (Aglianico)": {
     colour: "Dyp rubinrød som går mot granat, murstein i kanten med alderen",
     nose: "Surkirsebær, plomme, lær, tobakk, vedrøyk, jern",
-    palate: "Full fylde, svært høy syre, faste tørkende tanniner, lang salt avslutning",
+    palate: "Full fylde, svært høy syre, faste tørkende tanniner, lang og smaksrik avslutning",
     alcohol: "13,5–14,5 %",
     serve: "18 °C, dekantert i to timer; best fra ti år, de gode lever i tretti",
     table: "Ragù napoletano, lam, vilt, lagret caciocavallo og pecorino"
@@ -189,7 +189,7 @@ Object.assign(window.TASTING_NO, {
   "IT-72|Lacryma Christi del Vesuvio": {
     colour: "Lys til middels rubinrød",
     nose: "Rødt kirsebær, granateple, tørkede urter, en røykfylt mineraltone",
-    palate: "Middels fylde, frisk syre, myke tanniner, salt avslutning",
+    palate: "Middels fylde, frisk syre, myke tanniner, smaksrik og salt avslutning",
     alcohol: "12,5–13,5 %",
     serve: "14–16 °C, lett avkjølt; drikkes innen fem år",
     table: "Pizza, pasta med tomat, grillet fisk, spekemat"

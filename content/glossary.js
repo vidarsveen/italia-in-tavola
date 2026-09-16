@@ -429,6 +429,30 @@ Object.assign(window.GLOSSARY, {
 
   'De.Co.': {short:"A denomination granted by a single comune to a dish it claims as its own.",
     long:"Denominazione Comunale. It carries no protection outside the town and no standing in European law, but the comune writes a specification and decides who may use the name. San Martino in Pensilis gave one to its pampanella.",
-    match:["De.Co."]}
+    match:["De.Co."]},
+
+  'pizzaiuolo': {short:"The Neapolitan pizza maker, in the spelling UNESCO used when it listed the craft.",
+    long:"UNESCO inscribed the art of the Neapolitan pizzaiuolo in December 2017 — the craft, not the dish — naming four phases of handling the dough and a rotating movement of the arm at the mouth of the oven. The bearers it names are the master pizzaiuolo, the pizzaiuolo and the baker, and about three thousand of them work in the city.",
+    match:["pizzaiuolo","pizzaiolo"]},
+
+  'portafoglio': {short:"Pizza folded in four and eaten in the hand, the way Naples sells it in the street.",
+    long:"The word means wallet. It is how a pizza priced for people with very little has always been eaten, and the fold has since been written into European law: the specification requires the finished pizza to be soft, elastic and easily foldable into four.",
+    match:["portafoglio"]},
+
+  'pippiare': {short:"A Neapolitan verb for a simmer so slow the sauce releases one bubble at a time.",
+    long:"It is not a dictionary word in this sense; standard Italian pipiare means to chirp. Naples uses it for what a ragu does over four to six hours, likened to someone drawing on a pipe, and Eduardo De Filippo writes it peppiato. A sauce moving faster than that is too hot.",
+    match:["pippiare"]},
+
+  'scalillo': {short:"The narrow one-man ladder used to work vines trained fifteen metres up a poplar.",
+    long:"It is light enough for one man to carry and long enough to reach into the crown of the tree. Pruning, tying and picking in an alberata all happen from it, which is the plain reason the system could never be mechanised: the area under vines married to poplars has fallen from about sixteen thousand hectares in the 1960s to under two hundred.",
+    match:["scalillo"]},
+
+  'macere': {short:"The dry-stone walls that hold up the terraces of the Amalfi coast.",
+    long:"They stand three to seven metres, laid without mortar from stone taken on the spot, largest at the bottom, and they hold the hillside in place. Nobody has measured them all: the one proper survey, of twenty-three square kilometres behind Amalfi and Ravello, found a hundred and sixty-three kilometres of terracing in that stretch alone. When they stop being maintained, the terraces slide.",
+    match:["macere"]},
+
+  'garum': {short:"The fermented fish sauce that flavoured most Roman cooking.",
+    long:"Fish were layered with salt and left in the sun for months, and the liquid pressed off was strained and sold in jars. Pompeii had its own producer, Aulus Umbricius Scaurus, whose name is on nearly a third of the fish-sauce jars found in the two buried towns, and who had his own labels laid in mosaic on the floor of his atrium. The prestige version came from Spain and cost a small fortune.",
+    match:["garum"]}
 
 });

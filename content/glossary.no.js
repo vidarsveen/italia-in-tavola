@@ -429,6 +429,30 @@ Object.assign(window.GLOSSARY_NO, {
 
   'De.Co.': {short:"En betegnelse en enkelt kommune gir en rett den regner som sin egen.",
     long:"Denominazione Comunale. Den gir ikke noe vern utenfor kommunen og har ingen status i EU-retten, men kommunen skriver en produktbeskrivelse og bestemmer hvem som kan bruke navnet. San Martino in Pensilis ga sin til pampanella.",
-    match:["De.Co."]}
+    match:["De.Co."]},
+
+  'pizzaiuolo': {short:"Den napolitanske pizzabakeren, i stavemåten UNESCO brukte da håndverket ble listet.",
+    long:"UNESCO førte pizzaiolokunsten opp på listen over immateriell kulturarv i desember 2017 — håndverket, ikke retten — og nevner fire faser i arbeidet med deigen og en roterende bevegelse med armen i ovnsåpningen. Bærerne som navngis, er mesterpizzaioloen, pizzaioloen og bakeren, og rundt tre tusen av dem arbeider i byen.",
+    match:["pizzaiuoloen","pizzaiuolo","pizzaioloen","pizzaiolo"]},
+
+  'portafoglio': {short:"Pizza brettet i fire og spist i hånden, slik Napoli selger den på gaten.",
+    long:"Ordet betyr lommebok. Slik har en pizza som er priset for folk med lite, alltid blitt spist, og bretten står nå i europeisk regelverk: spesifikasjonen krever at den ferdige pizzaen skal være myk, elastisk og lett å brette i fire.",
+    match:["portafoglio"]},
+
+  'pippiare': {short:"Et napolitansk verb for en trekking så langsom at sausen slipper opp én boble om gangen.",
+    long:"Det er ikke et ordboksord i denne betydningen; standarditaliensk pipiare betyr å pipe. Napoli bruker det om det en ragù gjør gjennom fire til seks timer, og sammenligner det med noen som drar på en pipe. Eduardo De Filippo skriver det peppiato. En saus som går fortere enn det, står for varmt.",
+    match:["pippiare"]},
+
+  'scalillo': {short:"Den smale stigen for én mann som brukes i ranker bundet femten meter opp i en poppel.",
+    long:"Den er lett nok til at én mann bærer den, og lang nok til å nå opp i kronen på treet. Beskjæring, oppbinding og plukking i en alberata skjer fra den, og det er den enkle grunnen til at systemet aldri lot seg mekanisere: arealet med ranker giftet til popler har falt fra rundt seksten tusen hektar på 1960-tallet til under to hundre.",
+    match:["scalilloen","scalillo"]},
+
+  'macere': {short:"Tørrmurene som holder oppe terrassene på Amalfikysten.",
+    long:"De står tre til sju meter høye, legges uten mørtel av stein tatt på stedet, med de største nederst, og de holder åssiden på plass. Ingen har målt dem alle: den ene ordentlige undersøkelsen, av treogtyve kvadratkilometer bak Amalfi og Ravello, fant hundre og sekstitre kilometer terrassemur bare der. Når de ikke lenger holdes ved like, sklir terrassene ut.",
+    match:["macere"]},
+
+  'garum': {short:"Den gjærede fiskesausen som smaksatte det meste av romersk mat.",
+    long:"Fisk ble lagt lagvis med salt og latt stå i solen i måneder, og væsken som ble presset av, ble silt og solgt på krukker. Pompeii hadde sin egen produsent, Aulus Umbricius Scaurus, som har navnet sitt på nesten en tredjedel av fiskesauskrukkene fra de to begravde byene, og som fikk etikettene sine lagt i mosaikk i gulvet i atriet. Den fineste sorten kom fra Spania og kostet en formue.",
+    match:["garum"]}
 
 });

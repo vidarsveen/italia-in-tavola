@@ -831,3 +831,70 @@ they do the work of explaining that the wave was not the cause, and Roger II's 1
    text for every sentence that *defines* something (what a dish contains, what a word means, what a thing is
    called) and check each one against the draft. That is a different sweep from the fact ledger, which
    tracks claims.
+
+## 9. The Norwegian edition
+
+Written 2026-09-16 from the outline, the ledger and the facts — not translated from the English sentence by
+sentence — then linted (`prose_lint.py campania --lang no`, clean at 30/35/35/32 words longest) and put
+through four fresh-context reader reviews with the eleven §4b rules **inlined in the prompt**, one lesson
+per agent. That inlining is the fix recorded in the Molise pass, where four agents made to read CLAUDE.md
+first all stalled at 600 seconds with nothing to show; all four returned here, in two to five minutes each.
+
+### What the reviews found, by category rather than by reading
+
+**Four false friends that change a fact and pass every linter.** This is the category the Molise ledger
+predicted, and it produced more here than there:
+- «holder på formen av en gang» — *en gang* is heard as **once**, not as *a tunnel*, so the phylloxera
+  mechanism collapsed in the one sentence that has to carry it. Recast as «en jord der gangene den graver,
+  holder seg åpne».
+- «Fiorelli fikk det til å virke» — *virke* is read first as **seem**, so it said he made the method look
+  plausible, the opposite of the point. Now «var den som fikk metoden til å fungere».
+- «Myren som tømte sletten» — reads as the marsh **draining** the plain, when the English means emptied
+  **of people**, and the whole Paestum ending turns on it. Now «tømte sletten for folk».
+- «under sytti hektar av dem» — *under* is taken as the preposition of place, so the terraces were
+  **beneath** seventy hectares instead of amounting to fewer than seventy. Now «som til sammen er mindre
+  enn sytti hektar».
+
+**A hedge turned into an assertion, contradicting its own paragraph.** «Nowak har **vist** at …» means *has
+demonstrated*, where the English says "has argued"; two sentences earlier the same paragraph says the
+dispute is open. Now «har argumentert for at». **This is the single most dangerous class of error in the
+Norwegian edition**, because it is invisible in the target language and no checker can see it.
+
+**The heading-antecedent failure, for the third region running.** «Disse åsene» took its subject from an
+`<h2>` two headings back, and since headings are not narrated, a listener attached it to the flat land at
+Aversa — which the previous paragraph had just described. Worse than Molise's «Den eldste er Biferno»,
+because it does not merely dangle, it contradicts. Readings 3 and 4 were checked and are clean.
+**The sweep has to run on the draft before the reviews, not be left to the reviewers**, and it has to run
+on both languages: the English reader review found the same defect in reading 4 («The column …»).
+
+**Five invented compounds.** «nedfallsaske», «kvartalsblokk», «utbruddssøylen», «markssitronene» and
+«blikkskjold» are all grammatical and none is a word anybody says — exactly the trap in the standing memory
+note. Replaced with «asken som falt ned» / «askelaget», «bygård», «askesøylen», «frilandssitronene» and
+«blikkbrett». «bronsetrekking» went too, partly because it collided aloud with «en trekking så langsom …»
+later in the same reading. Verdicts worth keeping: «deigkule», «mesterpizzaioloer», «basaltgulvet» and
+«terrassemur» are real and stay.
+
+**Two rule-8 vocabulary breaches, one of them inside a tasting table.** «lang salt avslutning» for "long
+savoury finish" and «salt fyll» for "savoury filling". The first mattered twice over, because a tasting
+table and its card in `content/tasting.no.js` must move together (§13): the Taurasi card carried the same
+wording, and the Lacryma Christi card had dropped "savoury" altogether. Both cards corrected;
+`tastingcheck.py` passes at 89 wines and 89 cards a language.
+
+**Number style split across one screen.** The prose used the pre-1951 counting order — «femogseksti»,
+«seksogtyve», «femogtyve», «fireogtyve» — while the facts box two paragraphs down wrote the same facts as
+«25 kommuner» and «700 000». Digits now throughout for these. Read aloud, the old order also sounds like a
+different century, which is the reason it matters in a narrated course and not only on the page.
+
+**Grammar proper:** a predicative in object case («kalte … de vanlige pizzaene **dem** med hvitløk»), a
+participle chain opening the lead of reading 3 (rule 5, in the most exposed sentence there is), a verbless
+second conjunct carried over from an English cleft, a bare plural subject with a «mens»-clause wedged
+before its verb, and **«pizzeria» given neuter gender three times** with a pronoun following it into the
+error. All fixed.
+
+### What the reviewers asked to keep
+
+«Det var sanden.» landing after «Alle går ut fra at vulkanen sørget for det» — the argument in four words,
+with the cleft correctly refused. «Metoden reiste dit retten ikke kunne.» «Forklaringen på osten ligger i
+melken.» «Der bærer pastaen det genovesiske navnet, ikke sausen.» «Mat med den prisen spises stående, og
+mat som spises stående, må kunne brettes.» And «Smykker var lest som kvinnelighet og nærhet som familie, og
+ingen av slutningene holdt», which reading 4's reviewer called the best sentence in that reading.
