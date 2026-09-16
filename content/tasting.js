@@ -163,9 +163,9 @@ Object.assign(window.TASTING, {
     table: "Spaghetti alla chitarra with pallottine, grilled lamb, ventricina, aged pecorino"
   },
   "IT-65|Cerasuolo d'Abruzzo": {
-    colour: "Cherry red to deep coral, much darker than a Provence rosé",
+    colour: "Cherry pink, light to deep; darker than a Provence rosé",
     nose: "Wild strawberry, dried cherry, orange peel, a hint of cinnamon and almond",
-    palate: "Medium body, fresh acidity, a light grip of tannin, dry with a faintly bitter finish",
+    palate: "Medium body, fresh acidity, a light grip of tannin, dry with a faintly almondy finish",
     alcohol: "12.5–13.5%",
     serve: "12 °C, in a wine glass rather than a flute; drink within two years, the best keep ten",
     table: "Arrosticini, fried Adriatic fish, brodetto, pizza, ventricina, young pecorino"

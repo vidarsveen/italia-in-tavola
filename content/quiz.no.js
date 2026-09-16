@@ -422,20 +422,20 @@ window.QUIZ_NO['IT-65'] = [
      a:["Full modning fra sjøluften og friskhet fra kalde fjellnetter","En lang, kjølig sesong som holder tanninen lett","Nok vårfrost til å tynne avlingen av seg selv","Jevn fuktighet som konsentrerer sukkeret"],
      c:0,
      why:"Varm luft fra Adriaterhavet i øst og kald fjelluft som faller ned fra vest om natten, lar en sent modnende sort bli fullmoden og likevel holde på friskheten."},
-    {q:"Hvorfor var rødvinen fra Abruzzo billig i flere tiår?",
-     a:["Druen modner for tidlig til å utvikle smak","DOC-en forbød all lagring på fat","Bare samvirkelag fikk tappe den på flaske","Pergolaen var bygget for mengde, og vinen ble solgt i bulk"],
-     c:3,
-     why:"Pergola abruzzese var laget for mengde, og i tiår solgte regionen enorme mengder korrekt, billig rødvin i bulk eller under butikkjedenes egne merker."}
+    {q:"Hvorfor bar så lite av vinen fra Abruzzo sitt eget navn?",
+     a:["Druen modner for tidlig til å utvikle smak","Det meste ble solgt uten flaske, mye av det for å styrke vin laget lenger nord","Bare samvirkelag fikk tappe den på flaske","DOC-en forbød all lagring på fat"],
+     c:1,
+     why:"Oppkjøperne kom i innhøstingen etter Montepulciano som en taglio nobilitante, for å gi farge og fylde til tynnere viner i Piemonte og Veneto, og samvirkelagene solgte 86 % av det de laget, i bulk."}
   ],
   [ // lesson 2: Cerasuolo og Adriaterhavets rosé
-    {q:"Hva skiller Cerasuolo fra rødvinen som dyrkes i den samme vinmarken?",
-     a:["Det plukkes en annen klon av Montepulciano","Skallene presses fra etter seks til tjuefire timer","Vinen blandes med en hvit drue","Gjæringen stanses tidlig så det blir igjen sukker"],
-     c:1,
-     why:"Det tykke skallet på Montepulciano gir en ugjennomsiktig rødvin etter en uke eller to; presses det fra etter seks til tjuefire timer, gir det en kirsebærfarget vin med struktur, men uten tyngde."},
-    {q:"Hvorfor insisterer dyrkerne på at Cerasuolo ikke er et biprodukt av rødvinen?",
-     a:["Den lages bare i år da rødvinen slår feil","Den bruker skallene som blir til overs fra rødvinen","Den tappes alltid før rødvinen","Druene plukkes med roséen for øye, ofte tidligere"],
+    {q:"Hva sier reglene for Cerasuolo d'Abruzzo egentlig?",
+     a:["Vinifisering som hvitvin, eller en kald maserasjon på åtte til tolv timer","Minst tre døgn på skallene","At rødvinen blandes med en hvit drue","At gjæringen stanses tidlig så det blir igjen sukker"],
+     c:0,
+     why:"Disciplinaren gir to veier til fargen: vinifisering som for en hvitvin, eller en kort kald maserasjon på åtte til tolv timer. Seks til tjuefire timer er slik bransjen beskriver praksis, ikke det reglene sier."},
+    {q:"Hvorfor er Cerasuolo ikke bare et biprodukt av rødvinen?",
+     a:["Den lages bare i år da rødvinen slår feil","Den bruker skallene som blir til overs fra rødvinen","Den tappes alltid før rødvinen","Kirsebærfargede viner ble laget i Chieti lenge før rødvinen hadde noen appellasjon"],
      c:3,
-     why:"Druene til en god Cerasuolo plukkes for roséens skyld, ofte litt tidligere for å beholde syren, og ikke tatt til side fra rødvinen."},
+     why:"Ottavi og Marescalchi skrev i 1903 at vini cerasuoli lenge hadde vært laget i Abruzzo, og særlig i provinsen Chieti, altså sekstifem år før Montepulciano d'Abruzzo i det hele tatt fikk en DOC."},
     {q:"Hvilken vin må ikke forveksles med Cerasuolo d'Abruzzo?",
      a:["Cerasuolo di Frascati, en søt hvitvin","Cerasuolo del Conero, en rødvin fra Marche","Cerasuolo di Vittoria, en rød DOCG på Sicilia","Cerasuolo di Manduria, en rosé fra Puglia"],
      c:2,
@@ -464,10 +464,10 @@ window.QUIZ_NO['IT-65'] = [
      a:["Den delte seg i to atskilte isflak","Den ble erklært som Europas største isbre","Den forsvant helt","Den ble begravd av et steinras fra Corno Grande"],
      c:0,
      why:"Calderone, lenge omtalt som Europas sørligste isbre, delte seg i 2000 og regnes nå som to brerester."},
-    {q:"Hvorfor ble Rocca Calascio aldri gjenoppbygd?",
-     a:["Den ble forlatt da drifteveiene ble stengt","Et jordskjelv i 1461 ødela den","Den ble revet for steinens skyld","Den brant under en beleiring på 1200-tallet"],
+    {q:"Hvilket jordskjelv la Rocca Calascio i ruiner?",
+     a:["Den ble revet for steinens skyld","Skjelvet 2. februar 1703, som raserte både borgen og landsbyen","Skjelvet i 1461, som den aldri ble rørt etter","Den ble forlatt da drifteveiene ble stengt"],
      c:1,
-     why:"Jordskjelvet i 1461 ødela mye av festningen; landsbyen nedenfor ble bygget opp igjen, men borgen ble liggende slik den falt."}
+     why:"Skjelvet i 1461 skadet den, og Antonio Piccolomini bygget den opp igjen med de fire runde tårnene. Skjelvet 2. februar 1703 ødela både borgen og landsbyen, og i 1957 bodde det ingen der oppe lenger."}
   ]
 ];
 

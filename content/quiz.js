@@ -422,20 +422,20 @@ window.QUIZ['IT-65'] = [
      a:["Full ripeness from sea air and freshness from cold mountain nights","A long cool season that keeps the tannin light","Enough spring frost to thin the crop naturally","Constant humidity that concentrates the sugars"],
      c:0,
      why:"Warm Adriatic air from the east and cold mountain air falling from the west at night let a late-ripening variety ripen fully and still keep its freshness."},
-    {q:"Why was Abruzzo's red cheap for decades?",
-     a:["The grape ripens too early to develop flavour","The DOC forbade any ageing in wood","Only cooperatives were allowed to bottle it","The pergola was built for volume and the wine was sold in bulk"],
-     c:3,
-     why:"The pergola abruzzese was designed for quantity, and for decades the region sold enormous volumes of correct, cheap red in bulk or under supermarket labels."}
+    {q:"Why did so little of Abruzzo's wine carry its own name?",
+     a:["The grape ripens too early to develop flavour","Most of it was sold unbottled, much of it to strengthen wine made further north","Only cooperatives were allowed to bottle it","The DOC forbade any ageing in wood"],
+     c:1,
+     why:"Buyers came at the harvest for Montepulciano as a taglio nobilitante, to lend colour and body to thinner wines in Piedmont and the Veneto, and the co-operatives sold 86% of what they made in bulk."}
   ],
   [ // lesson 2: Cerasuolo and the Adriatic rosé
-    {q:"What makes Cerasuolo different from the red grown in the same vineyard?",
-     a:["A different clone of Montepulciano is picked","The skins are pressed off after six to twenty-four hours","The wine is blended with a white grape","Fermentation is stopped early to leave sugar"],
-     c:1,
-     why:"Montepulciano's thick skins give an opaque red after a week or two; pressed off after six to twenty-four hours they give a cherry-coloured wine with structure but not weight."},
-    {q:"Why do growers insist Cerasuolo is not a by-product of the red?",
-     a:["It is made only in years when the red fails","It uses the skins left over from the red","It is always bottled before the red","Its grapes are picked with the rosé in mind, often earlier"],
+    {q:"What do the rules of Cerasuolo d'Abruzzo actually specify?",
+     a:["White vinification, or a cold maceration of eight to twelve hours","A minimum of three days on the skins","Blending the red with a white grape","Fermentation stopped early to leave sugar"],
+     c:0,
+     why:"The disciplinare offers two routes to the colour: vinification as for a white wine, or a short cold maceration of eight to twelve hours. Six to twenty-four hours is how the trade describes practice, not what the rules say."},
+    {q:"Why is Cerasuolo not simply a by-product of making the red?",
+     a:["It is made only in years when the red fails","It uses the skins left over from the red","It is always bottled before the red","Cherry-coloured wines were being made in Chieti long before the red had an appellation"],
      c:3,
-     why:"The grapes for a good Cerasuolo are picked for the rosé, often a little earlier to keep acidity, rather than diverted from the red."},
+     why:"Ottavi and Marescalchi recorded in 1903 that vini cerasuoli had long been made in Abruzzo and particularly in the province of Chieti, sixty-five years before Montepulciano d'Abruzzo had a DOC at all."},
     {q:"Which wine should not be confused with Cerasuolo d'Abruzzo?",
      a:["Cerasuolo di Frascati, a sweet white","Cerasuolo del Conero, a Marche red","Cerasuolo di Vittoria, a red DOCG in Sicily","Cerasuolo di Manduria, a Puglian rosé"],
      c:2,
@@ -464,10 +464,10 @@ window.QUIZ['IT-65'] = [
      a:["It broke into two separate ice patches","It was declared the largest glacier in Europe","It disappeared completely","It was buried by a rockfall from Corno Grande"],
      c:0,
      why:"Long described as the southernmost glacier in Europe, the Calderone split in 2000 and is now classed as a pair of glacierets."},
-    {q:"Why was Rocca Calascio never rebuilt?",
-     a:["It was abandoned when the sheep roads closed","An earthquake in 1461 wrecked it","It was pulled down for its stone","It burned during a siege in the thirteenth century"],
+    {q:"Which earthquake left Rocca Calascio a ruin?",
+     a:["It was pulled down for its stone","The one of 2 February 1703, which gutted castle and village alike","The one of 1461, after which it was never touched again","It was abandoned when the sheep roads closed"],
      c:1,
-     why:"The 1461 earthquake destroyed much of the fortress; the village below was rebuilt, but the castle was left as it fell."}
+     why:"The 1461 quake damaged it and Antonio Piccolomini rebuilt it, adding the four round towers; the shock of 2 February 1703 destroyed both castle and village, and by 1957 nobody lived there."}
   ]
 ];
 

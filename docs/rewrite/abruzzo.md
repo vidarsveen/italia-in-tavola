@@ -259,3 +259,226 @@ del Monte).
 - The coast: 60 km of trabocchi across nine comuni including Ortona, eighteenth-century structures, d'Annunzio
   and the Turchino in a novel of 1894; brodetto pointing forward to reading 3 in one clause only.
 - Ending: the colour that tells you nothing about the wine, because the law lets two different methods reach it.
+
+## Decisions taken at drafting (2026-09-16)
+
+- **Reading 1's lead is kept but entered differently.** The outline above chose "a refusal": Valentini selling
+  most of his harvest unbottled. Read against the *finished* Lazio 2, which opens on a grower who sold in bulk
+  until his grandson bottled the hectare, that is too close — two consecutive regions opening on a grower's
+  relation to selling wine without a label. The refusal stays, but it is entered through the vintages that do
+  not exist: no red in 2007, none in 2008, no white in three years out of ten. The bulk sale arrives as the
+  third beat. Lead shapes now spent across the last eight chapters, in order: a cart at night; a plot across
+  two generations; a dated municipal order; an excavation and what was in it; **an absence** (Abruzzo 1); **a
+  mechanism under a clock** (Abruzzo 2); **a pot on a tripod, on the road** (Abruzzo 3); **a tunnel under the
+  snow** (Abruzzo 4). First words of each Abruzzo lead: "In 2007…", "Montepulciano's skins…", "A sheep that
+  could not finish…", "In winter there was no way…". No two share a grammatical shape and none opens on a time
+  phrase, which was the Marche fault.
+- **The transhumance material is split between readings 3 and 4, deliberately.** Reading 3 takes only what the
+  food needs: the road's width, the fortnight on it, the seven to ten shepherds per thousand sheep, and the
+  cheesemaker who walked with them. Reading 4 takes the money: the Dogana at Foggia, the customs post at Rocca
+  Calascio, the barony's ninety thousand sheep, the *lana carfagna* and the Medici, and the collapse that
+  emptied the villages by 1957. Nothing is cut; it is moved one chapter.
+- Masciarelli's estate at his death: the sources say "nearly 1,000 acres", written here as about four hundred
+  hectares. The conversion is done here, not quoted.
+- **Doubts, counted before review** (the Lazio lesson: reading 4 reached eleven against three planned).
+  R1 one in prose (nobody has explained the name) and two in the box (the sheep etymology of Pecorino; the
+  thirty-six bottles of 1968, one secondary source). R2 two in prose (the trade's six-to-twenty-four hours
+  against the rules' eight to twelve; Ottavi and Marescalchi as a single secondary source) and one in the box
+  (the first-rosé-DOC claim against Castel del Monte). R3 two (the arrosticini origin story has no document
+  and names nobody; Castorani and the dropped crêpes are told as a legend). R4 two (the Calderone's
+  "southernmost in Europe"; Skorzeny's credit against Mors's command). Each worded differently.
+- **Researched and deliberately not used**, so a fact reviewer does not report it as a loss: L'Aquila's
+  ninety-nine castles and the Fontana delle 99 Cannelle (F51), Collemaggio, Celestine V and the Perdonanza of
+  1294 (F52), and the Gran Sasso underground laboratory with the pseudocumene spill of 2002 (F50). Reading 4
+  is full without them, and the last of the three fails the delete-the-food test except through the aquifer.
+
+## 3. Arrosticini and the shepherd's kitchen
+
+- Summary → the two ways a shepherd's economy cooks a sheep, and the tools each one needed.
+- Lead (a pot on a tripod, on the road): *pecora alla callara* (F56). An animal that went lame or died of
+  exhaustion between Abruzzo and the Tavoliere, jointed on the spot into a brass or copper cauldron hung from
+  a tripod — the *cottora* the dish is named after — and cooked four to six hours because old sheep is tough.
+  Then the turn: arrosticini are the same economy at the other end of the clock. Three minutes, not four hours.
+- **Arrosticini** as mechanism (F1–F5): cubes of about a centimetre, lean alternated with fat, on skewers of
+  twenty centimetres, *li cippe*, originally cut from *vingh* along the Pescara and now birch or bamboo; the
+  *fornacella*, a channel barely wider than the meat, which concentrates the heat and keeps the wooden ends
+  cool; pulled off with the teeth; never fewer than ten (F6 — the "fifty in a jar" and the bread held under
+  the skewer are unsourced and go, in the reading, the caption and the recipe).
+- The origin story, corrected (F7): **the 1930s, not 1830**, two shepherds of the **Voltigno** where the three
+  provinces meet; no document, no names; on the national PAT list, which is real.
+- The road (F8, F9, F55), short: 111.6 m, sixty Neapolitan paces, stone *cippi*; the Tratturo Magno 243 km
+  from L'Aquila to Foggia; about a fortnight; seven to ten shepherds per thousand sheep, with muleteers, dog
+  handlers **and a cheesemaker**, which is the honest way into the cheese. UNESCO 2019, extended 2023, in the
+  box. Drop "Roman in origin" (F14) and "up to a hundred metres" (F8).
+- **The chitarra** (F15, F16): beech frame, parallel steel wires; the name explained both by the resonance and,
+  better sourced, by the look of the strings; first recorded in a notary's inventory of a bride's dowry at
+  **Teramo in 1871**; its predecessor the grooved rolling pin *lu rentrocelo*. Then **pallottine**, hazelnut
+  size, Italy's one traditional pasta-and-meatballs (F17); **scrippelle 'mbusse** (F18) and the legend of
+  **Enrico Castorani**, not an anonymous soldier (F19); **le virtù** on 1 May, Savini's older quotation, and
+  "seven of everything" given as what Teramo says, not as a rule (F33).
+- **Pecorino di Farindola** (F21–F23): the women make the rennet at the winter pig-killing — the stomach
+  lining washed, dried, then forty days in salt, vinegar and white wine before straining. Hedge the
+  uniqueness: very few cheeses anywhere, and as far as anyone has established the only one in Italy. Presidium
+  with seven producers; **not DOP**.
+- **Ventricina** (F24): Vasto's, knife-point cubes of three to four centimetres, about 80 per cent lean, dried
+  peppers and fennel, a hundred days. Correct the old text: the 'nduja comparison fits the spreadable
+  *teramana*, not the vastese.
+- **Saffron** (F25–F28), given real room because the arc is the best economic material in the reading:
+  Santucci the Dominican, **thirteenth** century and attributed as tradition; 200,000 flowers a kilo, not
+  150,000; picked before the flowers open and the stigmas toasted over embers; DOP 4 February 2005; and the
+  money — sold into Nuremberg and Augsburg, the Nuremberg houses opening their own delegation at L'Aquila
+  about **1513** rather than pay Venice; 4,000 kg a year at the height, **one kilogram in 1646**, 4,500 kg
+  again by 1830, 30–40 kg now.
+- **Confetti di Sulmona** (F29–F31): the archive documents of 1492–93; the nuns of Santa Chiara tying them
+  with silk thread into flowers and ears of wheat; Pelino from 1783; five almonds at a wedding.
+- Correct the liqueurs (F32): **Centerbe is from Tocco da Casauria in the province of Pescara**, the
+  pharmacist Beniamino Toro, about 70 per cent; **Aurum has no saffron in it** — brandy and an infusion of
+  oranges — and the d'Annunzio naming story is a documented falsehood, so it is not told.
+- Ending: back to the cauldron and the skewer, the same animal at two speeds.
+
+## 4. Gran Sasso and the hill fortresses
+
+- Summary → how a mountain that could not feed anybody fed everybody, and what happened when it stopped.
+- Lead (a tunnel under the snow, F39): the cable car of 1931–34 from Fonte Cerreto, the hotel of 1934 at
+  2,130 m by Vittorio Bonadè Bottino, and the underground corridor from the upper station into the building,
+  so that in winter neither a guest nor a crate of supplies crossed the open mountain.
+- Mussolini in one sentence tied to that corridor (F40): brought up on 28 August 1943, held in room 220, taken
+  out by glider on 12 September. The operation's detail goes to the box, with **Harald Mors** commanding and
+  planning it and **Skorzeny taking the credit** — the doubt handled once. The gliders came down on the
+  sloping meadow beside the hotel, not on the plain.
+- **Campo Imperatore** corrected (F38): **18 by 8 km, about 75 km², between 1,460 and 2,138 m**, not
+  twenty-seven kilometres at 1,800. "Little Tibet" named by **Fosco Maraini** after the valley of Phari Dzong.
+  Summer pasture for the flocks of Castel del Monte, Calascio and Santo Stefano di Sessanio — which is the
+  hinge into the wool.
+- **The wool economy, end to end** (F57): the barony of Carapelle held **more than 90,000 sheep in 1474** and
+  Calascio's wool was known outside the region; the fortress sat on the sheep road with a **customs post** on
+  it; the **Dogana della Mena delle Pecore**, founded at Lucera in 1447 and moved to Foggia, charged eight
+  ducats the hundred, and in **1592** counted 4,471,496 sheep for 622,173 ducats; Santo Stefano's *lana
+  carfagna* was worked in Tuscany and sold across Europe; **Costanza Piccolomini**, in debt from building
+  Sant'Andrea della Valle in Rome, sold the barony to the Medici in **1579 for 106,000 scudi**, and they held
+  it to 1743; **Giuseppe Bonaparte abolished the Dogana on 21 May 1806**.
+- **Rocca Calascio, corrected** (F41, F42): a watchtower by tradition in the tenth century, first documented
+  1380, at 1,460 m; the **1461** earthquake damaged it and **Antonio Todeschini Piccolomini rebuilt it after
+  1463, adding the four round towers and adapting it for firearms**; **2 February 1703** destroyed castle and
+  upper village and sent the people down to Calascio. Santa Maria della Pietà, octagonal, **1596**. Films
+  (F45): *Ladyhawke* 1985 and *The American* 2010 named; *The Name of the Rose* only as the closing scenes
+  shot in the valley below, because the abbey was built at Fiano Romano.
+- **Santo Stefano di Sessanio** (F46): 1,251 m, about 110 inhabitants, Kihlgren from 1994, and the **Medici
+  tower that came down in the 2009 earthquake and was finished again in October 2021** — the single best
+  image of that earthquake reaching the mountains, and the old text does not have it.
+- The emptying (F43): the crisis of transhumant pastoralism from the late nineteenth century, then emigration;
+  **Rocca Calascio with not one inhabitant left by 1957**.
+- **The bear** (F47, F48): about **81 animals** in the whole range on the 2025 genetic census, 65 in the core,
+  not "a few dozen" — that figure is from 2014. Males over 230 kg in autumn, shy and mostly nocturnal; **53
+  per cent of deaths between 1970 and 2018 were caused by people**, two thirds of those by poaching. Drop
+  "no Marsican bear has ever killed a person": no source says it.
+- The protection figure corrected (F35): **36 per cent, the highest share of any Italian region**, not
+  "roughly half", in three national parks, one regional park and thirty-eight other protected areas. Park
+  dates in the box (F49). Drop "the greenest region in Europe", which is a tourist-board slogan.
+- L'Aquila 2009 to the box (F53), the Umbria rule: 6 April, Mw 6.3, just over three hundred dead, and 78 per
+  cent complete by funding as of February 2025. The prose keeps only the Medici tower, which is where the
+  earthquake touches this reading's chain.
+- Ending: the corridor again, or the eighty rooms being put back at 2,130 metres above a mountain nobody
+  grazes any more.
+
+## Second pass (2026-09-16), after eight fresh-context reviews
+
+Four reader reviews and four fact reviews, run in parallel per §5b step 4. Every finding is accepted or
+rejected below with a reason. Twenty-eight of thirty-four findings were accepted.
+
+### The finding that matters most, and the lesson
+
+**The lead of reading 1 was still an echo, and this ledger's own dodge did not work.** It predicted the danger
+exactly — "the tanker must not open reading 1", three consecutive chapters about wine leaving a region in bulk
+— and tried to escape it by entering Valentini's refusal through the vintages that do not exist rather than
+through the bulk sale. The reader reviewer heard the echo anyway: Lazio's Cesanese chapter opens on a named
+family whose wine went out unlabelled, and so did this one. It also caught something not logged here at all —
+that **all three consecutive leads front a prepositional or adverbial phrase before the subject** ("Above
+Olevano Romano…", "In one corner of the rione Ponte…", "In 2007…"), which produces the formula effect even
+when the subjects differ.
+
+**New rule for the ledgers from here: log the first three or four words of each lead and its grammatical
+opening move — fronted adverbial, subject-first, imperative — not only its subject and story arc.** Changing
+the *entrance* to a scene does not change the *shape* of the sentence, and the shape is what a listener hears
+across four chapters. Abruzzo 1 now opens subject-first ("The Valentini family at Loreto Aprutino made no red
+wine in 2007"), and Abruzzo 4 was recast off its fronted time phrase onto the corridor for the same reason.
+
+### Accepted — reader reviews
+
+- **R1**: lead recast subject-first and the grape/wine confusion in it resolved; the co-operative paragraph cut
+  from eleven figures to the one pair that carries the argument, the rest moved to the box; "He gives the
+  reason without decoration" cut as announcing; the repeated "half of every vintage" sentence cut and the
+  closing made literal (a region no longer "waits"); the 34-word sentence split.
+- **R2**: lead recast so the cellarman is the subject rather than the pigment, which also breaks the echo of
+  Lazio 4's "A great drain runs south…"; the three-myth list given a verb and its announcing count removed;
+  the third closing sentence cut as a restatement; "The clause worth reading" cut as the signposting tic; the
+  caption's repetition of the sixty kilometres cut.
+- **R3**: **the correction-and-debunk cadence cut from seven instances to two.** The reviewer was right that
+  four paragraph-endings shared a two-beat shape (what is told / what the record says) and made the narrator
+  sound like a fact-checker. Kept: the arrosticini origin and the Castorani legend. Stated flat instead: the
+  guitar's name, le virtù's seven, the Dominican's bulbs, and the liqueurs. The liqueur paragraph went to the
+  box entirely — it touched no part of the shepherd's kitchen and was built out of refutations of claims the
+  reading never made. Timballo and le virtù moved to the box to stop the product roll-call; "strangest" and
+  "there is" deleted; the eleven-item ingredient list in the lead cut to three; and "the same arithmetic"
+  replaced, which was §4d.15 again.
+- **R4**: the 1943 raid cut from the prose to the box, where it already sat in more detail, because the
+  paragraph failed the delete-the-food test outright; the bear paragraph cut from eight numbers and five flat
+  declaratives to four sentences; the lead recast; the Calderone's naming dispute and its four-country list
+  moved to the box; and the fourth use of the correct-a-belief frame ("one of the credits usually given it is
+  wrong") stated plainly instead.
+
+### Accepted — fact reviews
+
+- **Restored to the box** (the Lombardia lesson — restore rather than argue): the five estates and
+  co-operatives the old text named and the rewrite dropped (Torre dei Beati, Tiberio, De Fermo, Cantina Tollo,
+  Citra); the late-ripening risk, that a cold October can ruin the crop; that Colline Teramane was the region's
+  **first** DOCG; the bear's poison deaths and its census, weights and mortality figures; that the 1922 park is
+  the oldest in the Apennines; and that L'Aquila is the regional capital and its historic centre emptied.
+- **Restored to the prose**: "the great rock of Italy" and the massif's own name, which is half reading 4's
+  title; the Adriatic beaches "fifty kilometres away"; "a frontier for a thousand years", which is what
+  explains the plural fortresses of the title; "wilderness two hours from Rome"; Ovid's Sulmona; pig's rennet
+  "rather than a lamb's", which quiz 3.3's correct answer turns on; the arrosticini turned constantly and
+  salted as they come off; christenings alongside weddings for the confetti; the saffron's actual use in a
+  kitchen; and in reading 2 that brodetto alla vastese is a tomato-and-pepper stew "never stirred with a spoon,
+  only shaken" — this ledger had said reading 3 would carry the shaking, and reading 3 never mentions brodetto
+  at all, so the mechanism had fallen between the two.
+- **Real errors of my own, corrected**: the draft fused two separate Valentini facts, making 95% of the *wine*
+  leave the cellar when the source says about 5% of the *harvest* is selected and the rest of the **fruit** is
+  sold locally; the saffron peak of 1583–84 had been welded to a 4,000 kg figure that belongs to "two centuries
+  before 1646", i.e. the 1440s, and the two are now separated; the co-operative counts stood in the present
+  tense on 2004–05 data and one of them (34 in Chieti) disagrees with the consortium's 32, so the sub-count is
+  gone and the rest is dated; "a quarter of a million cases **a year**" lost its invented period; "eighty-seven
+  hectares **in the country**" lost a scope neither source states; "closer together than anyone around him" and
+  "almost every other grower" were both wider than the sources; Maraini "who had been to Tibet" and "Along the
+  same ridge" were added biography and added geography; and the prose said the fat went "between every second
+  one" while the caption said "alternately", which is what the sources say.
+- **Reading 2's lead contradicted its own third section.** It claimed the rules "say nothing about style and
+  nothing about taste" when the disciplinare prescribes nose and palate in detail — and the reading says so
+  four paragraphs later. Rewritten. With it went "Most appellations describe their wine in terms no bottle
+  could fail", an overclaim the red's own disciplinare disproves; the assertion that the rules "allow no white
+  grapes", which is the *red's* rule and is not sourced for Cerasuolo; the saignée gloss and the attribution of
+  the by-product claim to sellers, neither of which is in the research; and the missing qualifier on the
+  Provençal-pink claim, which the source states only for wine not pressed off at once.
+
+### Rejected, with reasons
+
+- **Campo Imperatore as a film location** (fact 4, lost 3). The film material is consolidated at Rocca
+  Calascio's ridge, where it is documented and disputed; reading 4 is the fullest of the four and does not need
+  the same subject twice. Logged here as a cut.
+- **The supermarket labels and "across Europe"** (fact 1, lost 4). The research says the supermarket half is
+  undocumented and no year, chain or volume can be dated. The bulk economy it stood for is in the reading in
+  far better-sourced form.
+- **The Valentini bottling share.** Wine Spectator contradicts itself, giving "about 5 percent of the harvest"
+  in a profile and "around 20 percent of its crop" in an obituary. The profile is the more specific source and
+  is the one cited above, so the figure stands — recorded because the reading's opening number rests on a
+  publication that disagrees with itself, and the owner should know that.
+- **The shelf advice from the cut "Buying it" section** is not restored as advice, which rule 10 forbids, but
+  its one real point — that a dark Cerasuolo is not the better wine and a pale one not the worse — is folded
+  into the closing paragraph, where it belongs to the mechanism rather than to the shop.
+
+### Outstanding, deliberately
+
+`content/tasting.no.js` still carries the old Norwegian Cerasuolo card ("Kirsebærrød til dyp korall", "svakt
+bitter avslutning"). It is **not** being changed yet: the Norwegian reading's tasting table still says the old
+thing, and CLAUDE.md §13 requires card and table to match character for character. Both move together in the
+Norwegian pass.
