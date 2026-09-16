@@ -64,20 +64,20 @@ window.QUIZ['IT-57'] = [
      a:["Its valley runs north to south, so it gets no sea breeze","It lies nearer the Adriatic and ripens more slowly","It is planted with a different clone of Verdicchio","Its wines must spend eighteen months in bottle"],
      c:0,
      why:"Matelica is inland and higher, in a north-south valley with no sea breeze, so hot days and cold nights give tighter, more mineral wines."},
-    {q:"What did the Fazi Battaglia amphora bottle do to Verdicchio?",
-     a:["It kept the wine fresher than an ordinary bottle","It sold in huge quantities and ruined the wine's reputation","It was introduced to celebrate the new DOCG","It was reserved for the Matelica zone"],
+    {q:"Why did Verdicchio made under sharecropping so rarely reach high quality?",
+     a:["Sharecroppers were not allowed to plant Verdicchio","Landowner and sharecropper split the grapes, and each side made wine at home in its own way","The grapes all went to Fazi Battaglia before they were ripe","The mixed fields were too high for the grape to ripen"],
      c:1,
-     why:"The bottle was brilliant packaging: it sold enormously and at the same time turned Verdicchio into a wine bought for its container and drunk without attention."},
+     why:"Under the mezzadria the grapes were divided and made into wine separately in each house, and the appellation's own rules say such different methods and skills could not give a wine of quality."},
     {q:"Which mark makes Verdicchio easiest to recognise blind?",
      a:["A nose of honey and dried apricot","A deep golden colour in a young wine","A bitter-almond finish","A firm, drying tannin"],
      c:2,
      why:"The bitter-almond finish is the grape's signature; honey and apricot appear only after years in bottle."}
   ],
   [ // lesson 2: Montepulciano on the Conero
-    {q:"What does Monte Conero's limestone give Montepulciano that it rarely shows elsewhere?",
-     a:["A lighter body that suits drinking young","A share of Sangiovese in the blend","More grip and more perfume","A nose of rose and violet"],
+    {q:"Where do most of the Conero's vineyards lie?",
+     a:["On the upper slopes of Monte Conero","In the Esino valley below Jesi","On the low hills behind the mountain, mostly below 140 metres","Along the beaches at Portonovo"],
      c:2,
-     why:"Grown on limestone by the sea rather than in bulk on the plain, Montepulciano gains structure and scent, and it takes oak without disappearing."},
+     why:"Seven tenths of the Conero vineyards lie between 20 and 140 metres on the hills behind the mountain, most of them facing south-west."},
     {q:"How does Rosso Piceno differ from Conero?",
      a:["It carries a large share of Sangiovese and is softer","It is made only on Monte Conero itself","It must be aged five years before release","It is a sparkling red made from dried grapes"],
      c:0,
@@ -85,35 +85,35 @@ window.QUIZ['IT-57'] = [
     {q:"What had nearly happened to Lacrima before its 1985 DOC?",
      a:["It had been banned as an adulterated wine","It had been absorbed into the Conero appellation","It had been replanted across the whole province","It had fallen to fewer than ten hectares"],
      c:3,
-     why:"After the Second World War Lacrima was down to under ten hectares, effectively one village's habit, and the DOC arrived just in time to make replanting worthwhile."}
+     why:"Lacrima lost ground when the vineyards were replanted after the Second World War, and fewer than ten hectares were left when it became a DOC in 1985; by 2025 it covered 256."}
   ],
   [ // lesson 3: Ascoli olives and the Adriatic brodetto
     {q:"How is an Ascolana tenera olive prepared before it is stuffed?",
      a:["It is split in half and the halves are pressed together","It is pitted in a single spiral cut so it opens into a ribbon","It is boiled in brine until the stone loosens","It is crushed and mixed into the meat filling"],
      c:1,
-     why:"A small knife takes the stone out in one spiral cut, so the olive opens into a ribbon that can be wound back around the meat."},
+     why:"The traditional way takes the stone out with a small knife in one spiral cut, so the olive opens into a ribbon that can be wound back around the meat."},
     {q:"What marks out the brodetto of Porto Recanati?",
-     a:["Vinegar and sweet peppers instead of wine","Tomato paste and vinegar","A tradition of thirteen kinds of fish","A broth yellow with saffron and no tomato"],
+     a:["Green tomatoes, sweet peppers and vinegar","Tomato concentrate and vinegar","A tradition of thirteen kinds of fish","A broth coloured yellow with wild zafferanella, and no tomato"],
      c:3,
-     why:"Porto Recanati colours the broth with saffron and leaves tomato out; the vinegar and peppers belong to San Benedetto and the thirteen fish to Ancona."},
-    {q:"Why is the story that vincisgrassi was named after an Austrian general almost certainly untrue?",
-     a:["A recipe for princisgras was printed twenty years before he arrived","The general is not recorded as having eaten pasta","The dish comes from Ascoli rather than Ancona","The name is Italian rather than German"],
+     why:"Porto Recanati leaves tomato out and colours the broth with zafferanella, which is not true saffron; green tomatoes, peppers and vinegar belong to San Benedetto, and the thirteen fish to Ancona."},
+    {q:"Why is the story that vincisgrassi was named after an Austrian prince almost certainly untrue?",
+     a:["Nebbia printed princisgras in 1779, and the prince of the story was twelve in 1799","The prince is not recorded as having eaten pasta","The dish comes from Ascoli rather than Ancona","The name is Italian rather than German"],
      c:0,
-     why:"Antonio Nebbia printed lasagna in princisgras in 1779, twenty years before Windisch-Graetz reached Ancona."}
+     why:"The story was first written down in 1927. Antonio Nebbia had printed princisgras in 1779, and Alfred zu Windisch-Graetz was a boy of twelve when the Austrians besieged Ancona in 1799."}
   ],
   [ // lesson 4: Urbino and the ideal city
     {q:"How did Federico da Montefeltro pay for Urbino's golden age?",
      a:["By taxing the wool trade of the hills","By selling manuscripts from his library","By tolls on the river and the port","By hiring himself out as a mercenary captain"],
      c:3,
-     why:"Federico worked as a condottiero for whichever Italian power was fighting that season, and the contracts made him rich."},
+     why:"Federico hired himself and his troops out as a condottiero to the Sforza of Milan, the King of Naples, Florence and the Church, for as much as 120,000 ducats a year."},
     {q:"Why is Federico shown in profile from the left in every portrait?",
      a:["It was the convention for a ruling duke","He wanted the collar of his order in view","He had lost his right eye and the bridge of his nose","The court painter worked only in profile"],
      c:2,
-     why:"A tournament cost him his right eye and the bridge of his nose, so the left profile was the only one worth painting."},
+     why:"A lance in a tournament around 1450 put out his right eye, and the bridge of his nose is said to have been cut away to widen the view of his left eye, so painters showed him from the left."},
     {q:"What makes the Ideal City panel important, whoever painted it?",
      a:["It is the earliest surviving view of Urbino","It shows a city laid out by reason and perspective rather than by accident","It records the palace as Laurana first designed it","It is the only painting Federico commissioned himself"],
      c:1,
-     why:"Someone at this court worked out what a city would look like if it followed reason, proportion and perspective instead of growing by accident."}
+     why:"The panel lays out a square and its buildings by proportion and perspective instead of by accident, and there is not a single person in it."}
   ]
 ];
 

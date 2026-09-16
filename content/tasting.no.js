@@ -127,7 +127,7 @@ Object.assign(window.TASTING_NO, {
     nose: "Sitron, grønt eple, hvite blomster, fennikel, et salt drag; honning og aprikos når den er eldre",
     palate: "Tørr, høy syre, middels fylde, en voksaktig tekstur og en tydelig avslutning av bitter mandel",
     alcohol: "12,5–14 %",
-    serve: "10–12 °C; hverdagsvinen ung, en Riserva fra fire år, og den holder seg i femten",
+    serve: "10–12 °C; hverdagsvinen drikkes ung, en Riserva etter tre år; de beste flaskene tåler tjue års lagring",
     table: "Brodetto, stoccafisso all'anconetana, friterte oliven, grillet fisk, lyst kjøtt"
   },
   "IT-57|Rosso Conero": {
@@ -135,7 +135,7 @@ Object.assign(window.TASTING_NO, {
     nose: "Mørkt kirsebær, plomme, tørkede urter, lakris og et drag av blyant fra kalksteinen",
     palate: "Full fylde, moden, men fast tannin, moderat syre og en lang, smaksrik avslutning",
     alcohol: "13–14,5 %",
-    serve: "16–18 °C; Rosso Conero fra to år, en Conero Riserva fra fem år og i femten år framover",
+    serve: "16–18 °C; Rosso Conero fra to år, en Conero Riserva fra fem til femten år",
     table: "Vincisgrassi, grillet lam, vilt, lagret pecorino, gryteretter med rosmarin"
   },
   "IT-62|Frascati Superiore": {

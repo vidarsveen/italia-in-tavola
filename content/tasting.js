@@ -127,7 +127,7 @@ Object.assign(window.TASTING, {
     nose: "Lemon, green apple, white flowers, fennel, a saline note; honey and apricot when older",
     palate: "Dry, high acidity, medium body, a waxy texture, and a clear bitter-almond finish",
     alcohol: "12.5–14%",
-    serve: "10–12 °C; the everyday wine young, a Riserva from four years and for fifteen",
+    serve: "10–12 °C; the everyday wine young, a Riserva from three years, good bottles for twenty",
     table: "Brodetto, stoccafisso all'anconetana, fried olives, grilled fish, white meat"
   },
   "IT-57|Rosso Conero": {

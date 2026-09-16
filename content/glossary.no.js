@@ -369,6 +369,26 @@ Object.assign(window.GLOSSARY_NO, {
 
   'camorganne': {short:"Stativer av siv som bøndene i Montefalco tørket Sagrantino-druer på til passito.",
     long:"Klasene lå på camorganne til jul. Så ble bærene plukket av for hånd og presset i små presser, og den søte vinen modnet i minst to år før den ble åpnet til jul og påske.",
-    match:["camorganne"]}
+    match:["camorganne"]},
+
+  'mezzadria': {short:"Deleforpaktning, der jordeieren og familien som drev jorden, delte avlingen.",
+    long:"Det var den vanlige kontrakten i åsene i Midt-Italia til en lov fra 1964 forbød nye kontrakter og en lov fra 1982 lot de gamle bli gjort om til vanlig forpaktning. I Marche ble druene delt, og hver av partene laget sin egen vin hjemme, noe reglene for Verdicchio gir skylden for dårlig kvalitet. Ved grisslaktingen om vinteren sendte forpakteren gaver til jordeieren.",
+    match:["mezzadria"]},
+
+  'moscioli': {short:"Navnet i Ancona på de ville blåskjellene som vokser på steinene under Monte Conero.",
+    long:"Dykkere rev dem løs fra steiner under vann mellom Pietralacroce og Sirolo, fem til ti meter nede, fra mai til oktober. Slow Food gjorde dem til et presidium i 2004 og suspenderte det i 2025 på grunn av varmere vann, slim i sjøen og for mye plukking.",
+    match:["moscioli","mosciolo"]},
+
+  'zafferanella': {short:"En vill plante som farger brodettoen fra Porto Recanati gul.",
+    long:"Det er ikke ekte safran. Porto Recanati bruker den i stedet for tomat og tilskriver oppskriften Giovanni Velluti, som drev et badeanlegg på stranden i byen tidlig på 1900-tallet.",
+    match:["zafferanella"]},
+
+  'condottiero': {short:"En hærfører som leide ut seg selv og troppene sine til statene som ville betale.",
+    long:"Ordet kommer av condotta, kontrakten han skrev under på. Federico da Montefeltro betalte for hoffet sitt i Urbino på denne måten og tjente Milano, Napoli, Firenze og paven for opptil 120 000 dukater i året.",
+    match:["condottiero","condottieri"]},
+
+  'guaime': {short:"Gresset som vokser opp igjen på en eng etter slåtten.",
+    long:"Ost som ble laget i den tiden, het cascio di guaime. I 1554 ble forpakterne på Michelangelos gårder ved Urbania pålagt å sende ham tjuefem pund av den i året til Roma.",
+    match:["guaime"]}
 
 });

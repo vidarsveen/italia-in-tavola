@@ -64,20 +64,20 @@ window.QUIZ_NO['IT-57'] = [
      a:["Dalen går fra nord mot sør og får ingen sjøbris","Sonen ligger nærmere Adriaterhavet og modner senere","Der plantes en annen klon av Verdicchio","Vinene må ligge atten måneder på flaske"],
      c:0,
      why:"Matelica ligger inne i landet og høyere, i en dal fra nord mot sør uten sjøbris, og varme dager med kalde netter gir strammere og mer mineralske viner."},
-    {q:"Hva gjorde amforaflasken fra Fazi Battaglia med Verdicchio?",
-     a:["Den holdt vinen ferskere enn en vanlig flaske","Den solgte enormt og ødela vinens rykte","Den ble innført for å feire den nye DOCG-en","Den var forbeholdt sonen Matelica"],
+    {q:"Hvorfor ble Verdicchio laget under mezzadria så sjelden en god vin?",
+     a:["Forpakterne hadde ikke lov til å plante Verdicchio","Jordeieren og forpakteren delte druene, og hver av dem laget vin hjemme på sin egen måte","Alle druene gikk til Fazi Battaglia før de var modne","De blandede åkrene lå for høyt til at druen ble moden"],
      c:1,
-     why:"Flasken var et lite emballasjemesterverk: den solgte i enorme mengder og gjorde samtidig Verdicchio til en vin folk kjøpte for beholderens skyld."},
+     why:"Under mezzadria ble druene delt og gjort til vin hver for seg i hvert hus, og reglene for opprinnelsesbetegnelsen sier selv at så ulike metoder og ferdigheter ikke kunne gi en vin av god kvalitet."},
     {q:"Hvilket kjennetegn gjør Verdicchio lettest å kjenne igjen i blindsmaking?",
      a:["En duft av honning og tørket aprikos","En dyp gyllen farge i en ung vin","En avslutning av bitter mandel","En fast og tørrende tannin"],
      c:2,
      why:"Den bitre mandelavslutningen er druens kjennetegn; honning og aprikos kommer først etter år på flaske."}
   ],
   [ // lesson 2: Montepulciano på Conero
-    {q:"Hva gir kalksteinen på Monte Conero druen Montepulciano som den sjelden viser andre steder?",
-     a:["En lettere fylde som passer til å drikkes ung","En andel Sangiovese i blandingen","Mer grep og mer duft","En duft av rose og fiol"],
+    {q:"Hvor ligger de fleste vinmarkene på Conero?",
+     a:["Høyt oppe i skråningene på Monte Conero","I Esino-dalen nedenfor Jesi","I de lave åsene bak fjellet, for det meste under 140 meter","Langs strendene i Portonovo"],
      c:2,
-     why:"Dyrket på kalkstein ved havet i stedet for i bulk på sletten får druen mer struktur og duft, og den tåler fat uten å forsvinne."},
+     why:"Sju tideler av Conero-vinmarkene ligger mellom 20 og 140 meter over havet i åsene bak fjellet, og de fleste vender mot sørvest."},
     {q:"Hvordan skiller Rosso Piceno seg fra Conero?",
      a:["Den har en stor andel Sangiovese og er mykere","Den lages bare på selve Monte Conero","Den må lagres i fem år før den slippes","Den er en musserende rødvin av tørkede druer"],
      c:0,
@@ -85,35 +85,35 @@ window.QUIZ_NO['IT-57'] = [
     {q:"Hva var i ferd med å skje med Lacrima før DOC-en kom i 1985?",
      a:["Den var forbudt fordi vinen var tilsatt noe","Den var innlemmet i Conero-betegnelsen","Den var plantet på nytt i hele provinsen","Den var nede i under ti hektar"],
      c:3,
-     why:"Etter andre verdenskrig var Lacrima nede i under ti hektar, i praksis én landsbys vane, og DOC-en kom akkurat tidsnok til at det ble verdt å plante på nytt."}
+     why:"Lacrima tapte terreng da vinmarkene ble plantet på nytt etter andre verdenskrig, og det var under ti hektar igjen da druen fikk DOC i 1985; i 2025 dekket den 256 hektar."}
   ],
   [ // lesson 3: Ascoli-oliven og Adriaterhavets brodetto
     {q:"Hvordan behandles en oliven av sorten Ascolana tenera før den fylles?",
      a:["Den deles i to, og halvdelene presses sammen igjen","Steinen skjæres ut i ett spiralsnitt så oliven åpner seg til en strimmel","Den kokes i lake til steinen løsner","Den knuses og blandes inn i kjøttfyllet"],
      c:1,
-     why:"En liten kniv tar ut steinen i ett spiralsnitt, slik at oliven åpner seg til en strimmel som kan vikles tilbake rundt kjøttet."},
+     why:"Den tradisjonelle måten er å ta ut steinen med en liten kniv i ett spiralsnitt, slik at oliven åpner seg til en strimmel som kan vikles tilbake rundt kjøttet."},
     {q:"Hva kjennetegner brodettoen i Porto Recanati?",
-     a:["Eddik og søt paprika i stedet for vin","Tomatpuré og eddik","En tradisjon med tretten fiskeslag","En kraft gul av safran og uten tomat"],
+     a:["Grønne tomater, søt paprika og eddik","Tomatkonsentrat og eddik","En tradisjon med tretten fiskeslag","En kraft farget gul av vill zafferanella, og ingen tomat"],
      c:3,
-     why:"Porto Recanati farger kraften med safran og utelater tomat; eddiken og paprikaen hører til San Benedetto, og de tretten fiskeslagene til Ancona."},
-    {q:"Hvorfor er historien om at vincisgrassi er oppkalt etter en østerriksk general nesten helt sikkert usann?",
-     a:["En oppskrift på princisgras ble trykt tjue år før han kom","Generalen er ikke kjent for å ha spist pasta","Retten kommer fra Ascoli og ikke fra Ancona","Navnet er italiensk og ikke tysk"],
+     why:"Porto Recanati bruker ikke tomat og farger kraften med zafferanella, som ikke er ekte safran; grønne tomater, paprika og eddik hører til San Benedetto, og de tretten fiskeslagene til Ancona."},
+    {q:"Hvorfor er historien om at vincisgrassi er oppkalt etter en østerriksk prins nesten helt sikkert usann?",
+     a:["Nebbia trykte princisgras i 1779, og prinsen i historien var tolv år i 1799","Prinsen er ikke kjent for å ha spist pasta","Retten kommer fra Ascoli og ikke fra Ancona","Navnet er italiensk og ikke tysk"],
      c:0,
-     why:"Antonio Nebbia trykte lasagna in princisgras i 1779, tjue år før Windisch-Graetz kom til Ancona."}
+     why:"Historien ble først skrevet ned i 1927. Antonio Nebbia hadde trykt princisgras i 1779, og Alfred zu Windisch-Graetz var en gutt på tolv da østerrikerne beleiret Ancona i 1799."}
   ],
   [ // lesson 4: Urbino og idealbyen
     {q:"Hvordan betalte Federico da Montefeltro for gullalderen i Urbino?",
      a:["Med skatt på ullhandelen i åsene","Ved å selge håndskrifter fra biblioteket","Med toll på elven og havnen","Ved å leie seg ut som leiesoldatkaptein"],
      c:3,
-     why:"Federico arbeidet som condottiero for den italienske makten som førte krig den sesongen, og kontraktene gjorde ham rik."},
+     why:"Federico leide ut seg selv og troppene sine som condottiero til Sforza-familien i Milano, kongen av Napoli, Firenze og Kirken, for opptil 120 000 dukater i året."},
     {q:"Hvorfor er Federico avbildet i profil fra venstre på hvert eneste portrett?",
      a:["Slik var skikken for en regjerende hertug","Han ville vise fram ordenskjedet sitt","Han hadde mistet høyre øye og neseryggen","Hoffmaleren arbeidet bare i profil"],
      c:2,
-     why:"En turnering kostet ham høyre øye og neseryggen, og da var venstre profil den eneste som var verdt å male."},
+     why:"En lanse i en turnering rundt 1450 ødela høyre øye hans, og neseryggen skal ha blitt skåret bort for at venstre øye skulle se mer, så malerne framstilte ham fra venstre."},
     {q:"Hva gjør panelet Idealbyen viktig, uansett hvem som malte det?",
      a:["Det er den eldste bevarte utsikten over Urbino","Det viser en by formet etter fornuft og perspektiv i stedet for tilfeldig vekst","Det gjengir palasset slik Laurana først tegnet det","Det er det eneste maleriet Federico selv bestilte"],
      c:1,
-     why:"Noen ved dette hoffet regnet ut hvordan en by ville se ut om den ble formet etter fornuft, proporsjon og perspektiv i stedet for å vokse tilfeldig."}
+     why:"Panelet ordner en plass og bygningene rundt etter proporsjon og perspektiv i stedet for tilfeldig vekst, og det er ikke et eneste menneske i bildet."}
   ]
 ];
 

@@ -369,6 +369,26 @@ Object.assign(window.GLOSSARY, {
 
   'camorganne': {short:"Racks of reeds on which Montefalco farmers dried Sagrantino grapes for passito.",
     long:"The bunches lay on the camorganne until Christmas. Then the berries were stripped by hand and pressed in small presses, and the sweet wine aged for at least two years before it was opened at Christmas and Easter.",
-    match:["camorganne"]}
+    match:["camorganne"]},
+
+  'mezzadria': {short:"Sharecropping: the landowner and the family who farmed the land split the harvest.",
+    long:"It was the usual contract in the hills of central Italy until a law of 1964 banned new contracts and a law of 1982 let the old ones be turned into leases. In the Marche the grapes were divided and each side made its own wine at home, which the Verdicchio rules blame for poor quality, and at the winter pig-killing the sharecropper sent gifts to the landowner.",
+    match:["mezzadria"]},
+
+  'moscioli': {short:"Ancona's name for the wild mussels that grow on the rocks under Monte Conero.",
+    long:"Divers tore them off submerged rocks between Pietralacroce and Sirolo, five to ten metres down, from May to October. Slow Food made them a Presidium in 2004 and suspended it in 2025, because of warmer water, mucilage and too much picking.",
+    match:["moscioli","mosciolo"]},
+
+  'zafferanella': {short:"A wild plant that turns the brodetto of Porto Recanati yellow.",
+    long:"It is not true saffron. Porto Recanati uses it instead of tomato, and credits the recipe to Giovanni Velluti, who kept a beach chalet in the town early in the twentieth century.",
+    match:["zafferanella"]},
+
+  'condottiero': {short:"A captain who hired out himself and his troops to the states that would pay.",
+    long:"The word comes from condotta, the contract he signed. Federico da Montefeltro paid for his court at Urbino this way, serving Milan, Naples, Florence and the pope for as much as 120,000 ducats a year.",
+    match:["condottiero","condottieri"]},
+
+  'guaime': {short:"The grass that grows back in a meadow after it has been mown.",
+    long:"Cheese made in that season was cascio di guaime. In 1554 the tenants of Michelangelo's farms near Urbania were bound to send him twenty-five pounds of it a year in Rome.",
+    match:["guaime"]}
 
 });
