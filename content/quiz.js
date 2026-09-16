@@ -946,13 +946,13 @@ window.QUIZ['IT-88'] = [
 window.QUIZ['IT-72'] = [
   [ // lesson 1: Volcanic soils and ancient grapes
     {q:"Why do ungrafted vines still grow on Vesuvius and in the Campi Flegrei?",
-     a:["The vines were replanted on American rootstock in 1900","The heat of the soil kills the root louse","Phylloxera cannot move through loose volcanic sand","The vineyards were quarantined after 1870"],
+     a:["The vines were replanted on American rootstock in 1900","The heat of the soil kills the root louse","The ground is loose sand, and the louse cannot tunnel through it","The vineyards were quarantined after 1870"],
      c:2,
-     why:"Volcanic soil is loose and sandy, and the root louse that destroyed European vineyards after 1870 could never move through it."},
-    {q:"What does volcanic soil do to the vine?",
-     a:["It drains fast and stresses the vine into small, concentrated berries","It holds water and swells the berries","It adds organic matter that raises the yield","It lowers the acidity of the finished wine"],
+     why:"The louse needs ground that will hold the shape of a tunnel. In loose sand the galleries collapse behind it, which is why the same ungrafted vines survive at Colares and in the Camargue, where there is no volcano at all."},
+    {q:"What does the volcanic ground actually do for the vine?",
+     a:["It drains fast and holds the day's heat","It holds water and swells the berries","It adds organic matter that raises the yield","It lowers the acidity of the finished wine"],
      c:0,
-     why:"The soil drains fast, holds heat and is poor in organic matter, which stresses the vine just enough to give small, concentrated berries."},
+     why:"Draining fast and holding heat is what can be stated plainly. Growers add that the poor, potassium-rich ground stresses the vine into small berries, but that is the trade's explanation rather than a measurement."},
     {q:"How does Aglianico change with age?",
      a:["It loses its tannin within three years and turns soft","Brutal young tannin gives way to savoury, smoky notes","It fades from deep purple to pale pink","It gains sweetness as the acidity falls away"],
      c:1,
@@ -966,7 +966,7 @@ window.QUIZ['IT-72'] = [
     {q:"What makes Irpinia different from the Campanian coast?",
      a:["It is warmer, so the grapes ripen a month earlier","It is high and continental, with a wide day-night swing","It sits on sand rather than clay and limestone","It is the only zone allowed to grow Aglianico"],
      c:1,
-     why:"The hills of Avellino lie between 400 and 700 metres, cold in winter, with a continental swing between day and night that no coastal vineyard has."},
+     why:"The hills inland are cold in winter and swing hard between day and night, which no vineyard on the coast does."},
     {q:"Why should Fiano di Avellino not be served very cold?",
      a:["Too cold and its waxy, nutty character disappears","Cold makes its tannin taste bitter","It must be warm to finish fermenting in bottle","Cold clouds the wine permanently"],
      c:0,
@@ -976,11 +976,11 @@ window.QUIZ['IT-72'] = [
     {q:"What comes out of the oven as a true pizza napoletana?",
      a:["A thin, crisp base baked slowly at low heat","A soft, foldable disc blistered black in spots","A thick, bready base with a sealed rim","A twice-baked base finished under a grill"],
      c:1,
-     why:"Sixty to ninety seconds in a wood-fired dome at about 485 °C gives a soft, foldable pizza rather than a crisp one."},
+     why:"Sixty to ninety seconds on an oven floor at about 485 °C gives a soft, foldable pizza rather than a crisp one."},
     {q:"Why can cow's milk not imitate mozzarella di bufala?",
      a:["Cow's milk cannot be stretched into curd","Buffalo milk is fermented rather than curdled","Buffalo are milked only in winter","Buffalo milk has roughly twice the fat"],
      c:3,
-     why:"Buffalo milk has around twice the fat of cow's milk, which is why the cheese is glossy and elastic outside and soft within."},
+     why:"Buffalo milk has around twice the fat of cow's milk, and more casein and calcium with it, and those are what set a firm curd and let it stretch."},
     {q:"How does ragù napoletano differ from the Bolognese kind?",
      a:["It is made without tomato","It is finished with cream and nutmeg","Whole cuts of meat simmer for hours and follow the pasta","It is cooked in twenty minutes over high heat"],
      c:2,
@@ -995,10 +995,10 @@ window.QUIZ['IT-72'] = [
      a:["The bodies were coated in plaster where they lay","Moulds were taken from the skeletons","Plaster was poured into voids left in the hardened ash","The shapes were modelled from wall paintings"],
      c:2,
      why:"The bodies decayed but left voids in the hardened ash, and from 1863 Giuseppe Fiorelli filled these with plaster."},
-    {q:"What was a thermopolium?",
-     a:["A public bath heated by volcanic springs","A warehouse for wine amphorae","A communal oven serving the neighbourhood","A counter bar selling hot food from sunken jars"],
-     c:3,
-     why:"Pompeii had around eighty of them, serving people whose flats had no kitchen; one excavated in 2020 still held duck, pig, goat, fish and snails."}
+    {q:"Where did Pompeii's bread come from?",
+     a:["Communal ovens shared by each street","Commercial bakeries that milled their own grain","A household oven in every kitchen","Grain rations distributed by the town"],
+     c:1,
+     why:"More than thirty bakeries milled their own grain on basalt stones turned by donkeys, because the poorer citizens had no oven and in some cases no kitchen either."}
   ]
 ];
 

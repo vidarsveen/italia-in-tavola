@@ -946,13 +946,13 @@ window.QUIZ_NO['IT-88'] = [
 window.QUIZ_NO['IT-72'] = [
   [ // lesson 1: Vulkansk jord og eldgamle druer
     {q:"Hvorfor vokser det fortsatt upodede vinstokker på Vesuv og i Campi Flegrei?",
-     a:["Rankene ble plantet på nytt på amerikansk rotstokk i 1900","Varmen i jorden tar livet av rotlusen","Vinlusen kommer seg ikke gjennom løs vulkansk sand","Vinmarkene ble satt i karantene etter 1870"],
+     a:["Rankene ble plantet på nytt på amerikansk rotstokk i 1900","Varmen i jorden tar livet av rotlusen","Grunnen er løs sand, og vinlusen kommer seg ikke gjennom den","Vinmarkene ble satt i karantene etter 1870"],
      c:2,
-     why:"Vulkansk jord er løs og sandholdig, og rotlusen som ødela europeiske vinmarker etter 1870, kom seg aldri gjennom den."},
-    {q:"Hva gjør vulkansk jord med vinranken?",
-     a:["Den drenerer raskt og stresser ranken til små, konsentrerte bær","Den holder på vannet og sveller bærene","Den tilfører humus som øker avlingen","Den senker syren i den ferdige vinen"],
+     why:"Vinlusen trenger en jord der gangene den graver, holder seg åpne. I løs sand raser de sammen bak den, og derfor står de samme upodede stokkene i Colares og i Camargue, der det ikke finnes noen vulkan."},
+    {q:"Hva gjør den vulkanske grunnen for vinranken?",
+     a:["Den drenerer raskt og holder på varmen fra dagen","Den holder på vannet og sveller bærene","Den tilfører humus som øker avlingen","Den senker syren i den ferdige vinen"],
      c:0,
-     why:"Jorden drenerer raskt, holder på varmen og er fattig på humus, og det stresser ranken akkurat nok til å gi små, konsentrerte bær."},
+     why:"Rask drenering og varme er det som kan slås fast. Vindyrkerne legger til at den magre, kaliumrike jorden stresser ranken til små bær, men det er bransjens forklaring og ikke en måling."},
     {q:"Hvordan endrer Aglianico seg med alderen?",
      a:["Den mister tanninen i løpet av tre år og blir myk","Den brutale, unge tanninen viker for smaksrike, røykpregede toner","Den falmer fra dyp purpur til blek rosa","Den blir søtere etter hvert som syren forsvinner"],
      c:1,
@@ -966,7 +966,7 @@ window.QUIZ_NO['IT-72'] = [
     {q:"Hva skiller Irpinia fra kysten i Campania?",
      a:["Det er varmere, så druene modner en måned tidligere","Området ligger høyt og har et kontinentalt klima med store døgnsvingninger","Jorden er sand og ikke leire og kalkstein","Det er den eneste sonen som får dyrke Aglianico"],
      c:1,
-     why:"Åsene ved Avellino ligger mellom 400 og 700 meter, er kalde om vinteren og har en kontinental forskjell mellom dag og natt som ingen kystvinmark har."},
+     why:"Åsene i Irpinia er kalde om vinteren og svinger kraftig mellom dag og natt, slik ingen vinmark ved kysten gjør."},
     {q:"Hvorfor bør Fiano di Avellino ikke serveres iskald?",
      a:["For kald forsvinner det voksaktige og nøtteaktige preget","Kulden får tanninen til å smake bittert","Den må være varm for å gjære ferdig på flasken","Kulden gjør vinen varig uklar"],
      c:0,
@@ -976,11 +976,11 @@ window.QUIZ_NO['IT-72'] = [
     {q:"Hva kommer ut av ovnen som en ekte pizza napoletana?",
      a:["En tynn, sprø bunn stekt langsomt på lav varme","En myk, brettbar leiv med svarte blemmer i flekker","En tykk, brødaktig bunn med forseglet kant","En dobbeltstekt bunn ferdigstilt under grillen"],
      c:1,
-     why:"Seksti til nitti sekunder i en vedfyrt kuppelovn på rundt 485 °C gir en myk og brettbar pizza, ikke en sprø."},
+     why:"Seksti til nitti sekunder med ovnsgulvet på rundt 485 °C gir en myk og brettbar pizza, ikke en sprø."},
     {q:"Hvorfor kan ikke kumelk etterligne mozzarella di bufala?",
      a:["Kumelk lar seg ikke strekke til ostemasse","Bøffelmelk gjæres i stedet for å løpes","Bøflene melkes bare om vinteren","Bøffelmelk har omtrent dobbelt så mye fett"],
      c:3,
-     why:"Bøffelmelk har rundt dobbelt så mye fett som kumelk, og derfor er osten blank og elastisk utenpå og myk inni."},
+     why:"Bøffelmelk har rundt dobbelt så mye fett som kumelk, og mer kasein og kalsium med det, og de får ostemassen til å stivne raskt og la seg strekke."},
     {q:"Hvordan skiller ragù napoletano seg fra den bolognesiske?",
      a:["Den lages uten tomat","Den avsluttes med fløte og muskat","Hele kjøttstykker trekker i timevis og kommer etter pastaen","Den lages på tjue minutter over høy varme"],
      c:2,
@@ -995,10 +995,10 @@ window.QUIZ_NO['IT-72'] = [
      a:["Kroppene ble dekket med gips der de lå","Det ble tatt avstøpninger av skjelettene","Gips ble helt ned i hulrommene i den harde asken","Formene ble modellert etter veggmalerier"],
      c:2,
      why:"Kroppene gikk i oppløsning, men etterlot hulrom i den harde asken, og fra 1863 fylte Giuseppe Fiorelli dem med gips."},
-    {q:"Hva var et thermopolium?",
-     a:["Et offentlig bad varmet av vulkanske kilder","Et lager for vinamforaer","En felles ovn for nabolaget","En skjenkedisk som solgte varm mat fra nedsenkede krukker"],
-     c:3,
-     why:"Pompeii hadde rundt åtti av dem, for folk som ikke hadde kjøkken i leiligheten; en som ble gravd ut i 2020, inneholdt fortsatt and, svin, geit, fisk og snegler."}
+    {q:"Hvor kom brødet i Pompeii fra?",
+     a:["Felles ovner i hver gate","Bakerier som drev forretning og malte sitt eget korn","En ovn i hvert husholdningskjøkken","Kornrasjoner delt ut av byen"],
+     c:1,
+     why:"Mer enn tretti bakerier malte sitt eget korn på basaltstein drevet av esler, for de fattigste hadde ingen ovn og i noen tilfeller ikke kjøkken heller."}
   ]
 ];
 
