@@ -634,6 +634,27 @@ The real finds were mostly **unflagged**, which is the point of reading the dump
 
 No facts differ between the two editions; the Norwegian was checked against the English block by block.
 
+### One more cleft, found later by the widened linter (2026-09-16)
+
+When `tools/prose_lint.py` was widened during the Molise pass (the old rule matched only the literal
+«Det som …, er», so past-tense clefts and any other lead-in passed straight through), it found an eighth
+cleft here, in the **lead of reading 4**: «Arkeologer brukte 2021 og 2022 på å tømme den, og det som hadde
+skylt inn og blitt liggende, var frukt: …». It was left standing at the time because Lazio was finished and
+committed and its narration was not stale, so re-recording it would have been the owner's call rather than a
+quiet edit. The owner authorised the narration backlog on 2026-09-16 and Lazio was queued for re-recording,
+which removed that reason, so it is now fixed:
+
+> Arkeologer brukte 2021 og 2022 på å tømme den, og fant frukt som hadde skylt inn og blitt liggende: steiner
+> av fiken, drue, oliven, fersken, kirsebær, bjørnebær og melon, og nøtteskall.
+
+The first attempt split it into two sentences («Frukt hadde skylt inn og blitt liggende: …»), which cleared
+the cleft and immediately tripped the lint's rhythm check — three sentences of 19/21/19 words in a row, the
+new one first. Keeping it as a single sentence with «Arkeologer» as the subject clears both.
+
+**Left alone as a false positive**: reading 2's «Det meste som vokser i de gamle radene, er slett ikke den
+vanlige druen.» This is the documented over-report shape — an ordinary definite subject («det meste») with a
+long relative clause, where §4b rule 7 *requires* that comma. It is not a cleft and must not be "fixed".
+
 ### Propagated out of the readings
 - `content/tasting.js` and `content/tasting.no.js`: the Cesanese card's alcohol, nose and serve, by hand.
 - `content/quiz.js` and `content/quiz.no.js`: 3.3 no longer asks why carbonara is "the youngest" and no longer

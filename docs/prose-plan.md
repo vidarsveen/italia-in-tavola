@@ -384,9 +384,15 @@ Norwegian follows the English one region behind, written from the facts and the 
    that all four reviewers had missed and two in Abruzzo 1, all now fixed. It over-reports on
    «Det <adj> <noun> som …, er», an ordinary definite subject with a long relative clause where §4b rule 7
    *requires* that comma — that is the intended trade, since the narrow version's silence cost three real
-   clefts, and the four current such hits are named in `docs/rewrite/molise.md`. **Two real clefts are left
-   standing on purpose**: **Lazio 4** (finished, committed, narration **not** stale, so re-recording it is the
-   owner's call, not a quiet edit) and **Sardegna 2** (catch it in its own pass).
+   clefts, and the four current such hits are named in `docs/rewrite/molise.md`. **One real cleft is left
+   standing**: **Sardegna 2** (catch it in its own pass). **Lazio 4's was fixed on 2026-09-16**, when the owner
+   authorised the narration backlog: the reason for leaving it was that re-recording a finished region is the
+   owner's call, and that reason disappeared the moment Lazio was queued for re-recording anyway. The fix split
+   «…og det som hadde skylt inn og blitt liggende, var frukt: …» into a plain sentence, which then tripped the
+   lint's rhythm check (three sentences of 19/21/19 words in a row), so the final form keeps one sentence with
+   the real subject first: «Arkeologer brukte 2021 og 2022 på å tømme den, og fant frukt som hadde skylt inn og
+   blitt liggende: …». Lesson: a cleft repair that adds a sentence changes the paragraph's rhythm, so lint the
+   whole reading after it, not only the clause.
    **Next: Campania** (stem `campania`). **Six regions are left**: Campania, Puglia, Basilicata, Calabria,
    Sicilia, Sardegna.
    Its research is **done** — both agents' returns are saved as
