@@ -649,3 +649,84 @@ classed as risk-free**.
   were re-spread so no lesson has all three in the same slot. Both languages moved together.
 - Still to do for Molise: the Norwegian, a Norwegian reader review per reading, and the glossary check for any
   new specialist word (candidates: *tratturo*, *pasta filata*, *burrino/manteca*, *De.Co.*, *caecum*).
+
+## Second pass (2026-09-16), after eight fresh-context reviews
+
+Four reader and four fact reviews, run in parallel. Nearly everything was accepted. The findings that carry
+a lesson beyond this region are first.
+
+### Five lessons worth carrying forward
+
+1. **Log the lead's closing move, not only its opening.** The Abruzzo pass added a check on the grammatical
+   *opening* of each lead, and it worked — no reviewer heard a formula in the openings. But readings 1, 2 and 3
+   all *ended* their lead on a withheld name ("The word was Montepulciano" / "the name he used is French" /
+   "the name carries the fact"), and reading 1's reviewer explicitly warned after seeing two that the next
+   should not make it three. It did. **Log first words, grammatical opening move, and closing beat.**
+2. **A ledger cannot check itself.** I wrote that the praetorian prefects addressed the magistrates "of
+   Saepinum and Bovianum". The transcription addresses their letter to **Saepinum alone**; Bovianum appears in
+   Cosmus's request that they write to both. The error began in the outline, was copied into the draft, and the
+   ledger then agreed with the draft — so the document meant to validate the draft rubber-stamped it. Only the
+   fact reviewer, reading the research return, caught it. **When a ledger line and a draft line match word for
+   word, neither is evidence; go back to the research file.**
+3. **Cutting a claim can leave a smaller version of it standing.** The research marked "the warmest, broadest
+   and most planted land in Molise" unsourced, so it went — and the draft then called the Biferno "the river
+   that makes the region's one broad valley". In a region recorded at 0% plain that is the same claim in
+   miniature. **After cutting an unsourced judgement, grep the draft for its parts.**
+4. **Refusing an unsourced explanation is not the same as having none.** The research showed the old text's
+   reason for the 200-metre floor was the writer's inference, so I removed it — and left nothing telling a
+   reader why altitude would matter at all. The fix is to state the general mechanism plainly (cool nights hold
+   acidity and aromatics; a late variety can hang longer), attribute the *application* to the growers who argue
+   it, and say the rules record a line and no reason. Correct **and** useful.
+5. **Check the direction of a causal claim against its own dates.** Reading 1 argued that losing the word
+   Montepulciano "is also the reason its main appellation has the shape it has". The catch-all list of 85%
+   varietals was in the decree of 18 May 1998, two years *before* the 2000 annulment. The shape predates the
+   loss. A second connective failed the same way in reading 3, where "The same is true further down the table"
+   introduced an olive oil that has held a DOP since 2003, immediately after explaining that the truffle's
+   problem is having none.
+
+### Accepted — style
+
+- **The "X rather than Y" correction cadence, swept across all four readings.** Six instances in reading 4,
+  five in reading 2, two in reading 1. Kept only where the correction is the news: the Porta Bojano dossier and
+  "They are not ancient" for the trabucchi. The rest went positive — "Sulla ended it" for "What ended it was
+  not the Social War", and the Sepino paragraph now opens on the ninth-century move.
+- **Inventories cut**: the twelve-name varietal list in reading 1, the seven consortium founders in reading 2
+  (already in the box), stracciata and pecorino di Capracotta in reading 3, and in reading 4 the Saepinum
+  circuit and contents and Agnone's list of destinations.
+- **The box had become a transcript of the prose** — five of reading 3's seven bullets. Reference now sits in
+  the box only: the *cavare* etymology, the cheese dimensions, the fair dates and the cultivar list are out of
+  the prose.
+- Three co-operatives in three identically shaped sentences merged; "worth reading exactly" and "worth
+  keeping" cut (rule 8); "That is a fair summary of the region's position generally" cut; the borgo caption
+  recaptioned off the 200-metre rule, which the reading states six times.
+- **Reading 4 cut from 1,674 words to about 1,200**, almost entirely from history that never reaches a table,
+  and the Porta Bojano passage — which strictly fails the delete-the-food test — earns its place with one
+  added clause tying the flocks to the cheese rather than with a defence.
+
+### Accepted — facts
+
+- Restored, none of which the ledger had logged as cut: the region's three rivers; the clay hills; Campobasso
+  named as the capital in reading 1 (the corrected population had moved to reading 4 and taken the capital with
+  it); the *tingere* etymology; what Di Majo Norante grows, which in a Tintilia chapter had left the largest
+  estate never said to grow Tintilia; caciocavallo's taste at three months and at a year, the only sensory
+  description of the region's signature cheese; scamorza on the grill; the winter table; the tratturi's present
+  state as green strips; the view from Castello Monforte; the hill villages of reading 4's own title; and the
+  trabucchi's range south into Puglia, without which "two are left at Termoli" reads as two in existence.
+- Corrected: "Both letters turn on the same phrase" (they turn on two different phrases); "Franco Valente, who
+  has written most about the site" (an unsourced ranking); Pietrecadute is a *località*, not a spring; "the one
+  nobody mentions"; "for its first seven years" against a birth date of January 1964, from which 1970 is six;
+  Tanno's *grani antichi e uve rare* (ancient grains and rare grapes, not "rare grains"); the Caudine Forks
+  yoke, which the research does not supply; and "an hour north" to Vasto, a travel time no source gives.
+- Hedged as the research required: the 2010 census hectares as a single source, and the Paris 1900 medal with
+  the note that one source calls the wine a Sannio Rosso rather than a Tintilia — which matters because the
+  entry sits in a Tintilia box.
+
+### Rejected or noted, with reasons
+
+- **Reading 2's lead shape** (its withhold-then-name beat rhyming with reading 1's) — the reviewer ranked it
+  below the five and I agree; reading 3's and reading 4's leads were changed instead, which breaks the run.
+- **"Biferno caps at 500 m"** is correct only of black grapes; white is 600. The box always said both. Reading
+  2's prose said only 500, and the ledger's own shorthand repeated the error — now fixed in both.
+- **The research files disagree on the coastline** (W6 36 km, F34 about 35 km). The course uses 36.
+- **San Giuliano di Puglia in the box loses nothing**: the old reading 4 mentions none of the three
+  earthquakes. All three are additions.

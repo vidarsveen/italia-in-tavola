@@ -405,6 +405,30 @@ Object.assign(window.GLOSSARY_NO, {
 
   'guaime': {short:"Gresset som vokser opp igjen på en eng etter slåtten.",
     long:"Ost som ble laget i den tiden, het cascio di guaime. I 1554 ble forpakterne på Michelangelos gårder ved Urbania pålagt å sende ham tjuefem pund av den i året til Roma.",
-    match:["guaime"]}
+    match:["guaime"]},
+
+  'tratturo': {short:"En gressdekt driftevei for å flytte flokker mellom sommer- og vinterbeite.",
+    long:"En kongelig tratturo var fastsatt til seksti napolitanske skritt, 111,6 meter, med steinmerker langs kantene, og nettverket kom opp i rundt 3 100 kilometer. Den lengste, fra L'Aquila til Foggia, er 243. Alle de fem kongelige veiene krysser Molise. Transhumansen, altså selve vandringen, ble ført opp av UNESCO i 2019, mens veiene fortsatt bare står på Italias kandidatliste, der de kom i 2006.",
+    match:["tratturoen","tratturi","tratturo"]},
+
+  'fornacella': {short:"Den lange trekullrennen arrosticini grilles på.",
+    long:"Den er så vidt bredere enn kjøttet, og det gjør to ting på én gang: hver glo ligger under et spyd, så stekingen er over på tre–fire minutter, og treendene hviler over kald luft på begge sider, der de ikke kan brenne. Andre navn på den er furnacella, canala og rustillire.",
+    match:["fornacellaen","fornacella"]},
+
+  'castrato': {short:"Kastrert vær, slaktet mellom seks måneder og to år, og kjøttet av den.",
+    long:"Det er det tradisjonelle kjøttet i arrosticini, sammen med kjøtt av en ung søye som ennå ikke har lammet. Det har mer fett og mer smak enn lam, og derfor tåler det trekull. Norske slaktere selger det sjelden. Fårekjøtt ligger nærmest, og lammekjøtt er noe annet igjen.",
+    match:["castratoen","castrato"]},
+
+  'pasta filata': {short:"Ostemasse som varmes og strekkes til den blir elastisk, og så formes.",
+    long:"Familien omfatter mozzarella, provolone, scamorza og caciocavallo. Strekkingen retter ut proteinet, og derfor lar osten seg dra i tråder, og derfor smelter en ung ost til tråder. Caciocavallo formes til en pære med hode, bindes med en snor og henges parvis over en bjelke.",
+    match:["pasta filata"]},
+
+  'burrino': {short:"En smørklump pakket inn i et skall av strukket ostemasse, så den holder seg.",
+    long:"Den kalles også manteca. Ostemassen stenger luften ute fra smøret i et hus uten kjølerom, og skallet spises sammen med det. Den hører til det samme meieriet som caciocavallo og scamorza, i fjellene i Molise og regionene omkring.",
+    match:["burrinoen","burrino"]},
+
+  'De.Co.': {short:"En betegnelse en enkelt kommune gir en rett den regner som sin egen.",
+    long:"Denominazione Comunale. Den gir ikke noe vern utenfor kommunen og har ingen status i EU-retten, men kommunen skriver en produktbeskrivelse og bestemmer hvem som kan bruke navnet. San Martino in Pensilis ga sin til pampanella.",
+    match:["De.Co."]}
 
 });

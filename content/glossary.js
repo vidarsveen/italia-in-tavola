@@ -405,6 +405,30 @@ Object.assign(window.GLOSSARY, {
 
   'guaime': {short:"The grass that grows back in a meadow after it has been mown.",
     long:"Cheese made in that season was cascio di guaime. In 1554 the tenants of Michelangelo's farms near Urbania were bound to send him twenty-five pounds of it a year in Rome.",
-    match:["guaime"]}
+    match:["guaime"]},
+
+  'tratturo': {short:"A grass drove road for moving flocks between summer and winter pasture.",
+    long:"A royal tratturo was fixed at sixty Neapolitan paces, 111.6 metres, with stone markers along its edges, and the network ran to about 3,100 kilometres. The longest, L'Aquila to Foggia, is 243. All five of the royal roads cross Molise. Transhumance, the walking of them, was inscribed by UNESCO in 2019; the roads themselves are still only on Italy's tentative list, where they went in 2006.",
+    match:["tratturi","tratturo"]},
+
+  'fornacella': {short:"The long charcoal trough that arrosticini are grilled on.",
+    long:"It is barely wider than the meat, and that does two things at once: every coal sits under a skewer, so the cooking is over in three or four minutes, and the wooden ends rest over cool air on both sides where they cannot burn. Regional names for it include furnacella, canala and rustillire.",
+    match:["fornacella"]},
+
+  'castrato': {short:"A castrated ram, killed between six months and two years, and the meat it gives.",
+    long:"It is the traditional meat for arrosticini, along with a young ewe that has not yet lambed. It carries more fat and more flavour than lamb, which is what lets it stand up to charcoal. Norwegian butchers rarely sell it: sau or fårekjøtt is the nearest thing, and lammekjøtt is a different meat again.",
+    match:["castrato"]},
+
+  'pasta filata': {short:"Curd heated and stretched until it turns elastic, then shaped.",
+    long:"The family includes mozzarella, provolone, scamorza and caciocavallo. Stretching lines up the protein, which is why the cheese pulls into threads and why a young one melts into strings. Caciocavallo is shaped into a pear with a head, tied with a cord and hung over a beam in pairs.",
+    match:["pasta filata"]},
+
+  'burrino': {short:"A ball of butter wrapped in a skin of stretched curd, so that it keeps.",
+    long:"Also called manteca. The curd seals the butter away from the air in a house with no cold room, and the shell is eaten with it. It belongs to the same dairy as caciocavallo and scamorza, in the mountains of Molise and the regions around it.",
+    match:["burrino"]},
+
+  'De.Co.': {short:"A denomination granted by a single comune to a dish it claims as its own.",
+    long:"Denominazione Comunale. It carries no protection outside the town and no standing in European law, but the comune writes a specification and decides who may use the name. San Martino in Pensilis gave one to its pampanella.",
+    match:["De.Co."]}
 
 });
