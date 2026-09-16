@@ -8,11 +8,11 @@ window.QUIZ_NO['IT-75'] = [
     {q:"Hva gjør Coratina-oljen så bitter og pepret?",
      a:["Lang lagring i møllen før tapping","Blanding med Ogliarola fra Salento","Det høye polyfenolinnholdet, når oliven plukkes tidlig og males innen få timer","Pressing av oliven som har falt og gjæret"],
      c:2,
-     why:"Coratina har det høyeste polyfenolinnholdet av alle italienske oliven, og viser det når frukten plukkes tidlig og males innen få timer."},
+     why:"Coratina oppgis til rundt tusen deler per million polyfenoler, mot tre-fire hundre i en gjennomsnittlig ekstra virgin, og det merkes når frukten plukkes tidlig og males innen få timer."},
     {q:"Hvilken del av Puglia er kalksteinsplatået der trulliene står?",
      a:["Tavoliere","Murge","Salento","Gargano"],
      c:1,
-     why:"Murge reiser seg til 600 meter bak Bari og Andria; Tavoliere er hvetesletten og Salento halvøya i sør."}
+     why:"Murge når 679 meter ved Monte Caccia bak Bari og Andria; Tavoliere er hvetesletten og Salento halvøya i sør."}
   ],
   [ // lesetekst 2: Primitivo og Negroamaro
     {q:"Hva viste DNA-testen om Primitivo?",
@@ -20,41 +20,41 @@ window.QUIZ_NO['IT-75'] = [
      c:1,
      why:"Tidlig på 1990-tallet viste Carole Meredith at Primitivo og Californias Zinfandel er én og samme drue, senere sporet til Tribidrag i Kroatia."},
     {q:"Hvorfor er Primitivo fra Gioia del Colle friskere enn den fra Manduria?",
-     a:["Den blandes med Malvasia Nera","Den plukkes før druene rosineres","Den vokser på Murge-platået i 350 til 500 meters høyde","Den gjæres som rosato"],
+     a:["Den blandes med Malvasia Nera","Den plukkes før druene rosineres","Den vokser på Murge-platået mellom 200 og 450 meter","Den gjæres som rosato"],
      c:2,
-     why:"Gioia del Colle ligger på Murge i 350 til 500 meters høyde, kjøligere enn den joniske sletten, så vinen beholder ekte syre."},
-    {q:"Hvordan lages den tradisjonelle rosatoen i Salento?",
-     a:["En del av saften tappes av etter en natt på skallene","Rødvin og hvitvin blandes etter gjæringen","Druene tørkes før pressing","Skallene fjernes før druene knuses"],
+     why:"Gioia del Colle ligger på Murge mellom 200 og 450 meter, kjøligere enn den joniske sletten, så vinen beholder ekte syre."},
+    {q:"Hva er lacrima-metoden bak en rosato fra Salento?",
+     a:["Mosten presses aldri: bare den frittrennende saften tappes av etter omtrent et døgn på skallene","Rødvin og hvitvin blandes etter gjæringen","Druene tørkes før pressing","Skallene fjernes før druene knuses"],
      c:0,
-     why:"Tradisjonen er å tappe av en del av saften etter en natt på skallene, lacrima eller «tåren», og gjære den for seg."}
+     why:"I lacrima avstilkes druene og blir liggende omtrent et døgn, og bare den frittrennende saften, rundt en tredel av massen, tappes av; salasso og vino di una notte er de to andre metodene."}
   ],
   [ // lesetekst 3: Orecchiette, burrata og brødet fra Altamura
     {q:"Hvorfor ble burrata oppfunnet i Andria?",
      a:["For at mozzarella skulle holde seg lenger","For å bruke opp de fillete trådene som blir igjen når mozzarella strekkes","For å etterligne en ost som lages i Wisconsin","For å erstatte fløte i det lokale kjøkkenet"],
      c:1,
      why:"Ysterne blandet de fillete trådene fra strekkingen med fløte og lukket dem inne i en pose av fersk mozzarella."},
-    {q:"Hvorfor hadde gjetere og gårdsarbeidere med seg Pane di Altamura?",
-     a:["Den tette krummen holder seg fersk i fjorten dager","Det stekes i en felles vedovn","Det lages bare av durumsemule","Det bærer familiens forbokstav i skorpen"],
+    {q:"Hvorfor bar husholdningene i Altamura deigen sin til en offentlig ovn?",
+     a:["Det var forbudt å bake brød hjemme, med bot som straff","Bare de offentlige ovnene ble varme nok til durumsemule","Regelverket har alltid krevd en felles ovn","Bare bakeren fikk eie et trestempel"],
      c:0,
-     why:"Den tykke skorpen og den tette, gule krummen holder brødet ferskt i to uker, noe som passet folk som var en uke hjemmefra."},
+     why:"Byvedtektene fra 1527 bøtela innbyggere av enhver stand som bakte brød hjemme, med en tredel av hele bakekostnaden, så deigen ble eltet hjemme og båret til en offentlig ovn med forbokstavene til familiens overhode stemplet i."},
     {q:"Hva er det klassiske tilbehøret til orecchiette?",
      a:["Ragù av hestekjøtt","Cime di rapa med olje, hvitløk, chili og ansjos","Fløte og revet caciocavallo","Rå kråkebolle med sitron"],
      c:1,
      why:"Cime di rapa, de bitre blomstertoppene av nepe, kokes i pastavannet og avsluttes med olje, hvitløk, chili og ansjos."}
   ],
   [ // lesetekst 4: Trulli, slott og Adriaterhavet
-    {q:"Hvorfor ble trulliene bygget uten mørtel?",
-     a:["Det fantes ikke mørtel på Murge","Slik at de kunne demonteres før skatteinspektøren kom","For å holde husene kjølige gjennom sommeren","Fordi grevene forbød å bygge i stein"],
+    {q:"Hva sier forskerne om at trulliene ble bygget uten mørtel?",
+     a:["Grevene forbød bruk av kalk på eiendommene sine","Slik bygget man på kalksteinsplatået, og skattehistorien kom etterpå","Mørtel kunne ikke herde i klimaet der","Teknikken kom med greske nybyggere"],
      c:1,
-     why:"Grevene av Conversano skyldte kronen en avgift for hver nye bosetning, så bøndene fikk bare bygge hus som kunne tas fra hverandre på en dag."},
+     why:"Nominasjonsdokumentet gjengir skattetradisjonen og gir deretter forskernes syn: tørrmuring var et minimalt fysisk svar på lokale forhold, senere utnyttet skattemessig — og det lot også en jordherre rive huset til en leilending."},
     {q:"Hva gjør Castel del Monte vanskelig å lese som festning?",
-     a:["Det ligger på flat mark uten utsikt","Det mangler vollgrav, kjøkken og staller, og vinduene vender feil vei","Det ble forlatt før det sto ferdig","Det er bygget av den samme myke steinen som Lecce"],
+     a:["Det ligger på flat mark uten utsikt","Det mangler vollgrav, kjøkken, staller, lagerrom og kapell","Det ble solgt til angevinerne før det ble tatt i bruk","Det er bygget av den samme myke steinen som Lecce"],
      c:1,
-     why:"Slottet har verken vollgrav, vindebro, kjøkken eller staller, og vinduene vender feil vei for forsvar, så formålet er fortsatt omstridt."},
+     why:"Slottet har verken forborg, vollgrav, staller, kjøkken, lagerrom eller kapell, men det har seks sisterner, latriner og fem peiser, så formålet er fortsatt omstridt."},
     {q:"Hva gjorde det mulig for steinhuggerne i Lecce å skjære så tette fasader?",
-     a:["Pietra leccese er myk nok til å skjæres som tre og hardner i luften","Steinen ble brutt i Andria og fraktet inn","Fasadene er formet i puss over murstein","Spanske billedhuggere tok med seg marmor"],
+     a:["Pietra leccese er myk nok til å sages og skjæres som tre","Steinen ble brutt i Andria og fraktet inn","Fasadene er formet i puss over murstein","Spanske billedhuggere tok med seg marmor"],
      c:0,
-     why:"Pietra leccese er en myk, finkornet gyllen kalkstein som lar seg skjære som tre når den brytes, og som hardner etterpå i luften."}
+     why:"Pietra leccese er en myk, finkornet gyllen kalkstein med tretti til førti prosent luft, som lar seg sage og skjære som tre når den brytes."}
   ]
 ];
 

@@ -8,11 +8,11 @@ window.QUIZ['IT-75'] = [
     {q:"What makes Coratina oil so bitter and peppery?",
      a:["Long ageing in the mill before bottling","Blending with Ogliarola from the Salento","Its high polyphenol content, when picked early and milled within hours","Pressing olives that have fallen and fermented"],
      c:2,
-     why:"Coratina has the highest polyphenol content of any Italian olive, and shows it when the fruit is picked early and milled within hours."},
+     why:"Coratina is quoted at around a thousand parts per million of polyphenols, against three or four hundred in an average extra virgin, and it shows when the fruit is picked early and milled within hours."},
     {q:"Which part of Puglia is the limestone plateau where the trulli stand?",
      a:["The Tavoliere","The Murge","The Salento","The Gargano"],
      c:1,
-     why:"The Murge rises to 600 metres behind Bari and Andria; the Tavoliere is the wheat plain and the Salento the peninsula in the south."}
+     why:"The Murge reach 679 metres at Monte Caccia behind Bari and Andria; the Tavoliere is the wheat plain and the Salento the peninsula in the south."}
   ],
   [ // lesson 2: Primitivo and Negroamaro
     {q:"What did DNA testing reveal about Primitivo?",
@@ -20,41 +20,41 @@ window.QUIZ['IT-75'] = [
      c:1,
      why:"In the early 1990s Carole Meredith showed Primitivo and California's Zinfandel to be one grape, later traced to Croatia's Tribidrag."},
     {q:"Why is the Primitivo of Gioia del Colle fresher than Manduria's?",
-     a:["It is blended with Malvasia Nera","It is picked before the grapes raisin","It grows on the Murge plateau at 350 to 500 metres","It is fermented as a rosato"],
+     a:["It is blended with Malvasia Nera","It is picked before the grapes raisin","It grows on the Murge plateau between 200 and 450 metres","It is fermented as a rosato"],
      c:2,
-     why:"Gioia del Colle sits on the Murge at 350 to 500 metres, cooler than the Ionian plain, so the wine keeps real acidity."},
-    {q:"How is the Salento's traditional rosato made?",
-     a:["Part of the juice is run off after a night on the skins","Red and white wine are blended after fermentation","The grapes are dried before pressing","The skins are removed before the grapes are crushed"],
+     why:"Gioia del Colle sits on the Murge between 200 and 450 metres, cooler than the Ionian plain, so the wine keeps real acidity."},
+    {q:"What is the lacrima method behind a Salento rosato?",
+     a:["The must is never pressed: only the free-run juice is drawn off after about a day on the skins","Red and white wine are blended after fermentation","The grapes are dried before pressing","The skins are removed before the grapes are crushed"],
      c:0,
-     why:"The tradition is to run off part of the juice after a night on the skins, the lacrima or tear, and ferment it on its own."}
+     why:"In the lacrima the grapes are destemmed and left about a day, and only the free-run juice, roughly a third of the mass, is drawn off; salasso and the vino di una notte are the other two methods."}
   ],
   [ // lesson 3: Orecchiette, burrata and the bread of Altamura
     {q:"Why was burrata invented at Andria?",
      a:["To make mozzarella keep longer","To use up the ragged strands left over from pulling mozzarella","To imitate a cheese made in Wisconsin","To replace cream in the local cooking"],
      c:1,
      why:"Cheesemakers mixed the ragged strands left from pulling mozzarella with cream and sealed them inside a pouch of fresh mozzarella."},
-    {q:"Why did shepherds and farm workers carry Pane di Altamura?",
-     a:["Its dense crumb stays fresh for a fortnight","It is baked in a communal wood oven","It is made only from durum semolina","It carries the family's initial on the crust"],
+    {q:"Why did Altamura's households carry their dough to a public oven?",
+     a:["Baking bread at home was forbidden, on pain of a fine","The public ovens were the only ones hot enough for durum semolina","The specification has always required a communal oven","Only the baker was allowed to own a wooden stamp"],
      c:0,
-     why:"The thick crust and dense yellow crumb keep the loaf fresh for two weeks, which suited men away from home for a week."},
+     why:"The town's statutes of 1527 fined citizens of any station for baking bread in their own houses, a third of the whole cost of the baking, so the dough was mixed at home and carried out to a public oven with the head of the family's initials stamped into it."},
     {q:"What is the classic dressing for orecchiette?",
      a:["Ragù of horse meat","Cime di rapa with oil, garlic, chilli and anchovy","Cream and grated caciocavallo","Raw sea urchin with lemon"],
      c:1,
      why:"Cime di rapa, the bitter flowering turnip tops, are boiled in the pasta water and finished with oil, garlic, chilli and anchovy."}
   ],
   [ // lesson 4: Trulli, castles and the Adriatic
-    {q:"Why were the trulli built without mortar?",
-     a:["Mortar was unavailable on the Murge","So they could be dismantled before a tax inspector arrived","To keep the houses cool through the summer","Because the counts forbade building in stone"],
+    {q:"What do scholars say about the trulli being built without mortar?",
+     a:["The counts forbade the use of lime anywhere on their land","It was how the Murgia built on a karst plateau, and the tax story came afterwards","Mortar could not set in the local climate","The technique arrived with Greek settlers"],
      c:1,
-     why:"The counts of Conversano owed the crown a levy on any new settlement, so their peasants could build only houses that came apart in a day."},
+     why:"The nomination dossier carries the tax-dodge tradition and then gives the scholars' view, that dry stone was a minimal physical response to local conditions, later exploited for fiscal purposes — and that it also let a landlord level a tenant's house."},
     {q:"What makes Castel del Monte hard to read as a fortress?",
-     a:["It stands on flat ground with no view","It has no moat, kitchen or stables, and its windows face the wrong way","It was abandoned before it was finished","It is built of the same soft stone as Lecce"],
+     a:["It stands on flat ground with no view","It has no moat, kitchen, stables, storerooms or chapel","It was sold to the Angevins before it was occupied","It is built of the same soft stone as Lecce"],
      c:1,
-     why:"There is no moat, drawbridge, kitchen or stables, and the windows face the wrong way for defence, so its purpose is still argued over."},
+     why:"There is no outer bailey, moat, stables, kitchen, storerooms or chapel, though there are six cisterns, latrines and five fireplaces, so its purpose is still argued over."},
     {q:"What allowed the masons of Lecce to carve such dense façades?",
-     a:["Pietra leccese is soft enough to carve like wood and hardens in the air","The stone was quarried at Andria and shipped in","The façades are moulded plaster over brick","Spanish sculptors brought marble with them"],
+     a:["Pietra leccese is soft enough to cut with a saw and carve like wood","The stone was quarried at Andria and shipped in","The façades are moulded plaster over brick","Spanish sculptors brought marble with them"],
      c:0,
-     why:"Pietra leccese is a soft, fine-grained golden limestone that cuts like wood when quarried and hardens afterwards in the air."}
+     why:"Pietra leccese is a soft, fine-grained golden limestone, thirty to forty per cent air, which can be cut with a saw and carved like wood."}
   ]
 ];
 

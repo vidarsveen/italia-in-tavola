@@ -608,7 +608,7 @@ Object.assign(window.TASTING, {
   },
   "IT-75|Salice Salentino (Negroamaro)": {
     colour: "Deep ruby, garnet at the rim with age",
-    nose: "Black cherry, plum, dried herbs, tobacco, a floral lift from Malvasia Nera",
+    nose: "Black cherry, plum, dried herbs, tobacco, a floral lift where Malvasia Nera is in the blend",
     palate: "Warm and savoury, medium tannin, a faint pleasant bitterness at the end",
     alcohol: "13–14%",
     serve: "16–18 °C; best at three or four years, the Riserva keeps longer",
