@@ -885,61 +885,61 @@ window.QUIZ['IT-67'] = [
 ];
 
 window.QUIZ['IT-88'] = [
-  [ // lesson 1: An island of shepherds and vines
+  [ // lesson 1: The harbours and the interior
     {q:"Why did the vines of the Sulcis survive phylloxera?",
-     a:["They were grafted onto American rootstock early","The root louse cannot move through sand","The constant sea wind kept the insect away","The alberello training protected the roots"],
+     a:["They were grafted onto American rootstock early","The root louse does not move through sand","The constant sea wind kept the insect away","The alberello training protected the roots"],
      c:1,
-     why:"Sand is hostile ground for phylloxera as well as for plants: the louse cannot move through it, so the Sulcis kept old vines on their own roots."},
-    {q:"Where is nearly all Pecorino Romano made?",
-     a:["Around Rome, as the name suggests","In the province of Grosseto","In the Gallura, on the granite","In Sardinia"],
+     why:"Phylloxera moves through soil, and growers here have always held that it cannot move through sand. So the Sulcis kept old vines standing on their own roots."},
+    {q:"Where is the consortium that protects the name Pecorino Romano?",
+     a:["In Rome","In the province of Grosseto","In Lazio, inside the historic zone","At Macomer, in the province of Nuoro"],
      c:3,
-     why:"Despite the name, nearly all of it is now made in Sardinia; the protected area covers Sardinia, Lazio and the province of Grosseto."},
-    {q:"What makes Vernaccia di Oristano behave like sherry?",
-     a:["It ages under a film of flor yeast in part-empty barrels","It is fortified with grape spirit before ageing","The grapes are dried in the sun before pressing","It is blended with wine brought from Jerez"],
+     why:"About ninety-two per cent of Pecorino Romano is made in Sardinia, and the consortium that defends the name keeps its office at Macomer. The legal text that defines the zone names Sardinia first."},
+    {q:"What happened to the milk price in the Sardinian protests of 2019?",
+     a:["It was tied to what the cheese fetched, from 72 cents up to 1.02 euros","It was fixed at one euro a litre for five years","It was left to the market after the blockades failed","It was set by the European Commission"],
      c:0,
-     why:"The wine goes into chestnut barrels deliberately left part empty, a film of flor grows across the surface, and it oxidises slowly beneath it, often through a solera."}
+     why:"The accord of 8 March 2019 settled at seventy-four cents, with seventy-two retroactive for February, and indexed the price to the cheese: seventy-two cents while Pecorino Romano sold at six euros a kilo, rising to a euro and two cents at eight-fifty."}
   ],
-  [ // lesson 2: Cannonau and Vermentino
-    {q:"Where does Cannonau come from?",
-     a:["It is proven to have arisen in Sardinia","A Spanish origin is conventional and the Sardinian claim is contested","The Phoenicians brought it from North Africa","It is not related to Grenache at all"],
-     c:1,
-     why:"Cannonau is genetically Grenache. An Aragonese origin is the conventional view, and the Sardinian counter-claim is taken seriously but not accepted."},
+  [ // lesson 2: Four wines, four rocks
+    {q:"What is settled about Cannonau's origin, and what is not?",
+     a:["It is proven to have arisen in Sardinia","It is not related to Grenache at all","The Phoenicians brought it from North Africa","It is Garnacha; where the variety started is unresolved"],
+     c:3,
+     why:"Cannonau was matched to Garnacha by DNA in 2009. Domesticated grapes grew on Sardinia from about 1300 BC, but seed shape is not DNA, and the study most often cited on the island for a Sardinian origin in fact excludes it."},
     {q:"What does the decomposed granite of the Gallura do to Vermentino?",
      a:["It makes the wine sweeter and softer","It holds water, so the vine yields heavily","It starves the vine, so it yields little and concentrates","It pushes the alcohol above 15%"],
      c:2,
-     why:"The coarse, quick-draining granite holds no water and few nutrients, so the vine struggles, yields little and concentrates what it has."},
+     why:"The coarse granite holds neither water nor much to eat, so the vine struggles, carries little fruit and concentrates what it carries. That is the argument for the island's only DOCG."},
     {q:"Which Cannonau sub-zone makes the firmer, fresher mountain style?",
      a:["Oliena","Capo Ferrato","Mamoiada","Jerzu"],
      c:3,
-     why:"Jerzu, high in the Ogliastra on the eastern slopes, is grown up to 700 metres and above; Mamoiada is a village outside the named sub-zones."}
+     why:"At Jerzu, high in the Ogliastra, the vines run to seven hundred metres and above. Mamoiada is not a named sub-zone at all, though its growers are the most talked-about on the island."}
   ],
-  [ // lesson 3: Porceddu, carasau and the pastoral table
-    {q:"Why is pane carasau baked twice?",
-     a:["To make it puff up into a balloon","To make it crisp, so that it keeps for up to a year","To brown the crust and deepen the flavour","To let the dough rise a second time"],
+  [ // lesson 3: Food that had to keep
+    {q:"How long does pane carasau keep?",
+     a:["A week, like most flatbreads","Months, which is why shepherds carried a stack of it","Up to a year, by law","Only a day once the sheets are split"],
      c:1,
-     why:"The balloon is split into two paper-thin sheets and each is baked again until crisp. Twice-baked is what carasau means, and it keeps for up to a year."},
-    {q:"How is porceddu cooked?",
-     a:["Spitted beside the fire rather than over it, for several hours","Roasted in a sealed clay oven","Boiled in milk and then roasted","Buried in embers wrapped in myrtle"],
+     why:"The bread keeps for months, and that is the whole point of baking it twice. The often-printed claim that it keeps a year appears in no official text."},
+    {q:"What is unusual about how porceddu is cooked?",
+     a:["It is set beside the fire rather than over it","It is roasted in a sealed clay oven","It is boiled in milk before roasting","It is buried in embers"],
      c:0,
-     why:"The pig is spitted on a green pole and set beside, not over, a fire of oak or juniper, so it cooks in the radiated heat while its own fat bastes it."},
-    {q:"What are culurgiones filled with?",
-     a:["Ricotta and spinach","Minced lamb with saffron","Potato mashed with pecorino, mint and oil","Clams and tomato from the lagoons"],
+     why:"The pig is split and set on a spit beside the fire, so it cooks for hours in radiated heat while its own fat bastes it. By the old practice it then rested on a bed of myrtle branches."},
+    {q:"Under the IGP rules, what is optional in culurgiones?",
+     a:["The potato in the filling","The soft wheat flour in the dough","The mint","The hand-worked seam"],
      c:2,
-     why:"Culurgiones from the Ogliastra are filled with potato mashed with pecorino, mint and olive oil, and closed with the spighitta pleat."}
+     why:"The rules require semolina and soft wheat flour together, and a fat. Mint is allowed rather than required, alongside garlic, basil and onion, and the seam must carry at least ten stitches."}
   ],
-  [ // lesson 4: Nuraghi, the Bronze Age towers
-    {q:"What is the modern consensus about what the nuraghi were for?",
+  [ // lesson 4: The towers and the language
+    {q:"What does the evidence suggest the nuraghi were for?",
      a:["Temples aligned on the stars","Tombs built for chieftains","Defensible homesteads holding people, stores and animals","Lighthouses guiding Phoenician ships"],
      c:2,
-     why:"The consensus is more domestic than romantic, which is why so many stand on ordinary farmland within sight of the next one rather than on strategic heights."},
+     why:"A fortress is placed to command ground. These sit on farmland, in sight of the next one, at the density of farms rather than of strongholds."},
     {q:"How is the chamber inside a nuraghe roofed?",
-     a:["With timber beams and thatch","By corbelling, each course laid inward until the walls close","With a keystone arch of cut blocks","With flat slabs laid across the walls"],
+     a:["With timber beams and thatch","By corbelling, each ring laid further in until the rings close","With a keystone arch of cut blocks","With flat slabs laid across the walls"],
      c:1,
-     why:"Each course of stone is laid slightly inward over the one below until the walls close overhead in a tall pointed dome, the principle of the tholos tombs of Mycenae."},
+     why:"Each ring of stone is laid a little further in than the one beneath, and the weight above holds it in place. That is why the towers have stood three thousand years with no mortar in them."},
     {q:"What is Sardinian?",
-     a:["A dialect of Italian spoken in the interior","A form of Catalan brought from Alghero","A Corsican dialect spoken in the Gallura","A separate Romance language, the closest to Latin"],
+     a:["A dialect of Italian spoken in the interior","A form of Catalan brought from Alghero","A Corsican dialect spoken in the Gallura","A Romance language in its own right, closer to Latin than any other"],
      c:3,
-     why:"Sardinian is not a dialect of Italian but a separate Romance language, and its Logudorese form is measurably the closest surviving speech to Latin."}
+     why:"Sardinian is a Romance language, not a dialect of Italian, and its Logudorese form keeps more of Latin than any other Romance language does. Logudorese is written in the north and centre, Campidanese in the south."}
   ]
 ];
 

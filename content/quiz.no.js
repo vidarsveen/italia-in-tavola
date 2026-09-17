@@ -885,61 +885,61 @@ window.QUIZ_NO['IT-67'] = [
 ];
 
 window.QUIZ_NO['IT-88'] = [
-  [ // lesetekst 1: En øy av gjetere og vinranker
+  [ // lesetekst 1: Havnene og innlandet
     {q:"Hvorfor overlevde vinrankene i Sulcis vinlusen?",
-     a:["De ble tidlig podet på amerikansk grunnstamme","Rotlusen kommer seg ikke gjennom sand","Den stadige sjøvinden holdt insektet unna","Alberello-formen beskyttet røttene"],
+     a:["De ble tidlig podet på amerikansk grunnstamme","Vinlusen kommer seg ikke gjennom sand","Den stadige sjøvinden holdt insektet unna","Alberello-formen beskyttet røttene"],
      c:1,
-     why:"Sand er ugjestmild jord for vinlusen så vel som for planter: lusen kommer seg ikke gjennom den, og derfor beholdt Sulcis gamle ranker på egen rot."},
-    {q:"Hvor lages nesten all Pecorino Romano?",
-     a:["Rundt Roma, slik navnet tilsier","I provinsen Grosseto","I Gallura, på granitten","På Sardinia"],
+     why:"Vinlusen beveger seg gjennom jord, og dyrkerne her har alltid holdt fast ved at den ikke kommer gjennom sand. Dermed beholdt Sulcis gamle ranker som står på egne røtter."},
+    {q:"Hvor ligger konsortiet som verner navnet Pecorino Romano?",
+     a:["I Roma","I provinsen Grosseto","I Lazio, innenfor det historiske området","I Macomer, i provinsen Nuoro"],
      c:3,
-     why:"Til tross for navnet lages nesten alt i dag på Sardinia; det beskyttede området omfatter Sardinia, Lazio og provinsen Grosseto."},
-    {q:"Hva gjør at Vernaccia di Oristano oppfører seg som sherry?",
-     a:["Den lagres under et lag florgjær i delvis fylte fat","Den tilsettes sprit før lagringen","Druene tørkes i solen før pressing","Den blandes med vin hentet fra Jerez"],
+     why:"Omtrent nittito prosent av all Pecorino Romano lages på Sardinia, og konsortiet som forsvarer navnet, har kontoret sitt i Macomer. Lovteksten som definerer området, nevner Sardinia først."},
+    {q:"Hva skjedde med melkeprisen under gjeteraksjonene i 2019?",
+     a:["Den ble bundet til det osten innbrakte, fra 72 cent opp til 1,02 euro","Den ble fastsatt til én euro literen i fem år","Den ble overlatt til markedet da blokadene ikke førte fram","Den ble fastsatt av Europakommisjonen"],
      c:0,
-     why:"Vinen fylles på kastanjefat som med vilje bare fylles delvis, et lag florgjær legger seg over overflaten, og under det oksiderer vinen langsomt, ofte gjennom en solera."}
+     why:"Avtalen 8. mars 2019 endte på syttifire cent, med syttito betalt tilbakevirkende for februar, og bandt prisen til osten: syttito cent så lenge Pecorino Romano lå på seks euro kiloen, stigende til en euro og to cent ved åtte og femti."}
   ],
-  [ // lesetekst 2: Cannonau og Vermentino
-    {q:"Hvor kommer Cannonau fra?",
-     a:["Det er bevist at den oppsto på Sardinia","Spansk opphav er det vanlige synet, og den sardiske påstanden er omstridt","Fønikerne tok den med fra Nord-Afrika","Den er ikke i slekt med Grenache i det hele tatt"],
-     c:1,
-     why:"Cannonau er genetisk Grenache. Aragonsk opphav er det vanlige synet, og den sardiske motpåstanden tas på alvor, men er ikke godtatt."},
+  [ // lesetekst 2: Fire viner, fire bergarter
+    {q:"Hva er avklart om opphavet til Cannonau, og hva er det ikke?",
+     a:["Det er bevist at den oppsto på Sardinia","Den er ikke i slekt med Grenache i det hele tatt","Fønikerne tok den med fra Nord-Afrika","Den er Garnacha; hvor sorten oppsto, er uavklart"],
+     c:3,
+     why:"Cannonau ble bekreftet som Garnacha med DNA i 2009. Det vokste dyrkede druer på Sardinia fra omkring 1300 f.Kr., men kjerneform er ikke DNA, og den studien som oftest siteres på øya for sardisk opphav, utelukker det faktisk."},
     {q:"Hva gjør den forvitrede granitten i Gallura med Vermentino?",
      a:["Den gjør vinen søtere og mykere","Den holder på vann, så ranken gir store avlinger","Den utarmer ranken, så den gir lite og konsentrerer","Den presser alkoholen over 15 %"],
      c:2,
-     why:"Den grove granitten drenerer raskt og holder verken på vann eller næring, så ranken sliter, gir lite og konsentrerer det den har."},
-    {q:"Hvilken underson for Cannonau står for den fastere og friskere fjellstilen?",
+     why:"Den grove granitten holder verken på vann eller næring, så ranken sliter, bærer lite frukt og konsentrerer det den bærer. Det er argumentet for øyas eneste DOCG."},
+    {q:"Hvilket underområde for Cannonau står for den fastere og friskere fjellstilen?",
      a:["Oliena","Capo Ferrato","Mamoiada","Jerzu"],
      c:3,
-     why:"Jerzu ligger høyt i Ogliastra på østsiden og dyrkes opp mot 700 meter og høyere; Mamoiada er en landsby utenfor undersonene."}
+     why:"Ved Jerzu, høyt oppe i Ogliastra, går rankene opp mot sju hundre meter og høyere. Mamoiada er ikke noe eget underområde, selv om dyrkerne der er de mest omtalte på øya."}
   ],
-  [ // lesetekst 3: Porceddu, carasau og gjeterbordet
-    {q:"Hvorfor stekes pane carasau to ganger?",
-     a:["For at det skal blåse seg opp som en ballong","For at det skal bli sprøtt og holde seg i opptil et år","For å brune skorpen og gi mer smak","For at deigen skal heve en gang til"],
+  [ // lesetekst 3: Mat som måtte holde seg
+    {q:"Hvor lenge holder pane carasau seg?",
+     a:["En uke, som de fleste flatbrød","I måneder, og derfor bar gjeterne med seg en stabel","Opptil et år, etter regelverket","Bare et døgn når leivene er delt"],
      c:1,
-     why:"Ballongen deles i to papirtynne plater, og hver av dem stekes en gang til til de er sprø. Carasau betyr nettopp dobbeltstekt, og brødet holder seg i opptil et år."},
-    {q:"Hvordan tilberedes porceddu?",
-     a:["På spidd ved siden av bålet, ikke over det, i flere timer","Stekt i en lukket leirovn","Kokt i melk før den stekes","Gravd ned i glørne pakket inn i myrt"],
+     why:"Brødet holder seg i måneder, og det er hele poenget med å steke det to ganger. Påstanden om at det holder seg et år, står ikke i noe offisielt dokument."},
+    {q:"Hva er uvanlig ved måten porceddu stekes på?",
+     a:["Den settes ved siden av ilden og ikke over den","Den stekes i en lukket leirovn","Den kokes i melk før steking","Den graves ned i glørne"],
      c:0,
-     why:"Grisen settes på en grønn stang ved siden av, ikke over, et bål av eik eller einer, slik at den steker i strålevarmen mens fettet fra dyret drypper ned over den."},
-    {q:"Hva er culurgiones fylt med?",
-     a:["Ricotta og spinat","Kvernet lam med safran","Potet most med pecorino, mynte og olje","Muslinger og tomat fra lagunene"],
+     why:"Grisen flekkes og settes på spidd ved siden av ilden, slik at den steker i timevis i strålevarmen mens dens eget fett drypper over den. Etter gammel skikk hvilte den deretter på et lag myrtegrener."},
+    {q:"Hva er valgfritt i culurgiones etter IGP-reglene?",
+     a:["Poteten i fyllet","Hvetemelet i deigen","Mynten","Den håndlagde sømmen"],
      c:2,
-     why:"Culurgiones fra Ogliastra fylles med potet most sammen med pecorino, mynte og olivenolje, og lukkes med spighitta-bretten."}
+     why:"Regelverket krever semule og hvetemel sammen, og et fettstoff. Mynte er tillatt, ikke påbudt, ved siden av hvitløk, basilikum og løk, og sømmen må ha minst ti sting."}
   ],
-  [ // lesetekst 4: Nuragher: bronsealderens tårn
-    {q:"Hva er dagens rådende oppfatning om hva nuraghene ble brukt til?",
-     a:["Templer innrettet etter stjernene","Graver bygget for høvdinger","Befestede gårder med plass til folk, forråd og dyr","Fyrtårn som loset fønikiske skip"],
+  [ // lesetekst 4: Tårnene og språket
+    {q:"Hva tyder bevisene på at nuraghene ble brukt til?",
+     a:["Templer innrettet etter stjernene","Graver bygget for høvdinger","Forsvarbare gårder med plass til folk, forråd og dyr","Fyrtårn som loset fønikiske skip"],
      c:2,
-     why:"Oppfatningen i dag er mer hverdagslig enn romantisk, og derfor står så mange av dem på vanlig jordbruksland med utsyn til den neste, ikke på strategiske høyder."},
+     why:"En festning plasseres for å beherske terrenget. Disse ligger på dyrket mark, med utsyn til den neste, og like tett som gårder heller enn som borger."},
     {q:"Hvordan er kammeret inne i en nuraghe overdekket?",
-     a:["Med bjelker av tre og halmtak","Ved utkraging, der hvert skift legges innover til veggene møtes","Med en buet hvelving av tilhugde blokker","Med flate heller lagt tvers over veggene"],
+     a:["Med bjelker av tre og halmtak","Med kragehvelv, der hver ring legges lenger inn til ringene lukker seg","Med en buet hvelving av tilhugde blokker","Med flate heller lagt tvers over veggene"],
      c:1,
-     why:"Hvert skift av stein legges litt lenger inn enn det under, til veggene lukker seg i en høy, spiss kuppel, samme prinsipp som i tholos-gravene i Mykene."},
+     why:"Hver steinring legges litt lenger inn enn den under, og vekten over holder den på plass. Derfor har tårnene stått i tre tusen år uten mørtel."},
     {q:"Hva er sardisk?",
-     a:["En dialekt av italiensk som snakkes i innlandet","En form for katalansk brakt fra Alghero","En korsikansk dialekt som snakkes i Gallura","Et eget romansk språk, det som ligger nærmest latin"],
+     a:["En dialekt av italiensk som snakkes i innlandet","En form for katalansk brakt fra Alghero","En korsikansk dialekt som snakkes i Gallura","Et romansk språk i seg selv, nærmere latin enn noe annet"],
      c:3,
-     why:"Sardisk er ikke en dialekt av italiensk, men et eget romansk språk, og logudoresisk er den formen som målbart ligger nærmest latin."}
+     why:"Sardisk er et romansk språk og ingen dialekt av italiensk, og den logudoresiske formen holder mer på latinen enn noe annet romansk språk gjør. Logudoresisk skrives i nord og i midten, campidanesisk i sør."}
   ]
 ];
 

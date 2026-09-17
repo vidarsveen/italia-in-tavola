@@ -481,7 +481,7 @@ not lower).
 
 ## 6. Length, recorded honestly
 
-Final English: **699 / 694 / 1297 / 870** spoken words. Readings 1, 2 and 4 sit inside the target band.
+English at the time this section was written: **699 / 694 / 1297 / 870** spoken words. (The reviews later moved these; the final figures are in section 7.) Readings 1, 2 and 4 sit inside the target band.
 **Reading 3 does not, and no further prose polish will close the gap.**
 
 A compression pass recovered **31 words** from 1328. That is the measurement that matters: rewriting for
@@ -505,22 +505,16 @@ was to trim undefended material only, which here is nothing.
 For the narration this is about **8 minutes 15 seconds** at the measured English rate of 157 words a minute,
 against roughly 4:30 for readings 1 and 2. A listener will notice. That is the real cost of the decision.
 
-## 7. The second pass - and a gap that must be closed
+## 7. The second pass - all eight reviews, in two rounds
 
-**Five of eight reviews completed. Three died on a session rate limit** (reset 18:10 Europe/Oslo):
-**reader 4, fact 3 and fact 4**. So as this stands:
+**All eight reviews are in.** Five completed on the first attempt; **reader 4, fact 3 and fact 4 died on a
+session rate limit** and were re-run successfully afterwards. Every reading now has both a reader and a fact
+review, and all findings are applied.
 
-| Reading | Reader review | Fact review |
-| --- | --- | --- |
-| 1 | done | done |
-| 2 | done | done |
-| 3 | done | **NOT RUN** |
-| 4 | **NOT RUN** | **NOT RUN** |
-
-**Reading 4 has had no review of any kind.** Nothing has independently checked the nuraghi dates, the
-corbelling mechanism, the Alghero 1353-54 correction that replaced the old text's wrong 1372, or - the one
-that matters most - that the wine-and-longevity link stays out. **Do not treat Sardegna as reviewed until
-those three are re-run.**
+**The re-run brief carried one change that proved its worth.** The first-round fact reviewers, reading only
+this ledger, marked a number of correct facts "UNSUPPORTED" because the ledger compresses the research. The
+re-run brief told them to write "not in the ledger" instead of "unsupported" when the ledger was silent. Both
+re-runs then reported cleanly in that category, and nothing correct was deleted on a false flag.
 
 ### What the five reviews caught
 
@@ -557,7 +551,75 @@ the two ISTAT figures ("one counted holdings, the other plantings"), "arrived at
 asserts that Mamoiada lies outside the named sub-zones - the quiz would have explained itself with a place the
 readings never name.
 
+
+### What the second round caught
+
+**Fact review 4 confirmed the thing that mattered most:** nothing lets the wine-and-longevity link back in,
+and `1372` appears nowhere in the file - the Alghero correction held. It then caught three pieces of overreach
+that were mine, not the old text's:
+
+- "closer to Latin than any other **living** speech" - the old text said "any other surviving **Romance**
+  speech", and dropping the family is what made the claim unsayable. Restored, in the prose and the recap.
+- "The demography is solid and unusually well checked" - the research records age validation as a **live
+  dispute** with a published defence, not as settled. Now stated as argued-over, with this zone among the
+  best documented.
+- "In most populations female centenarians outnumber male by well over two to one" - that 2.43 figure is for
+  **outside this zone**, not for populations at large.
+
+It also found four real losses, all restored: **Lilliu and the 1950 excavation**, the **keep's seventeenth-
+to-thirteenth-century BC date**, **Campidanese** as the southern written form, and the term **blue zone**
+itself, which section 1 had listed as unused and free.
+
+**Fact review 3** found a self-contradiction: the culurgiones paragraph said the rules require soft wheat and
+fat, then said "only the closing is compulsory". It also caught that the reading's summary line said the fava
+bean sent Sardinian **children** to hospital while the prose and the research say **men**. And it found
+**porceddu's myrtle** gone - the old text carried it in prose, summary and recap, and myrtle survived in the
+region only as a tasting note. Restored as practice rather than rule, which is what the research supports.
+
+**Reader review 4** counted **eight corrective moves in about 205 words** in the longevity section - denser
+than the defect case it was briefed against - and found the reading ending on a footnote about a wine paper,
+in a reading about towers and language. Rewritten to close on the men and the ground they walked.
+
+### The recurring lesson, restated
+
+Three separate fixes in this round each **created** the next defect: removing the "the one to walk into" tic
+left a paragraph opening on a bolded name; adding the term "blue zone" produced a 42-word sentence; splitting
+a chain into even pieces produced a 23/25/23 rhythm run. **Every fix needs its own re-lint.** This is the
+third region where that has held.
+
 ### Final English
 
-**643 / 648 / 1311 / 870** words, means 17.4-19.3, longest sentence 35, lint clean. The named-in-spoken-prose
-audit passes on all four readings, including the two gaps section 4a opened this pass to close.
+**643 / 648 / 1342 / 894** words, means 17.4-19.0, longest sentence 34, lint clean, node clean. The
+named-in-spoken-prose audit passes on all four readings, now including myrtle, Lilliu, Campidanese and
+"blue zone".
+
+## 8. The Norwegian - and the defect that keeps recurring
+
+### Clefts: three drafting sessions, seven instances, the rule quoted each time
+
+CLAUDE.md 4b rule 1 bans the cleft «Det som …, er …» outright. I wrote **two** into readings 1-2 and
+**five more** into readings 3-4, with the rule in front of me on both occasions.
+
+**The cause is now clear, and it is structural rather than careless.** English sentences of the shape
+*"What bars its sale is…"*, *"What is left open is…"*, *"What goes into it is…"*, *"What is left, when the
+diets are set aside, is…"* translate **straight** into the banned construction. Every one of the seven came
+from an English sentence that was itself built as a pseudo-cleft. So the rule about writing Norwegian from
+the facts and not from the English sentence is not a style preference here: **an English pseudo-cleft
+mechanically becomes a Norwegian cleft unless the sentence is re-planned.**
+
+**Standing rule for the remaining region:** before drafting Norwegian, grep the *English* for
+`^What .* is` and `, is ` and re-plan those sentences first. Then grep the Norwegian for
+`Det som .*, er` before linting. The linter does catch these, but only after they are written, and each one
+then has to be re-planned under pressure rather than avoided.
+
+### Spelling errors a prose linter cannot see
+
+Six typos survived into the draft, none of them flagged by `prose_lint.py`, because they are spelling and not
+shape: `tilfåldig`, `tætt`, `sprør`, `nægter`, `dobliger`, `Gallauresisk`. **Three of them are Danish forms**
+(`tætt`, `nægter`, `sprør`) - a drift worth watching for in any long Norwegian passage written in one pass.
+A spell check is not part of the pipeline and probably should be.
+
+### Spelling decision carried
+
+The Norwegian edition used `casu martzu`; the English uses `casu marzu`, which is the spelling in the Italian
+state register (F19). The rewrite standardises **both editions on `casu marzu`**.
