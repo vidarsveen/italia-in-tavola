@@ -477,6 +477,30 @@ Object.assign(window.GLOSSARY, {
 
   'fornello pronto': {short:"A butcher's shop that grills what you have just chosen at the counter and charges by weight.",
     long:"The meat is threaded onto skewers and stood upright inside a stone dome, cooking beside the fire rather than over it, so the fat drips onto coals away from the meat. Martina Franca, Cisternino, Locorotondo, Ceglie Messapica and Ostuni all have them, and the speciality is the bombetta, a thin slice of pork neck rolled round cheese. The butchers turned fully into restaurants during the economic crisis of the 1990s.",
-    match:["fornello pronto","fornello"]}
+    match:["fornello pronto","fornello"]},
+
+  'calanchi': {short:"Clay badlands eroded into blades and gullies, the landscape around Craco.",
+    long:"Rain and runoff cut soft marine clays into fins, ridges and bare gullies, and once the vegetation has gone the process runs away with itself. They run for kilometres through the province of Matera, and they are part of why Craco had to be abandoned: the same soft clays that shape them also slide. The word is a plural, and a single blade is a calanco.",
+    match:["calanchi","calanco"]},
+
+  'gravina': {short:"A steep ravine cut by a torrent through limestone, and the name of the one at Matera.",
+    long:"The torrent cuts first through soft calcarenite and then into the hard limestone beneath, leaving a gorge whose upper walls are soft enough to be dug into. That is why the Sassi are where they are. The same word is a town name in Puglia, twenty-odd kilometres away across the same plateau.",
+    match:["gravina"]},
+
+  'vicinato': {short:"A cluster of cave houses facing a shared courtyard, with one oven and one well.",
+    long:"Houses in the Sassi opened not onto a street but onto a bounded courtyard, often with a cistern at its centre. The anthropologists who surveyed Matera in the 1950s concluded that this courtyard, rather than the family, was the unit people actually lived in, and Borgo La Martella, built for the evacuated families, was planned to reproduce it.",
+    match:["vicinato","vicinati"]},
+
+  'serta': {short:"A string of sweet peppers threaded for drying, a metre and a half to two metres long.",
+    long:"The pods are threaded by the stalk so that each lies about a hundred and twenty degrees round from the last, which is the spacing at which air can pass between them. They are dried in the dark for two or three days first, and only then hung in the sun. The plural is serte, and the rules call them collane, necklaces, as well.",
+    match:["serta","serte","collane"]},
+
+  'crusco': {short:"A dried sweet pepper dropped into hot oil for two or three seconds, until it shatters.",
+    long:"Lucanian dialect for crisp, and close to the sound the pod makes between the teeth. The word is not in the protected designation, which covers the pepper rather than what frying does to it, and a separate collective mark for crusco has been discussed for exactly that reason. The plural is cruschi.",
+    match:["crusco","cruschi"]},
+
+  'calcarenite': {short:"The soft, easily cut limestone that the Sassi of Matera are dug into.",
+    long:"A poorly cemented limestone of shell fragments laid down in a shallow sea, soft enough to cut with hand tools and firm enough to hold a vault. Matera calls it tufo, which it is not: it is neither volcanic tuff nor the crust that forms around a spring. Under it lies the hard Cretaceous limestone the gorge finally cut down into.",
+    match:["calcarenite"]}
 
 });

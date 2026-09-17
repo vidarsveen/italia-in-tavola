@@ -480,6 +480,61 @@ Calabria, Sicilia, Sardegna. Then the twenty region intros as audiobook bridges.
 Each region: outline+ledger files, EN drafts, lint, reader+fact reviews, second pass, NO, NO reviews,
 glossary entries for new terms, build, publish. Recordings wait until the owner asks.
 
+**Definition of done for Italy (owner, 2026-09-17).** Asked whether the course was fully rewritten, the
+answer was no — 16 of 20 regions, 64 of 80 readings — and the owner set the finish line: *"we do Italy first
+and focus what is needed to have all the regions rewritten with the questions updated and everything of
+sound and quizzes … given the new text will also need to be updated."* So Italy is finished when three things
+are true, not one:
+
+1. **All 20 regions rewritten**, both languages. Four are left: Basilicata (in progress), Calabria, Sicilia,
+   Sardegna.
+2. **The quizzes match the new text.** This is already being done inside each region's pass and must not be
+   deferred: where a rewrite overturns a claim, the question built on it is rewritten in both languages and
+   `python tools/quizcheck.py` run. Watch for the case the Puglia pass named — **the scored answer is itself
+   the error** — which needs the question replaced outright, not re-worded.
+3. **The narration matches the new text.** This supersedes "Recordings wait until the owner asks" above.
+
+**Measured state of the narration, 2026-09-17 — and a correction.** An earlier draft of this section asserted
+that all 64 rewritten readings were stale. **That was wrong, and it was a guess where CLAUDE.md §4.2 says
+never to guess.** `review_no.py --stale` run across all twenty stems reports **no stale narration anywhere**,
+and the manifests confirm why:
+
+- **All 16 rewritten regions** carry narration recorded to the current standard in **both** languages —
+  English `en-GB-SoniaNeural`, Norwegian `nbtts/Kvinne · Oslo@0.95`, both with
+  `intro=title`, `drop=facts,recap,tasting,headings`, `outro=none`. The re-recording has already been done,
+  region by region, as each rewrite landed.
+- **The four unwritten regions** (basilicata, calabria, sardegna, sicilia) still carry the *old* settings —
+  English with no intro/drop recorded at all, Norwegian at the older `drop=facts,recap`. They will be
+  re-recorded as part of their own passes, which is the existing rhythm and needs no change.
+
+So **the sound is not a backlog; it is a publishing question.** The 412 re-recorded files — 322.7 MB across
+the 16 regions — sit **modified and uncommitted** in the working tree, and the live site serves whatever is
+committed. The audio on the published site is therefore the pre-rewrite narration, while the local files are
+correct and current.
+
+**The obstacle is repo size, and it is the owner's call.** `.git` is already **922 MB** and `assets/audio`
+is 507 MB on disk. Committing the 412 files adds roughly another **320 MB of new blobs permanently** (mp3
+and ogg do not delta-compress), taking `.git` to about **1.24 GB**, and every future re-record of a finished
+region adds a further ~320 MB that can never be removed without rewriting history. The *published* site is a
+separate limit and is not the problem: `make_site.py` replaces old MP3s with new ones of similar size, so
+`site/` stays near its current 389 MB, well inside the 1 GB Pages limit.
+
+**Decided by the owner, 2026-09-17: option (b), hold.** The audio stays uncommitted until all twenty regions
+are written, then goes in as one commit. So a session finishing a region re-records it as usual and leaves
+the files in the working tree — **do not commit `assets/audio/` until Italy is finished**, and do not be
+alarmed by a git status showing hundreds of modified audio files, which is the expected state.
+
+Options as put to him: (a) commit and push now, and accept `.git` at ~1.24 GB; (b) hold until
+all 20 regions are written, then one commit — which does not reduce the byte cost, only the number of
+commits, and leaves the live audio wrong for longer; (c) move audio out of git (LFS, or release assets
+fetched by the Pages workflow), which is the only option that actually solves the growth and is a day's work
+on the build and the workflow. **Do not commit the audio without asking**; the owner has deliberately kept
+re-records out of commits.
+
+The twenty **region intros** (rule 19) are still outstanding and are genuinely not done: they are spoken
+between regions in the audiobook and are still the old inventory text. They are rewritten and recorded once,
+at the end, after all 20 regions are written.
+
 ### 5b. The sequence for every reading (agreed with the owner 2026-09-14)
 
 An outside review of the Lambrusco pilot found seven things, six of them real, none of which the writer

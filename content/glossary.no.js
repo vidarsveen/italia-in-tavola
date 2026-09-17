@@ -477,6 +477,30 @@ Object.assign(window.GLOSSARY_NO, {
 
   'fornello pronto': {short:"En slakterbutikk som griller det du nettopp har valgt i disken, og tar betalt etter vekt.",
     long:"Kjøttet tres på spidd og settes stående inne i en steinkuppel, der det steker ved siden av ilden og ikke over den, så fettet drypper ned på glør et stykke unna. Martina Franca, Cisternino, Locorotondo, Ceglie Messapica og Ostuni har alle slike, og spesialiteten er bombetta, en tynn skive svinenakke rullet rundt ost. Slakterne ble fullt ut restauranter under den økonomiske krisen på 1990-tallet.",
-    match:["fornello pronto","fornello"]}
+    match:["fornello pronto","fornello"]},
+
+  'calanchi': {short:"Leirbadlands erodert til knivegger og kløfter, landskapet rundt Craco.",
+    long:"Regn og overflatevann skjærer myk havleire opp i finner, rygger og nakne kløfter, og når vegetasjonen først er borte, løper prosessen løpsk. De strekker seg kilometervis gjennom Matera-provinsen, og de er en del av grunnen til at Craco måtte forlates: den samme myke leira som former dem, sklir også. Ordet er flertall, og en enkelt egg heter calanco.",
+    match:["calanchi","calanchiene","calanco"]},
+
+  'gravina': {short:"En bratt kløft skåret av en elv gjennom kalkstein, og navnet på den ved Matera.",
+    long:"Elva skjærer først gjennom myk calcarenitt og deretter ned i den harde kalksteinen under, og etterlater en kløft der de øverste veggene er myke nok til å graves inn i. Det er grunnen til at Sassi ligger der de ligger. Det samme ordet er et bynavn i Puglia, et par mil unna på det samme platået.",
+    match:["gravina","gravinaen"]},
+
+  'vicinato': {short:"En klynge hulehus rundt et felles gårdsrom, med én ovn og én brønn.",
+    long:"Husene i Sassi vendte ikke ut mot en gate, men mot et avgrenset gårdsrom, gjerne med en sisterne i midten. Antropologene som kartla Matera på 1950-tallet, kom til at det var gårdsrommet og ikke familien som var den enheten folk faktisk levde i, og Borgo La Martella, som ble bygd for de evakuerte familiene, ble planlagt for å gjenskape det.",
+    match:["vicinato","vicinatoen"]},
+
+  'serta': {short:"En snor med søt paprika tredd opp til tørking, halvannen til to meter lang.",
+    long:"Belgene tres etter stilken slik at hver av dem ligger omtrent hundre og tjue grader rundt fra den forrige, og det er den avstanden som slipper luft mellom dem. De tørkes først i mørket i to eller tre dager, og først deretter henges de i sola. Flertall er serte, og regelverket kaller dem også collane, halskjeder.",
+    match:["serta","sertaen","serte","collane"]},
+
+  'crusco': {short:"En tørket søt paprika som slippes i varm olje i to–tre sekunder, til den knuses.",
+    long:"Lucansk dialekt for sprø, og nær opptil lyden belgen lager mellom tennene. Ordet står ikke i den beskyttede betegnelsen, som dekker paprikaen og ikke det friteringen gjør med den, og et eget fellesmerke for crusco har vært diskutert nettopp av den grunn. Flertall er cruschi.",
+    match:["crusco","cruscoen","cruschi"]},
+
+  'calcarenite': {short:"Den myke kalksteinen som er lett å hugge i, og som Sassi i Matera er gravd inn i.",
+    long:"En løst sementert kalkstein av skjellrester avsatt i et grunt hav, myk nok til å hugges med håndverktøy og fast nok til å bære et hvelv. I Matera kalles den tufo, og det er den ikke: den er verken vulkansk tuff eller kalktuff. Under den ligger den harde kalksteinen fra krittiden som kløften til slutt skar seg ned i.",
+    match:["calcarenite","calcarenitten"]}
 
 });
