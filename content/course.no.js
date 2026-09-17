@@ -77,7 +77,7 @@ window.COURSE_NO = {
    pairing:'Etna Bianco til pasta alla Norma; Nero d\'Avola til grillet sverdfisk; Passito til cannoli.',
    lessons:["Etna: vinranker på en levende vulkan","Nero d'Avola, Grillo og Marsala","Arabisk Sicilia: sitrus, sukker og gatemat","Templer, normannere og barokken"]},
  'IT-88':{intro:"En øy for seg selv, med eget språk og 7 000 steintårn fra bronsealderen. Gjetere steker pattegris, baker papirtynt carasau-brød og lager pecorino; Cannonau og Vermentino er de to store druene.",
-   landmark:{name:'Nuraghe Su Nuraxi, Barumini', desc:'En 3 500 år gammel steinfestning med et sentraltårn og en landsby, den fineste av Sardinias nuragher.'},
+   landmark:{name:'Nuraghe Su Nuraxi, Barumini', desc:'Et tørrmurt tårn av stablede kraggehvelv med en landsby omkring, den fineste av Sardinias nuragher.'},
    pairing:'Vermentino di Gallura til fregola ai frutti di mare; Cannonau til porceddu og pecorino sardo.',
-   lessons:["En øy av gjetere og vinranker","Cannonau og Vermentino","Porceddu, carasau og gjeterbordet","Nuragher: bronsealderens tårn"]},
+   lessons:["Havnene og innlandet","Fire viner, fire bergarter","Mat som måtte holde seg","Tårnene og språket"]},
 };
