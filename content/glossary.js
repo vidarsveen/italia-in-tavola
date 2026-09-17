@@ -501,6 +501,29 @@ Object.assign(window.GLOSSARY, {
 
   'calcarenite': {short:"The soft, easily cut limestone that the Sassi of Matera are dug into.",
     long:"A poorly cemented limestone of shell fragments laid down in a shallow sea, soft enough to cut with hand tools and firm enough to hold a vault. Matera calls it tufo, which it is not: it is neither volcanic tuff nor the crust that forms around a spring. Under it lies the hard Cretaceous limestone the gorge finally cut down into.",
-    match:["calcarenite"]}
+    match:["calcarenite"]},
 
+  'orba': {short:"The pig's blind gut, the wide casing that gives 'nduja its round shape.",
+    long:"The caecum, a blind-ended pouch at the head of the large intestine, and the widest natural casing a pig provides. The whole red mass goes into it, which is why a traditional 'nduja is round rather than cylindrical. Small formats are ready in three months; an orba takes a year.",
+    match:["orba"]},
+
+  'fileja': {short:"Calabria's everyday pasta: semolina and water rolled around a thin cane.",
+    long:"A short length of durum dough is rolled around a reed, so the piece keeps a hole down the middle and a rough seam outside. Both catch a heavy sauce. There is no egg and no oil in the dough. Rolled along its whole length instead of cut short, the same shape is maccheroni al ferretto.",
+    match:["fileja"]},
+
+  'dinaciulu': {short:"The thin cane that fileja is rolled around.",
+    long:"A reed pulled from a riverbank did the work for centuries, and a steel knitting needle does it slightly better. Rolling the dough around it leaves the hole down the middle, which is where a heavy sauce sits.",
+    match:["dinaciulu"]},
+
+  'concio': {short:"A liquorice works: the plant where the root is boiled down to a black extract.",
+    long:"Not a shed on a farm but a small factory. The Amarelli family wrote down the founding of theirs at Rossano in 1731, and it is still running. The root is boiled to a black extract and sold as tiny hard lozenges, unsweetened and startlingly strong.",
+    match:["concio"]},
+
+  'sardella': {short:"A Calabrian paste of tiny sardine and anchovy fry with chilli, salt and wild fennel.",
+    long:"Eaten on bread or worked into fishcakes. The European rules of 2006 banned the taking of fish that small; Calabria held a derogation and lost it in 2010, so a good many jars now hold icefish brought from further away.",
+    match:["Sardella","sardella"]},
+
+  'Greko': {short:"The Greek still spoken in nine villages of the Aspromonte.",
+    long:"Scholars have argued for a century about whether it descends from the Doric of Magna Graecia or arrived with Byzantine settlers. Perhaps two thousand speakers are left, and UNESCO calls it severely endangered. When Roghudi was declared uninhabitable after the floods of 1971 and 1973, its people were moved forty kilometres to the coast, where they still speak it.",
+    match:["Greko"]},
 });

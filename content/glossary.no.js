@@ -501,6 +501,29 @@ Object.assign(window.GLOSSARY_NO, {
 
   'calcarenite': {short:"Den myke kalksteinen som er lett å hugge i, og som Sassi i Matera er gravd inn i.",
     long:"En løst sementert kalkstein av skjellrester avsatt i et grunt hav, myk nok til å hugges med håndverktøy og fast nok til å bære et hvelv. I Matera kalles den tufo, og det er den ikke: den er verken vulkansk tuff eller kalktuff. Under den ligger den harde kalksteinen fra krittiden som kløften til slutt skar seg ned i.",
-    match:["calcarenite","calcarenitten"]}
+    match:["calcarenite","calcarenitten"]},
 
+  'orba': {short:"Blindtarmen på grisen, det vide skinnet som gir 'nduja den runde formen.",
+    long:"Blindtarmen er en lukket pose i begynnelsen av tykktarmen, og den er det videste naturlige skinnet en gris kan gi. Hele den røde massen stappes i den, og derfor er en tradisjonell 'nduja rund og ikke sylindrisk. Små formater er klare på tre måneder, mens en orba tar et år.",
+    match:["orba","orbaen"]},
+
+  'fileja': {short:"Hverdagspastaen i Calabria: semule og vann rullet rundt en tynn sivpinne.",
+    long:"En kort bit durumdeig rulles rundt en sivpinne, slik at biten beholder et hull gjennom midten og en ru skjøt på utsiden. Begge deler fanger en tung saus. Deigen inneholder verken egg eller olje. Rulles pølsen i hele sin lengde i stedet for å deles opp, heter den samme formen maccheroni al ferretto.",
+    match:["fileja","filejaen"]},
+
+  'dinaciulu': {short:"Den tynne sivpinnen som fileja rulles rundt.",
+    long:"En sivpinne fra en elvebredd gjorde jobben i århundrer, og en strikkepinne av stål gjør den litt bedre. Når deigen rulles rundt den, blir hullet gjennom midten igjen, og det er der en tung saus får sitte.",
+    match:["dinaciulu"]},
+
+  'concio': {short:"Et lakrisverk: anlegget der roten kokes ned til et svart ekstrakt.",
+    long:"Ikke et skur på en gård, men en liten fabrikk. Familien Amarelli skrev ned at de grunnla sin i Rossano i 1731, og den er fortsatt i drift. Roten kokes ned til et svart ekstrakt og selges som bittesmå harde pastiller, usøtet og oppsiktsvekkende sterke.",
+    match:["concio","concioen"]},
+
+  'sardella': {short:"En calabrisk masse av bitte små sardin- og ansjosyngel med chili, salt og vill fennikel.",
+    long:"Den spises på brød eller arbeides inn i fiskekaker. EU-reglene fra 2006 forbød å ta fisk så små. Calabria hadde en dispensasjon og mistet den i 2010, og ganske mange glass inneholder nå isfisk hentet lenger unna.",
+    match:["Sardella","sardella","sardellaen"]},
+
+  'Greko': {short:"Gresken som fortsatt snakkes i ni landsbyer i Aspromonte.",
+    long:"Forskerne har kranglet i hundre år om den nedstammer fra dorisken i Magna Graecia eller kom med bysantinske nybyggere. Det er kanskje to tusen talere igjen, og UNESCO regner språket som sterkt truet. Da Roghudi ble erklært ubeboelig etter flommene i 1971 og 1973, ble folket flyttet førti kilometer til kysten, der de fortsatt snakker det.",
+    match:["greko"]},
 });

@@ -478,3 +478,59 @@ need them for **the Olympics story** and **the andouille etymology**; everything
 corrected form without the correction being performed. The Campania lesson stands: a research file is itself
 organised as claim → verdict → correction, and drafting straight from it transfers that shape one paragraph
 at a time.
+
+## 6b. The Norwegian — four reviews, 2026-09-17
+
+Written from the facts and the English draft, not from the English sentence, then linted, then put through four
+fresh-context reader reviews with CLAUDE.md §4b inlined, one per reading. Final lint: **644 / 852 / 1003 / 746
+words**, means 16.1–17.0, longest sentence 33–35, no flags. `review_no.py --check` OK.
+
+**The lint caught only shape.** Six hits in the first pass (two over-long sentences, two paragraphs opening on a
+bolded name, one 22/21/21 rhythm run) and then a treadmill of rhythm runs: fixing the lead's 15/15/15 surfaced a
+12/14/12 in the chilli chronology, which is a date list and therefore naturally uniform. Merging two of those
+dates into a single `men` clause fixed the rhythm and the and-then sequencing together. **The lesson already in
+this ledger held again: change a sentence's length materially, then re-lint, and expect the next-worst run to
+appear.**
+
+**The reviewers caught what the lint cannot.** Twenty findings, all accepted. The two that matter most would
+have passed every mechanical check:
+
+- «Guden på stedet er Apollon, som Filoktetes skal ha viet buen til Herakles.» In Norwegian `viet buen til
+  Herakles` parses as *dedicated the bow **to** Heracles*, so the dedicatee becomes Heracles and **Apollo drops
+  out of the sentence** — in a lead whose whole point is that the god at Krimisa is Apollo and not Bacchus.
+- «Noe vin på denne kysten roste **de**.» The antecedent of `de` sits in the `<h2>` above it, and the spoken
+  script **drops headings**. A listener hears it straight after a sentence about people alive today, so the
+  nearest antecedent is present-day Calabrians and the section's argument inverts. This is a defect that exists
+  *only* in the audio, and no reader of the page would ever see it.
+
+Also found: «å skjes opp» is not a verb (*å skje* means *to happen*), twice; «en pasta» used for a paste, twice,
+in a reading that is genuinely about pasta two paragraphs earlier (§4b rule 8 already records this); «ved
+dekket», where bare *dekket* is a ship's deck and the same word appears in its real sense earlier in the same
+reading; «romantikken», which is the Romantic period and not “the romance”; and six invented compounds that
+are grammatical and that nobody says — «kjernetannin» (carrying a gender disagreement with a following
+«den»), «modelldrue», «fråtseanekdote», «vinry», «landfestet», «bygningsmassen». No fact drift was found
+in any of the four, and the direction checks (Ionian vs Tyrrhenian) all passed.
+
+**Two of the review findings had to be propagated into the quiz**, which had been drafted in the same hour using
+«kjernetannin» and «landfestet». Worth keeping as a rule: *a language fix in the reading is also a language fix
+in anything written from it in the same pass.*
+
+## 7. Propagation — done 2026-09-17
+
+- **Quiz, both languages: six of twelve questions replaced outright**, every one because **the scored answer was
+  itself the error** — 1.1 scored “four per cent” (now 43% DOP), 1.2 scored the Krimisa story as merely
+  unsourced (now disprovable), 1.3 scored an old-vines claim the new reading does not make, 2.1 scored an
+  unidentified second parent (now Mantonico bianco), 2.3 scored the thirty-synonyms claim (retired), 3.1 scored
+  chilli as the preservative (salt is; chilli is a contributor), 4.1 scored silt joining the rock (the 1783
+  earthquake did). Answer positions spread 4/4/2/2 across the four slots. `quizcheck.py` OK.
+- **Glossary +6 in both languages**, keys identical: orba, fileja, dinaciulu, concio, sardella, Greko. 131/131.
+- **Recipes**: the ageing corrected from “three to six months” to three months–a year, the casing named as the
+  blind gut, “roughly half of it is fat” softened to what the reading supports, “sweetest around Briatico”
+  corrected to growing being concentrated there, and the onion-sweetness mechanism hedged to match the reading.
+- **Region sheet, both languages**: the intro no longer claims Cirò is “one of the oldest wines in the world”
+  (the exact claim reading 1 dismantles), the landmark is no longer called simply Benedictine, and the retired
+  lesson title “Magna Graecia and the oldest vineyard” was still live in `COURSE` after the English pass.
+- **Tasting cards**: checked, no change needed. Cirò Rosso, Cirò Bianco, Magliocco and Greco di Bianco (17%)
+  all already match the rewritten tables.
+- **Named-in-spoken-prose audit re-run against the Norwegian**: every sheet wine and dish chip is spoken,
+  **Bagnara and Rossano included** — the two gaps §4a identified in the old text are closed in both editions.
