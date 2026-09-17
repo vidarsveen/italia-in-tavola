@@ -115,41 +115,45 @@ window.READINGS['IT-78'] = {
 },
   lessons: [
   {
-    title: "Magna Graecia and the oldest vineyard",
+    title: "Magna Graecia, and what the Greeks left",
     kicker: "Wine · Reading 1 of 4",
     minutes: 7,
     hero: "ciro",
     heroCaption: "Vineyards at Cirò, on the Ionian side of Calabria, where the first Calabrian DOC was drawn in 1969.",
-    summary: "Greeks settled the toe of Italy from the eighth century BC and planted vines that are still there. What survived, what the region does with it now, and why almost none of it reaches a bottle with a name on it.",
+    summary: "Greeks settled the toe of Italy from the eighth century BC, and a great deal of what Calabria now sells as their inheritance turns out to be a name rather than a thing.",
     html: `
-<p class="lead">Calabria is the toe of Italy, a long mountainous peninsula with the Tyrrhenian sea on one side and the Ionian on the other, and it has been growing wine for longer than almost anywhere in the country. Greek colonists arrived from the eighth century BC and built cities here, Sybaris, Kroton, Locri, that were richer than anything in mainland Greece. They found a people the Greeks called the <strong>Oenotrians</strong>, and the wine went on being made through Rome, Byzantium, the Normans and the Bourbons. What it has not had, until very recently, is a reputation.</p>
+<p class="lead">Between 1924 and 1929 the archaeologist Paolo Orsi dug the sand spit at Punta Alice, on the site identified as Krimisa. Calabrian labels still call the wine of Krimisa the prize of the ancient Olympic games. He found a sanctuary there, north of what is now Cirò Marina, and later campaigns brought up a marble head of about 440 BC. The god of the place is Apollo, to whom Philoctetes is said to have dedicated the bow of Heracles. There is no Bacchus at Krimisa, and no wine anywhere in the record.</p>
 
-<h2>Four per cent</h2>
-<p>The number that explains modern Calabria is this: only about <strong>four per cent</strong> of the wine the region makes each year is bottled under a DOC. Everything else is sold in bulk, much of it northwards, to add colour and strength to blends made somewhere with a better name on the label. The region has twelve DOCs and something over ten thousand hectares of vineyard, and until the 1990s it was one of the least ambitious wine regions in Italy. The turn, when it came, was made by a small number of families who stopped selling to the tanker and started putting Calabria on the cork.</p>
-<figure data-img="vigna"><figcaption>Vines above the sea in the Ionian hills. Calabria is mountainous, and most of its vineyards sit between the peaks and the coast.</figcaption></figure>
+<h2>The prize was a wreath</h2>
+<p>Victors at Olympia were given crowns of olive leaves. No ancient source names wine as a prize, and the entry for Krimisa carries no mention of the games at all. The modern half of the story is real and datable: Cirò was poured as the official wine at the Mexico City Olympics in 1968, and bottles went to Athens in 2004.</p>
+<p>The region's oldest name, <strong>Enotria</strong>, is usually read as the land of wine. The ancient author who explains it says nothing about grapes. Dionysius of Halicarnassus gives an eponymous hero, Oenotrus son of Lycaon, who left Arcadia because his father had twenty-two sons and the land would not divide. The territory was never only Calabrian either. It covered Lucania as much as Bruttium, so the name belongs to Basilicata quite as much as to Calabria.</p>
+<figure data-img="sibari"><figcaption>The excavations at Sybaris. The Greek city lies under later Roman levels and below the water table, which is why so little of it is visible.</figcaption></figure>
+
+<h2>What was actually here</h2>
+<p>The colonies are not in doubt. <strong>Sybaris</strong> was founded about 720 BC on the Ionian plain and became a byword for luxury so complete that we still use the word sybaritic. <strong>Kroton</strong> followed a decade or so later and produced Pythagoras, the physician Democedes and the wrestler Milo. Kroton destroyed Sybaris in 510 BC, and Strabo says the victors turned a river over the ruins. Core samples taken from the site found no river deposits above the city. Sybaris sits about six metres down, below the groundwater, which is why the excavation is a few trenches in a field.</p>
+<p>Milo carries the other half of the Calabrian wine legend. Athenaeus, writing around AD 200 and quoting someone else, says the wrestler ate twenty minae of meat, something like nine kilos, and as much bread, and drank three choes of wine, about ten litres. He had just carried a bull round the stadium and killed it. That is a gluttony anecdote seven hundred years after the man, and it does not say what the wine was.</p>
 
 <aside class="facts"><h4>Key facts</h4><ul>
-<li>Only about <b>4%</b> of Calabrian production is classified DOC; the rest leaves the region in bulk.</li>
-<li>Twelve DOCs, among them <b>Cirò</b>, Melissa, Savuto, Lamezia, Bivongi, Pollino and <b>Greco di Bianco</b>.</li>
-<li><b>Cirò</b> was the first Calabrian denomination, by decree of 2 April 1969. In November 2023 the classico heartland was raised to the region's first <b>DOCG</b>.</li>
-<li>The region is 42% mountain and 49% hill. Vineyards run from sea level to about 700 metres, and the two coasts have different climates.</li>
+<li><b>Sybaris</b> was founded about 720 BC, <b>Kroton</b> about 710–708 BC, <b>Locri Epizephyrii</b> in the early 7th century.</li>
+<li>Calabria has <b>nine DOCs and one DOCG</b>, plus ten IGTs. The count of twelve is out of date: seven Cosenza denominations became sub-zones of <b>Terre di Cosenza</b> in 2011.</li>
+<li><b>Cirò</b> was the first Calabrian denomination, by decree of 2 April 1969. Its classico heartland became <b>Cirò Classico</b>, the region's first DOCG, published in December 2023 and registered by the EU on 25 July 2025.</li>
+<li>The region is <b>41.8% mountain and 49.2% hill</b>, which leaves nine per cent flat, and rises to <b>2,267 m</b> at Serra Dolcedorme. Its vineyard has fallen from about 11,500 hectares in 2013 to <b>9,160 in 2021</b>.</li>
 </ul></aside>
 
-<h2>The Greek inheritance</h2>
-<p>The Greek colonies were the making of the place. <strong>Sybaris</strong>, founded on the Ionian plain in the eighth century BC, became a byword for luxury so complete that we still use the word sybaritic; its neighbours destroyed it in 510 BC and, the story goes, diverted a river over the ruins. <strong>Kroton</strong> down the coast produced Pythagoras and the wrestler Milo, and was famous for athletes. It is from this world that Calabria's oldest wine story comes: that the wine of <strong>Krimisa</strong>, near modern Cirò, was given to victors at the ancient Olympic games. It is repeated on a great many labels. It is also almost impossible to source, and the honest way to put it is that the tradition is old and the evidence is not.</p>
-<figure data-img="sibari"><figcaption>The excavations at Sybaris. The Greek city lies under later Roman levels and under the water table, which is why so little of it is visible.</figcaption></figure>
-<p>What is not in doubt is that Greek is still spoken here. In a handful of villages in the Aspromonte, the <strong>Grecanici</strong> speak a Greek dialect that survives from Byzantine rule and perhaps from Magna Graecia itself. And in 1972 a diver off Riace found two bronze warriors lying in the sand, cast around 460 and 430 BC, nearly two metres tall, with eyes of glass and lips of copper. The <strong>Riace bronzes</strong> are the finest Greek bronzes anywhere and they are in the museum at Reggio Calabria.</p>
-<figure data-img="bronzi"><figcaption>One of the two Riace bronzes in the Museo Nazionale della Magna Grecia at Reggio Calabria, found by a diver in August 1972.</figcaption></figure>
+<h2>Two coasts</h2>
+<p>Calabria is a long mountain range with a sea on either side. The <strong>Ionian</strong> coast to the east is hot and dry and swept by the sirocco off Africa; the <strong>Tyrrhenian</strong> to the west is wetter and greener. The Greek cities stood almost all on the Ionian side, and so does Cirò. Between the two coasts the ground rises to 2,267 metres at Serra Dolcedorme, and what flat land there is lies along the shore and was malarial within living memory.</p>
 
-<h2>Two coasts, two climates</h2>
-<p>The <strong>Ionian</strong> side, facing east, is hot, dry and swept by the sirocco off Africa; its plains and low hills grow Gaglioppo around Cirò and Melissa, and the dried-grape whites of the far south. The <strong>Tyrrhenian</strong> side, facing west, is wetter and greener, with vineyards on the slopes above Lamezia and in the Savuto valley. Down the spine run mountains that reach 2,267 metres in the Pollino massif, and inland the granite plateau of the <strong>Sila</strong> is forest and pasture at 1,300 metres, cold enough for snow, which is not what most people expect of the deep south.</p>
-<p>This is the shape of the region: a hot coast, a cold interior, and very little flat ground. Calabria is 42 per cent mountain and 49 per cent hill, which leaves under a tenth of it flat, and what flat land there was on the coast was malarial until the middle of the twentieth century. It is difficult country to farm and it has been poor for a long time. Between 1880 and the First World War a great part of the population left for America, and emigration continued into the 1970s; a region losing its young people does not invest in bottling lines and brand names. That is the honest explanation for the tankers, and it is also why the recovery has been so recent.</p>
-<p>The other consequence is that a great deal was never grubbed up and replanted with something fashionable. Old vines, old varieties and old bush-trained plots survived here through decades when Tuscany and Piedmont were pulling theirs out, simply because nobody had the money to change anything. The next reading is about the grape that inheritance left behind.</p>
+<h2>What the ancients praised</h2>
+<p>They praised some wine on this coast. Strabo singles out <strong>Lagaritan</strong>, sweet and mild and well thought of by physicians, and the wine of <strong>Thurii</strong>; both came from the plain of Sybaris, at the northern end of the region. Pliny names wines born at Consentia, which is Cosenza, and at Tempsa on the Tyrrhenian shore, and puts the Thurian ahead of them. If Calabria has an ancient wine reputation, it is northern, and it is nowhere near Cirò.</p>
+
+<h2>Greko, and two bronzes</h2>
+<p>What the Greeks left here is a language and a shipwreck. In nine villages of the Aspromonte people still speak <strong>Greko</strong>, a Greek of their own. Scholars have argued for a century about whether it descends from the Doric of Magna Graecia or arrived with Byzantine settlers. There are perhaps two thousand speakers left, and UNESCO calls it severely endangered. And on 16 August 1972 a diver off Riace saw a shoulder in the sand. The two bronze warriors he found were cast about 460 and 430 BC, stand a little under two metres, and have copper lips and eyes of stone and glass. Nobody knows who they are, who made them or where they were going when the ship carrying them went down.</p>
+<figure data-img="bronzi"><figcaption>One of the two Riace bronzes in the archaeological museum at Reggio Calabria, found by a holidaying diver in August 1972.</figcaption></figure>
 
 <div class="recap"><h4>Before you move on</h4><ul>
-<li>Greeks settled the toe of Italy from the eighth century BC; Sybaris, Kroton and Locri were among the richest cities of Magna Graecia.</li>
-<li>Only about 4% of Calabrian wine is bottled as DOC; the rest is sold in bulk, which is why the region has no reputation to match its history.</li>
-<li>Cirò was the first DOC (1969) and its classico zone became Calabria's first DOCG in 2023.</li>
+<li>Olympic victors were given olive wreaths; the Krimisa-Olympics story is modern, and Cirò was poured at Mexico City in 1968.</li>
+<li>Enotria is explained by an ancient author as a man's name, not a grape, and the territory covered Lucania as well.</li>
+<li>The wine the ancients praised on this coast was Lagaritan and Thurian, from the plain of Sybaris, not from Cirò.</li>
 </ul></div>`
   },
   {
@@ -158,24 +162,19 @@ window.READINGS['IT-78'] = {
     minutes: 7,
     hero: "gaglioppo",
     heroCaption: "Gaglioppo ripening in Calabria. Pale-skinned for a southern red, and far more tannic than the colour suggests.",
-    summary: "A grape long thought to be Greek turns out to be a child of Sangiovese. What Cirò tastes like, why the rules were relaxed, and the sweet passito made from grapes dried in the sun at the end of the peninsula.",
+    summary: "Fifty-two genetic markers gave Calabria's Greek grape a Tuscan mother, and the measurements explain why a wine this pale grips the way it does.",
     html: `
-<p class="lead"><strong>Gaglioppo</strong> is Calabria's grape. It covers the Ionian hills around Cirò, it makes almost all the region's serious red, and for most of the twentieth century everyone assumed it had come over with the Greeks, like the olive and the alphabet. In 2008 a DNA study took that apart. Gaglioppo turned out to be closely related to <strong>Sangiovese</strong>, most probably its offspring, crossed with a second parent nobody has identified. The Greek story is charming and the genetics say Italian.</p>
+<p class="lead">Pour a glass of Cirò and it looks like a dark rosé. Then it grips. In most reds the colour and the tannin come out of the skins together, so a pale wine is usually a soft one. <strong>Gaglioppo</strong> does not work that way, and the reason has been measured.</p>
 
-<h2>What it is like</h2>
-<p>The wine surprises people. Gaglioppo has thin, pale skins and makes a red that can look almost like a dark rosé in the glass, and yet it is full-bodied, high in alcohol and seriously tannic: the tannin arrives without warning behind the light colour. Traditional Cirò is austere and needs time, three or four years at least, and the old style was often oxidative and rustic. The modern one, with gentler extraction and cleaner cellars, keeps the perfume, red cherry, dried herbs, orange peel and a dusty earthiness, and lets the fruit through. It is never a soft, jammy southern red, and anyone expecting Primitivo will be startled.</p>
+<h2>Where the grip comes from</h2>
+<p>There are some four thousand two hundred hectares of Gaglioppo, effectively all of them Calabrian and most on the Ionian hills around Cirò, Melissa, Strongoli and Scandale. It makes almost all the region's serious red. Calabrian researchers use it as their model pigment-poor grape, the one they study when they want to know how a red with almost no colour behaves. Its tannin sits somewhere other than the skins. When the seeds are taken out of the fermenting vat the tannins fall sharply, and the colour does not move at all. The famous austerity is largely seed tannin, and a cellar can decide how much of it to take.</p>
+<p>The colour goes on changing for a long time. One study followed eighty-seven wines from the 2009 vintage, from their fourth month to their tenth year. The red faded and the rim turned orange. That slow shift and the seed tannin are the whole difference between the old style, oxidative and hard, and the modern one, which keeps the perfume of red cherry, dried herbs and orange peel.</p>
 <figure data-img="vigna"><figcaption>The Ionian hills behind Cirò. Heat, wind off Africa and poor soils give small crops and high alcohol.</figcaption></figure>
 
-<aside class="facts"><h4>Key facts</h4><ul>
-<li><b>Cirò Rosso and Rosato</b>: at least 80% Gaglioppo, minimum 12.5% alcohol. <b>Superiore</b> needs 13.5%, and Superiore Riserva two years of ageing.</li>
-<li><b>Cirò Bianco</b>: at least 80% Greco bianco, minimum 11%.</li>
-<li>The zone is Cirò and Cirò Marina in the province of Crotone, with parts of Melissa and Crucoli. Only red may be labelled <em>classico</em>.</li>
-<li><b>Greco di Bianco DOC</b> (1980): a passito of at least 95% Greco bianco, minimum 13%, from the commune of Bianco at the southern tip.</li>
-</ul></aside>
-
-<h2>The rules, and why they changed</h2>
-<p>The 1969 disciplinare demanded a very high proportion of Gaglioppo and allowed only a little white grape to soften it. Over the years the minimum came down to <strong>80 per cent</strong>, which lets growers blend in a share of other varieties, and opinion in the zone is divided about whether that was a rescue or a dilution. What has certainly helped is the arrival of producers willing to bottle single vineyards and to wait: Librandi, much the largest house and the one that funded the grape research, along with 'A Vita, Sergio Arcuri and Cataldo Calabretta among the smaller estates. Between them they have made Cirò a wine that people outside Calabria order on purpose.</p>
-<p>Gaglioppo also makes an excellent <strong>rosato</strong>. Given the pale skins this is almost the grape's natural state, and Cirò Rosato, dry, savoury and faintly bitter, is one of the better rosés in the south and costs very little.</p>
+<h2>A Tuscan parent</h2>
+<p>For most of the twentieth century everyone assumed Gaglioppo had come over with the Greeks, like the olive and the alphabet. In a laboratory at Bari a team read fifty-two genetic markers off the vine and found a Tuscan parent where a Greek one was expected. Gaglioppo is the child of <strong>Sangiovese</strong> and a white grape called <strong>Mantonico bianco</strong>, and genotyping of more than twelve hundred varieties has since confirmed it.</p>
+<p>That settles the story about this particular vine, because a cross with a Tuscan parent is not an import. It leaves the Greek connection of the region's vines as a whole where it was. A study of southern Italian germplasm found a robust genetic link between the vines of the old Greek south and those of Greece itself. The population is Greek-linked; the individual varieties are mostly local crosses, and this is one.</p>
+<p>Mantonico bianco is also a parent of Nerello Mascalese on Etna and, reportedly, of Catarratto, the most-planted white grape in Sicily. A vine that made three of the south's important varieties came within a few dozen hectares of disappearing before anyone registered it. About ten hectares are left, and Italy did not enter it in the national register until 2014.</p>
 
 <aside class="tasting"><h4>In the glass: Cirò Rosso Classico</h4>
 <table><tr><th>Colour</th><td>Light to medium ruby, turning orange at the rim within a few years</td></tr>
@@ -185,15 +184,30 @@ window.READINGS['IT-78'] = {
 <tr><th>Serve</th><td>16–18 °C; drink from three or four years, the Riserva keeps ten or more</td></tr>
 <tr><th>At the table</th><td>Grilled lamb and kid, pork with chilli, aged pecorino crotonese, fileja with 'nduja</td></tr></table></aside>
 
-<h2>The other grapes</h2>
-<p><strong>Greco bianco</strong> makes the white of Cirò and, at the far southern tip of the peninsula, the region's most unusual wine. At <strong>Bianco</strong>, on the Ionian coast below the Aspromonte, the grapes are laid out in the sun to shrivel before pressing, and the result is <strong>Greco di Bianco</strong>: amber, honeyed, scented with orange peel and dried figs, at 13 per cent or more. Almost none is made, and it is one of the oldest continuous sweet-wine traditions in Italy.</p>
-<p>Around Cirò the other Ionian denominations follow the same pattern on a smaller scale. <strong>Melissa</strong>, immediately south, makes Gaglioppo reds and Greco whites and is often better value than its famous neighbour. On the Tyrrhenian side <strong>Savuto</strong> and <strong>Lamezia</strong> blend Gaglioppo with Magliocco and Greco nero, and in the far south <strong>Bivongi</strong> works the slopes below the Serre. None of them is easy to find outside the region, and all of them cost a fraction of what an equivalent wine from further north would.</p>
-<p><strong>Magliocco</strong> is the other native red, grown on the Tyrrhenian side around Savuto and Lamezia. It is darker and softer than Gaglioppo, with more obvious black fruit, and it is being replanted by growers who want something less austere. Confusingly, "Magliocco" is also one of the thirty-odd synonyms recorded for Gaglioppo in various valleys, so the name on an old vineyard map is not a reliable guide to what is actually planted there.</p>
+<h2>An argument about ten per cent</h2>
+<p>The Cirò rules let a grower blend a fifth of the wine from other varieties, and up to a tenth of it from Merlot, Cabernet, Sangiovese or Barbera. In 2010 a group of small estates organised against exactly that, under a name that told you what they thought of it: Cirò Revolution. They wanted the wine made from Gaglioppo alone, without new oak.</p>
+<p>They won. The old Cirò Rosso Superiore Riserva was raised to a denomination of its own as <strong>Cirò Classico</strong>, published in December 2023 and registered by the European Commission in July 2025. The new rules <strong>ban the international varieties outright</strong>. One of the growers who had spent his life arguing for it died three months before the committee sat.</p>
+
+<aside class="facts"><h4>Key facts</h4><ul>
+<li><b>Cirò Rosso and Rosato</b>: at least 80% Gaglioppo, minimum 12.5% alcohol at consumption. <b>Superiore</b> needs 13.5%; the <b>Superiore Riserva</b> ages two years from 1 January after the vintage.</li>
+<li><b>Cirò Bianco</b>: at least 80% Greco bianco, minimum 11%.</li>
+<li><b>Cirò Classico DOCG</b>: 90% Gaglioppo, no international varieties, 36 months' ageing with 6 in wood against the DOC Riserva's 24, 8 t/ha, bottled in the zone.</li>
+<li>Calabria has <b>nine DOCs and one DOCG</b>: seven Cosenza denominations became sub-zones of <b>Terre di Cosenza</b> in 2011.</li>
+<li>The zone is Cirò and Cirò Marina in the province of Crotone, with parts of Melissa and Crucoli; the classico heart is about <b>500 hectares</b> and the consorzio makes some 4 million bottles a year.</li>
+<li><b>Greco di Bianco DOC</b> (1980): a passito of at least 95% Greco bianco from Bianco and part of Casignana, dried about ten days to lose 35–50% of its weight, reaching <b>17 degrees</b>. About twelve hectares in all.</li>
+</ul></aside>
+
+<h2>Three plants called Greco</h2>
+<p>Three different vines are sold under the name Greco. Calabria's registered Greco bianco makes the white of Cirò, and it is genetically distinct from the Greco behind Greco di Tufo in Campania. The grape behind <strong>Greco di Bianco</strong>, the passito made at Bianco on the southern tip, is not a Greco at all. Its profile matches the Malvasias, the same family as Malvasia di Lipari and the Malvasia Candida of Madeira. Down there the grapes are laid on cane racks for about ten days, until they have lost a third to a half of their weight. The wine comes out amber and honeyed, at seventeen degrees of potential alcohol. There are twelve hectares of it, and the growers only formed a consortium to defend it in July 2025.</p>
+<p>The region's other red name covers two grapes, not one. <strong>Magliocco</strong> Canino and Magliocco Dolce have different genetic profiles, and neither is Gaglioppo, whatever an old vineyard map says; the name has simply been applied to several vines in several valleys. Their heartland is the Cosentino rather than the Lamezia plain, and Magliocco Canino is the backbone of <strong>Terre di Cosenza</strong>, whose red must be at least sixty per cent of it. Growers are replanting both, wanting something less austere than Gaglioppo.</p>
+<p>Cirò is not alone on this coast. <strong>Melissa</strong> lies about ten kilometres south and makes the same pair, Gaglioppo red and Greco white. Across on the Tyrrhenian side, <strong>Savuto</strong> asks for as little as thirty-five per cent Gaglioppo and fills out the rest with Magliocco and Greco nero, while <strong>Lamezia</strong> and <strong>Bivongi</strong> work their own slopes.</p>
+<p>For most of the twentieth century the wine of these hills left the region without a name on it, in bulk. Some of it went north to Piedmont — not for colour, which this grape has little of, but to put tannin into thin vintages of wines that would be sold under a famous name.</p>
+<p>About <strong>thirty per cent</strong> of Cirò leaves the cellar as <em>rosato</em>, dry and savoury and faintly bitter. That is an unusual share for a famous red appellation, and it follows directly from the skins you can see through.</p>
 
 <div class="recap"><h4>Before you move on</h4><ul>
-<li>Gaglioppo was long thought Greek; DNA work in 2008 showed it is closely related to Sangiovese and most likely its offspring.</li>
-<li>Cirò is pale but tannic and high in alcohol, needs a few years, and is at least 80% Gaglioppo; the rosato is very good and cheap.</li>
-<li>Greco di Bianco is a sun-dried passito from the southern tip; Magliocco is the softer native red of the Tyrrhenian side.</li>
+<li>Gaglioppo is the child of Sangiovese and Mantonico bianco, a Calabrian white now down to about ten hectares.</li>
+<li>The wine is pale because the grape is low in pigment, and tannic because much of its tannin sits in the seeds.</li>
+<li>Cirò Classico DOCG requires 90% Gaglioppo and bans the international varieties the growers of 2010 objected to.</li>
 </ul></div>`
   },
   {
@@ -202,40 +216,52 @@ window.READINGS['IT-78'] = {
     minutes: 7,
     hero: "nduja",
     heroCaption: "'Nduja: pork and sun-dried Calabrian chilli worked to a paste, aged in a casing, and soft enough to spoon.",
-    summary: "A poor region that preserved everything and put chilli in most of it. The spreadable salami of Spilinga, the sweet red onion of Tropea, liquorice from the Ionian coast, and the pasta rolled around a reed.",
+    summary: "Three hundred grams of chilli to a kilo of meat, packed into a blind gut, and a name that anyone in Calabria is free to use.",
     html: `
-<p class="lead">Calabrian cooking is the food of people with very little, in a place with a long hot summer and no refrigeration, and it shows in every dish: things are dried, salted, packed in oil, buried in chilli, and kept. It is the most aggressively spiced kitchen in Italy. Chilli arrived from the New World and found a region that took to it completely, and the <em>peperoncino</em> now goes into the sausage, the pasta sauce, the preserved fish and, at Diamante on the Tyrrhenian coast, into an annual festival.</p>
+<p class="lead">Three hundred grams of dried chilli go into every kilo of meat. The meat is the cheap half of the pig: belly, jowl, and the trimmings off shoulder and leg. The whole red mass goes into the blind gut, the <em>orba</em>, which is what gives <strong>'nduja</strong> its round shape. That sounds like an invention rather than a recipe, and then you taste it: brick-red, soft enough to spoon, hot but not brutally so, and it melts into whatever it touches.</p>
 
-<h2>'Nduja</h2>
-<p>The region's most famous export is a sausage you cannot slice. <strong>'Nduja</strong> comes from <strong>Spilinga</strong>, a village below Monte Poro in the province of Vibo Valentia, and it is made from pork trimmings and fatback worked together with a very large quantity of sun-dried Calabrian chilli, packed into a wide casing, lightly smoked and aged for three to six months. The chilli both flavours and preserves it. The result is brick-red, soft enough to spoon, hot but not brutally so, and it melts into whatever it touches: spread on bread, stirred into a tomato sauce, spooned over ripe cheese, or dropped into a pan at the start of a dish so that everything after it tastes of pork and fire. The name is usually traced to the French <em>andouille</em>, by way of the Napoleonic period, though that is an etymology rather than a document.</p>
+<h2>What actually preserves it</h2>
+<p>Salt does most of the work, and drying finishes it. As water leaves, the bacteria that would spoil the meat lose the conditions they need, and a fermenting sausage turns acid on top of that. Then comes a short, light, cold smoke over aromatic resins, and months hanging in a cool cellar on the Monte Poro plateau. Small formats are ready in three months; a traditional <em>orba</em> takes a year.</p>
+<p>The chilli helps. Capsicum has measurable antimicrobial effects, and at a quarter to a third of the mix there is a great deal of it. But fat blunts the effect, and the dose a sausage can carry is limited by what anyone would eat. It is a contributor, not the mechanism. People here thought so long before anyone measured it: a Calabrian writer recorded in 1770 that chilli answered the problem of meat spoiling through ignorance and negligence.</p>
 <figure data-img="ndujabrot"><figcaption>'Nduja on bread, which is how most Calabrians first meet it.</figcaption></figure>
-<figure data-img="peperoncino"><figcaption>Calabrian chillies. They are dried in the sun and go into the sausage, the preserves and most of the cooking.</figcaption></figure>
+
+<h2>The word nobody owns</h2>
+<p>The village that made it does not own the word. <strong>Spilinga</strong>, in the province of Vibo Valentia, has held the same festival on the same August day since 1975. An application to protect 'Nduja di Spilinga has been running since 2008. The consortium met the ministry in Rome in February 2024, and the officials confirmed that other Calabrian producers may go on calling their product 'nduja. Only "di Spilinga" would ever be restricted.</p>
+<p>Where the name itself comes from is not settled. The usual guess is the French <em>andouille</em>, carried south in the Napoleonic years, though a Piedmontese sausage kept in a jar has a name from the same family, which weakens a purely French route. Nobody has produced a document.</p>
+<figure data-img="peperoncino"><figcaption>Calabrian chillies. They are dried and go into the sausage, the preserves and most of the cooking.</figcaption></figure>
+
+<h2>Chilli arrived late</h2>
+<p>The plant reached Spain in the 1490s, but the Calabrian trail is much later than the romance suggests. Campanella mentions it medicinally in the 1630s, and the 1770 note above is the first record of it doing a job. A treatise of 1792 still calls the plant exceedingly rare in botanical gardens. By 1848 a writer sees labourers eating preserved green peppers with bread for lunch. Landowners are recorded paying part of a wage in dried chilli. It spread because it displaced black pepper, which had to be bought, and because anyone could grow it in a garden.</p>
+<p>In 1992 a journalist called Enzo Monaco watched Italy spend the Columbus quincentenary on ships and ignore the pepper that came off them. He answered with a festival at <strong>Diamante</strong>, on the Tyrrhenian coast, called "1492–1992: five hundred spicy years". It draws at least a hundred thousand people a year to a town of five thousand, and 223,000 came in 2022.</p>
 
 <aside class="facts"><h4>Key facts</h4><ul>
-<li><b>'Nduja</b> from Spilinga: pork and sun-dried chilli, smoked and aged three to six months. Widely imitated and not, at the time of writing, protected by a DOP or IGP.</li>
-<li><b>Cipolla Rossa di Tropea Calabria IGP</b> (2008): grown on the Tyrrhenian coast between Nicotera and Campora San Giovanni, sweetest around Briatico and Capo Vaticano.</li>
-<li><b>Liquirizia di Calabria DOP</b> (2011). About 1,000 hectares yield roughly 2,500 tonnes of root a year. The Amarelli family have worked liquorice at Rossano since the sixteenth century and founded their firm in <b>1731</b>.</li>
-<li>Other names to know: <b>Caciocavallo Silano DOP</b>, pecorino crotonese, sardella (preserved whitebait with chilli), and the swordfish of the Strait of Messina.</li>
+<li><b>'Nduja</b>: second-choice pork with about 300 g of chilli per kilo of meat, in the blind gut; cold-smoked, aged from three months to a year. <b>No DOP or IGP</b> — the Spilinga application has run since 2008.</li>
+<li><b>Cipolla Rossa di Tropea Calabria IGP</b> (2008): a zone across three provinces from Nicotera to Campora San Giovanni, 115 registered operators, about 18–23 million kg a year.</li>
+<li><b>Liquirizia di Calabria DOP</b> (2011), from 210 comuni; certified production runs to a few tens of tonnes a year. The Amarelli founded their <em>concio</em> at Rossano in <b>1731</b>.</li>
+<li><b>Bergamotto di Reggio Calabria DOP</b> protects the <b>oil, not the fruit</b>; the province grows roughly 80% of the world's bergamot on about 1,500 hectares.</li>
 </ul></aside>
 
-<h2>The red onion of Tropea</h2>
-<p>The <strong>Cipolla Rossa di Tropea</strong> is a long, purple-red onion grown on the sandy coastal strip north and south of Tropea, and it is sweet enough to eat raw in a salad. The Italian description of why is worth quoting in substance: a winter without sharp swings in temperature, moderated by the sea, and cool silty soils. It is sold in plaited strings from stalls and vans along the coast road, and it turns up in a jam eaten with cheese, in salads with oregano and oil, and stuffed and baked.</p>
-<figure data-img="cipolla"><figcaption>A field of Tropea onions on the Tyrrhenian coast. The IGP zone runs along the sandy strip near the sea.</figcaption></figure>
+<h2>The onion that is not only Tropea's</h2>
+<p>The <strong>Cipolla Rossa di Tropea</strong> is a long, purple-red onion sweet enough to eat raw in a salad, and it takes its name from one town and its zone from three provinces. The rules recognise three products rather than one: the spring <em>cipollotto</em>, the fresh onion of early summer, and the storage onion lifted from mid-June. Growing is concentrated between Briatico and Capo Vaticano. Sweetness is put down to the sea keeping the winter even, and to cool, silty ground. That is the agronomists' explanation rather than a measurement, and nobody has published a figure for this cultivar.</p>
+<p>The consortium is franker about its own legend than most bodies would be. Its history page says it <em>seems</em> the onion came with the Phoenicians, and cites Strabo and Aristotle for onions in general. Then it admits the first organised count of the crop is an agricultural encyclopaedia of the 1930s. The onion turns up in a jam eaten with cheese, in salads with oregano and oil, and stuffed and baked.</p>
+<figure data-img="cipolla"><figcaption>A field of Tropea onions. The IGP zone reaches far beyond the town that names it.</figcaption></figure>
 <figure data-img="venditore"><figcaption>Onions sold in plaited strings from a three-wheeler, still the normal way to buy them on this coast.</figcaption></figure>
 
-<h2>Pasta, cheese and the sea</h2>
-<p>The everyday pasta is <strong>fileja</strong>, a short length of dough rolled around a thin reed or a knitting needle to make a loose spiral with a hole through it, so that it catches a heavy sauce. It is eaten with 'nduja, or with a ragù of goat or pork, or simply with tomato and hard ricotta. From the mountains come <strong>Caciocavallo Silano</strong>, the gourd-shaped stretched-curd cheese hung in pairs over a beam, and <strong>pecorino crotonese</strong>, hard and sharp from the Ionian pastures. From the sea comes swordfish, hunted in the Strait of Messina from boats with a long bow-walkway and a lookout mast, and served in thin slices with lemon, oil and oregano, or rolled around breadcrumbs and capers.</p>
-<figure data-img="fileja"><figcaption>Fileja, rolled by hand around a reed so the pasta keeps a hole down the middle.</figcaption></figure>
+<h2>The pasta, the fish and the root</h2>
+<p>The everyday pasta is <strong>fileja</strong>, from the province of Vibo Valentia: durum semolina and water, with no egg. A short length is rolled around a thin cane called the <em>dinaciulu</em>, so that it keeps a hole down the middle and catches a heavy sauce. It is eaten with 'nduja, or with a ragù of goat or pork.</p>
+<figure data-img="fileja"><figcaption>Fileja, rolled by hand around a cane so the pasta keeps a hole down the middle.</figcaption></figure>
 <figure data-img="filejanduja"><figcaption>Fileja with 'nduja and tomato, the region's plate of choice.</figcaption></figure>
-
-<h2>Bergamot and liquorice</h2>
-<p>Two crops grow here and almost nowhere else. The <strong>bergamot</strong>, a sour citrus the size of an orange and the colour of a lemon, is grown on a narrow strip of the Ionian coast around Reggio Calabria, which supplies most of Italy's crop; its oil scents Earl Grey tea and sits in a very large share of the world's perfumes. And the Ionian hillsides grow wild <strong>liquorice</strong> whose root has been reckoned the best in the world since at least the nineteenth century: the 1928 Encyclopaedia Britannica noted that the quality most appreciated in Britain was made in Calabria. It is boiled down to a black extract and sold as tiny hard lozenges, unsweetened and startlingly strong.</p>
-<figure data-img="liquirizia"><figcaption>An Amarelli sign at Rossano. The family have worked liquorice root since the sixteenth century and the firm dates from 1731.</figcaption></figure>
+<p>At <strong>Bagnara</strong>, on the Tyrrhenian shore of the Strait, swordfish is still hunted from a boat built around one man's aim. A metal mast over twenty metres high carries the spotter; a gangway some thirty metres out over the bow carries the harpooner, who is called <em>u lanzaturi</em>, the launcher. His line is coiled in a wicker basket so it can run when the fish does. The fish comes to the table in thin slices with lemon, oil and oregano, or rolled around breadcrumbs and capers.</p>
+<p>Two crops made the province's name abroad, and one of them grows almost nowhere else. <strong>Bergamot</strong> is a sour citrus the size of an orange and the colour of a lemon. It grows on about a hundred kilometres of coast in the province of Reggio Calabria, and that is roughly four fifths of the world's crop. What is protected is the oil rather than the fruit, and it takes some two hundred kilos of bergamot to press a kilo of it. It scents Earl Grey, and it is a base of eau de Cologne.</p>
+<p>The other is liquorice. Inland at <strong>Rossano</strong>, a family called Amarelli wrote down the founding of a <em>concio</em> in 1731, a works rather than a farm shed, and it is still running. The root is boiled down to a black extract and sold as tiny hard lozenges, unsweetened and startlingly strong.</p>
+<p>On the Ionian coast the same instinct goes to sea. <strong>Sardella</strong> is a paste of tiny sardine and anchovy fry with ground chilli, salt and wild fennel, and it is eaten on bread or worked into fishcakes. The European rules of 2006 banned the taking of fish that small; Calabria held a derogation, and lost it in 2010. A good many jars now hold icefish from further away.</p>
+<figure data-img="liquirizia"><figcaption>An Amarelli sign at Rossano. The family founded their liquorice works in 1731 and it is still in production.</figcaption></figure>
 
 <div class="recap"><h4>Before you move on</h4><ul>
-<li>'Nduja from Spilinga is a spreadable pork sausage preserved with sun-dried chilli, aged three to six months.</li>
-<li>The red onion of Tropea (IGP 2008) is sweet enough to eat raw; fileja is the local pasta, rolled around a reed.</li>
-<li>Bergamot from the Reggio coast scents Earl Grey and perfume; Calabrian liquorice root has been the benchmark for two centuries.</li>
+<li>'Nduja is about a third chilli, packed in the blind gut; salt and drying preserve it, and the chilli helps.</li>
+<li>The word 'nduja is unprotected, so a jar from anywhere in Calabria may carry it; only "di Spilinga" is being claimed.</li>
+<li>Bergamot grows almost nowhere else, and the DOP protects the oil rather than the fruit.</li>
+<li>Sardella lost its derogation to fish undersized sardine and anchovy in 2010.</li>
 </ul></div>`
   },
   {
@@ -244,38 +270,49 @@ window.READINGS['IT-78'] = {
     minutes: 7,
     hero: "isola",
     heroCaption: "Santa Maria dell'Isola at Tropea, a monastery on its own rock above the beach, with the town on the cliff behind.",
-    summary: "A town on a cliff, a monastery on a rock, a strait with two monsters in it, and a Byzantine chapel the size of a room. The coast Calabria is known for and the mountains behind it that almost nobody sees.",
+    summary: "Two Greek bronzes came out of the sand off the Ionian shore in 1972, and the coast that sells the sea is emptying while the visitors arrive.",
     html: `
-<p class="lead">Calabria's tourism is concentrated on about fifty kilometres of the Tyrrhenian coast between Pizzo and Nicotera, marketed since the 1950s as the <strong>Costa degli Dei</strong>, the coast of the gods. At its centre is <strong>Tropea</strong>, a town built along the top of a sandstone cliff with the sea directly below it, and in front of the cliff, on a rock of its own, the monastery church of <strong>Santa Maria dell'Isola</strong>. It is the most photographed thing in the region and it deserves to be.</p>
+<p class="lead">A Roman on holiday was snorkelling off Riace Marina, two hundred and thirty metres out in eight or ten metres of water. In the sand he saw what he took for a human arm. Stefano Mariottini reported it the next day. On 21 and 22 August 1972, Carabinieri divers brought up two bronze warriors, cast about 460 and 430 BC, a little under two metres tall, with copper lips and eyes of stone and glass. Nobody knows who they are, who made them, or how they came to be lying there.</p>
+
+<h2>What is underneath</h2>
+<p>The <strong>Riace bronzes</strong> are in the archaeological museum at Reggio Calabria, in a room of their own with the climate controlled. Most of Greek Calabria is under something: under later towns, under the water table at Sybaris, under the sea off Riace.</p>
+<figure data-img="bronzi"><figcaption>One of the two Riace bronzes, raised from ten metres of water in August 1972 and now at Reggio Calabria.</figcaption></figure>
+
+<h2>The strait that breathes</h2>
+<p>North of Reggio the coast comes within three and a bit kilometres of Sicily. The Tyrrhenian and the Ionian are in opposite tidal phase, and the difference in level between them can reach twenty-seven centimetres. Every six hours the exchange reverses. On the rising current the denser Ionian water runs north underneath the lighter Tyrrhenian; on the falling one it runs back over the top. Peak speeds reach two metres a second.</p>
+<p>That is where Homer put his monsters. <strong>Charybdis</strong> swallows the sea three times a day, and six-headed <strong>Scylla</strong> takes men off the deck. The named whirlpools are still there and still carry the names. The rock of Scilla has a Ruffo castle on it, and below the castle the fishermen's quarter of <strong>Chianalea</strong> stands with its feet in the water.</p>
+<figure data-img="scilla"><figcaption>Chianalea, the fishermen's quarter of Scilla, at the northern end of the Strait of Messina.</figcaption></figure>
 
 <h2>Tropea</h2>
-<p>The rock was an island until silt joined it to the shore, which is why the church still carries the name. There has been a religious house on it since the Byzantine period; the present building is largely medieval with later repairs, reached by a long stair cut up the rock and surrounded by a garden. The town above is a grid of narrow streets and worn palazzi with balconies, ending abruptly at viewpoints over the water, and on a clear day Stromboli is visible on the horizon, smoking. Tropea was named the most beautiful village in Italy in 2021 and belongs to the <em>Borghi più belli d'Italia</em> association, which in August you will feel.</p>
-<figure data-img="scilla"><figcaption>Chianalea, the fishermen's quarter of Scilla, where the houses stand in the water at the northern end of the Strait of Messina.</figcaption></figure>
-
-<aside class="facts"><h4>Key facts</h4><ul>
-<li><b>Santa Maria dell'Isola</b>, Tropea: a former Benedictine house on a rock that was once an island, reached by a stair from the beach.</li>
-<li>The <b>Strait of Messina</b> narrows to <b>3.1 km</b> between Torre Faro and Villa San Giovanni. Its currents and a whirlpool at the northern end are the origin of <b>Scylla and Charybdis</b>.</li>
-<li><b>Cattolica di Stilo</b>: a ninth-century Byzantine church on a Greek-cross plan with five domes, brick-built, on the slope of Monte Consolino.</li>
-<li><b>Sila National Park</b> (1997) covers 737 km² of granite plateau and forest, rising to Botte Donato at 1,928 m; <b>Aspromonte National Park</b> covers the mountains of the far south.</li>
-</ul></aside>
-
-<h2>Scylla and Charybdis</h2>
-<p>North of Reggio the coast reaches its narrowest point opposite Sicily. The <strong>Strait of Messina</strong> is 3.1 kilometres across at the neck, and the tides of two seas meet in it, running hard in opposite directions and throwing up standing waves and a whirlpool. Homer put two monsters here: <strong>Scylla</strong> on the Calabrian rock, six-headed and taking sailors off the deck, and <strong>Charybdis</strong> opposite, swallowing the sea three times a day. The rock is still called Scilla, with a Ruffo castle on top of it, and below the castle the fishermen's quarter of <strong>Chianalea</strong> is built with its feet in the water. From these waters comes the swordfish, and the boats that hunt it, with a mast for the spotter and a walkway thirty metres out over the bow for the harpooner, are a direct descendant of a fishery the Greeks described.</p>
+<p>The tourism is concentrated on about fifty-five kilometres of Tyrrhenian coast between Pizzo and Nicotera, which a tourism agency named the <strong>Costa degli Dei</strong> in the 1990s; the mythology came afterwards. At its centre <strong>Tropea</strong> stands on a cliff some sixty metres above the beach, and in front of the cliff, on a rock of its own, is the church of <strong>Santa Maria dell'Isola</strong>.</p>
+<p>The rock really was an island, which is why the church still carries the name, and local accounts put its joining to the shore down to the earthquake of 1783. Hermits and Basilian monks had it first; the Benedictines held it from the eleventh century, when it turns up among the possessions of Montecassino. So it is Byzantine before it is Benedictine, and the long stair the visitor climbs up through the garden is not medieval at all — it was built around 1810, after the earthquake. The 1905 shock did the rest of the damage, which is why little of the original fabric is left.</p>
+<figure data-img="stilo"><figcaption>The Cattolica di Stilo, built between the ninth and tenth centuries, small enough to cross in a few paces.</figcaption></figure>
 
 <h2>The Byzantine centuries</h2>
-<p>Calabria was Byzantine long after the rest of Italy was not, and it left buildings. The <strong>Cattolica di Stilo</strong>, on the hillside above the town of Stilo, is a small ninth-century church of brick with five domes on a Greek-cross plan, four columns inside dividing a space you could cross in a few paces. Its frescoes are Byzantine and it carries Arabic inscriptions as well, which suggests it may have served both communities. Not far away, <strong>Gerace</strong> sits on a rock above the Ionian plain with the largest Norman cathedral in Calabria, and in the Aspromonte villages the Grecanico dialect is still spoken by the old.</p>
-<figure data-img="stilo"><figcaption>The Cattolica di Stilo, a ninth-century Byzantine church of brick and domes, small enough to cross in a few paces.</figcaption></figure>
-<figure data-img="gerace"><figcaption>A street in Gerace, the Norman hill town above the Ionian plain.</figcaption></figure>
+<p>Calabria stayed Byzantine long after the rest of Italy stopped, and it left buildings. The <strong>Cattolica di Stilo</strong>, on the slope of Monte Consolino above the town, is a square church of brick built between the ninth and tenth centuries. Five small domes sit on top, and four reused columns divide the inside into nine bays; one of them stands on an upturned Ionic base under an upside-down Corinthian capital. Its frescoes are Byzantine, and they run on into the fifteenth century. In 1997 two Islamic professions of faith were found on its columns, which scholars read as a sign that the building may have been used for Muslim prayer at some point. At <strong>Gerace</strong>, on a rock of sandstone above the Ionian plain, the cathedral is divided by twenty columns carried up from the abandoned Greek city of Locri.</p>
+<figure data-img="gerace"><figcaption>A street in Gerace. The columns inside its cathedral were taken from the Greek city of Locri.</figcaption></figure>
 
-<h2>The mountains nobody visits</h2>
-<p>Behind the beaches the region is high and empty. The <strong>Sila</strong> is a granite plateau of pine and beech forest, lakes and cattle pasture at around 1,300 metres, cold and snowy in winter, and its national park protects 737 square kilometres of it; the tallest trees, the so-called giants of the Sila, are larch pines of great age in a fenced grove. Further south the <strong>Aspromonte</strong> rises straight out of the sea to nearly 2,000 metres in a series of terraces, with beech and fir on top and prickly pear at the bottom, and it is one of the emptiest places in Italy. Both are an hour from the coast and almost nobody on the beach goes up.</p>
-<figure data-img="sila"><figcaption>Pine forest and broom in the Sila. The plateau sits at about 1,300 metres and takes real snow in winter.</figcaption></figure>
+<aside class="facts"><h4>Key facts</h4><ul>
+<li>The <b>Riace bronzes</b> were found on 16 August 1972 and raised on the 21st and 22nd; statue A is dated about 460 BC and statue B about 430 BC.</li>
+<li>The <b>Strait of Messina</b> narrows to <b>3.14 km</b> on the Punta Pezzo–Ganzirri line. The two seas sit in opposite tidal phase, up to 27 cm apart, and the flow reverses every six hours.</li>
+<li>The <b>1783 earthquakes</b> killed some 30,000 people in Calabria, about 6.8% of the region; a tsunami at Scilla killed on the order of 70% of the town. The <b>1908</b> quake killed about 15,000 at Reggio.</li>
+<li><b>Sila National Park</b> (1997) covers 737 km², rising to Botte Donato at 1,928 m, and is about 80% forest — the highest share of any Italian national park. <b>Aspromonte</b> covers 641 km², rising to Montalto at 1,956 m.</li>
+<li>Calabria is the poorest Italian region: <b>GDP per head €21,700 in 2024</b>, against about €61,600 in Bolzano, and declared income of €17,064 a head for 2023.</li>
+</ul></aside>
+
+<h2>The mountains behind the beaches</h2>
+<p>Behind the beaches the region is high: nine parts in ten of Calabria is hill or mountain. The <strong>Sila</strong> is a plateau of forest, lake and cattle pasture at around 1,300 metres, cold and snowy in winter. Its distinction is not size but cover — about four fifths of the park is forest, more than any other in Italy. In a fenced five hectares at Fallistro stand fifty-eight <strong>giant pines</strong>, Calabrian black pines rather than larches. The tallest is nearly forty-four metres, and some have been growing since the 1620s.</p>
+<p>Further south the <strong>Aspromonte</strong> rises out of the sea to just under two thousand metres, beech and fir on top and prickly pear at the bottom. Its Greek-speaking villages are up there. One of them, Roghudi, was declared uninhabitable after floods in 1971 and 1973, and its people were moved forty kilometres away to a new village on the coast, where they still speak Greko.</p>
+<figure data-img="sila"><figcaption>Pine forest and broom in the Sila. Four fifths of the national park is under trees.</figcaption></figure>
 <figure data-img="aspromonte"><figcaption>Forest in the Aspromonte, the mountain block at the very end of the peninsula.</figcaption></figure>
 
+<h2>Who is left</h2>
+<p>Six hundred thousand people left Calabria in the first fifteen years of the twentieth century, and the region has been losing inhabitants again since its population peaked in 1951. On Easter Sunday 2021 Tropea became, officially, the most beautiful village in Italy. That was a Rai 3 programme, decided by an online vote and a jury of three, rather than a heritage listing; the town belongs to the Borghi più belli d'Italia association as well. In August you feel it. The rest of the year there are about five and a half thousand people living on the cliff, a fifth fewer than in 2008.</p>
+
 <div class="recap"><h4>Before you move on</h4><ul>
-<li>Tropea stands on a cliff on the Costa degli Dei, with the monastery church of Santa Maria dell'Isola on a rock below it.</li>
-<li>The Strait of Messina narrows to 3.1 km; its currents gave Homer Scylla and Charybdis, and still carry the swordfish fishery.</li>
-<li>The Cattolica di Stilo and Gerace are the Byzantine and Norman inheritance; the Sila and Aspromonte are high, forested and empty.</li>
+<li>Two Greek bronzes were found in the sand off Riace in August 1972 and are now at Reggio Calabria.</li>
+<li>The Strait's two seas are in opposite tidal phase and reverse every six hours, which is what Homer made monsters of.</li>
+<li>Santa Maria dell'Isola was Byzantine before it was Benedictine, and its stair dates from about 1810, after the 1783 earthquake.</li>
 </ul></div>`
   }
 ]};

@@ -662,11 +662,11 @@ Object.assign(window.TASTING, {
     serve: "8–10 °C; drink young, within two years",
     table: "Grilled swordfish, anchovies, fried vegetables, young pecorino"
   },
-  "IT-78|Greco di Bianco": {
+  "IT-78|Greco di Bianco": { /* 17% potential alcohol per the disciplinare */
     colour: "Deep amber gold",
     nose: "Dried apricot, orange peel, honey, bergamot, toasted almond",
     palate: "Sweet but not heavy, fresh acidity underneath, a long citrus-peel finish",
-    alcohol: "13–15%",
+    alcohol: "17% or more",
     serve: "10–12 °C in a small glass; a bottle keeps for many years",
     table: "Almond pastries, dried figs, aged pecorino, or on its own after dinner"
   },

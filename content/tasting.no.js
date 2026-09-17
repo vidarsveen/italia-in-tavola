@@ -666,7 +666,7 @@ Object.assign(window.TASTING_NO, {
     colour: "Dyp ravgul",
     nose: "Tørket aprikos, appelsinskall, honning, bergamott, ristet mandel",
     palate: "Søt, men ikke tung, med frisk syre under, lang avslutning av sitrusskall",
-    alcohol: "13–15 %",
+    alcohol: "17 % eller mer",
     serve: "10–12 °C i et lite glass; en flaske holder seg i mange år",
     table: "Mandelbakverk, tørkede fikener, lagret pecorino, eller alene etter maten"
   },
