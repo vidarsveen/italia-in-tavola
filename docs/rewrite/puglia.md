@@ -902,6 +902,35 @@ those and had no way of knowing Castel del Monte was already fixed. That is thre
 For every proper noun a reading is about: is it spoken in the prose at all, and is it spoken before it is
 referred to?
 
+### Publishing the preview: expect a refusal, and what to do about it
+
+Worth writing down because it will happen at the end of **every** region from now on, and it cost four tool
+calls here.
+
+The Artifact tool refuses a publish from a session that has never viewed the live artifact, and hands back
+the live source to merge onto. That rule is right for a hand-authored page and wrong for this one:
+`dist/italia-course.html` is **generated** by `build.py` from the source tree, so the live version is simply
+an older build of the same pipeline and there is nothing in it to merge. Satisfying the rule literally means
+Reading a **13.8 MB** file that is mostly base64 image data, which is not viable.
+
+What worked, in order:
+
+1. Attempt the publish. It is refused and saves the live source to a file.
+2. **Do not read that file.** Instead compare the two builds cheaply — file size, and the presence of
+   `IMAGE_DATA`, `const REGIONS`, both `READINGS['IT-xx']` objects, the count of `'IT-dd':{name:` in
+   `COURSE`, plus a couple of markers unique to the new region. That establishes in one command that the
+   live copy is the same pipeline's earlier output and that the only difference is the region just
+   rewritten.
+3. A second, identical publish is refused again as unchanged content, and `action: "read"` returns only a
+   head with the same instruction. Neither advances things.
+4. **Ask the owner once, then publish with `force: true`.** The tool requires explicit confirmation for
+   force and that is correct, but here the justification is solid and should be stated when asking: the
+   artifact is regenerated wholesale from source, so the version being discarded is an older build and no
+   hand-authored content can be lost. Published as **Version 49** on 2026-09-17.
+
+**For the next region: go straight to step 1, then step 2, then ask.** Do not spend calls on a second
+identical publish or on `action: "read"`.
+
 ### Still owed
 
 - **Capocollo di Martina Franca — checked at source on 16 September 2026, and the reading's wording is
