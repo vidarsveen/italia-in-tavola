@@ -767,61 +767,145 @@ window.QUIZ['IT-55'] = [
 ];
 
 window.QUIZ['IT-82'] = [
-  [ // lesson 1: Etna, vines on a live volcano
-    {q:"Why did phylloxera never take hold on Etna?",
-     a:["The altitude is too cold for the insect","The soil is so sandy that it could not survive","The vines were all grafted before it arrived","The lava flows destroyed its habitat"],
-     c:1,
-     why:"The decomposed lava, sand and ash are so sandy that phylloxera never took hold, which is why many vines are still ungrafted and over a century old."},
-    {q:"What is a contrada on Etna?",
-     a:["A named parcel on its own lava flow, bottled separately","A cooperative cellar shared between growers","The dry wall of lava stone holding up a terrace","A style of wine aged in the old palmento"],
-     c:0,
-     why:"Contrade are historic named parcels, each on its own lava flow of known date and altitude, bottled separately as a Burgundian bottles a climat."},
-    {q:"Why is Etna called the one region where the terroir is still being made?",
-     a:["Growers bring in soil from other parts of Sicily","The DOC boundaries are redrawn each decade","Every eruption lays down another layer of soil","The vines are replanted after each harvest"],
-     c:2,
-     why:"Every eruption adds a new layer, and the age of a lava flow is part of a contrada's identity: a young flow gives a leaner wine, an old one something rounder."}
+  [
+    {
+      "q": "Why is Etna Bianco Superiore tied to Milo?",
+      "a": [
+        "Its grapes must come from the delimited area there",
+        "Every white wine made on Etna uses that name",
+        "Only Milo allows wine to be aged in wood",
+        "Milo is the only place where Carricante can grow"
+      ],
+      "c": 0,
+      "why": "The rules restrict its origin to the delimited area of Milo and require at least 80% Carricante."
+    },
+    {
+      "q": "What does a contrada name tell you?",
+      "a": [
+        "The wine's official quality ranking",
+        "The age of every vine in the bottle",
+        "The place where the grapes were grown",
+        "The exact year of one lava flow"
+      ],
+      "c": 2,
+      "why": "A contrada is a local geographical area. It can contain several vineyards and producers."
+    },
+    {
+      "q": "What do Etna's surviving ungrafted vines show?",
+      "a": [
+        "Phylloxera cannot live anywhere in Sicily",
+        "Some plots survived despite a wider phylloxera crisis",
+        "Every vineyard on Etna is over a century old",
+        "Fresh lava immediately becomes fertile soil"
+      ],
+      "c": 1,
+      "why": "Surviving old vines are local examples; the appellation's history records a serious phylloxera crisis."
+    }
   ],
-  [ // lesson 2: Nero d'Avola, Grillo and Marsala
-    {q:"What turned Sicily's white wines from oxidised and flat into good ones?",
-     a:["Temperature control in the cellar","Planting Chardonnay in place of the native grapes","Moving the vineyards up the slopes of Etna","Fortifying them in the manner of Marsala"],
-     c:0,
-     why:"The grapes arrived warm and the cellars were warmer; refrigeration and temperature control changed everything."},
-    {q:"What is Cerasuolo di Vittoria made from?",
-     a:["Nerello Mascalese with a little Nerello Cappuccio","Nero d'Avola blended with Frappato","Grillo blended with Catarratto","Frappato on its own"],
-     c:1,
-     why:"It is 50 to 70% Nero d'Avola with 30 to 50% Frappato, and it is the island's only DOCG."},
-    {q:"What ruined Marsala's reputation?",
-     a:["Nelson's fleet drank the entire stock","Phylloxera destroyed the vineyards around the town","The 1693 earthquake closed the port","Cooking Marsala, sweetened and salted to dodge drinks tax"],
-     c:3,
-     why:"Marsala was ruined by its own success: cooking Marsala, sweetened and salted so that it escaped the drinks tax, destroyed the name."}
+  [
+    {
+      "q": "What does fortification do to wine?",
+      "a": [
+        "It always makes the wine sweet",
+        "It removes the wine's acidity",
+        "It means the grapes were dried",
+        "It increases alcohol without necessarily adding sweetness"
+      ],
+      "c": 3,
+      "why": "Grape spirit raises alcohol. Marsala's sweetness is a separate classification."
+    },
+    {
+      "q": "Which grapes make Cerasuolo di Vittoria?",
+      "a": [
+        "Nerello Mascalese and Carricante",
+        "Nero d'Avola and Frappato",
+        "Grillo and Catarratto",
+        "Zibibbo and Malvasia"
+      ],
+      "c": 1,
+      "why": "The permitted blend is 50–70% Nero d'Avola and 30–50% Frappato."
+    },
+    {
+      "q": "Why are Pantelleria's bush vines grown in hollows?",
+      "a": [
+        "The hollows give the low plants shelter from wind",
+        "The grapes must stay under water",
+        "The roots need fresh lava every year",
+        "The hollows are used to ferment the grapes"
+      ],
+      "c": 0,
+      "why": "Farmers maintain the hollows as part of the island's traditional cultivation practice."
+    }
   ],
-  [ // lesson 3: Arab Sicily, citrus, sugar and street food
-    {q:"What is agrodolce, the signature of Sicilian cooking?",
-     a:["Frying in lard rather than in oil","Sugar or raisins set against vinegar","Serving fish together with cheese","Cooking every dish twice over"],
-     c:1,
-     why:"Agrodolce is sweet and sour, sugar or raisins against vinegar, and caponata is its emblem."},
-    {q:"How do you spot a badly made cannolo?",
-     a:["The shell was filled in advance and has gone soft","It is served warm instead of cold","It is made with cow's-milk ricotta","It is dusted with cinnamon"],
-     c:0,
-     why:"Cannoli are filled to order; filled in advance they go soft, which is how to spot a bad one."},
-    {q:"What is a Sicilian granita?",
-     a:["A slush of crushed ice shavings","A frozen custard enriched with egg","A smooth, slowly churned semi-frozen water ice","A sorbet set firm in a mould"],
-     c:2,
-     why:"It is not a slush of ice shavings but a slowly churned, smooth semi-frozen water ice, and in Sicily it is eaten for breakfast."}
+  [
+    {
+      "q": "What does the 1857 dictionary establish about arancini?",
+      "a": [
+        "Their ragù filling was invented by the Normans",
+        "Catania banned the feminine name",
+        "They were always shaped as cones",
+        "A sweet rice dish was described under the name"
+      ],
+      "c": 3,
+      "why": "The entry describes a sweet rice preparation shaped like an orange, not today's full recipe."
+    },
+    {
+      "q": "How does caponata get its agrodolce balance?",
+      "a": [
+        "By adding grated cheese and cream",
+        "By fermenting the aubergines",
+        "By balancing vinegar with sugar",
+        "By freezing the vegetables before frying"
+      ],
+      "c": 2,
+      "why": "Vinegar supplies acidity and sugar tempers it; the vegetables are cooked separately before combining."
+    },
+    {
+      "q": "Why does filling cannoli close to serving help?",
+      "a": [
+        "It helps the shell stay crisp",
+        "It makes the ricotta ferment",
+        "It cooks the shell from inside",
+        "It removes the sugar from the filling"
+      ],
+      "c": 0,
+      "why": "Moisture gradually moves from the ricotta filling into the fried shell."
+    }
   ],
-  [ // lesson 4: Temples, Normans and the Baroque
-    {q:"Why is the Temple of Concordia at Agrigento almost complete?",
-     a:["The Normans rebuilt it stone by stone","It was turned into a church and so was never quarried","It stands on rock that resisted the earthquakes","A landslide buried it until modern times"],
-     c:1,
-     why:"It was turned into a church in the sixth century AD, and so it was never quarried for its stone."},
-    {q:"What did the Normans do in Sicily that was unusual for the eleventh century?",
-     a:["They kept the administration, architects and craftsmen they found","They banned Greek and Arabic from the court","They pulled down the Greek temples for building stone","They moved the capital from Palermo to Monreale"],
-     c:0,
-     why:"They kept the people and the skills they found, and under Roger II the court at Palermo worked in Arabic, Greek and Latin at once."},
-    {q:"What makes the towns of the Val di Noto unusual?",
-     a:["They were founded by Greek colonists within one century","They are the only Sicilian towns built of lava","They were left in ruins and never rebuilt","They were designed and built in one style at one moment"],
-     c:3,
-     why:"The rebuilding after the 1693 earthquake produced a group of towns designed and built in a single style at a single moment."}
+  [
+    {
+      "q": "What helped preserve the Temple of Concordia?",
+      "a": [
+        "It was buried under lava",
+        "It was rebuilt by the Romans as a theatre",
+        "It was converted into a church",
+        "It was moved to a new town"
+      ],
+      "c": 2,
+      "why": "Conversion in the sixth century gave the building a continuing use and helped preserve its structure."
+    },
+    {
+      "q": "What does al-Idrisi's account of Trabia document?",
+      "a": [
+        "The inventor of all Italian pasta",
+        "Pasta production and export by sea",
+        "The first recipe for pasta alla Norma",
+        "A ban on selling food to Christian ports"
+      ],
+      "c": 1,
+      "why": "His 1154 work describes mills, pasta production and shipments to Muslim and Christian destinations."
+    },
+    {
+      "q": "How did the towns of the Val di Noto rebuild after 1693?",
+      "a": [
+        "All moved to new sites",
+        "All followed the same street plan",
+        "All kept their medieval buildings unchanged",
+        "They shared a rebuilding period but chose different sites and plans"
+      ],
+      "c": 3,
+      "why": "Noto moved, Catania largely stayed, and Ragusa developed both an upper town and the rebuilt older settlement."
+    }
   ]
 ];
 

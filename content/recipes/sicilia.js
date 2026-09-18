@@ -1,8 +1,5 @@
 // sicilia recipes. Contract: docs/recipe-format.md. Both languages in one file; never narrated.
-// Everything here follows the Sicilia food reading (content/sicilia.js, lesson 3): the Arab inheritance
-// of rice, sugar, citrus, aubergine, saffron, raisins and almonds; the agrodolce balance of vinegar
-// against sugar; street food fried and eaten standing up; and granita descended from sharbat and the
-// medieval trade in mountain snow.
+// Recipes aligned with the revised Sicilia readings; origin legends are qualified.
 window.RECIPES = window.RECIPES || {};
 window.RECIPES['IT-82'] = [
 
@@ -12,14 +9,13 @@ window.RECIPES['IT-82'] = [
   title:{en:'Arancini al ragù', no:'Arancini al ragù'},
   blurb:{en:'Saffron rice packed around a meat and pea filling, breaded and deep-fried. Palermo eats them standing up.',
          no:'Safranris pakket rundt et fyll av kjøtt og erter, panert og frityrstekt. I Palermo spises de stående.'},
-  heroCaption:{en:'Arancini, named for the little oranges they resemble; rice, saffron and frying all reached Sicily with the Arabs.',
-               no:'Arancini har navn etter de små appelsinene de ligner på. Ris, safran og fritering kom alle til Sicilia med araberne.'},
+  heroCaption:{"en": "Arancini: a crisp coating around rice and a savoury filling.", "no": "Arancini med sprø panering rundt ris og smaksrikt fyll."},
   wines:['Cerasuolo di Vittoria'],
   headnote:{
-    en:'<p>Nothing in an arancino is native to Sicily. Rice, saffron and the habit of deep-frying all arrived with the <strong>Emirate of Sicily</strong> between 827 and 1091, and the dish is the neatest summary of that inheritance you can hold in one hand. The name means little oranges, which is what a tray of them looks like.</p>'
+    en:"<p>An <strong>arancino</strong> takes its name from its resemblance to a small orange. Both arancino and arancina are accepted forms, with local preferences for the name and shape. The written record cited by the Accademia della Crusca begins with a sweet rice preparation in an 1857 dictionary. It does not establish that the modern ragù-filled version dates from Arab rule.</p>"
       + '<p>The mechanism is not the frying, it is the rice. This is not risotto: the grains have to be cooked dry, by absorption, so that no free liquid is left, and then cooled completely. Cold rice is sticky and holds a seam. Warm rice has no structure at all and will open in the oil and empty the filling into the pan.</p>'
       + '<p>And the argument you cannot avoid. In Palermo they are <em>arancine</em>, feminine and round; in Catania <em>arancini</em>, masculine and often shaped into a cone. People care, and nobody has ever been talked out of the version they grew up with.</p>',
-    no:'<p>Ingenting i en arancino er opprinnelig siciliansk. Ris, safran og vanen med å frityrsteke kom alt sammen med <strong>emiratet Sicilia</strong> mellom 827 og 1091, og retten er det ryddigste sammendraget av den arven du kan holde i én hånd. Navnet betyr små appelsiner, og det er nettopp det et fat med dem ligner på.</p>'
+    no:"<p>En <strong>arancino</strong> har navn etter likheten med en liten appelsin. Både arancino og arancina er godtatte former, med lokale forskjeller i navn og fasong. Accademia della Crusca viser til en søt risrett i en ordbok fra 1857. Det dokumenterer ikke at dagens utgave med ragù stammer fra arabisk styre.</p>"
       + '<p>Det avgjørende er ikke friteringen, men risen. Dette er ingen risotto. Kornene må kokes tørre, slik at all væsken trekkes inn og ingenting blir liggende igjen, og deretter kjøles helt ned. Kald ris er klebrig og holder på skjøten. Varm ris har ingen struktur i det hele tatt, åpner seg i oljen og tømmer fyllet ut i gryten.</p>'
       + '<p>Og så striden du ikke kommer utenom. I Palermo heter de <em>arancine</em>, hunkjønn og runde, i Catania <em>arancini</em>, hankjønn og ofte formet som en kjegle. Folk tar det på alvor, og ingen har noen gang latt seg overtale bort fra versjonen de vokste opp med.</p>'},
   ingredients:[
@@ -99,15 +95,14 @@ window.RECIPES['IT-82'] = [
   title:{en:'Pasta alla Norma', no:'Pasta alla Norma'},
   blurb:{en:'Catania in four ingredients: tomato, fried aubergine, basil and ricotta salata grated over at the table.',
          no:'Catania i fire ingredienser: tomat, stekt aubergine, basilikum og ricotta salata revet over ved bordet.'},
-  heroCaption:{en:'Pasta alla Norma, named after Bellini’s opera by a writer from the composer’s own city.',
-               no:'Pasta alla Norma fikk navnet sitt etter Bellinis opera, gitt av en forfatter fra komponistens egen by.'},
+  heroCaption:{"en": "Pasta alla Norma with fried aubergine, tomato, basil and ricotta salata.", "no": "Pasta alla Norma med stekt aubergine, tomat, basilikum og ricotta salata."},
   wines:['Etna Rosso (Nerello Mascalese)'],
   headnote:{
-    en:'<p>The dish belongs to <strong>Catania</strong>, in the shadow of Etna, and it carries the name of Bellini’s opera because a local writer called a plate of it a masterpiece and the compliment stuck. The composer was born in the city; the pun has fed the restaurants there ever since.</p>'
-      + '<p>The aubergine is the Arab half of the plate, and how you treat it is the whole recipe. Aubergine flesh is mostly air held in a foam of cell walls. Dropped into hot oil the foam collapses, the air goes out and the flesh turns silky and almost sweet. Roasted, it dries. Boiled, it slumps. It has to be fried, and it has to be fried properly hot.</p>'
+    en:"<p>The dish belongs to <strong>Catania</strong> and shares its name with Bellini's opera. A familiar story credits a local writer with naming it after praising a plate at dinner, but the anecdote is usually repeated without a contemporary record. The combination on the plate is firmer ground: fried aubergine, tomato, basil and ricotta salata.</p>"
+      + '<p>The texture of the aubergine depends on how it is cooked. Aubergine flesh is mostly air held in a foam of cell walls. Dropped into hot oil the foam collapses, the air goes out and the flesh turns silky and almost sweet. Roasted, it dries. Boiled, it slumps. It has to be fried, and it has to be fried properly hot.</p>'
       + '<p><strong>Ricotta salata</strong> is the fourth ingredient and not a garnish: sheep’s ricotta pressed, salted and dried until it can be grated. It goes over the finished plate and never into the pan, because heat turns it to rubber and because its saltiness is what the sweet aubergine is measured against.</p>',
-    no:'<p>Retten hører til i <strong>Catania</strong> i skyggen av Etna, og den bærer navnet på Bellinis opera fordi en lokal forfatter kalte en tallerken av den et mesterverk, og komplimentet ble hengende. Komponisten ble født i byen, og ordspillet har holdt liv i restaurantene der siden.</p>'
-      + '<p>Auberginen er den arabiske halvdelen av tallerkenen, og hele oppskriften ligger i hvordan du behandler den. Auberginekjøtt består for det meste av luft som holdes oppe av et skum av cellevegger. Slipper du det i varm olje, faller skummet sammen, luften går ut, og kjøttet blir silkemykt og nesten søtt. I ovnen tørker det ut, og i kokende vann faller det sammen til grøt. Det må stekes i olje, og oljen må være ordentlig varm.</p>'
+    no:"<p>Retten hører til <strong>Catania</strong> og har navn etter Bellinis opera. En kjent fortelling tilskriver navnet en lokal forfatter som roste retten under en middag, men gjengis vanligvis uten en samtidig kilde. Innholdet på tallerkenen er sikrere kjent: stekt aubergine, tomat, basilikum og ricotta salata.</p>"
+      + '<p>Konsistensen på auberginen avhenger av tilberedningen. Auberginekjøtt består for det meste av luft som holdes oppe av et skum av cellevegger. Slipper du det i varm olje, faller skummet sammen, luften går ut, og kjøttet blir silkemykt og nesten søtt. I ovnen tørker det ut, og i kokende vann faller det sammen til grøt. Det må stekes i olje, og oljen må være ordentlig varm.</p>'
       + '<p><strong>Ricotta salata</strong> er den fjerde ingrediensen og ingen pynt: ricotta av sauemelk som er presset, saltet og tørket til den lar seg rive. Den går over den ferdige retten og aldri oppi pannen, for varme gjør den gummiaktig, og saltet i den er det den søte auberginen måles mot.</p>'},
   ingredients:[{ group:{en:'', no:''}, items:[
     {q:400, u:'g', n:{en:'rigatoni or maccheroni', no:'rigatoni eller maccheroni'}, note:{en:'a ridged shape holds the sauce', no:'en form med riller holder på sausen'}},
@@ -175,10 +170,10 @@ window.RECIPES['IT-82'] = [
                no:'Caponata serveres ved romtemperatur, og den er bedre den andre dagen enn den første.'},
   wines:['Grillo'],
   headnote:{
-    en:'<p><em>Agrodolce</em>, sweet and sour, is the signature of the Sicilian kitchen, and caponata is its emblem. The sourness is vinegar, the sweetness is sugar and sometimes raisins, and both sides of the balance are part of what two hundred years of Arab rule left behind, along with the aubergine itself.</p>'
+    en:"<p><em>Agrodolce</em> means sweet and sour, and in caponata the balance comes from vinegar and sugar, sometimes with raisins. Fried aubergine joins celery, olives and capers, with local variations in the other vegetables. The history of individual ingredients does not establish a single inventor or a medieval date for today's dish.</p>"
       + '<p>The method looks laborious because every vegetable is cooked on its own before they meet. That is not fussiness. Aubergine wants hot oil, celery wants two minutes of boiling water, onion wants low heat and time. Cook them together in one pan and you get a stew in which nothing is recognisable; cook them apart and you can still tell what you are eating.</p>'
       + '<p>What is not negotiable is the resting. Caponata made an hour before dinner tastes of frying and raw vinegar. Left overnight it tastes of itself, and it is served at room temperature — never straight from the fridge, which shuts the whole thing down.</p>',
-    no:'<p><em>Agrodolce</em>, altså det sursøte, er kjennetegnet på det sicilianske kjøkkenet, og caponata er symbolet på det. Det sure er eddik, det søte er sukker og iblant rosiner, og begge sider av balansen hører til arven etter to hundre år med arabisk styre, sammen med auberginen selv.</p>'
+    no:"<p><em>Agrodolce</em> betyr sursøtt. I caponata kommer balansen fra eddik og sukker, iblant også rosiner. Stekt aubergine blandes med selleri, oliven og kapers, og de andre grønnsakene varierer lokalt. Historien om råvarene fastslår verken én oppfinner eller at dagens rett stammer fra middelalderen.</p>"
       + '<p>Framgangsmåten ser omstendelig ut fordi hver grønnsak tilberedes for seg før de møtes. Det er ikke pirk. Auberginen vil ha varm olje, sellerien vil ha to minutter i kokende vann, og løken vil ha svak varme og tid. Koker du dem sammen i én panne, får du en gryte der ingenting lar seg kjenne igjen. Holder du dem fra hverandre, vet du fortsatt hva du spiser.</p>'
       + '<p>Hviletiden er det ingen vei utenom. Caponata som lages en time før middag, smaker av steking og rå eddik. Får den stå over natten, smaker den av seg selv, og den serveres ved romtemperatur, aldri rett fra kjøleskapet, som lukker igjen hele retten.</p>'},
   ingredients:[{ group:{en:'', no:''}, items:[
@@ -234,8 +229,8 @@ window.RECIPES['IT-82'] = [
      body:{en:'Sicilians argue about this one. Some cooks grate a little bitter chocolate, or dust a spoonful of unsweetened cocoa, into the pan with the vinegar. It darkens the dish and adds a faint bitterness behind the sweet and sour rather than any taste of chocolate. Others regard it as an affectation.',
            no:'Her er sicilianerne uenige. Noen river litt mørk sjokolade eller drysser en skje usøtet kakao i pannen sammen med eddiken. Det gjør retten mørkere og legger en svak bitterhet bak det sursøte, uten at den smaker av sjokolade. Andre ser på det som fine fakter.'}},
     {title:{en:'Raisins and pine nuts', no:'Rosiner og pinjekjerner'},
-     body:{en:'The most Arab part of the dish, and the part most often left out. Without them the caponata is sharper and more savoury; with them it leans towards the sweet-and-sour side, which is where the older recipes sit.',
-           no:'Dette er den mest arabiske delen av retten, og den som oftest utelates. Uten dem blir caponataen skarpere og mer smaksrik, med dem heller den mot det sursøte, og der ligger de eldste oppskriftene.'}},
+     body:{en:'Raisins add sweetness, while pine nuts add texture. Both are optional additions in this version; neither establishes how old a recipe is.',
+           no:'Rosiner gir sødme, mens pinjekjerner gir tyggemotstand. Begge er valgfrie her, og ingen av dem fastslår hvor gammel oppskriften er.'}},
     {title:{en:'Peppers, potato, almonds', no:'Paprika, potet, mandler'},
      body:{en:'Almost every town has its own additions: roasted red pepper, cubes of fried potato to stretch it, toasted almonds instead of pine nuts. The frame — fried aubergine, celery, the boiled vinegar — is what makes it caponata.',
            no:'Nesten hver by har sine egne tilskudd: ovnsstekt paprika, terninger av stekt potet for å drøye retten, ristede mandler i stedet for pinjekjerner. Rammen er det som gjør den til caponata: stekt aubergine, selleri og den innkokte eddiken.'}},
@@ -248,21 +243,20 @@ window.RECIPES['IT-82'] = [
   title:{en:'Pasta con le sarde', no:'Pasta con le sarde'},
   blurb:{en:'The dish of Palermo: fresh sardines, wild fennel, pine nuts, raisins and saffron on bucatini, with toasted crumbs instead of cheese.',
          no:'Palermos egen rett: ferske sardiner, villfennikel, pinjekjerner, rosiner og safran på bucatini, med ristede brødsmuler i stedet for ost.'},
-  heroCaption:{en:'Arab pantry and Sicilian sea in one bowl, with wild fennel running through it.',
-               no:'Det arabiske spiskammeret og det sicilianske havet i én tallerken, med villfennikel gjennom det hele.'},
+  heroCaption:{"en": "Sardines, wild fennel, raisins and pine nuts with pasta and toasted breadcrumbs.", "no": "Sardiner, villfennikel, rosiner og pinjekjerner med pasta og ristede brødsmuler."},
   wines:['Grillo'],
   headnote:{
-    en:'<p>If one plate had to stand for Palermo, it would be this one. Fresh sardines come from the sea in front of the city; the pine nuts, the raisins and the saffron come from the Arab pantry that arrived with the emirate; and the wild fennel that binds them grows on every roadside in Sicily in spring. Arab pantry, Sicilian sea, in one bowl.</p>'
+    en:"<p>Palermo's <strong>pasta con le sarde</strong> balances oily sardines with wild fennel, raisins, pine nuts and often saffron. These ingredients connect the dish to several Mediterranean traditions without providing a documented date of invention. Here the fennel is cooked first, and its cooking water is kept for the pasta.</p>"
       + '<p>The technique worth stealing is what you do with the fennel. Boil it first, keep the green water, and cook the pasta in it. The flavour then comes at the dish from inside the pasta as well as from the sauce, and no amount of chopped herb stirred in at the end can do the same thing.</p>'
       + '<p>Two rules. The sardines must be fresh and filleted, not tinned, because half of them are meant to stay in recognisable pieces. And there is no cheese: toasted breadcrumbs go on top instead, which give the salt and the crunch that cheese would, on a plate where Sicily would never put it.</p>',
-    no:'<p>Skulle én tallerken stå for Palermo, måtte det bli denne. De ferske sardinene kommer fra havet rett utenfor byen, pinjekjernene, rosinene og safranen kommer fra det arabiske spiskammeret som kom med emiratet, og villfennikelen som binder det sammen, vokser i hver veikant på Sicilia om våren. Det arabiske spiskammeret og det sicilianske havet på én tallerken.</p>'
+    no:"<p>Palermos <strong>pasta con le sarde</strong> balanserer fete sardiner med villfennikel, rosiner, pinjekjerner og ofte safran. Råvarene knytter retten til flere middelhavstradisjoner uten å gi en dokumentert oppfinnelsesdato. Her kokes fennikelen først, og kokevannet brukes videre til pastaen.</p>"
       + '<p>Fennikelen gir deg teknikken det er verdt å stjele. Kok den først, ta vare på det grønne vannet, og kok pastaen i det. Da kommer smaken innenfra pastaen og ikke bare fra sausen, og ingen mengde hakkede urter rørt inn til slutt gjør den samme jobben.</p>'
       + '<p>To regler. Sardinene må være ferske og filetert, ikke hermetiske, for halvparten av dem skal bli liggende i biter man kjenner igjen. Og ost er utelukket. I stedet strøs ristede brødsmuler over, og de gir saltet og sprøheten osten ville gitt, på en tallerken der Sicilia aldri ville lagt ost.</p>'},
   ingredients:[{ group:{en:'', no:''}, items:[
     {q:400, u:'g', n:{en:'bucatini', no:'bucatini'}, note:{en:'the hollow strand is traditional here', no:'den hule tråden er det tradisjonelle her'}},
     {q:500, u:'g', n:{en:'fresh sardines', no:'ferske sardiner'}, note:{en:'weight before cleaning; ask the fishmonger to fillet them', no:'vekt før rensing; be fiskehandleren filetere dem'}},
     {q:300, u:'g', n:{en:'wild fennel', no:'villfennikel'}, note:{en:'the green fronds only, thick stalks discarded', no:'bare de grønne toppene, uten de grove stilkene'}},
-    {q:4,   u:'', n:{en:'salted anchovy fillets', no:'ansjosfileter i salt'}, note:{en:'rinsed', no:'skylt'}, round:'half'},
+    {q:4,   u:'', n:{en:'salted anchovy fillets', no:'saltede sardellfileter'}, note:{en:'rinsed', no:'skylt; bruk middelhavsansjos, ikke krydret norsk brisling'}, round:'half'},
     {q:150, u:'g', n:{en:'onion', no:'løk'}, note:{en:'sliced thin', no:'skåret i tynne skiver'}},
     {q:40,  u:'g', n:{en:'raisins', no:'rosiner'}, note:{en:'soaked in warm water and drained', no:'lagt i varmt vann og latt renne av'}},
     {q:40,  u:'g', n:{en:'pine nuts', no:'pinjekjerner'}},
@@ -283,7 +277,7 @@ window.RECIPES['IT-82'] = [
     {en:'Toast the breadcrumbs in a dry pan with a thread of oil until they are brown and crisp, then tip them onto a plate so they stop cooking.',
      no:'Rist brødsmulene i en tørr panne med en skvett olje til de er brune og sprø, og ha dem over på en tallerken så de slutter å steke.'},
     {en:'Soften the onion in the oil over low heat, then add the anchovies and press them with a wooden spoon until they have melted into the oil.',
-     no:'La løken mykne i oljen på svak varme, ha så i ansjosen, og press den med en tresleiv til den har smeltet inn i oljen.'},
+     no:'La løken mykne i oljen på svak varme, ha så i sardellene, og press den med en tresleiv til den har smeltet inn i oljen.'},
     {en:'Add the chopped fennel, the drained raisins, the pine nuts and the saffron water, and cook for five minutes.',
      no:'Ha i den hakkede fennikelen, rosinene, pinjekjernene og safranvannet, og la det koke i fem minutter.'},
     {en:'Lay the sardine fillets on top, cover the pan and cook gently for about five minutes, until they are just opaque.',
@@ -325,14 +319,14 @@ window.RECIPES['IT-82'] = [
   title:{en:'Granita al limone', no:'Granita al limone'},
   blurb:{en:'Three ingredients, a fork and a freezer. In Sicily this is breakfast, eaten with a brioche for dipping.',
          no:'Tre ingredienser, en gaffel og en fryser. På Sicilia er dette frokost, spist med en brioche til å dyppe.'},
-  heroCaption:{en:'Granita with a brioche col tuppo. The dish descends from Arab sharbat and the medieval trade in mountain snow.',
-               no:'Granita med en brioche col tuppo. Retten stammer fra arabisk sharbat og middelalderens handel med snø fra fjellene.'},
+  heroCaption:{en:'Granita with a brioche col tuppo, served for breakfast in Sicily.',
+               no:'Granita med en brioche col tuppo, servert til frokost på Sicilia.'},
   wines:[],
   headnote:{
-    en:'<p>Granita descends from Arab <em>sharbat</em> and from a trade that sounds impossible: snow cut on Etna and the Madonie in winter, packed into insulated pits and sold through the Sicilian summer. Sugar, citrus and the taste for iced drinks all reached the island in the same two centuries, and granita is what they became.</p>'
+    en:"<p>In Sicily, <strong>granita</strong> can be breakfast with a soft brioche. Lemon gives a sharp, clean version made from water, sugar and juice. The old trade in mountain snow belongs to the history of cold food on the island, but a direct line from medieval sharbat to this precise preparation is harder to document.</p>"
       + '<p>It is not a slush of shaved ice, and it is not a sorbet. What you are making is a smooth, semi-frozen water ice, and the smoothness comes from two things only: enough dissolved sugar to stop the mixture freezing into a block, and a fork dragged through it every half hour so the crystals stay small.</p>'
       + '<p>The proportion is the recipe — roughly one part sugar to five parts liquid. Less sugar and you get a lemon ice cube you have to chip at. More and it never sets. And in Sicily it is eaten at eight in the morning with a <em>brioche col tuppo</em>, which is the part visitors find hardest to believe.</p>',
-    no:'<p>Granita stammer fra arabisk <em>sharbat</em> og fra en handel som høres umulig ut: snø som ble skåret ut på Etna og i Madonie-fjellene om vinteren, pakket i isolerte groper og solgt gjennom hele den sicilianske sommeren. Sukkeret, sitrusen og forkjærligheten for iskalde drikker kom til øya i de samme to århundrene, og granita er det de ble til.</p>'
+    no:"<p>På Sicilia kan <strong>granita</strong> være frokost sammen med en myk brioche. Sitron gir en frisk utgave laget av vann, sukker og saft. Den gamle handelen med fjellsnø hører til historien om kald mat på øya, men en direkte forbindelse mellom middelalderens sharbat og denne oppskriften er vanskeligere å dokumentere.</p>"
       + '<p>Dette er verken en slush av knust is eller en sorbet. Du lager en glatt, halvfrossen vannis, og glattheten kommer bare fra to ting: nok oppløst sukker til at blandingen ikke fryser til en blokk, og en gaffel som dras gjennom den hver halvtime slik at krystallene holder seg små.</p>'
       + '<p>Forholdet mellom delene er selve oppskriften, omtrent én del sukker til fem deler væske. Med mindre sukker får du en sitronisbit du må hakke løs, og med mer stivner den aldri. Og på Sicilia spises den klokken åtte om morgenen med en <em>brioche col tuppo</em>, og det er den delen tilreisende har vanskeligst for å tro på.</p>'},
   ingredients:[{ group:{en:'', no:''}, items:[

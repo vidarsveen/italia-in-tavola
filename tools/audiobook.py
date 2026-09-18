@@ -1,7 +1,7 @@
-"""Bind the 80 narrated readings of one language into a chaptered audiobook.
+"""Bind 20 region introductions and 80 readings into a chaptered audiobook.
 
 Walks the course in its own order (ORDER in italia-course.html), concatenates
-assets/audio/<region>/<lang>-<n>.mp3, and writes an M4B with one chapter per reading so a
+assets/audio/<region>/<lang>-<n>.mp3, and writes an M4B with one chapter per introduction or reading so a
 player shows "Lazio · 1. The Castelli Romani and Frascati" and can skip between them.
 
     python tools/audiobook.py en                 # audiobook/italia-in-tavola-en.m4b
@@ -63,6 +63,13 @@ def track_list(lang):
     tracks, missing = [], []
     for code, region, rname in course_order():
         titles = lesson_titles(region, lang)
+        intro = os.path.join(ROOT, 'assets', 'audio', region, f'{lang}-intro.mp3')
+        if os.path.exists(intro):
+            title = 'Innledning' if lang == 'no' else 'Introduction'
+            tracks.append({'file':intro, 'region':rname, 'n':0, 'title':title,
+                           'chapter':f'{rname} — {title}', 'seconds':tts.duration(intro) or 0})
+        else:
+            missing.append(f'{region} {lang}-intro')
         for i in range(1, 5):
             f = os.path.join(ROOT, 'assets', 'audio', region, f'{lang}-{i}.mp3')
             if not os.path.exists(f):

@@ -527,3 +527,29 @@ Object.assign(window.GLOSSARY, {
     long:"Scholars have argued for a century about whether it descends from the Doric of Magna Graecia or arrived with Byzantine settlers. Perhaps two thousand speakers are left, and UNESCO calls it severely endangered. When Roghudi was declared uninhabitable after the floods of 1971 and 1973, its people were moved forty kilometres to the coast, where they still speak it.",
     match:["Greko"]},
 });
+
+Object.assign(window.GLOSSARY, {
+  "contrada": {
+    "short": "A named local area, used on Etna to identify where grapes grow.",
+    "long": "A contrada is not necessarily one vineyard or one lava flow. Its name helps distinguish places within the Etna denomination.",
+    "match": [
+      "contrada",
+      "contrade"
+    ]
+  },
+  "palmento": {
+    "short": "A traditional Sicilian building with basins for crushing and fermenting grapes.",
+    "long": "Grapes were crushed in an upper basin and the juice flowed down to another basin. A palmento can survive as a building even where wine is now made in modern equipment.",
+    "match": [
+      "palmento",
+      "palmenti"
+    ]
+  },
+  "muqarnas": {
+    "short": "Small cells arranged into a sculpted ceiling or vault.",
+    "long": "The wooden ceiling of Palermo’s Cappella Palatina uses muqarnas, a form associated with Islamic architecture.",
+    "match": [
+      "muqarnas"
+    ]
+  }
+});

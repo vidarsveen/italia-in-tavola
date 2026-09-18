@@ -219,7 +219,7 @@ Object.assign(window.TASTING_NO, {
     table: "Grillet lam og kje, svinekjøtt med chili, lagret pecorino crotonese, fileja med 'nduja"
   },
   "IT-82|Etna Rosso (Nerello Mascalese)": {
-    colour: "Blek til middels rubinrød, granat med alderen",
+    colour: "Lys til middels rubinrød, granat med alderen",
     nose: "Rødt kirsebær, markjordbær, appelsinskall, tørkede urter, vedrøyk, jern",
     palate: "Middels fylde, høy syre, fine krittaktige tanniner, lang salt avslutning",
     alcohol: "13–14 %",
@@ -232,7 +232,7 @@ Object.assign(window.TASTING_NO, {
     palate: "Middels fylde, frisk syre, myke tanniner, saftig og ren",
     alcohol: "13–13,5 %",
     serve: "14–16 °C, lett avkjølt; drikkes innen fem år",
-    table: "Caponata, grillede grønnsaker, tunfisk, pølse, tomatpasta"
+    table: "Caponata, grillede grønnsaker, tunfisk, pølse, pasta med tomatsaus"
   },
   "IT-88|Cannonau di Sardegna": {
     colour: "Middels rubinrød, granatrød i kanten etter noen år",

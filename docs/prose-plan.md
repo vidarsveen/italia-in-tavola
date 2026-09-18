@@ -1,3 +1,8 @@
+> **Current status, 18 September 2026:** all twenty Italian regions are rewritten in both languages,
+> questions aligned, all 160 readings recorded to the current format, and all forty regional bridges
+> written, reviewed and recorded. See [completion record](italy-finalization.md). Older progress
+> notes below are historical. The remaining release step is publishing; nothing has been pushed.
+
 # Rewriting the prose of both courses — plan (2026-09-14)
 
 Written for Vidar, after reading thirty-two readings myself (Punjab, Kerala, Bengal, Rajasthan; Emilia-Romagna,

@@ -767,61 +767,145 @@ window.QUIZ_NO['IT-55'] = [
 ];
 
 window.QUIZ_NO['IT-82'] = [
-  [ // lesetekst 1: Etna: vinranker på en levende vulkan
-    {q:"Hvorfor fikk aldri vinlusen fotfeste på Etna?",
-     a:["Høyden er for kald for insektet","Jorden er så sandholdig at den ikke overlevde","Rankene ble podet før den kom","Lavastrømmene ødela leveområdet"],
-     c:1,
-     why:"Den forvitrede lavaen, sanden og asken er så sandholdig at vinlusen aldri fikk fotfeste, og derfor er mange ranker fortsatt upodede og over hundre år gamle."},
-    {q:"Hva er en contrada på Etna?",
-     a:["En navngitt teig på sin egen lavastrøm, tappet for seg","En felleskjeller som flere dyrkere deler","Tørrmuren av lavastein som holder oppe en terrasse","En vinstil lagret i det gamle palmentoet"],
-     c:0,
-     why:"Contrade er historiske navngitte teiger, hver på sin egen lavastrøm med kjent år og høyde, tappet hver for seg slik en vinbonde i Burgund tapper hver climat."},
-    {q:"Hvorfor kalles Etna det ene stedet der terroiret fortsatt blir til?",
-     a:["Dyrkerne henter jord fra andre deler av Sicilia","DOC-grensene tegnes om hvert tiår","Hvert utbrudd legger et nytt lag med jord","Rankene plantes på nytt etter hver innhøsting"],
-     c:2,
-     why:"Hvert utbrudd legger på et nytt lag, og alderen på en lavastrøm er en del av teigens identitet: en ung strøm gir en slankere vin, en gammel noe rundere."}
+  [
+    {
+      "q": "Hvorfor er Etna Bianco Superiore knyttet til Milo?",
+      "a": [
+        "Druene må komme fra det avgrensede området der",
+        "Alle hvitviner fra Etna bruker navnet",
+        "Bare Milo tillater lagring på trefat",
+        "Carricante kan bare vokse i Milo"
+      ],
+      "c": 0,
+      "why": "Reglene begrenser opprinnelsen til det avgrensede området i Milo og krever minst 80 % Carricante."
+    },
+    {
+      "q": "Hva forteller navnet på en contrada?",
+      "a": [
+        "Vinens offisielle kvalitetsrangering",
+        "Alderen på alle rankene bak vinen",
+        "Stedet der druene ble dyrket",
+        "Det nøyaktige året for én lavastrøm"
+      ],
+      "c": 2,
+      "why": "En contrada er et lokalt geografisk område. Den kan romme flere vinmarker og produsenter."
+    },
+    {
+      "q": "Hva viser de upodede rankene som har overlevd på Etna?",
+      "a": [
+        "Vinlus kan ikke leve noe sted på Sicilia",
+        "Noen vinmarker overlevde selv om området ble rammet av vinlus",
+        "Alle vinmarker på Etna er over hundre år gamle",
+        "Ny lava blir straks fruktbar jord"
+      ],
+      "c": 1,
+      "why": "De gamle rankene er lokale eksempler. Vinområdets historikk beskriver en alvorlig krise etter at vinlusen kom."
+    }
   ],
-  [ // lesetekst 2: Nero d'Avola, Grillo og Marsala
-    {q:"Hva gjorde Sicilias hvitviner om fra oksiderte og flate til gode?",
-     a:["Temperaturkontroll i kjelleren","Planting av Chardonnay i stedet for de lokale druene","Flytting av vinmarkene opp i skråningene på Etna","Tilsetting av sprit slik som i Marsala"],
-     c:0,
-     why:"Druene kom varme inn og kjellerne var enda varmere; kjøleteknikk og temperaturkontroll endret alt."},
-    {q:"Hva lages Cerasuolo di Vittoria av?",
-     a:["Nerello Mascalese med litt Nerello Cappuccio","Nero d'Avola blandet med Frappato","Grillo blandet med Catarratto","Frappato alene"],
-     c:1,
-     why:"Den er 50 til 70 % Nero d'Avola med 30 til 50 % Frappato, og den er øyas eneste DOCG."},
-    {q:"Hva ødela ryktet til Marsala?",
-     a:["Nelsons flåte drakk opp hele lageret","Vinlusen ødela vinmarkene rundt byen","Jordskjelvet i 1693 stengte havnen","Matlagings-Marsala, søtet og saltet for å slippe alkoholavgiften"],
-     c:3,
-     why:"Marsala ble offer for sin egen suksess: matlagings-Marsala, søtet og saltet for å slippe unna alkoholavgiften, ødela navnet."}
+  [
+    {
+      "q": "Hva skjer når vin tilsettes druesprit?",
+      "a": [
+        "Vinen blir alltid søt",
+        "Syren forsvinner",
+        "Det betyr at druene ble tørket",
+        "Alkoholstyrken stiger uten at vinen nødvendigvis blir søt"
+      ],
+      "c": 3,
+      "why": "Druesprit øker alkoholstyrken. Marsalas sødme angis separat."
+    },
+    {
+      "q": "Hvilke druer brukes i Cerasuolo di Vittoria?",
+      "a": [
+        "Nerello Mascalese og Carricante",
+        "Nero d'Avola og Frappato",
+        "Grillo og Catarratto",
+        "Zibibbo og Malvasia"
+      ],
+      "c": 1,
+      "why": "Den tillatte blandingen er 50–70 % Nero d'Avola og 30–50 % Frappato."
+    },
+    {
+      "q": "Hvorfor dyrkes Pantellerias buskranker i groper?",
+      "a": [
+        "Gropene gir de lave plantene ly mot vinden",
+        "Druene må ligge under vann",
+        "Røttene trenger ny lava hvert år",
+        "Gropene brukes til å gjære druene"
+      ],
+      "c": 0,
+      "why": "Bøndene holder gropene ved like som en del av øyas tradisjonelle dyrkingspraksis."
+    }
   ],
-  [ // lesetekst 3: Arabisk Sicilia: sitrus, sukker og gatemat
-    {q:"Hva er agrodolce, kjennetegnet på siciliansk matlaging?",
-     a:["Steking i smult i stedet for olje","Sukker eller rosiner satt opp mot eddik","Fisk servert sammen med ost","Alle retter kokes to ganger"],
-     c:1,
-     why:"Agrodolce er sursøtt, sukker eller rosiner satt opp mot eddik, og caponata er selve symbolet."},
-    {q:"Hvordan avslører du en dårlig laget cannolo?",
-     a:["Skallet ble fylt på forhånd og er blitt bløtt","Den serveres varm i stedet for kald","Den er laget med ricotta av kumelk","Den er drysset med kanel"],
-     c:0,
-     why:"Cannoli fylles på bestilling; fylles de på forhånd, blir de bløte, og slik avslører du en dårlig en."},
-    {q:"Hva er en siciliansk granita?",
-     a:["En slush av knust is","En frossen krem tilsatt egg","En glatt, langsomt rørt halvfrossen vannis","En sorbet stivnet i en form"],
-     c:2,
-     why:"Det er ikke en slush av knust is, men en glatt, halvfrossen vannis som røres langsomt, og på Sicilia spises den til frokost."}
+  [
+    {
+      "q": "Hva dokumenterer ordboken fra 1857 om arancini?",
+      "a": [
+        "Normannerne fant opp ragùfyllet",
+        "Catania forbød hunkjønnsformen",
+        "De var alltid kjegleformede",
+        "Navnet ble brukt om en søt risrett"
+      ],
+      "c": 3,
+      "why": "Oppslaget beskriver en søt risrett formet som en appelsin, ikke hele dagens oppskrift."
+    },
+    {
+      "q": "Hvordan får caponata den sursøte balansen?",
+      "a": [
+        "Ved å tilsette revet ost og fløte",
+        "Ved å fermentere auberginene",
+        "Ved å balansere eddik med sukker",
+        "Ved å fryse grønnsakene før steking"
+      ],
+      "c": 2,
+      "why": "Eddik gir syre, og sukker demper den. Grønnsakene tilberedes hver for seg før de blandes."
+    },
+    {
+      "q": "Hvorfor er det en fordel å fylle cannoli nær servering?",
+      "a": [
+        "Det hjelper skallet å holde seg sprøtt",
+        "Det får ricottaen til å gjære",
+        "Det steker skallet fra innsiden",
+        "Det fjerner sukkeret fra fyllet"
+      ],
+      "c": 0,
+      "why": "Fuktigheten trekker gradvis fra ricottafyllet inn i det friterte skallet."
+    }
   ],
-  [ // lesetekst 4: Templer, normannere og barokken
-    {q:"Hvorfor står Concordia-tempelet i Agrigento nesten fullstendig?",
-     a:["Normannerne bygde det opp igjen stein for stein","Det ble gjort om til kirke og ble derfor aldri brukt som steinbrudd","Det står på fjell som tålte jordskjelvene","Et jordskred begravde det fram til moderne tid"],
-     c:1,
-     why:"Det ble gjort om til kirke på 500-tallet e.Kr., og derfor ble det aldri brukt som steinbrudd."},
-    {q:"Hva gjorde normannerne på Sicilia som var uvanlig for 1000-tallet?",
-     a:["De beholdt forvaltningen, arkitektene og håndverkerne de fant","De forbød gresk og arabisk ved hoffet","De rev de greske templene for å skaffe byggestein","De flyttet hovedstaden fra Palermo til Monreale"],
-     c:0,
-     why:"De beholdt folkene og kunnskapen de fant, og under Roger II arbeidet hoffet i Palermo på arabisk, gresk og latin samtidig."},
-    {q:"Hva gjør byene i Val di Noto uvanlige?",
-     a:["De ble grunnlagt av greske kolonister i løpet av ett århundre","De er de eneste sicilianske byene bygd i lava","De ble liggende i ruiner og aldri gjenreist","De ble tegnet og bygd i én stil på ett og samme tidspunkt"],
-     c:3,
-     why:"Gjenoppbyggingen etter jordskjelvet i 1693 ga en gruppe byer tegnet og bygd i én og samme stil på ett og samme tidspunkt."}
+  [
+    {
+      "q": "Hva bidro til å bevare Concordia-tempelet?",
+      "a": [
+        "Det ble begravd av lava",
+        "Romerne bygde det om til teater",
+        "Det ble bygd om til kirke",
+        "Det ble flyttet til en ny by"
+      ],
+      "c": 2,
+      "why": "Ombyggingen til kirke på 500-tallet ga bygningen fortsatt bruk og bidro til å bevare den."
+    },
+    {
+      "q": "Hva dokumenterer al-Idrisis beskrivelse av Trabia?",
+      "a": [
+        "Oppfinneren av all italiensk pasta",
+        "Produksjon av pasta og eksport sjøveien",
+        "Den første oppskriften på pasta alla Norma",
+        "Et forbud mot matsalg til kristne havner"
+      ],
+      "c": 1,
+      "why": "Verket fra 1154 beskriver møller, pastaproduksjon og skipslaster til muslimske og kristne områder."
+    },
+    {
+      "q": "Hvordan ble byene i Val di Noto gjenreist etter 1693?",
+      "a": [
+        "Alle ble flyttet til nye steder",
+        "Alle fulgte samme gateplan",
+        "Alle beholdt middelalderbygningene uendret",
+        "De delte en gjenreisningsperiode, men valgte ulike steder og planer"
+      ],
+      "c": 3,
+      "why": "Noto flyttet, Catania ble stort sett på samme sted, og Ragusa utviklet både en øvre by og den gjenreiste eldre bydelen."
+    }
   ]
 ];
 

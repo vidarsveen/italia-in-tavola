@@ -29,12 +29,16 @@ steps per frame (used for automated testing).
 
 # Italia in Tavola
 
+The rewritten course is complete locally: 20 regions in both languages, updated questions, matching
+narration and 20 narrated regional introductions per language. These latest changes have not yet
+been published. See [completion record](docs/italy-finalization.md).
+
 A mobile-first 3D relief map of Italy that works as the navigation for a course on Italian regions, wine and food.
 Real terrain from 300 m elevation data (AWS Terrain Tiles), a baked shaded-relief texture, real region boundaries
 (simplified from the openpolis ISTAT GeoJSON) drawn as a cased cartographic layer, a pin per region at the overview
 and a landmark model when a region is focused. All twenty regions are fully built out with four illustrated,
 narrated readings each in English and Norwegian, three recap questions per reading, a tasting card for each of the
-89 wines and a 48-term glossary. A recipe collection covers every cookable dish the course names: 102 recipes in
+89 wines and a 134-term glossary. A recipe collection covers every cookable dish the course names: 102 recipes in
 both languages, with quantities that rescale to the number of portions. See `PLAN.md` for the roadmap from prototype to production.
 
 ## Files

@@ -646,121 +646,121 @@ document.querySelectorAll('#lang button').forEach(b => b.addEventListener('click
 
 // ============================================================ COURSE SUMMARIES (one entry per region)
 const COURSE = {
- 'IT-23':{name:"Valle d'Aosta", capital:'Aosta', area:'North', color:'#8fae7a', intro:"Italy's smallest region climbs from the Dora Baltea river to the Matterhorn and Mont Blanc. Vines cling to terraces at up to 1,200 metres, and the kitchen is built on butter, rye bread and mountain cheese.",
+ 'IT-23':{name:"Valle d'Aosta", capital:'Aosta', area:'North', color:'#8fae7a', intro:"The vines of Valle d'Aosta grow below glaciers, but altitude alone does not explain how they survive. At Morgex and La Salle, growers train vines close to stones that release warmth at night, and work them by hand. Higher up, cows graze the summer pastures. Their milk must reach the Fontina vat quickly, so the dairy follows the herd.",
    landmark:{name:'Castello di Fénis & the Matterhorn', desc:'A fairy-tale medieval castle guarding the valley, with the Cervino (Matterhorn) rising to 4,478 m at its head.', props:[['aosta',45.80,7.55]]},
    vmp:'italia_valle_d\'aosta',
    wines:[['Blanc de Morgex et de La Salle','white','italia_valle_d\'aosta_morgex_e_la_salle'],['Petite Arvine','white','#Petite Arvine'],['Fumin','red',''],['Torrette','red','']], pairing:'A glass of Torrette alongside carbonada, the slow beef stew served over polenta.',
    dishes:['Fontina DOP','Fonduta alla valdostana','Carbonada','Polenta concia','Lardo di Arnad','Seupa à la Vapelenentse'],
    lessons:["Europe's highest vineyards","Alpine whites and mountain reds","Fontina and the table of the Alps","Castles of the Aosta valley"]},
- 'IT-21':{name:'Piemonte', capital:'Torino', area:'North', color:'#7fa267', intro:"The foot of the mountains: fog-wrapped Langhe hills where Nebbiolo becomes Barolo and Barbaresco, white truffles from Alba, and a Turin café culture that gave the world vermouth and gianduja.",
+ 'IT-21':{name:'Piemonte', capital:'Torino', area:'North', color:'#7fa267', intro:"In Piemonte, Nebbiolo buds early and ripens late, leaving growers exposed to frost at one end of the season and autumn weather at the other. The hills around Alba make that risk worthwhile. Beyond the vineyards are woods where truffle hunters work with dogs, and Turin, where wine becomes vermouth.",
    landmark:{name:'Mole Antonelliana, Turin', desc:'The 167 m spire that defines the Turin skyline, begun in 1863 as a synagogue and now the National Cinema Museum.', props:[['mole',45.07,7.69]]},
    vmp:'italia_piemonte',
    wines:[['Barolo','red','italia_piemonte_barolo'],['Barbaresco','red','italia_piemonte_barbaresco'],['Barbera d\'Asti','red','italia_piemonte_barbera_d\'asti'],['Moscato d\'Asti','sparkling','italia_piemonte_moscato_d\'asti'],['Gavi','white','italia_piemonte_gavi_(cortese_di_gavi)']], pairing:'Barolo with brasato al Barolo, or a young Barbera with tajarin dressed in butter and shaved white truffle.',
    dishes:['White truffle of Alba','Tajarin','Agnolotti del plin','Bagna cauda','Vitello tonnato','Bonet'],
    lessons:["Nebbiolo and the Langhe hills","Barolo and Barbaresco, village by village","Truffles, tajarin and bagna cauda","Turin: vermouth, chocolate and the Mole"]},
- 'IT-42':{name:'Liguria', capital:'Genova', area:'North', color:'#b7b06a', intro:"A thin crescent of coast squeezed between sea and mountain. Terraced vineyards hang above the Cinque Terre, basil grows in every window, and Genoa's port has traded spices and olive oil for a thousand years.",
+ 'IT-42':{name:'Liguria', capital:'Genova', area:'North', color:'#b7b06a', intro:"In Liguria, a vineyard can sit above the sea and still be difficult to reach. Terraces need walls, and grapes need a way down the slope. The same narrow coast opens onto a much wider world through Genoa's port. Norwegian stockfish belongs in its kitchens as firmly as basil belongs in pesto.",
    landmark:{name:'Lanterna di Genova & the Cinque Terre', desc:'The 77 m lighthouse has guided ships into Genoa since 1543; to the east, five pastel villages cling to the cliffs.', props:[['lanterna',44.40,8.90]]},
    vmp:'italia_liguria',
    wines:[['Vermentino','white','#Vermentino'],['Pigato','white','#Pigato'],['Rossese di Dolceacqua','red','italia_liguria_rossese_di_dolceacqua_(dolceacqua)'],['Sciacchetrà','sweet','']], pairing:'Chilled Vermentino with trofie al pesto, or Sciacchetrà with a slice of pandolce after dinner.',
    dishes:['Pesto alla genovese','Focaccia di Recco','Trofie','Farinata','Pansoti con salsa di noci'],
    lessons:["Vines on the cliffs","Vermentino, Pigato and the sea","Pesto, focaccia and the olive","Genoa: a maritime republic's kitchen"]},
- 'IT-25':{name:'Lombardia', capital:'Milano', area:'North', color:'#93b070', intro:"Italy's economic engine is also a land of rice paddies, alpine lakes and Franciacorta's traditional-method sparkling wine. Milan's cooking is rich with butter, saffron and bone marrow.",
+ 'IT-25':{name:'Lombardia', capital:'Milano', area:'North', color:'#93b070', intro:"Lombardia stretches from Alpine vineyard terraces to the rice fields south of Milan. On the slopes, growers carry out work that machines cannot reach; on the plain, machines transformed the work of the rice weeders. Water connects these landscapes, and once carried the cathedral's marble into Milan.",
    landmark:{name:'Duomo di Milano', desc:'Six centuries in the making, the marble cathedral bristles with 135 spires and 3,400 statues, crowned by the golden Madonnina.', props:[['duomo',45.46,9.19]]},
    vmp:'italia_lombardia',
    wines:[['Franciacorta','sparkling','italia_lombardia_franciacorta'],['Valtellina Superiore (Nebbiolo)','red','italia_lombardia_valtellina_superiore'],['Lugana','white','@italia_lugana'],['Oltrepò Pavese Pinot Nero','red','italia_lombardia_oltrepò_pavese']], pairing:'Franciacorta Satèn with risotto alla milanese; Sforzato di Valtellina with pizzoccheri.',
    dishes:['Risotto alla milanese','Cotoletta alla milanese','Ossobuco','Cassoeula','Pizzoccheri','Panettone','Gorgonzola'],
    lessons:["Franciacorta: Italy's answer to Champagne","Nebbiolo in the Alps: Valtellina","Saffron risotto and the Milanese table","The Duomo and the city of design"]},
- 'IT-32':{name:'Trentino-Alto Adige', capital:'Trento', area:'North', color:'#a5bf92', intro:"Two cultures share one alpine region: Italian-speaking Trentino and German-speaking Südtirol. Aromatic whites grow beneath the pale Dolomite peaks, and speck, dumplings and strudel come from the Austrian side of the pantry.",
+ 'IT-32':{name:'Trentino-Alto Adige', capital:'Trento', area:'North', color:'#a5bf92', intro:"In Trentino-Alto Adige, a wine may have an Italian name and a German one, and both belong on the table. The valleys carry trade across the Alps, with apple orchards on the valley floor and vineyards and farms on the slopes. Dumplings made from bread sit naturally beside wines whose reputations have changed within a grower's lifetime.",
    landmark:{name:'The Dolomites', desc:'Pale limestone towers that glow pink at sunset, a UNESCO World Heritage site rising above vineyards and apple orchards.', props:[['dolomites',46.45,11.85]]},
    vmp:'italia_trentino-alto_adige',
    wines:[['Gewürztraminer','white','#Gewürztraminer'],['Pinot Grigio','white','#Pinot Grigio'],['Lagrein','red','#Lagrein'],['Teroldego Rotaliano','red','italia_trentino-alto_adige_teroldego_rotaliano'],['Trentodoc','sparkling','italia_trentino-alto_adige_trento']], pairing:'Gewürztraminer with speck and Alto Adige cheeses; Lagrein with venison and canederli.',
    dishes:['Canederli','Gerstsuppe','Speck Alto Adige','Apfelstrudel','Polenta with mushrooms','Schlutzkrapfen'],
    lessons:["Vineyards between two cultures","Gewürztraminer, Lagrein and the aromatic north","Speck, dumplings and strudel","The Dolomites: mountains of stone and light"]},
- 'IT-34':{name:'Veneto', capital:'Venezia', area:'North', color:'#86a86a', intro:"From Venice's lagoon to Verona's amphitheatre, Veneto is Italy's largest wine producer. Prosecco fizzes in the hills of Valdobbiadene while Amarone is made from grapes dried on straw mats.",
+ 'IT-34':{name:'Veneto', capital:'Venezia', area:'North', color:'#86a86a', intro:"In Veneto, drying changes both grapes and fish. Grapes lose water before becoming rich wines; cod arrives already dried from Norway and must be softened before cooking. Venice drew food and ideas through its port, while the vineyards inland developed ways of making very different wines from neighbouring hills.",
    landmark:{name:'Venice: Campanile di San Marco', desc:'The 99 m bell tower over Piazza San Marco, rebuilt in 1912 after the original collapsed; gondolas glide past below.', props:[['venice',45.43,12.34]]},
    vmp:'italia_veneto',
    wines:[['Amarone della Valpolicella','red','italia_veneto_amarone_della_valpolicella'],['Prosecco Superiore','sparkling','italia_veneto_conegliano_valdobbiadene_prosecco'],['Soave Classico','white','italia_veneto_soave_classico'],['Valpolicella Ripasso','red','italia_veneto_valpolicella_ripasso'],['Bardolino','red','italia_veneto_bardolino']], pairing:'Soave with risi e bisi; Amarone with aged Asiago or a long-braised pastissada de caval.',
    dishes:['Risi e bisi','Baccalà mantecato','Sarde in saor','Bigoli in salsa','Tiramisù','Cicchetti'],
    lessons:["Valpolicella and the art of appassimento","Prosecco: from hills to glass","Cicchetti and the Venetian bàcaro","Venice: a republic built on trade"]},
- 'IT-36':{name:'Friuli-Venezia Giulia', capital:'Trieste', area:'North', color:'#9db37c', intro:"Where Italy meets Slovenia and Austria. Friuli's white wines are among the country's finest, San Daniele cures its prosciutto in alpine-sea breezes, and Trieste's cafés still feel Habsburg.",
+ 'IT-36':{name:'Friuli-Venezia Giulia', capital:'Trieste', area:'North', color:'#9db37c', intro:"In Friuli-Venezia Giulia, a border crosses landscapes that people have long shared. Winemakers on the hills around Gorizia have questioned how white wine should be made, sometimes leaving it on the grape skins. Farther west, local stories link the spices in mountain cooking to travelling sellers; at Trieste, the port supplies the coffee.",
    landmark:{name:'Castello di Miramare, Trieste', desc:'A white castle built in 1860 for Archduke Maximilian on a rocky headland above the Adriatic.', props:[['miramare',45.70,13.71]]},
    vmp:'italia_friuli-venezia_giuli',
    wines:[['Friulano','white','#Friulano (Tai)'],['Ribolla Gialla','white','#Ribolla Gialla'],['Pinot Grigio (Collio)','white','italia_friuli-venezia_giuli_colio_goriziano_(collio)'],['Refosco dal Peduncolo Rosso','red','#Refosco'],['Picolit','sweet','#Picolit']], pairing:'Friulano with prosciutto di San Daniele; Refosco with frico and polenta.',
    dishes:['Prosciutto di San Daniele','Frico','Cjarsons','Jota','Brovada','Montasio','Gubana'],
    lessons:["Collio and the great Italian whites","Friulano, Ribolla and orange wine","San Daniele, frico and the Carnic kitchen","Trieste: coffee, Habsburgs and the bora"]},
- 'IT-45':{name:'Emilia-Romagna', capital:'Bologna', area:'North', color:'#c2b06a', intro:"Italy's food valley. Parmigiano Reggiano, prosciutto di Parma, balsamic vinegar of Modena and fresh egg pasta all come from the flat Po plain, washed down with fizzy, cheerful Lambrusco.",
+ 'IT-45':{name:'Emilia-Romagna', capital:'Bologna', area:'North', color:'#c2b06a', intro:"In Emilia-Romagna, much of dinner has been prepared long before the cook begins. Cheese has matured on wooden shelves, ham has hung to dry, and vinegar has spent years in barrels. Fresh egg pasta adds another kind of work at the kitchen table. A dry Lambrusco brings acidity and bubbles to all that richness.",
    landmark:{name:'The Two Towers, Bologna', desc:'Asinelli (97 m) and its leaning neighbour Garisenda, medieval family towers that still dominate the porticoed city.', props:[['towers',44.49,11.34]]},
    vmp:'italia_emilia-romagna',
    wines:[['Lambrusco di Sorbara','sparkling','italia_emilia-romagna_lambrusco_di_sorbara'],['Lambrusco Grasparossa','sparkling','italia_emilia-romagna_lambrusco_grasparossa_di_castelvetro'],['Sangiovese di Romagna','red','italia_emilia-romagna_romagna_sangiovese'],['Albana di Romagna','white','italia_emilia-romagna_romagna_albana'],['Pignoletto','sparkling','italia_emilia-romagna_pignoletto']], pairing:'Dry Lambrusco with a board of salumi and Parmigiano; Sangiovese di Romagna with tagliatelle al ragù.',
    dishes:['Tagliatelle al ragù','Tortellini in brodo','Lasagne verdi','Parmigiano Reggiano','Prosciutto di Parma','Aceto balsamico','Piadina','Gnocco fritto'],
    lessons:["Lambrusco, the wine that was two wines","Sangiovese on the Romagna side","Parmigiano, prosciutto and balsamic: three protected treasures","Bologna la Grassa and the sfoglia"]},
- 'IT-52':{name:'Toscana', capital:'Firenze', area:'Centre', color:'#c9ad5c', intro:"Cypress-lined hills, Renaissance cities and Sangiovese in every form: Chianti Classico, Brunello di Montalcino, Vino Nobile. The cooking is peasant-proud: bread, beans, olive oil and a thick Florentine steak.",
+ 'IT-52':{name:'Toscana', capital:'Firenze', area:'Centre', color:'#c9ad5c', intro:"In Toscana, Sangiovese changes with the hill where it grows and the choices made in the cellar. Along the coast, growers also planted grapes they admired in Bordeaux. Florence's cooking offers another way into the region: bread goes into soup, and a market stall turns a cow's stomach into lunch.",
    landmark:{name:'Leaning Tower of Pisa & Brunelleschi\'s Dome', desc:'Pisa\'s bell tower has leaned since the 1170s; in Florence, Brunelleschi\'s 1436 dome still crowns the largest brick dome ever built.', props:[['pisa',43.72,10.40],['florence',43.77,11.25]]},
    vmp:'italia_toscana',
    wines:[['Chianti Classico','red','italia_toscana_chianti_classico'],['Brunello di Montalcino','red','italia_toscana_brunello_di_montalcino'],['Vino Nobile di Montepulciano','red','italia_toscana_vino_nobile_di_montepulciano'],['Bolgheri (Super Tuscan)','red','italia_toscana_bolgheri'],['Vernaccia di San Gimignano','white','italia_toscana_vernaccia_di_san_gimignano'],['Vin Santo','sweet','italia_toscana_vin_santo_del_chianti_classico']], pairing:'Chianti Classico with bistecca alla fiorentina; Vin Santo with cantucci for dunking.',
    dishes:['Bistecca alla fiorentina','Ribollita','Pappa al pomodoro','Pici cacio e pepe','Lampredotto','Cantucci'],
    lessons:["Sangiovese: one grape, many faces","Chianti Classico and the black rooster","Brunello, Nobile and the Super Tuscans","Bread, beans and the Florentine steak"]},
- 'IT-55':{name:'Umbria', capital:'Perugia', area:'Centre', color:'#a8a85a', intro:"The green heart of Italy, the only landlocked region in the peninsula. Assisi and Orvieto crown its hills, black truffles hide near Norcia, and Sagrantino is one of Italy's most tannic reds.",
+ 'IT-55':{name:'Umbria', capital:'Perugia', area:'Centre', color:'#a8a85a', intro:"Umbria has no coast, but its food and wine travelled well beyond its hills. Butchers from Norcia worked in other cities, carrying their town's name into the trade. Beneath Orvieto, cellars were cut into rock; around Montefalco, grapes once dried for a sweet wine now also make a forceful dry red.",
    landmark:{name:'Basilica di San Francesco, Assisi', desc:'Two stacked churches built from 1228 over the tomb of St Francis, frescoed by Giotto and Cimabue.', props:[['assisi',43.07,12.62]]},
    vmp:'italia_umbria',
    wines:[['Sagrantino di Montefalco','red','italia_umbria_montefalco_sagrantino'],['Orvieto Classico','white',''],['Montefalco Rosso','red','italia_umbria_montefalco'],['Grechetto','white','']], pairing:'Sagrantino with roast lamb or aged pecorino; Orvieto with strangozzi al tartufo nero.',
    dishes:['Black truffle of Norcia','Porchetta','Strangozzi','Uova al tartufo','Lentils of Castelluccio','Torta al testo','Norcia salumi'],
    lessons:["The landlocked vineyard","Sagrantino: Italy's most tannic red","Norcia: truffles, salumi and the norcino","Assisi and the hill towns"]},
- 'IT-57':{name:'Marche', capital:'Ancona', area:'Centre', color:'#d1b878', intro:"Adriatic beaches, the Sibillini mountains and Renaissance Urbino. Verdicchio is one of Italy's great age-worthy whites, and the coast argues over how many kinds of fish belong in a brodetto.",
+ 'IT-57':{name:'Marche', capital:'Ancona', area:'Centre', color:'#d1b878', intro:"In Marche, the distance from an inland valley to the Adriatic changes what grows and what reaches the table. Verdicchio has a different setting at Matelica from the hills around Jesi. On the coast, divers traditionally gathered wild mussels from submerged rocks. Inland at Ascoli, cooks cut olives open in a ribbon so they can fill them.",
    landmark:{name:'Palazzo Ducale, Urbino', desc:'The Renaissance palace of Duke Federico da Montefeltro, its twin slender towers rising above the walled hill town.', props:[['urbino',43.72,12.64]]},
    vmp:'italia_marche',
    wines:[['Verdicchio dei Castelli di Jesi','white','italia_marche_verdicchio_dei_castelli_di_jesi'],['Verdicchio di Matelica','white','italia_marche_verdicchio_di_matelica'],['Rosso Conero','red','italia_marche_rosso_conero'],['Lacrima di Morro d\'Alba','red','']], pairing:'Verdicchio with brodetto all\'anconetana; Rosso Conero with vincisgrassi.',
    dishes:['Olive all\'ascolana','Brodetto','Vincisgrassi','Stoccafisso all\'anconetana','Ciauscolo','Crescia'],
    lessons:["Verdicchio: a white that ages like a red","Montepulciano on the Conero","Ascoli olives and the Adriatic brodetto","Urbino and the ideal city"]},
- 'IT-62':{name:'Lazio', capital:'Roma', area:'Centre', color:'#c99d5c', intro:"Rome sits at the centre: the Colosseum, the Forum and a cucina povera of pecorino, guanciale and pasta that became the world's favourite. In the Castelli Romani hills, Frascati has been the city's white wine for centuries.",
+ 'IT-62':{name:'Lazio', capital:'Roma', area:'Centre', color:'#c99d5c', intro:"Rome draws food and people from the country around it. Wine once arrived by cart from the hills, and migrants from Amatrice found work feeding the city. Amatriciana carries the town's name, though the familiar Roman pasta dishes have no single documented origin. Beyond the capital, Lazio's vineyards range from volcanic ground to limestone hills planted with Cesanese.",
    landmark:{name:'The Colosseum, Rome', desc:'The Flavian Amphitheatre, completed in AD 80, seated some 50,000 spectators for games and spectacles.', props:[['colosseum',41.89,12.49]]},
    vmp:'italia_lazio',
    wines:[['Frascati Superiore','white','italia_lazio_frascati_superiore'],['Cesanese del Piglio','red','#Cesanese'],['Est! Est!! Est!!! di Montefiascone','white',''],['Aleatico di Gradoli','sweet','']], pairing:'Frascati with carciofi alla giudia; Cesanese with abbacchio alla romana or amatriciana.',
    dishes:['Carbonara','Cacio e pepe','Amatriciana','Gricia','Saltimbocca alla romana','Carciofi alla giudia','Supplì'],
    lessons:["The Castelli Romani and Frascati","Cesanese: Lazio's forgotten red","The four Roman pastas","Rome: the Colosseum and the eternal table"]},
- 'IT-65':{name:'Abruzzo', capital:"L'Aquila", area:'Centre', color:'#b09e68', intro:"Mountain wilderness above, Adriatic below. Bears and wolves roam its national parks, shepherds grill arrosticini over charcoal, and Montepulciano d'Abruzzo is the everyday red of half the country.",
+ 'IT-65':{name:'Abruzzo', capital:"L'Aquila", area:'Centre', color:'#b09e68', intro:"In Abruzzo, the vineyards descend towards the Adriatic while the mountains rise behind them. Montepulciano can become a dark red or a cherry-pink Cerasuolo, depending on how long the juice stays with the skins. Inland, sheep and the roads they travelled help explain the cooking and the wealth of mountain towns.",
    landmark:{name:'Rocca Calascio & the Gran Sasso', desc:'A fortress at 1,460 m on the old sheep road, beneath the 2,912 m Corno Grande, ruined by the earthquake of 1703.', props:[['calascio',42.33,13.70]]},
    vmp:'italia_abruzzo',
    wines:[['Montepulciano d\'Abruzzo','red','italia_abruzzo_montepulciano_d\'abruzzo'],['Cerasuolo d\'Abruzzo','rose','italia_abruzzo_cerasuolo_d\'abruzzo'],['Trebbiano d\'Abruzzo','white','italia_abruzzo_trebbiano_d\'abruzzo'],['Pecorino','white','#Pecorino']], pairing:'Cerasuolo with arrosticini straight from the grill; Montepulciano with spaghetti alla chitarra e pallottine.',
    dishes:['Arrosticini','Spaghetti alla chitarra','Pallottine',"Scrippelle 'mbusse",'Brodetto alla vastese','Pecorino di Farindola','Confetti di Sulmona'],
    lessons:["Montepulciano: the grape, not the town","Cerasuolo and the Adriatic rosé","Arrosticini and the shepherd's kitchen","Gran Sasso and the hill fortresses"]},
- 'IT-67':{name:'Molise', capital:'Campobasso', area:'South', color:'#c7a56a', intro:"Italy's youngest and least-visited region, split from Abruzzo in 1963. Ancient sheep-droving tracks (tratturi) cross its hills, Tintilia is its native red grape, and the cheeses are caciocavallo and scamorza.",
+ 'IT-67':{name:'Molise', capital:'Campobasso', area:'South', color:'#c7a56a', intro:"Molise is small enough to miss on a map, but its drove roads once carried flocks across the region. Cheese and preserved pork belong to that working landscape. In the vineyards, Tintilia has returned from near disappearance. Older traces survive too, including names written in clay at a Samnite sanctuary.",
    landmark:{name:'Castello Monforte, Campobasso', desc:'A Norman-era castle rebuilt in 1458, watching over the regional capital and the tratturi below.', props:[['monforte',41.56,14.66]]},
    vmp:'italia_molise',
    wines:[['Tintilia del Molise','red',''],['Biferno Rosso','red','italia_molise_biferno'],['Molise Falanghina','white','']], pairing:'Tintilia with cavatelli al ragù di agnello and a wedge of caciocavallo.',
    dishes:['Cavatelli','Cavatelli al ragù di agnello','Caciocavallo di Agnone','Pampanella','Scamorza','Ventricina'],
    lessons:["A region rediscovered","Tintilia: a grape saved from extinction","Caciocavallo and the transhumance routes","Campobasso and the hill villages"]},
- 'IT-72':{name:'Campania', capital:'Napoli', area:'South', color:'#cf9358', intro:"Naples invented pizza, Vesuvius buried Pompeii, and the volcanic soils grow ancient grapes: Aglianico for Taurasi, Fiano and Greco for whites. Buffalo mozzarella, San Marzano tomatoes and lemons complete the picture.",
+ 'IT-72':{name:'Campania', capital:'Napoli', area:'South', color:'#cf9358', intro:"Campania's coast and its inland hills produce different wines for different reasons. Sand helps explain the old ungrafted vines near Naples; clay and limestone matter farther inland. The city brings dough, buffalo milk and hot ovens together, while the remains around Vesuvius preserve unusually close views of older meals.",
    landmark:{name:'Mount Vesuvius & Pompeii', desc:'The volcano whose AD 79 eruption preserved Pompeii still looms over the Bay of Naples; its slopes grow Lacryma Christi.', props:[['vesuvius',40.82,14.43]]},
    vmp:'italia_campania',
    wines:[['Taurasi (Aglianico)','red','italia_campania_taurasi'],['Fiano di Avellino','white','italia_campania_fiano_di_avellino'],['Greco di Tufo','white','italia_campania_greco_di_tufo'],['Lacryma Christi del Vesuvio','red',''],['Falanghina','white','#Falanghina']], pairing:'Falanghina with pizza margherita and fried seafood; Taurasi with ragù napoletano.',
    dishes:['Pizza napoletana','Mozzarella di bufala','Ragù napoletano','Spaghetti alle vongole','Sfogliatella','Pasta e patate','Limoncello'],
    lessons:["Volcanic soils and ancient grapes","Taurasi, Fiano and Greco","Pizza, mozzarella and the Neapolitan table","Vesuvius, Pompeii and the Amalfi coast"]},
- 'IT-75':{name:'Puglia', capital:'Bari', area:'South', color:'#d8b06e', intro:"The heel of the boot is a flat limestone plain carrying between a third and a half of Italy's olive oil, whitewashed trulli, and Primitivo and Negroamaro vines. Burrata was invented here, and pasta is dragged by hand into little ears.",
+ 'IT-75':{name:'Puglia', capital:'Bari', area:'South', color:'#d8b06e', intro:"Puglia grows wheat, olives and grapes on a scale that has long supplied markets elsewhere. Its own kitchens work those crops into bread, pasta and meals dressed with oil. Stone cleared from the fields became walls and houses. Today, the rules protecting trees, loaves and buildings shape what people can keep making.",
    landmark:{name:'Trulli of Alberobello & Castel del Monte', desc:'Conical dry-stone houses, over 1,600 of them at Alberobello, and Frederick II\'s octagonal castle, begun in 1240 and probably never finished.', props:[['trulli',40.78,17.24],['castel',41.08,16.27]]},
    vmp:'italia_puglia',
    wines:[['Primitivo di Manduria','red','italia_puglia_primitivo_di_manduria'],['Salice Salentino (Negroamaro)','red','italia_puglia_salice_salentino'],['Nero di Troia','red','italia_puglia_castel_del_monte'],['Rosato del Salento','rose','italia_puglia_salento'],['Verdeca','white','']], pairing:'Salento rosato with orecchiette con cime di rapa; Primitivo with braciole and grilled lamb.',
    dishes:['Orecchiette con cime di rapa','Burrata','Focaccia barese','Taralli','Bombette','Panzerotti'],
    lessons:["Olives, sun and the Salento","Primitivo and Negroamaro","Orecchiette, burrata and the bread of Altamura","Trulli, castles and the Adriatic"]},
- 'IT-77':{name:'Basilicata', capital:'Potenza', area:'South', color:'#b98f5e', intro:"Rugged, mountainous and once desperately poor, Basilicata is now known for Matera's cave city and Aglianico del Vulture, grown on an extinct volcano. Crunchy dried peppers season almost everything.",
+ 'IT-77':{name:'Basilicata', capital:'Potenza', area:'South', color:'#b98f5e', intro:"In Basilicata, the Vulture's slopes keep growers waiting late into autumn for Aglianico. Farther south, peppers dry in strings before a brief dip in hot oil makes them crisp. At Matera, rooms cut into the rock became homes, were emptied, and found new uses.",
    landmark:{name:'Sassi di Matera', desc:'Cave dwellings cut into a limestone ravine, emptied by law in 1952 and a UNESCO site since 1993.', props:[['matera',40.67,16.61]]},
    vmp:'italia_basilicata',
    wines:[['Aglianico del Vulture','red','italia_basilicata_aglianico_del_vulture'],['Matera DOC Primitivo','red',''],['Grottino di Roccanova','red','']], pairing:'Aglianico del Vulture with lucanica sausage and pane di Matera rubbed with peperoni cruschi.',
    dishes:['Peperoni cruschi','Strascinati con peperoni cruschi e mollica','Pane di Matera','Lucanica','Lagane e ceci','Caciocavallo podolico'],
    lessons:["Vulture: wine on a volcano","Aglianico, the Barolo of the south","Peperoni cruschi and the bread of Matera","Matera: the cave city"]},
- 'IT-78':{name:'Calabria', capital:'Catanzaro', area:'South', color:'#cc945f', intro:"The toe of Italy, fiercely spicy and Greek in its roots. 'Nduja, red onions of Tropea, bergamot and liquorice all come from here, and Cirò is the region's oldest denomination, drawn in 1969.",
+ 'IT-78':{name:'Calabria', capital:'Catanzaro', area:'South', color:'#cc945f', intro:"Calabria lies between two seas, with mountains close behind the coast. A glass of pale Cirò can carry more tannin than its colour suggests. In the kitchen, chilli goes into pork, but salt, drying and smoke do much of the preserving. Greek remains and living Greek speech connect different parts of the region to its past.",
    landmark:{name:'Tropea & Santa Maria dell\'Isola', desc:'A cliff-top town above white sand, with a monastery church on its own rock in the sea, Byzantine long before the Benedictines had it.', props:[['tropea',38.68,15.90]]},
    vmp:'italia_calabria',
    wines:[['Cirò Rosso (Gaglioppo)','red','italia_calabria_cirò'],['Cirò Bianco (Greco Bianco)','white','italia_calabria_cirò'],['Greco di Bianco','sweet',''],['Magliocco','red','']], pairing:'Cirò Rosso with fileja and \'nduja; Greco di Bianco with fig and almond sweets.',
    dishes:['\'Nduja','Cipolla rossa di Tropea','Fileja','Fileja col ragù di capra','Swordfish alla bagnarese','Bergamot','Liquorice of Rossano'],
    lessons:["Magna Graecia, and what the Greeks left","Gaglioppo and Cirò","'Nduja, chilli and the Calabrian pantry","Tropea and the Costa degli Dei"]},
- 'IT-82':{name:'Sicilia', capital:'Palermo', area:'Islands', color:'#dcb46a', intro:"The Mediterranean's largest island has been Greek, Arab, Norman and Spanish, and the kitchen shows it: couscous, citrus, pistachios, cannoli. Etna's volcanic vineyards make some of Italy's most exciting wines.",
-   landmark:{name:'Mount Etna & the Valley of the Temples', desc:'Europe\'s most active volcano (3,357 m) and, at Agrigento, the best-preserved Greek temples outside Greece.', props:[['etna',37.75,15.00],['temple',37.29,13.59]]},
+ 'IT-82':{name:'Sicilia', capital:'Palermo', area:'Islands', color:'#dcb46a', intro:"On Sicilia, a vineyard on Etna and a cellar at Marsala demand different explanations. One depends on altitude and the volcano's changing ground; the other works with fortification and time. At the table, the useful questions are just as concrete: how rice holds together, why aubergines are fried, and when to fill a cannolo.",
+   landmark:{name:'Mount Etna & the Valley of the Temples', desc:'Etna\'s volcanic landscape and the Greek temples at Agrigento.', props:[['etna',37.75,15.00],['temple',37.29,13.59]]},
    vmp:'italia_sicilia',
    wines:[['Etna Rosso (Nerello Mascalese)','red','italia_sicilia_etna'],['Nero d\'Avola','red','#Nero d\'Avola'],['Grillo','white','#Grillo'],['Marsala','sweet','italia_sicilia_marsala'],['Passito di Pantelleria','sweet','italia_sicilia_pantelleria'],['Cerasuolo di Vittoria','red','italia_sicilia_cerasuolo_di_vittoria']], pairing:'Etna Bianco with pasta alla Norma; Nero d\'Avola with grilled swordfish; Passito with cannoli.',
    dishes:['Arancini','Pasta alla Norma','Caponata','Cannoli','Granita','Pasta con le sarde'],
-   lessons:["Etna: vines on a live volcano","Nero d'Avola, Grillo and Marsala","Arab Sicily: citrus, sugar and street food","Temples, Normans and the Baroque"]},
- 'IT-88':{name:'Sardegna', capital:'Cagliari', area:'Islands', color:'#caa965', intro:"An island apart, with its own language and 7,000 Bronze-Age stone towers. Shepherds roast suckling pig, bake paper-thin carasau bread and make pecorino; Cannonau and Vermentino are its two great grapes.",
+   lessons:["Etna: vines on a live volcano","Nero d'Avola, Grillo and Marsala","Rice, aubergines and the Sicilian kitchen","Temples, Normans and the Baroque"]},
+ 'IT-88':{name:'Sardegna', capital:'Cagliari', area:'Islands', color:'#caa965', intro:"Sardegna makes most of Italy's Pecorino Romano. It also makes smaller quantities of cheeses such as Fiore Sardo, whose raw milk curds are smoked and aged. On the coast and in the interior, vines grow in different ground and local speech changes. Bread, wine and the old stone towers offer ways to look closely at an island often described too simply.",
    landmark:{name:'Nuraghe Su Nuraxi, Barumini', desc:'A dry-stone tower of stacked corbelled chambers with a village around it, the finest nuraghe on the island.', props:[['nuraghe',39.70,9.00]]},
    vmp:'italia_sardinia',
    wines:[['Cannonau di Sardegna','red','italia_sardinia_cannonau_di_sardegna'],['Vermentino di Gallura','white','italia_sardinia_vermentino_di_gallura'],['Carignano del Sulcis','red','italia_sardinia_carignano_del_sulcis'],['Vernaccia di Oristano','white','italia_sardinia_vernaccia_di_oristano']], pairing:'Vermentino di Gallura with fregola ai frutti di mare; Cannonau with porceddu and pecorino sardo.',
@@ -1519,8 +1519,8 @@ function openReader(code, i){
     const done = progress.has(code+':'+i);
     const next = R.lessons[i+1] ? `<a href="#/${code}/${i+2}"><small>${T('nextReading')}</small><b>${esc(R.lessons[i+1].title)}</b></a>` : `<a href="#/${ORDER[(ORDER.indexOf(code)+1)%ORDER.length]}"><small>${T('nextRegion')}</small><b>${esc(COURSE[ORDER[(ORDER.indexOf(code)+1)%ORDER.length]].name)}</b></a>`;
     const used = [...new Set([L.hero, ...[...L.html.matchAll(/data-img="([\w-]+)"/g)].map(m=>m[1])])];
-    const hasAudio = !!((window.AUDIO_MANIFEST||{})[`${dir}:${lang}-${i+1}`]);
-    const secs = ((window.AUDIO_MANIFEST||{})[`${dir}:${lang}-${i+1}`]||{}).seconds;
+    const hasAudio = !!((window.AUDIO_MANIFEST||{})[`${dir}:${lang}-${i === "intro" ? "intro" : i+1}`]);
+    const secs = ((window.AUDIO_MANIFEST||{})[`${dir}:${lang}-${i === "intro" ? "intro" : i+1}`]||{}).seconds;
     const listenLabel = hasAudio ? `${T('listen')} <small>· ${secs ? Math.round(secs/60) : L.minutes} min</small>` : (('speechSynthesis' in window) ? T('listenBrowser') : '');
     article.innerHTML = `<header class="rhead"><p class="kicker">${esc(L.kicker)} · ${L.minutes} min</p><h1>${esc(L.title)}</h1><p class="summary">${esc(L.summary)}</p>${region}${listenLabel ? `<div><button class="listen" type="button"><i>▶</i>${listenLabel}</button></div>` : ''}</header>
       ${figureHtml(dir, credits, L.hero, L.heroCaption, 'hero')}
@@ -1755,7 +1755,7 @@ function oggOpusToCaf(buf){
   return out;
 }
 async function resolveAudio(dir, lang, i){
-  const base = `assets/audio/${dir}/${lang}-${i+1}`;
+  const base = `assets/audio/${dir}/${lang}-${i === "intro" ? "intro" : i+1}`;
   if(!window.AUDIO_DATA) return base + '.mp3';                    // self-hosted: full-quality files on disk
   if(window.AUDIO_DATA[base + '.mp3']) return window.AUDIO_DATA[base + '.mp3'];
   const ogg = window.AUDIO_DATA[base + '.ogg']; if(!ogg) return null;
@@ -1851,9 +1851,8 @@ intro.querySelectorAll('.pick button').forEach(b => b.addEventListener('click', 
 // ============================================================ AUDIOBOOK
 // The whole course as one continuous listen. Deliberately separate from the reader: its own
 // progress key, no marking of readings as read, and no links back into the course. You open it,
-// it plays, it remembers where you were. Chapters are the eighty readings of the current
-// language in course order, and the audio is the same files the reader streams, so this adds
-// no bytes to the site.
+// it plays, it remembers where you were. Region introductions precede the eighty readings
+// in course order. Reading audio is shared with the reader.
 const book = document.getElementById('book');
 const bookPlayer = (() => {
   const now = book.querySelector('.bnow'), eyebrow = now.querySelector('.eyebrow'), h2 = now.querySelector('h2'),
@@ -1874,6 +1873,8 @@ const bookPlayer = (() => {
     for(const code of ORDER){
       const dir = ASSET_DIRS[code], R = readingsFor(code);
       if(!dir || !R) continue;
+      const introSecs = ((window.AUDIO_MANIFEST||{})[dir + ':' + lang + '-intro']||{}).seconds || 0;
+      if(introSecs) chapters.push({code, dir, i:'intro', title:lang === 'no' ? 'Innledning' : 'Introduction', region:course(code).name, secs:introSecs});
       R.lessons.forEach((L, i) => {
         const secs = ((window.AUDIO_MANIFEST||{})[dir + ':' + lang + '-' + (i+1)]||{}).seconds || 0;
         if(!secs) return;
@@ -1885,9 +1886,14 @@ const bookPlayer = (() => {
   function has(){ if(built !== lang) build(); return chapters.length > 0; }
 
   function save(){ if(!audio || !chapters[ix] || !curLang) return;
-    try{ localStorage.setItem(key(curLang), JSON.stringify({i: ix, t: Math.floor(audio.currentTime||0)})); }catch(e){} }
+    try{ localStorage.setItem(key(curLang), JSON.stringify({i: ix, code:chapters[ix].code, track:chapters[ix].i, t:Math.floor(audio.currentTime||0)})); }catch(e){} }
   function load(){ try{ const v = JSON.parse(localStorage.getItem(key(lang))||'null');
-    return v && typeof v.i === 'number' ? v : {i:0, t:0}; }catch(e){ return {i:0, t:0}; } }
+    if(!v || typeof v.i !== 'number') return {i:0, t:0};
+    // Old saves counted only readings. Preserve the same reading after adding bridges.
+    const legacy = chapters.filter(c => c.i !== 'intro');
+    const saved = v.code ? chapters.find(c => c.code === v.code && c.i === v.track) : legacy[v.i];
+    return saved ? {i:chapters.indexOf(saved), t:v.t||0} : {i:0,t:0};
+    }catch(e){ return {i:0, t:0}; } }
 
   function elapsedBefore(n){ let t = 0; for(let k=0;k<n && k<chapters.length;k++) t += chapters[k].secs; return t; }
   function setPP(playing){ pp.textContent = playing ? '\u275a\u275a' : '\u25b6'; pp.setAttribute('aria-label', playing ? 'Pause' : 'Play'); }
@@ -1927,16 +1933,18 @@ const bookPlayer = (() => {
   }
   async function go(n, at, play){
     if(!has()) return;
+    if(audio){ audio.pause(); audio.src = ''; audio = null; }
     ix = Math.max(0, Math.min(chapters.length-1, n));
     const c = chapters[ix];
-    if(audio){ audio.pause(); audio.src = ''; audio = null; }
     paint(); scrollToCurrent();
     const src = await resolveAudio(c.dir, lang, c.i);
     if(!src || chapters[ix] !== c) return;
     audio = new Audio(src); audio.preload = 'auto'; audio.playbackRate = RATES[rateIx]; curLang = lang;
-    if(at > 2) audio.currentTime = at;
     audio.addEventListener('timeupdate', () => { update(); paint(); save(); });
-    audio.addEventListener('loadedmetadata', update);
+    audio.addEventListener('loadedmetadata', () => {
+      if(at > 0) audio.currentTime = Math.min(at, audio.duration || at);
+      update();
+    }, {once:true});
     audio.addEventListener('play', () => setPP(true));
     audio.addEventListener('pause', () => { setPP(false); save(); });
     // the whole point: roll straight into the next chapter

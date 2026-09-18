@@ -49,15 +49,16 @@ try:
     ok("audiobook button is shown when narration ships",
        js("!document.getElementById('bookBtn').hidden"))
 
+    js("localStorage.removeItem('iit-book:no'); localStorage.removeItem('iit-book:en')")
     js("location.hash='#/audiobook'"); time.sleep(3)
     ok("the audiobook page opens", js("document.getElementById('book').classList.contains('open')"))
     n = js("document.querySelectorAll('#book .ch').length")
-    ok("eighty chapters listed", n == 80, n)
+    ok("one hundred chapters listed", n == 100, n)
     ok("chapters are grouped by region",
        js("document.querySelectorAll('#book .blist h3').length") == 20,
        js("document.querySelectorAll('#book .blist h3').length"))
-    ok("the first chapter is Valle d'Aosta reading 1",
-       "Europas" in (js("document.querySelector('#book .ch .t').textContent") or ""),
+    ok("the first chapter is Valle d'Aosta introduction",
+       "Innledning" in (js("document.querySelector('#book .ch .t').textContent") or ""),
        js("document.querySelector('#book .ch .t').textContent"))
     ok("total time is shown", "t" in (js("document.querySelector('#book .btotal').textContent") or ""),
        js("document.querySelector('#book .btotal').textContent"))
@@ -65,7 +66,7 @@ try:
     # play
     js("document.querySelector('#book .pp').click()"); time.sleep(4)
     t1 = js("(window.__dbg.bookPlayer, document.querySelector('#book .time').textContent)")
-    ok("playing (time advances)", t1 not in (None, "0:00 / 0:00"), t1)
+    ok("playing (time advances)", bool(t1) and not t1.startswith("0:00"), t1)
     ok("pause button shows the pause glyph",
        js("document.querySelector('#book .pp').textContent") == "\u275a\u275a")
 
@@ -105,11 +106,25 @@ try:
     # language
     js("document.querySelector(\"#lang button[data-lang='en']\").click()"); time.sleep(4)
     ok("switching language rebuilds the book in English",
-       "highest" in (js("document.querySelector('#book .ch .t').textContent") or "").lower(),
+       "introduction" in (js("document.querySelector('#book .ch .t').textContent") or "").lower(),
        js("document.querySelector('#book .ch .t').textContent"))
     ok("English progress is kept separately",
        js("document.querySelector('#book .ch.is-on .n').textContent") == "1",
        js("document.querySelector('#book .ch.is-on .n').textContent"))
+
+    # A saved pre-introduction index 9 was Liguria reading 2, now index 12.
+    js("location.hash='#/'"); time.sleep(1)
+    js("localStorage.setItem('iit-book:no', JSON.stringify({i:9,t:12}))")
+    send("Page.navigate", url=URL); time.sleep(5)
+    js("location.hash='#/audiobook'"); time.sleep(3)
+    ok("legacy saved reading survives added introductions",
+       js("document.querySelector('#book .ch.is-on .n').textContent") == "13")
+    ok("legacy playback time survives", (js("document.querySelector('#book .time').textContent") or "").startswith("0:12"), js("document.querySelector('#book .time').textContent"))
+    js("document.querySelectorAll('#book .ch')[0].click()"); time.sleep(3)
+    saved_intro = json.loads(js("localStorage.getItem('iit-book:no')") or '{}')
+    ok("introduction has a stable saved identity", saved_intro.get('track') == 'intro' and saved_intro.get('code') == 'IT-23')
+    js("document.querySelector('#book .next').click()"); time.sleep(3)
+    ok("next from introduction opens reading one", js("document.querySelector('#book .ch.is-on .n').textContent") == "2")
 
     print("FAILURES:", ", ".join(fails) if fails else "none")
 finally:

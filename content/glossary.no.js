@@ -527,3 +527,29 @@ Object.assign(window.GLOSSARY_NO, {
     long:"Forskerne har kranglet i hundre år om den nedstammer fra dorisken i Magna Graecia eller kom med bysantinske nybyggere. Det er kanskje to tusen talere igjen, og UNESCO regner språket som sterkt truet. Da Roghudi ble erklært ubeboelig etter flommene i 1971 og 1973, ble folket flyttet førti kilometer til kysten, der de fortsatt snakker det.",
     match:["greko"]},
 });
+
+Object.assign(window.GLOSSARY_NO, {
+  "contrada": {
+    "short": "Et navngitt lokalt område, brukt på Etna for å angi hvor druene vokser.",
+    "long": "En contrada er ikke nødvendigvis én vinmark eller én lavastrøm. Navnet skiller mellom steder innenfor Etna-denominasjonen.",
+    "match": [
+      "contrada",
+      "contrade"
+    ]
+  },
+  "palmento": {
+    "short": "En tradisjonell siciliansk bygning med kar for tråkking og gjæring av druer.",
+    "long": "Druene ble tråkket i et øvre kar, og mosten rant ned til et annet kar. Bygningen kan være bevart selv om vinen nå lages med moderne utstyr.",
+    "match": [
+      "palmento",
+      "palmenti"
+    ]
+  },
+  "muqarnas": {
+    "short": "Små celler satt sammen til et skulpturert tak eller hvelv.",
+    "long": "Tretaket i Cappella Palatina i Palermo har muqarnas, en form knyttet til islamsk arkitektur.",
+    "match": [
+      "muqarnas"
+    ]
+  }
+});

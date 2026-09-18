@@ -1,6 +1,9 @@
 # Italia in Tavola — from prototype to real course navigation
 
-Status: prototype 2 (3D map + module summaries) plus one region, Lazio, built out with real reading lessons and photographs. Mobile first from this round on.
+Status (18 September 2026): all 20 Italian regions rewritten in both languages, questions aligned,
+narration current, and all 40 regional audiobook introductions complete. Local build ready;
+not yet published. See [completion record](docs/italy-finalization.md). Earlier sections below
+retain the original implementation history.
 
 ## 1. What "real navigation" means here
 
