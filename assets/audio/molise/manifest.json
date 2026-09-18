@@ -1,66 +1,107 @@
 {
  "en-1": {
-  "seconds": 324.6,
+  "seconds": 303.4,
   "voice": "en-GB-SoniaNeural",
-  "bytes": 1947600,
-  "lo_bytes": 649592,
-  "ogg_bytes": 480706
+  "bytes": 1820304,
+  "lo_bytes": 607184,
+  "intro": "title",
+  "drop": "facts,recap,tasting,headings",
+  "outro": "none",
+  "ogg_bytes": 449409
  },
  "en-2": {
-  "seconds": 324.4,
+  "seconds": 439.7,
   "voice": "en-GB-SoniaNeural",
-  "bytes": 1946592,
-  "lo_bytes": 649232,
-  "ogg_bytes": 477576
+  "bytes": 2638080,
+  "lo_bytes": 879776,
+  "intro": "title",
+  "drop": "facts,recap,tasting,headings",
+  "outro": "none",
+  "ogg_bytes": 647891
  },
  "en-3": {
-  "seconds": 362.4,
+  "seconds": 406.4,
   "voice": "en-GB-SoniaNeural",
-  "bytes": 2174112,
-  "lo_bytes": 725120,
-  "ogg_bytes": 532373
+  "bytes": 2438208,
+  "lo_bytes": 813104,
+  "intro": "title",
+  "drop": "facts,recap,tasting,headings",
+  "outro": "none",
+  "ogg_bytes": 599559
  },
  "en-4": {
-  "seconds": 402.4,
+  "seconds": 511.4,
   "voice": "en-GB-SoniaNeural",
-  "bytes": 2414160,
-  "lo_bytes": 805112,
-  "ogg_bytes": 594820
+  "bytes": 3068352,
+  "lo_bytes": 1023200,
+  "intro": "title",
+  "drop": "facts,recap,tasting,headings",
+  "outro": "none",
+  "ogg_bytes": 754849
  },
  "no-1": {
-  "seconds": 232.4,
-  "voice": "nbtts/Kvinne \u00b7 Oslo@0.95",
-  "bytes": 1394588,
-  "lo_bytes": 465128,
+  "seconds": 298.6,
+  "voice": "nbtts/Kvinne · Oslo@0.95",
+  "bytes": 1791884,
+  "lo_bytes": 597536,
   "intro": "title",
-  "drop": "facts,recap",
-  "ogg_bytes": 338990
+  "drop": "facts,recap,tasting,headings",
+  "outro": "none",
+  "ogg_bytes": 437643
  },
  "no-2": {
-  "seconds": 257.7,
-  "voice": "nbtts/Kvinne \u00b7 Oslo@0.95",
-  "bytes": 1546652,
-  "lo_bytes": 515816,
+  "seconds": 430.0,
+  "voice": "nbtts/Kvinne · Oslo@0.95",
+  "bytes": 2580284,
+  "lo_bytes": 860336,
   "intro": "title",
-  "drop": "facts,recap",
-  "ogg_bytes": 373278
+  "drop": "facts,recap,tasting,headings",
+  "outro": "none",
+  "ogg_bytes": 628129
  },
  "no-3": {
-  "seconds": 282.2,
-  "voice": "nbtts/Kvinne \u00b7 Oslo@0.95",
-  "bytes": 1693532,
-  "lo_bytes": 564776,
+  "seconds": 404.3,
+  "voice": "nbtts/Kvinne · Oslo@0.95",
+  "bytes": 2425772,
+  "lo_bytes": 808856,
   "intro": "title",
-  "drop": "facts,recap",
-  "ogg_bytes": 415110
+  "drop": "facts,recap,tasting,headings",
+  "outro": "none",
+  "ogg_bytes": 593509
  },
  "no-4": {
-  "seconds": 322.6,
-  "voice": "nbtts/Kvinne \u00b7 Oslo@0.95",
-  "bytes": 1935740,
-  "lo_bytes": 645488,
+  "seconds": 510.7,
+  "voice": "nbtts/Kvinne · Oslo@0.95",
+  "bytes": 3064556,
+  "lo_bytes": 1021760,
   "intro": "title",
-  "drop": "facts,recap",
-  "ogg_bytes": 473410
+  "drop": "facts,recap,tasting,headings",
+  "outro": "none",
+  "ogg_bytes": 748164
+ },
+ "en-intro": {
+  "voice": "en-GB-SoniaNeural",
+  "seconds": 22.2,
+  "bytes": 133868,
+  "ogg_bytes": 32220,
+  "kind": "region-intro",
+  "intro": "region",
+  "drop": "",
+  "outro": "none",
+  "loudness": -19
+ },
+ "no-intro": {
+  "voice": "Kvinne · Oslo",
+  "pace": "Rolig",
+  "model": "NbAiLab/nb-tts-voxcpm2-voices-2607",
+  "tempo": 0.95,
+  "seconds": 21.8,
+  "bytes": 130988,
+  "ogg_bytes": 31779,
+  "kind": "region-intro",
+  "intro": "region",
+  "drop": "",
+  "outro": "none",
+  "loudness": -19
  }
 }
