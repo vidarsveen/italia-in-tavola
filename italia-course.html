@@ -1756,7 +1756,11 @@ function oggOpusToCaf(buf){
 }
 async function resolveAudio(dir, lang, i){
   const base = `assets/audio/${dir}/${lang}-${i === "intro" ? "intro" : i+1}`;
-  if(!window.AUDIO_DATA) return base + '.mp3';                    // self-hosted: full-quality files on disk
+  if(!window.AUDIO_DATA){
+    const key = `${dir}:${lang}-${i === "intro" ? "intro" : i+1}`;
+    const revision = (window.AUDIO_MANIFEST || {})[key]?.revision;
+    return base + '.mp3' + (revision ? '?v=' + encodeURIComponent(revision) : '');
+  }
   if(window.AUDIO_DATA[base + '.mp3']) return window.AUDIO_DATA[base + '.mp3'];
   const ogg = window.AUDIO_DATA[base + '.ogg']; if(!ogg) return null;
   if(OGG_OK) return ogg;
