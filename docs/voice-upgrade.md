@@ -89,3 +89,33 @@ readings 3 and 4 retain their previous recordings. All other regions retain thei
 MP3 revisions are included in self-hosted playback URLs to avoid stale cached audio on phones.
 The preview build is 14.5 MB; the full site is approximately 452 MB. Reading freshness and all
 regional intro checks pass. The phone reader plays the new Puck audio, seeks forward and pauses.
+
+The release completed successfully on GitHub Pages at commit `168a496`; live manifests and
+intro audio hashes were verified against the local files.
+
+## Next five regions
+
+The owner authorised five more regions: Valle d'Aosta, Liguria, Lombardia, Trentino-Alto Adige
+and Veneto, following course order while skipping the pilot regions. Each gets an introduction
+and four readings in both languages. English generation started locally with Heart; Norwegian
+is awaiting an OpenRouter top-up (funded account balance $0.61328193 at the preflight check,
+distinct from the API key's larger spending allowance).
+
+Run `tools/voice_batch.py --batch five --lang en` using the isolated voice environment.
+After funding, run the same command with `--lang no`. Outputs and costs are under
+`voicelab/local-english/batch-five`; the preview is http://127.0.0.1:8767/batch-five/.
+Use `--report` to refresh the listening page without generating anything.
+Validate with `tools/check_voice_batch.py --batch five --lang en` (or `--lang both` when ready).
+The installer accepts the same batch/language options and requires all selected tracks unless
+`--completed` explicitly permits a partial release. The two incomplete pilot tracks remain
+separately resumable with `tools/voice_batch.py --batch three --lang no`.
+
+### English batch complete
+
+All 25 English tracks are generated, validated and installed: 6,818.3 seconds (1 h 53 m 38 s).
+Source hashes and scripts match; MP3 and Opus decode successfully, with measured loudness
+between -19.72 and -19.32 LUFS. Heart API cost is $0. No paid Norwegian requests were made
+for this batch; the funded balance was rechecked and remained $0.613282. Existing Norwegian
+audio is retained. The phone player test on Veneto reading 3 passed playback, +15 s seek
+and pause. All five regions have no stale narrations; all regional intro checks pass.
+The full site build is 452.9 MB and the inlined preview remains 14.5 MB.

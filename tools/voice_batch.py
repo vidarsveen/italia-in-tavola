@@ -1,8 +1,9 @@
-"""Stage the approved three-region voice pilot, with resumable chunks and cost records.
+"""Stage an approved voice batch, with resumable chunks and cost records.
 
 Run using voicelab/local-english-env/Scripts/python.exe tools/voice_batch.py.
 Does not publish or replace the existing course recordings.
 """
+import argparse
 import concurrent.futures
 import hashlib
 import html
@@ -23,6 +24,20 @@ from local_voice_samples import FloatSpeedKokoro, MODEL
 ROOT = Path(tts.ROOT)
 OUT = ROOT / 'voicelab/local-english/batch-three'
 REGIONS = ['lazio', 'piemonte', 'toscana']
+BATCHES = {'three': REGIONS, 'five': ['valledaosta', 'liguria', 'lombardia', 'trentino', 'veneto']}
+REGION_LABELS = {'valledaosta': "Valle d’Aosta", 'trentino': 'Trentino-Alto Adige'}
+
+
+def configure(parser=None):
+    global OUT, REGIONS
+    parser = parser or argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--batch', choices=BATCHES, default='three')
+    parser.add_argument('--lang', choices=['en', 'no', 'both'], default='both')
+    args = parser.parse_args()
+    REGIONS = BATCHES[args.batch]
+    OUT = ROOT / 'voicelab/local-english' / ('batch-' + args.batch)
+    return args
+
 MODEL_NO = 'google/gemini-3.1-flash-tts-preview'
 # Exact owner-selected kitchen-table direction, frozen for reproducibility.
 DIRECTION = '''Read only the transcript aloud, word for word, in Norwegian Bokmål with a natural Oslo-area accent.
@@ -152,6 +167,8 @@ def english_batch(jobs):
 
 
 def report():
+    OUT.mkdir(parents=True, exist_ok=True)
+    scripts = {(region, key): script for region, key, script in tasks()}
     regions = []
     alltracks = []
     for region in REGIONS:
@@ -175,28 +192,48 @@ def report():
     save(OUT/'report.json',total)
     page = '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Three-region voice pilot</title><style>body{font:18px/1.6 system-ui;max-width:850px;margin:40px auto;padding:0 20px;background:#faf6ed;color:#27241f}audio{width:100%}section{border-top:1px solid #d4c9b8;padding:14px 0}h2{margin-top:40px}summary{cursor:pointer}</style><h1>Three-region voice pilot</h1><p>Norwegian: casual Puck. English: local Heart. Includes each regional introduction and all four readings. These recordings are staged for review; the live course is unchanged.</p>'''
     for region in REGIONS:
-        page += '<h2>'+region.title()+'</h2>'
+        page += '<h2>'+html.escape(REGION_LABELS.get(region, region.title()))+'</h2>'
         for lang in ['no','en']:
             page += '<details><summary>'+('Norsk · Puck' if lang=='no' else 'English · Heart')+'</summary>'
             for key in [lang+'-intro']+[f'{lang}-{i}' for i in range(1,5)]:
-                title = (OUT/region/(key+'.txt')).read_text(encoding='utf-8').splitlines()[0]
+                title = scripts[region, key].splitlines()[0]
                 if (OUT/region/(key+'.json')).exists():
                     page += f'<section><h3>{html.escape(title)}</h3><audio controls preload="none" src="{region}/{key}.mp3"></audio></section>'
                 else:
-                    page += f'<section><h3>{html.escape(title)}</h3><p>Not yet complete — recording paused because OpenRouter credits ran out.</p></section>'
+                    page += f'<section><h3>{html.escape(title)}</h3><p>Recording pending.</p></section>'
             page += '</details>'
     page += "<script>document.addEventListener('play',e=>{if(e.target.tagName==='AUDIO')document.querySelectorAll('audio').forEach(a=>{if(a!==e.target)a.pause()})},true)</script></html>"
+    page = page.replace('Three-region voice pilot', f'{len(REGIONS)}-region voice batch')
     (OUT/'index.html').write_text(page,encoding='utf-8')
     print(json.dumps(total,indent=2),flush=True)
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--report', action='store_true')
+    args = configure(parser)
     OUT.mkdir(parents=True,exist_ok=True)
     jobs = tasks()
-    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
-        english = pool.submit(english_batch,[j for j in jobs if j[1].startswith('en-')])
-        # Limit paid jobs to two in flight while English runs locally.
-        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as paid:
-            list(paid.map(generate,[j for j in jobs if j[1].startswith('no-')]))
-        english.result()
+    if args.report:
+        report()
+        raise SystemExit(0)
     report()
+    try:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
+            english = pool.submit(english_batch,[j for j in jobs if j[1].startswith('en-')]) if args.lang != 'no' else None
+            # Submit only two paid tracks at once. A failure prevents later submissions.
+            if args.lang != 'en':
+                remaining = iter(j for j in jobs if j[1].startswith('no-'))
+                active = {pool.submit(generate, job) for job in [next(remaining, None), next(remaining, None)] if job}
+                while active:
+                    done, active = concurrent.futures.wait(active, return_when=concurrent.futures.FIRST_COMPLETED)
+                    for future in done:
+                        future.result()
+                    for _ in done:
+                        job = next(remaining, None)
+                        if job:
+                            active.add(pool.submit(generate, job))
+            if english:
+                english.result()
+    finally:
+        report()

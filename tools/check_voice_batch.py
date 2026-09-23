@@ -1,16 +1,23 @@
 """Validate completed pilot tracks; pass region stems or omit for all three."""
 import hashlib
+import argparse
 import json
 import subprocess
 import sys
 import voice_batch as batch
 
-completed_only = '--completed' in sys.argv
-regions = [arg for arg in sys.argv[1:] if arg != '--completed'] or batch.REGIONS
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--completed', action='store_true')
+parser.add_argument('regions', nargs='*')
+args = batch.configure(parser)
+completed_only = args.completed
+regions = args.regions or batch.REGIONS
 count = 0
 levels = []
 for region, key, script in batch.tasks():
     if region not in regions:
+        continue
+    if args.lang != 'both' and not key.startswith(args.lang + '-'):
         continue
     path = batch.OUT / region / (key + '.mp3')
     if completed_only and not path.with_suffix('.json').exists():

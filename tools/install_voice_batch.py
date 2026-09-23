@@ -1,10 +1,14 @@
 """Promote the validated pilot tracks; leave incomplete tracks untouched."""
 import hashlib
+import argparse
 import json
 import shutil
 import voice_batch as batch
 
-jobs = batch.tasks()
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--completed', action='store_true', help='Explicitly permit a partial batch')
+args = batch.configure(parser)
+jobs = [job for job in batch.tasks() if args.lang == 'both' or job[1].startswith(args.lang + '-')]
 ready = []
 for region, key, script in jobs:
     source = batch.OUT / region
@@ -17,7 +21,7 @@ for region, key, script in jobs:
     assert all((source/(key+ext)).is_file() for ext in ['.txt','.mp3','.ogg'])
     assert abs(info['lufs'] + 19) < 1
     ready.append((region,key,info))
-assert len(ready) >= 28, 'Unexpectedly incomplete pilot'
+assert ready and (args.completed or len(ready) == len(jobs)), 'Incomplete batch; validate first or explicitly use --completed'
 for region in batch.REGIONS:
     folder = batch.ROOT/'assets/audio'/region
     path = folder/'manifest.json'

@@ -1,43 +1,59 @@
 {
  "en-1": {
-  "seconds": 302.7,
-  "voice": "en-GB-SoniaNeural",
-  "bytes": 1816128,
-  "lo_bytes": 605744,
+  "seconds": 301.2,
+  "voice": "af_heart",
+  "model": "Kokoro-82M-v1.0",
+  "bytes": 1807436,
+  "ogg_bytes": 449024,
   "intro": "title",
   "drop": "facts,recap,tasting,headings",
   "outro": "none",
-  "ogg_bytes": 446313
+  "fingerprint": "429980d9c9a6f157c4b5cfdb604488d1ed6858023f1beba6cdea8e45b9a80dde",
+  "revision": "6cc593c0e3a58823",
+  "loudness": -19.42,
+  "speed": 0.95
  },
  "en-2": {
-  "seconds": 335.7,
-  "voice": "en-GB-SoniaNeural",
-  "bytes": 2014416,
-  "lo_bytes": 671840,
+  "seconds": 342.7,
+  "voice": "af_heart",
+  "model": "Kokoro-82M-v1.0",
+  "bytes": 2056412,
+  "ogg_bytes": 511583,
   "intro": "title",
   "drop": "facts,recap,tasting,headings",
   "outro": "none",
-  "ogg_bytes": 494343
+  "fingerprint": "b8af23b553b1a6474f5370350ecc673afd9d3aa6d5ea8ae2fc3cbdba5d2bbbc9",
+  "revision": "c8a81fef097d1a0e",
+  "loudness": -19.44,
+  "speed": 0.95
  },
  "en-3": {
-  "seconds": 455.9,
-  "voice": "en-GB-SoniaNeural",
-  "bytes": 2735280,
-  "lo_bytes": 912176,
+  "seconds": 458.7,
+  "voice": "af_heart",
+  "model": "Kokoro-82M-v1.0",
+  "bytes": 2752364,
+  "ogg_bytes": 684771,
   "intro": "title",
   "drop": "facts,recap,tasting,headings",
   "outro": "none",
-  "ogg_bytes": 671883
+  "fingerprint": "b8a2d18671294614d31aad4b44c8f501aa9cdffef2c447994dd773954219053c",
+  "revision": "4c405ad9389643e2",
+  "loudness": -19.42,
+  "speed": 0.95
  },
  "en-4": {
-  "seconds": 348.2,
-  "voice": "en-GB-SoniaNeural",
-  "bytes": 2089152,
-  "lo_bytes": 696752,
+  "seconds": 362.3,
+  "voice": "af_heart",
+  "model": "Kokoro-82M-v1.0",
+  "bytes": 2174204,
+  "ogg_bytes": 541737,
   "intro": "title",
   "drop": "facts,recap,tasting,headings",
   "outro": "none",
-  "ogg_bytes": 513680
+  "fingerprint": "948dc887ed0600656dc7fedea0db177cff286d85207061dc29eecb17e97c763e",
+  "revision": "25cde46ab53be0bc",
+  "loudness": -19.42,
+  "speed": 0.95
  },
  "no-1": {
   "seconds": 307.0,
@@ -80,15 +96,19 @@
   "ogg_bytes": 512751
  },
  "en-intro": {
-  "voice": "en-GB-SoniaNeural",
   "seconds": 21.3,
-  "bytes": 128396,
-  "ogg_bytes": 31311,
-  "kind": "region-intro",
+  "voice": "af_heart",
+  "model": "Kokoro-82M-v1.0",
+  "bytes": 128252,
+  "ogg_bytes": 31153,
   "intro": "region",
   "drop": "",
   "outro": "none",
-  "loudness": -19
+  "fingerprint": "93f614bd07740623ed8c56c1522855f8bc47f066ae79af4d8ff257a5bc4de20c",
+  "revision": "d7acb0b822def50f",
+  "loudness": -19.72,
+  "speed": 0.95,
+  "kind": "region-intro"
  },
  "no-intro": {
   "voice": "Kvinne · Oslo",
