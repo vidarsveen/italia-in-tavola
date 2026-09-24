@@ -29,9 +29,10 @@ steps per frame (used for automated testing).
 
 # Italia in Tavola
 
-The rewritten course is complete locally: 20 regions in both languages, updated questions, matching
-narration and 20 narrated regional introductions per language. These latest changes have not yet
-been published. See [completion record](docs/italy-finalization.md).
+The rewritten course covers all 20 regions in both languages, with updated questions, matching
+narration and 20 narrated regional introductions per language. The published course uses casual
+Gemini Puck for Norwegian and locally generated Kokoro Heart for English. See the
+[voice upgrade record](docs/voice-upgrade.md) and [content completion record](docs/italy-finalization.md).
 
 A mobile-first 3D relief map of Italy that works as the navigation for a course on Italian regions, wine and food.
 Real terrain from 300 m elevation data (AWS Terrain Tiles), a baked shaded-relief texture, real region boundaries
@@ -74,16 +75,19 @@ the first visit follows the browser language. `?lang=no` forces Norwegian for a 
 ## Listen instead of reading
 
 Every reading has a **Listen** button under its summary. It plays a narration generated from the lesson text with a neural
-voice (British English or Norwegian bokmål), in a player with play/pause, scrubbing, ±15 s and speed. Playback position is
+voice (American English or Norwegian bokmål), in a player with play/pause, scrubbing, ±15 s and speed. Playback position is
 remembered per lesson, finishing the audio marks the lesson as read, and lock-screen controls work on phones. If a region has
 no narration file yet, the button falls back to the browser's own voice for that language.
 
-Generate or refresh narration with `python tools/narrate.py <region>` (needs `edge-tts` and `imageio-ffmpeg`; `--only no-3`
-regenerates one file), then `python tools/opus.py <region>` to make the small Opus versions. The self-hosted page plays the
+Generate or refresh narration with `tools/voice_batch.py --batch <name> --lang both` using the isolated
+voice environment; validate with `tools/check_voice_batch.py` and install with `tools/install_voice_batch.py`
+using the same batch option. The batch mapping and exact commands are in [the voice upgrade record](docs/voice-upgrade.md).
+Completed tracks and sections are reused. Heart runs locally without an API fee; Puck uses OpenRouter,
+and generation charges are recorded. Do not use the older default narration helpers, which select different voices.
+The self-hosted page plays the
 full-quality MP3s; the single-file build inlines the Opus files (about 500 KB per lesson). Browsers without Opus-in-Ogg
 support (Safari before iOS 18.4) get the same packets repackaged in the page into Apple's CAF container, verified
-byte-identical to ffmpeg's muxer. The voices come from Microsoft's neural text-to-speech; for production, generate the same
-scripts through a licensed service (Azure Speech, ElevenLabs, OpenAI TTS) or record a human narrator.
+byte-identical to ffmpeg's muxer. The audiobook includes each region's introduction followed by its four readings.
 
 ## Adding a region's readings
 

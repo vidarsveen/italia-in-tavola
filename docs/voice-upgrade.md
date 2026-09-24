@@ -1,5 +1,10 @@
 # Voice upgrade — 23 September 2026
 
+**Completed 24 September 2026:** all 20 regions, 200 tracks including 40 regional introductions,
+now use Heart English and casual Puck Norwegian. All scripts, settings, audio revisions and
+files were audited. Total generation cost: **$16.971739**, excluding earlier auditions;
+English API cost: **$0**. The sections below retain the rollout history and per-batch costs.
+
 The owner selected Kokoro Heart (`af_heart`) for locally generated English on 23 September.
 The audition used speed 0.95. The owner subsequently selected casual Puck (variant 3) for Norwegian
 and authorised an initial three-region batch, with a cost report before proceeding further.
@@ -35,7 +40,7 @@ The wrapper in kokoro-onnx 0.4.8 and 0.4.9 sends integer speed for this export, 
 expects float. The audition subclass supplies float32 speed without losing 0.95, and rejects
 oversized input instead of silently truncating it. Keep this fix when integrating production.
 
-## Remaining work
+## Original rollout plan (completed)
 
 1. Voices selected: Heart and casual Puck. Initial batch: Lazio, Piemonte, Toscana, both languages,
    with introductions (30 tracks). Stop after those three regions and report cost.
@@ -243,3 +248,33 @@ retain their earlier voices. This batch does not authorise generating those fina
 The phone player passed playback, seek and pause on Calabria's new Norwegian food chapter.
 The audiobook test passed all checks, including introductions, chapter transitions, resume,
 language-specific progress and migration of old saved positions. All regional intro checks passed.
+
+## Final batch — Sicilia and Sardegna
+
+The southern release was deployed at `d4e31da`, and live manifests and all ten introduction
+hashes were verified. The owner then authorised finishing the remaining regions, Sicilia and
+Sardegna, with both voices and introductions (20 tracks). Use `--batch islands` for generation,
+validation and installation. Output: `voicelab/local-english/batch-islands`; preview:
+http://127.0.0.1:8767/batch-islands/. Last verified funded balance: $12.41522193.
+Complete the recordings, validate, publish and report the final batch and cumulative costs.
+
+### Final batch complete
+
+All 20 island tracks are generated, validated and installed. English totals 2,500.8 seconds;
+Norwegian totals 2,989.7 seconds. Sicilia cost $0.695016 and Sardegna $0.815570, for a final
+batch total of $1.510586. All 28 successful generations have retrieved costs. The funded balance
+decreased from $12.41522193 to $10.90463593, exactly matching the batch charge.
+
+The full-course audit verified all 20 regions: 100 Heart recordings, 100 casual Puck recordings,
+including 40 introductions. Every stored script matches current content; every fingerprint
+matches the approved direction or Heart settings; all MP3 revisions, MP3/Opus sizes and
+normalised loudness match their manifests. Every track was decoded and checked during its batch.
+All five batches together cost $16.971739, including the rejected Umbria attempt, excluding
+earlier auditions. English synthesis ran locally without API charges.
+
+README, PLAN and AGENTS now document the current voices and batch regeneration workflow so
+future edits do not restore the superseded Edge or nbtts defaults. The final site is 489.4 MB;
+the inlined preview remains 14.5 MB. No regions remain in the voice-upgrade rollout.
+The final Sardegna phone test passed playback, seeking and pause. The complete audiobook test
+passed all checks, including introductions, chapter navigation, language-specific progress,
+resume and migration of old saved positions.

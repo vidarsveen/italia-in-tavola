@@ -1,9 +1,10 @@
 # Italia in Tavola — from prototype to real course navigation
 
-Status (18 September 2026): all 20 Italian regions rewritten in both languages, questions aligned,
-narration current, and all 40 regional audiobook introductions complete. Local build ready;
-not yet published. See [completion record](docs/italy-finalization.md). Earlier sections below
-retain the original implementation history.
+Status (24 September 2026): all 20 Italian regions rewritten in both languages, questions aligned,
+and all 40 regional audiobook introductions complete. The voice upgrade replaces all 200 tracks
+with casual Gemini Puck (Norwegian) and local Kokoro Heart (English). See the current
+[voice upgrade record](docs/voice-upgrade.md) and [content completion record](docs/italy-finalization.md).
+Earlier sections below retain the original implementation history, including superseded voices.
 
 ## 1. What "real navigation" means here
 

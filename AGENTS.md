@@ -26,7 +26,7 @@ illustrated, narrated readings in English and Norwegian (bokmål). Everything is
 and asset files; a build step produces a single-file version for the hosted preview.
 
 - Owner: Vidar (Norwegian). Both languages matter equally. Mobile first, always test on a phone viewport.
-- Done: **all twenty regions** have text EN+NO, photos and narration EN+NO (407 photos, 160 audio files),
+- Done: **all twenty regions** have text EN+NO, photos and narration EN+NO (407 photos, 200 audio tracks including introductions),
   plus 102 recipes in both languages (§14).
   Three content stems differ from the region name: IT-32 `trentino`, IT-36 `friuli`, IT-23 `valledaosta`.
 - Every wine in the region sheet links to Vinmonopolet; see §11.
@@ -118,7 +118,10 @@ Debug URL parameters: `?instant` (skip font wait and camera tweens), `region=IT-
    About 10–12 photos per region; the hero of each lesson should be strong.
 4. **Wire it.** In `italia-course.html`: add `'IT-xx':'<region>'` to `ASSET_DIRS`; add three script tags after
    the previous region's: `content/<region>.js`, `content/<region>.no.js`, `assets/audio/<region>/manifest.js`.
-5. **Narration.** `python tools/review_no.py <region> --narrate` regenerates every stale file with a truncation
+5. **Narration.** The current voices are casual Puck (Norwegian) and local Heart (English).
+   Use `tools/voice_batch.py`, the matching validator and installer described in §6 and
+   `docs/voice-upgrade.md`. Do not use the older default generation helpers: they change the voices.
+   **Historical workflow, superseded for generation:** `python tools/review_no.py <region> --narrate` regenerates every stale file with a truncation
    retry, normalises loudness and re-encodes Opus (preferred). It passes the right settings per language:
    English is edge-tts `en-GB-SoniaNeural`; Norwegian is `--engine nbtts --voice 'Kvinne · Oslo' --pace Rolig
    --tempo 0.95` (§16), and running bare `narrate.py` on a Norwegian file would silently put the old Edge voice
@@ -221,6 +224,18 @@ English in view; if it needs the English to parse, rewrite it.
   the DEM came from AWS Terrain Tiles, Terrarium PNG, zoom 8, tiles x 132–141, y 88–100, no API key).
 
 ## 6. Audio facts
+
+**Current voice settings (24 September 2026):** all 20 regions use local Kokoro Heart
+(`af_heart`, en-us, speed 0.95) for English and Gemini Puck with the owner-approved casual-v3
+direction for Norwegian, including all regional introductions: 200 tracks in total. The exact
+direction is frozen in `tools/voice_batch.py`; do not replace it with the model's default delivery.
+Use `voicelab/local-english-env/Scripts/python.exe` with `tools/voice_batch.py --batch <name>
+--lang both`, then `tools/check_voice_batch.py` and `tools/install_voice_batch.py` with the same
+batch. Batch names: `three`, `five`, `next-five`, `south-five`, `islands`; mappings and costs are
+in `docs/voice-upgrade.md`. Generation reuses matching scripts/settings, records costs including
+rejected attempts, normalises volume, and writes MP3 and Opus. Build after installation to refresh
+manifests and audio revisions. `review_no.py --stale` and `record_intros.py --check` remain useful;
+their generation defaults and the historical voice instructions below are superseded.
 
 - `tools/narrate.py` turns each lesson into a spoken script (figures and credits dropped, tables read as
   "Colour: …", headings as pauses), synthesises MP3 via Microsoft Edge neural voices (unofficial free route,

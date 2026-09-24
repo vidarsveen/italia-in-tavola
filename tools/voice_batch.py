@@ -27,7 +27,8 @@ OUT = ROOT / 'voicelab/local-english/batch-three'
 REGIONS = ['lazio', 'piemonte', 'toscana']
 BATCHES = {'three': REGIONS, 'five': ['valledaosta', 'liguria', 'lombardia', 'trentino', 'veneto'],
            'next-five': ['friuli', 'emiliaromagna', 'umbria', 'marche', 'abruzzo'],
-           'south-five': ['molise', 'campania', 'puglia', 'basilicata', 'calabria']}
+           'south-five': ['molise', 'campania', 'puglia', 'basilicata', 'calabria'],
+           'islands': ['sicilia', 'sardegna']}
 REGION_LABELS = {'valledaosta': "Valle d’Aosta", 'trentino': 'Trentino-Alto Adige',
                  'friuli': 'Friuli-Venezia Giulia', 'emiliaromagna': 'Emilia-Romagna'}
 
