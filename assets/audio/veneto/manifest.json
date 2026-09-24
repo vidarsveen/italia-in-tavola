@@ -56,44 +56,60 @@
   "speed": 0.95
  },
  "no-1": {
-  "seconds": 307.0,
-  "voice": "nbtts/Kvinne · Oslo@0.95",
-  "bytes": 1842284,
-  "lo_bytes": 614312,
+  "seconds": 371.2,
+  "voice": "Puck",
+  "model": "google/gemini-3.1-flash-tts-preview",
+  "bytes": 2227196,
+  "ogg_bytes": 547585,
   "intro": "title",
   "drop": "facts,recap,tasting,headings",
   "outro": "none",
-  "ogg_bytes": 448325
+  "fingerprint": "d3974e170b2376f75d86599f0239d55374681deebf31ab0ce7b513d8650fa612",
+  "revision": "a7ea4de15741e6a5",
+  "loudness": -19.41,
+  "delivery": "casual-v3"
  },
  "no-2": {
-  "seconds": 338.9,
-  "voice": "nbtts/Kvinne · Oslo@0.95",
-  "bytes": 2033660,
-  "lo_bytes": 678104,
+  "seconds": 382.3,
+  "voice": "Puck",
+  "model": "google/gemini-3.1-flash-tts-preview",
+  "bytes": 2293868,
+  "ogg_bytes": 560253,
   "intro": "title",
   "drop": "facts,recap,tasting,headings",
   "outro": "none",
-  "ogg_bytes": 495499
+  "fingerprint": "029a4fd7bfa5ae5da9beb3fe31660d22101a8fccb248f99ebc5d88a7f69bfdcf",
+  "revision": "041d6c30200df9b7",
+  "loudness": -19.38,
+  "delivery": "casual-v3"
  },
  "no-3": {
-  "seconds": 468.9,
-  "voice": "nbtts/Kvinne · Oslo@0.95",
-  "bytes": 2813852,
-  "lo_bytes": 938240,
+  "seconds": 548.5,
+  "voice": "Puck",
+  "model": "google/gemini-3.1-flash-tts-preview",
+  "bytes": 3291356,
+  "ogg_bytes": 805883,
   "intro": "title",
   "drop": "facts,recap,tasting,headings",
   "outro": "none",
-  "ogg_bytes": 686936
+  "fingerprint": "734f64bd5f5a5083b268b89d9bd34baa167996003e7b27c737dc97c0ea76ad84",
+  "revision": "71dc554028ce8e72",
+  "loudness": -19.35,
+  "delivery": "casual-v3"
  },
  "no-4": {
-  "seconds": 348.0,
-  "voice": "nbtts/Kvinne · Oslo@0.95",
-  "bytes": 2088092,
-  "lo_bytes": 696248,
+  "seconds": 402.3,
+  "voice": "Puck",
+  "model": "google/gemini-3.1-flash-tts-preview",
+  "bytes": 2414108,
+  "ogg_bytes": 596169,
   "intro": "title",
   "drop": "facts,recap,tasting,headings",
   "outro": "none",
-  "ogg_bytes": 512751
+  "fingerprint": "7bdc8eb37ca359892a788474d28b1409a268e6beb196749237ef816026e905cd",
+  "revision": "b2e8b004e30b36c7",
+  "loudness": -19.49,
+  "delivery": "casual-v3"
  },
  "en-intro": {
   "seconds": 21.3,
@@ -111,17 +127,18 @@
   "kind": "region-intro"
  },
  "no-intro": {
-  "voice": "Kvinne · Oslo",
-  "pace": "Rolig",
-  "model": "NbAiLab/nb-tts-voxcpm2-voices-2607",
-  "tempo": 0.95,
-  "seconds": 19.5,
-  "bytes": 117308,
-  "ogg_bytes": 28409,
-  "kind": "region-intro",
+  "seconds": 24.8,
+  "voice": "Puck",
+  "model": "google/gemini-3.1-flash-tts-preview",
+  "bytes": 149276,
+  "ogg_bytes": 36123,
   "intro": "region",
   "drop": "",
   "outro": "none",
-  "loudness": -19
+  "fingerprint": "9b7d9b59c8ab60f99ca9fc110724c481e64decb80913b7758f60901be7ca039f",
+  "revision": "b3c7cee0b83e357a",
+  "loudness": -19.53,
+  "delivery": "casual-v3",
+  "kind": "region-intro"
  }
 }

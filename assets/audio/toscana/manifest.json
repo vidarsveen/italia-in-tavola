@@ -84,24 +84,32 @@
   "delivery": "casual-v3"
  },
  "no-3": {
-  "seconds": 230.8,
-  "voice": "nbtts/Kvinne · Oslo@0.95",
-  "bytes": 1385084,
-  "lo_bytes": 461960,
+  "seconds": 266.5,
+  "voice": "Puck",
+  "model": "google/gemini-3.1-flash-tts-preview",
+  "bytes": 1599356,
+  "ogg_bytes": 393118,
   "intro": "title",
   "drop": "facts,recap,tasting,headings",
   "outro": "none",
-  "ogg_bytes": 337956
+  "fingerprint": "aadda56710d089b334a426b1cfd89248741b3cc17e87324f94061022a01686e4",
+  "revision": "1c9d20d749cc32ba",
+  "loudness": -19.61,
+  "delivery": "casual-v3"
  },
  "no-4": {
-  "seconds": 373.2,
-  "voice": "nbtts/Kvinne · Oslo@0.95",
-  "bytes": 2239580,
-  "lo_bytes": 746792,
+  "seconds": 441.2,
+  "voice": "Puck",
+  "model": "google/gemini-3.1-flash-tts-preview",
+  "bytes": 2647388,
+  "ogg_bytes": 649044,
   "intro": "title",
   "drop": "facts,recap,tasting,headings",
   "outro": "none",
-  "ogg_bytes": 544558
+  "fingerprint": "4e8229e193a3bd10c63ac706dcc13224b04a0f46ab676bc152387092438237ac",
+  "revision": "52585417ec88a40d",
+  "loudness": -19.37,
+  "delivery": "casual-v3"
  },
  "en-intro": {
   "seconds": 20.5,

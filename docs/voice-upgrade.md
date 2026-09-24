@@ -119,3 +119,46 @@ for this batch; the funded balance was rechecked and remained $0.613282. Existin
 audio is retained. The phone player test on Veneto reading 3 passed playback, +15 s seek
 and pause. All five regions have no stale narrations; all regional intro checks pass.
 The full site build is 452.9 MB and the inlined preview remains 14.5 MB.
+
+### Norwegian resumed after top-up
+
+The owner added credits and requested continuation. The funded balance was $25.61328193
+before resuming. The two remaining Toscana tracks are now complete and validated; their
+additional successful-request charges are $0.288745, bringing the complete three-region
+pilot to $2.551838. One empty-stream HTTP 502 required retrying Toscana's last section.
+The five-region Puck batch is in progress; a second empty-stream 502 in Liguria was resumed
+from cached sections. All charges will be reported from the saved generation records.
+
+### Norwegian batch complete — 24 September 2026
+
+All 25 Norwegian recordings for the five regions and the two pending Toscana readings are
+complete, validated and installed. The five regions contain 7,867 seconds of Puck audio
+(2 h 11 m 7 s). All source fingerprints, MP3/Opus decodes and loudness checks passed;
+all six affected regions have no stale audio and all regional introductions match their scripts.
+The finished site is 462.2 MB; the inlined preview remains 14.5 MB.
+
+| Region | Verified Puck cost (USD) |
+| --- | ---: |
+| Valle d'Aosta | 0.591576 |
+| Liguria | 0.840849 |
+| Lombardia | 0.840952 |
+| Trentino-Alto Adige | 0.830096 |
+| Veneto | 0.874215 |
+| Five-region total | 3.977688 |
+| Completing Toscana | 0.288745 |
+| New charges after top-up | 4.266433 |
+
+All 78 successful requests in the five-region batch have retrieved costs. English API cost
+remains $0. The funded balance decreased from $25.61328193 to $21.34684893, exactly matching
+the new successful-request charges; the failed requests therefore added no net charge.
+The complete three-region pilot costs $2.551838, and both batches together cost $6.529526
+(excluding auditions). Eight regions now have Heart English and casual Puck Norwegian,
+including all introductions; twelve regions retain their earlier voices.
+
+Temporary empty-stream responses and one dropped connection required resuming from saved
+sections. The generator now logs and retries transient failures at most twice per section;
+credit and other permanent errors stop immediately. Completed recordings and sections retain
+their original fingerprints and are reused. Logs are under each local region's `errors/` folder.
+Phone playback, seeking and pause passed on Veneto's new Norwegian food chapter. The full
+audiobook test passed all checks, including introductions, chapter navigation, language-specific
+progress, resume and migration of old saved positions.

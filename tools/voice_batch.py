@@ -12,6 +12,7 @@ from pathlib import Path
 import re
 import subprocess
 import time
+import urllib.error
 
 import numpy as np
 import soundfile as sf
@@ -113,9 +114,22 @@ def generate(task, engine=None):
                 raw = pcm.read_bytes()
             else:
                 print(f'{region} {key}: generating chunk {i+1}', flush=True)
-                # Single attempt: failures remain visible and resumable; no hidden paid retries.
-                raw, gid = tts.speak(DIRECTION + '\nTRANSCRIPT:\n' + piece,
-                    model=MODEL_NO, voice='Puck', fmt='pcm', timeout=600, retries=1)
+                # Keep each provider attempt visible. Retry transient failures only.
+                for attempt in range(3):
+                    try:
+                        raw, gid = tts.speak(DIRECTION + '\nTRANSCRIPT:\n' + piece,
+                            model=MODEL_NO, voice='Puck', fmt='pcm', timeout=600, retries=1)
+                        break
+                    except (tts.TTSError, ConnectionError, TimeoutError, urllib.error.URLError) as error:
+                        errors = folder / 'errors'
+                        errors.mkdir(exist_ok=True)
+                        save(errors / f'{key}-chunk-{i}-{time.time_ns()}.json',
+                             dict(error=str(error), fingerprint=chunkhash, attempt=attempt + 1))
+                        transient = not isinstance(error, tts.TTSError) or str(error).startswith(('HTTP 429:', 'HTTP 500:', 'HTTP 502:', 'HTTP 503:', 'HTTP 504:'))
+                        if attempt == 2 or not transient:
+                            raise
+                        print(f'{region} {key} chunk {i+1}: temporary provider failure; retry {attempt+1}/2', flush=True)
+                        time.sleep(5 * (attempt + 1))
                 pcm.write_bytes(raw)
                 old = dict(fingerprint=chunkhash, generation_id=gid, cost=None,
                            seconds=len(raw)/48000, words=len(piece.split()))
