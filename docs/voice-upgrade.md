@@ -162,3 +162,48 @@ their original fingerprints and are reused. Logs are under each local region's `
 Phone playback, seeking and pause passed on Veneto's new Norwegian food chapter. The full
 audiobook test passed all checks, including introductions, chapter navigation, language-specific
 progress, resume and migration of old saved positions.
+
+The completed Puck release was deployed at commit `3fc519b`; the live page, all six affected
+manifests, five new Puck introductions and both Toscana replacement readings were verified.
+
+## Third batch — next five regions
+
+The owner authorised five more regions on 24 September: Friuli-Venezia Giulia (`friuli`),
+Emilia-Romagna (`emiliaromagna`), Umbria, Marche and Abruzzo. This follows course order,
+skipping the eight already upgraded regions. Both approved voices and all introductions
+are included (50 tracks). Starting funded balance after the previous batch: $21.34684893.
+Run `tools/voice_batch.py --batch next-five --lang both`; use the same `--batch next-five`
+option for validation and installation. Files and charges are kept separately under
+`voicelab/local-english/batch-next-five`, with a listening preview at
+http://127.0.0.1:8767/batch-next-five/. Generate, validate, publish and report actual cost.
+
+### Third batch complete
+
+All 50 tracks (25 per language, including introductions) are generated, validated and
+installed. English totals 6,643.2 seconds and Norwegian 7,818.7 seconds. Source scripts,
+fingerprints, MP3/Opus decoding and loudness checks passed. All five regions have no stale
+narration and all introductions match current content. Site size is 472.8 MB; preview 14.5 MB.
+
+| Region | Verified Puck cost (USD) |
+| --- | ---: |
+| Friuli-Venezia Giulia | 0.718362 |
+| Emilia-Romagna | 0.771771 |
+| Umbria | 0.763926 |
+| Marche | 0.730603 |
+| Abruzzo | 0.996168 |
+| Total | 3.980830 |
+
+All 78 charged generations have retrieved costs. This includes one rejected Umbria section:
+the duration check measured 250 words/minute, above the 215 limit. Its PCM and charge record
+were preserved under `umbria/rejected/`, and only that section was replaced. Reports now count
+rejected attempts so they cannot disappear from cost totals. Other temporary errors were
+handled through the bounded retry mechanism.
+
+The funded balance fell from $21.34684893 to $17.36601893, exactly matching $3.980830.
+English API cost is $0. The three batches together cost $10.510356, excluding auditions.
+Thirteen regions now have both approved voices and introductions; the seven remaining regions
+are Molise, Campania, Puglia, Basilicata, Calabria, Sicilia and Sardegna. No generation for
+those seven is authorised by this batch request.
+The phone test on Abruzzo's Norwegian food chapter passed playback, seek and pause. The
+audiobook test passed all checks, including chapter transitions, resume, language-specific
+progress and migration of saved positions.

@@ -25,8 +25,10 @@ from local_voice_samples import FloatSpeedKokoro, MODEL
 ROOT = Path(tts.ROOT)
 OUT = ROOT / 'voicelab/local-english/batch-three'
 REGIONS = ['lazio', 'piemonte', 'toscana']
-BATCHES = {'three': REGIONS, 'five': ['valledaosta', 'liguria', 'lombardia', 'trentino', 'veneto']}
-REGION_LABELS = {'valledaosta': "Valle d’Aosta", 'trentino': 'Trentino-Alto Adige'}
+BATCHES = {'three': REGIONS, 'five': ['valledaosta', 'liguria', 'lombardia', 'trentino', 'veneto'],
+           'next-five': ['friuli', 'emiliaromagna', 'umbria', 'marche', 'abruzzo']}
+REGION_LABELS = {'valledaosta': "Valle d’Aosta", 'trentino': 'Trentino-Alto Adige',
+                 'friuli': 'Friuli-Venezia Giulia', 'emiliaromagna': 'Emilia-Romagna'}
 
 
 def configure(parser=None):
@@ -138,6 +140,11 @@ def generate(task, engine=None):
                 save(cm, old)
             wpm = len(piece.split()) * 60 / (len(raw)/48000)
             if not 65 < wpm < 215:
+                rejected = folder / 'rejected'
+                rejected.mkdir(exist_ok=True)
+                attempt_name = f'{key}-chunk-{i}-{time.time_ns()}'
+                pcm.rename(rejected / (attempt_name + '.pcm'))
+                cm.rename(rejected / (attempt_name + '.json'))
                 raise RuntimeError(f'{region} {key} chunk {i}: suspect duration {wpm:.0f} wpm')
             parts.append(raw)
         tts.pcm_to_mp3(b''.join(parts), str(dst))
@@ -188,7 +195,7 @@ def report():
     for region in REGIONS:
         folder = OUT/region
         charges = []
-        for path in folder.glob('*-chunk-*.json'):
+        for path in list(folder.glob('*-chunk-*.json')) + list((folder/'rejected').glob('*.json')):
             record = json.loads(path.read_text(encoding='utf-8'))
             if record['cost'] is None and record.get('generation_id'):
                 record['cost'] = tts.cost_of(record['generation_id'],tries=2)
