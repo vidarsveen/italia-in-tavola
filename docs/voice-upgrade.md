@@ -207,3 +207,39 @@ those seven is authorised by this batch request.
 The phone test on Abruzzo's Norwegian food chapter passed playback, seek and pause. The
 audiobook test passed all checks, including chapter transitions, resume, language-specific
 progress and migration of saved positions.
+
+## Fourth batch — southern five regions
+
+The third batch was published at `6283641` and its live manifests and ten introduction audio
+hashes were verified. The owner then authorised the next five: Molise, Campania, Puglia,
+Basilicata and Calabria. Both voices and all introductions are included (50 tracks).
+Starting funded balance: $17.36601893. Run generation, validation and installation with
+`--batch south-five`; outputs are under `voicelab/local-english/batch-south-five` and the
+preview is http://127.0.0.1:8767/batch-south-five/. Publish after checks and report actual cost.
+Sicilia and Sardegna remain outside this batch.
+
+### Fourth batch complete
+
+All 50 tracks are generated, validated and installed, including all ten introductions.
+English totals 8,521.5 seconds and Norwegian 9,794.4 seconds. Script fingerprints, source
+text, MP3/Opus decoding and loudness checks passed. All five regions have no stale narration.
+The site is 485.6 MB and the inlined preview remains 14.5 MB.
+
+| Region | Verified Puck cost (USD) |
+| --- | ---: |
+| Molise | 0.994255 |
+| Campania | 1.191483 |
+| Puglia | 1.226915 |
+| Basilicata | 0.748014 |
+| Calabria | 0.790130 |
+| Total | 4.950797 |
+
+All 93 successful requests have retrieved costs. Temporary provider errors were recovered
+through bounded retries; no duration-rejected recordings were needed in this batch.
+The funded balance decreased from $17.36601893 to $12.41522193, exactly matching $4.950797.
+English API cost remains $0. All four batches together cost $15.461153, excluding auditions.
+Eighteen regions now have both approved voices and introductions; only Sicilia and Sardegna
+retain their earlier voices. This batch does not authorise generating those final two regions.
+The phone player passed playback, seek and pause on Calabria's new Norwegian food chapter.
+The audiobook test passed all checks, including introductions, chapter transitions, resume,
+language-specific progress and migration of old saved positions. All regional intro checks passed.
