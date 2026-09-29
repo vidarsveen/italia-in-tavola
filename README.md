@@ -94,3 +94,5 @@ byte-identical to ffmpeg's muxer. The audiobook includes each region's introduct
 1. Create `content/<region>.js` following `content/lazio.js` (`window.READINGS['IT-xx'] = {credits, lessons:[...]}`).
 2. Put photos in `assets/<region>/` and add the folder to `ASSET_DIRS` in `italia-course.html`.
 3. Add a `<script src="content/<region>.js">` tag next to the Lazio one, then run `python build.py`.
+
+The 20-second introduction is available from the welcome/About screen and at [the introduction](https://vidarsveen.github.io/italia-in-tavola/previews/mobile-intro/), in Norwegian and English, with optional music and photo credits.
