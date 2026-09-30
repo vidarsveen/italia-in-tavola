@@ -2,7 +2,7 @@ const {chromium}=require('C:/Users/vidar/.cache/codex-runtimes/codex-primary-run
 const path=require('path');
 (async()=>{const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
 try{const page=await browser.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
-for(const width of [360,390]){await page.setViewportSize({width,height:844});await page.goto('http://127.0.0.1:8779/previews/mobile-intro/');
+for(const width of [360,390]){await page.setViewportSize({width,height:844});await page.goto('http://127.0.0.1:8779/previews/mobile-intro/?review=1');
 for(const lang of ['en','no']){await page.locator(`.mobileLang [data-lang=${lang}]`).click();await page.waitForTimeout(300);
 for(const t of [0,3.5,7.5,10,13,16,19]){await page.evaluate(t=>introPreview.seek(t),t);await page.waitForTimeout(550);const ok=await page.evaluate(()=>[...document.images].every(i=>i.complete&&i.naturalWidth>0)&&document.documentElement.scrollWidth<=innerWidth);if(!ok)throw Error(`Assets/overflow ${width} ${lang} ${t}`);}
 }

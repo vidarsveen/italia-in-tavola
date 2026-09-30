@@ -11,6 +11,9 @@
 .scene{transition:none}.scene .copy{opacity:0}.scene.active .copy{opacity:1}.screen{width:76%;left:12%;top:185px;transform-origin:50% 85%;background:#f4f2ee;will-change:transform}.shade{z-index:9;height:40px}.brand{z-index:12}.mobileLang{z-index:12}.end{z-index:11}
 .soundrow button{background:transparent;color:#e4ca98;border:1px solid #667b7a;border-radius:20px;padding:9px 14px;min-height:44px}.credit{font-size:11px;line-height:1.6;color:#abbdb9;margin-top:14px}.credit a{color:#e4ca98}
 </style>
+<style>
+.splashbar{display:none}body.splash .notes,body.splash .controls{display:none}body.splash .layout{display:block;padding:0;min-height:100svh}body.splash .preview{margin:auto;max-width:430px}body.splash .stage{height:calc(100svh - 112px);min-height:280px;aspect-ratio:auto;border:0;border-radius:0}body.splash .splashbar{display:block;padding:8px 16px max(8px,env(safe-area-inset-bottom));height:112px;background:#17383d} .splashbar .actions{display:flex;align-items:center;justify-content:space-between;gap:8px}.splashbar button{min-height:44px;border:1px solid #80928a;background:transparent;color:#f6eee0;border-radius:24px;padding:8px 14px}.splashbar label{font-size:13px;display:flex;align-items:center;gap:7px;min-height:44px}.splashbar input{width:18px;height:18px;accent-color:#e4ca98}.splashbar .credit{font-size:10px;margin:6px 0;line-height:1.35}.splashbar .sound{border:0;padding:0 8px;font-size:12px}
+</style>
 </head>
 <body><main class="layout">
 <aside class="notes"><div class="eyebrow">Italia in Tavola · Preview 01</div><h1 id="introHeading"></h1><p id="introText"></p><div class="lang"><button data-lang="no">Norsk</button><button data-lang="en">English</button></div><small id="note"></small></aside>
@@ -18,10 +21,23 @@
 <div class="brand">Italia <i>in Tavola</i></div><div class="lang mobileLang"><button data-lang="no">NO</button><button data-lang="en">EN</button></div>
 <div id="scenes"></div><div class="shade"></div></div>
 <div class="controls"><p><a id="enter" style="display:block;text-align:center;background:#f3e9d7;color:#152e32;border-radius:24px;padding:13px;text-decoration:none" href="../../">Åpne kartet →</a></p><div class="row"><button id="play"></button><button id="replay"></button><output id="time">0:00 / 0:20</output></div><input class="timeline" id="seek" type="range" min="0" max="20" step=".05" value="0" aria-label="Timeline"><div class="soundrow"><button id="mute" aria-pressed="false"></button><p class="status" id="status" role="status"></p></div><p class="credit">“Bushwick Tarantella” — Kevin MacLeod (<a href="https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1300002" target="_blank" rel="noopener">incompetech.com · Source</a>). <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.<br><span id="editCredit"></span> · <a href="credits.html">Photo credits / Fotokreditering</a></p></div>
+<div class="splashbar"><div class="actions"><label><input id="hideNext" type="checkbox"><span id="hideLabel"></span></label><button id="sound" class="sound"></button><button id="skip"></button></div><p class="credit">“Bushwick Tarantella” — <a href="https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1300002" target="_blank" rel="noopener">Kevin MacLeod</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> · 20s edit/fades · <a href="credits.html" target="_blank" rel="noopener">Photo credits</a></p></div>
 </section></main>
 <script>
 const text={no:{heading:'En liten smak av Italia.',intro:'20 sekunder gjennom kartet, historiene og maten. Et separat utkast du kan spille av, stoppe og bla i.',note:'Ekte skjermbilder fra kurset. Ingen endringer i selve kurset. Musikk legges til når en egnet innspilling av «’O sole mio» er klar.',play:'Spill av',pause:'Pause',replay:'Fra starten',status:'FORHÅNDSVISNING · UTEN MUSIKK',titles:['Reis gjennom Italia','Mat, vin og historier','Test det du har lært','Lag bistecca hjemme','Ta med deg lydboken','Over 100 oppskrifter'],tags:['20 regioner','Artikler med bilder','Quizer med forklaringer','Oppskrifter trinn for trinn','Lytt i ditt eget tempo','Til ditt eget kjøkken'],end:'Norsk og engelsk.<br>Hele Italia ved bordet.'},en:{heading:'A little taste of Italy.',intro:'20 seconds through the map, the stories and the food. A separate draft to play, pause and explore.',note:'Real screens from the course. The course itself is unchanged. Music will follow once a suitable recording of “’O sole mio” is ready.',play:'Play',pause:'Pause',replay:'Replay',status:'REVIEW PREVIEW · NO MUSIC',titles:['Explore Italy','Food, wine and stories','Test what you’ve learned','Cook bistecca at home','Take the audiobook along','Over 100 recipes'],tags:['20 regions','Illustrated articles','Quizzes with explanations','Step-by-step recipes','Listen at your own pace','For your own kitchen'],end:'English and Norwegian.<br>Italy, at your table.'}};
 const names=['map','article','quiz','recipe','audio','recipes'];let lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'no',position=0,playing=false,last=0;
+const splash = !new URLSearchParams(location.search).has('review');
+let splashDone = false;
+function finishSplash(){
+  if(splashDone) return; splashDone=true; pause();
+  if(parent !== window) parent.postMessage({type:'iit-splash-done',lang},location.origin);
+  else location.href=$('enter').href.replace('?lang=','?nosplash=1&lang=');
+}
+function splashLabels(){
+  $('hideLabel').textContent=lang==='no'?'Ikke vis neste gang':'Hide next time';
+  $('skip').textContent=lang==='no'?'Hopp over':'Skip';
+  $('sound').textContent=music.paused||music.muted?(lang==='no'?'Lyd på':'Sound on'):(lang==='no'?'Lyd av':'Sound off');
+}
 text.no.note='Ekte skjermbilder lagt som en kortstokk. Kortene ligger rett over hverandre og glir rolig til side. Musikk: «Bushwick Tarantella» av Kevin MacLeod, brukt med kreditering under CC BY 4.0.';
 text.en.note='Real course screens in a deck of cards. Upright cards share the same position; only the outgoing card slides. Music: “Bushwick Tarantella” by Kevin MacLeod, used with attribution under CC BY 4.0.';
 text.no.status='KORTSTOKK · BUSHWICK TARANTELLA';text.en.status='CARD DECK · BUSHWICK TARANTELLA';
@@ -39,10 +55,22 @@ function soundLabel(){$('mute').textContent=music.muted?(lang==='no'?'Slå på l
 function pause(){playRequest++;music.pause();playing=false;draw();}
 function seek(seconds){pause();position=Math.max(0,Math.min(20,seconds));music.currentTime=position;draw();}
 async function play(){const request=++playRequest;if(position>=20)position=0;music.currentTime=position;try{await music.play();if(request!==playRequest)return;playing=true;$('status').textContent=text[lang].status;draw();}catch(e){if(request!==playRequest)return;playing=false;$('status').textContent=lang==='no'?'Lyden kunne ikke startes. Prøv igjen.':'Audio could not start. Please try again.';draw();}}
-function frame(){if(playing){position=Math.min(20,music.currentTime);draw();}requestAnimationFrame(frame);}
-music.addEventListener('ended',()=>{playing=false;position=20;draw();});
+function frame(now){if(playing){position=Math.min(20,splash?position+(last?Math.min((now-last)/1000,.1):0):music.currentTime);draw();if(splash&&position>=20)finishSplash();}last=now;requestAnimationFrame(frame);}
+music.addEventListener('ended',()=>{if(splash){finishSplash();return;}playing=false;position=20;draw();});
 $('play').onclick=()=>playing?pause():play();$('replay').onclick=()=>{seek(0);play();};$('seek').oninput=e=>seek(+e.target.value);$('mute').onclick=()=>{music.muted=!music.muted;soundLabel();};document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{lang=b.dataset.lang;render();soundLabel();});document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});render();soundLabel();requestAnimationFrame(frame);
 window.introPreview={seek,get state(){return {lang,position,playing,audioTime:music.currentTime,muted:music.muted,duration:music.duration,volume:music.volume}}};
+if(splash){
+ document.body.classList.add('splash');
+ try{$('hideNext').checked=localStorage.getItem('iit-hide-splash')==='1';}catch(e){}
+ $('hideNext').onchange=()=>{try{localStorage.setItem('iit-hide-splash',$('hideNext').checked?'1':'0');}catch(e){}};
+ $('skip').onclick=finishSplash;
+ $('sound').onclick=()=>{if(music.paused||music.muted){music.currentTime=position;music.muted=false;music.play().then(splashLabels).catch(splashLabels);}else{music.muted=true;splashLabels();}};
+ document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',splashLabels));
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!splashDone){last=0;playing=true;}});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')finishSplash();});
+ // Visual playback never depends on permission to autoplay audio.
+ playing=true;music.play().then(splashLabels).catch(splashLabels);splashLabels();
+}
 </script></body></html>
 
 

@@ -2,7 +2,7 @@ const {chromium}=require('C:/Users/vidar/.cache/codex-runtimes/codex-primary-run
 const path=require('path');
 (async()=>{const b=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});try{
 const p=await b.newPage({viewport:{width:390,height:844}}),audio=[];p.on('request',r=>{if(/\.(wav|mp3|ogg)(?:\?|$)/.test(r.url()))audio.push(r.url())});
-await p.goto('http://127.0.0.1:8779/previews/mobile-intro/');await p.evaluate(()=>introPreview.seek(2.25));
+await p.goto('http://127.0.0.1:8779/previews/mobile-intro/?review=1');await p.evaluate(()=>introPreview.seek(2.25));
 const state=await p.evaluate(()=>({transforms:[...document.querySelectorAll('.screen')].slice(0,3).map(x=>x.style.transform),visible:[...document.querySelectorAll('.scene')].filter(x=>x.style.opacity==='1').length,mutebutton:!!document.getElementById('mute')}));
 if(state.visible!==2||!state.mutebutton||state.transforms.some(x=>/scale|rotate/.test(x)))throw Error(JSON.stringify(state));
 for(const t of [0,2.5,2.999,3,3.001,5.999,6,9,12,15]){await p.evaluate(t=>introPreview.seek(t),t);const stable=await p.evaluate(()=>{const i=Math.min(5,Math.floor(introPreview.state.position/3));return [...document.querySelectorAll('.screen')].every((x,j)=>j===i||x.style.transform==='translateX(0px)'||x.style.transform==='translateX(0)')});if(!stable)throw Error('Underlying card moved at '+t);}await p.evaluate(()=>introPreview.seek(2.25));

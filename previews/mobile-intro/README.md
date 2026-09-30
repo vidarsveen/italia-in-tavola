@@ -35,3 +35,5 @@ Next after review: refine the musical cut if requested, export vertical video, a
 
 
 Publication: approved 29 September 2026. The welcome/About screen links here; Open the map returns to the course. make_site.py ships only runtime assets, compressed MP3, screenshots and credits. Earlier statements above describe the standalone review phase.
+
+30 September: The intro is now an automatic splash on app entry, with Skip and a persistent Hide next time checkbox (iit-hide-splash). It exits to the map at 20 seconds. Visual timing is independent of audio autoplay permission; Sound on enables music when blocked. About can replay it. Add ?review=1 for manual preview controls. check-splash.cjs covers automatic entry, blocked-audio policy, skip, persistence, replay, languages and completion.

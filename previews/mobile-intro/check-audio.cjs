@@ -1,6 +1,6 @@
 const {chromium}=require('C:/Users/vidar/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const fs=require('fs'),path=require('path');
-(async()=>{const b=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});try{const p=await b.newPage({viewport:{width:390,height:844}});await p.goto('http://127.0.0.1:8779/previews/mobile-intro/');await p.waitForFunction(()=>Math.abs(introPreview.state.duration-20)<.2);const state=()=>p.evaluate(()=>introPreview.state);
+(async()=>{const b=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});try{const p=await b.newPage({viewport:{width:390,height:844}});await p.goto('http://127.0.0.1:8779/previews/mobile-intro/?review=1');await p.waitForFunction(()=>Math.abs(introPreview.state.duration-20)<.2);const state=()=>p.evaluate(()=>introPreview.state);
 await p.locator('#play').click();await p.waitForTimeout(1100);let s=await state();if(!s.playing||s.audioTime<.7||Math.abs(s.position-s.audioTime)>.12)throw Error('Playback/sync');
 await p.locator('.mobileLang [data-lang=en]').click();let t=await state();if(!t.playing||t.audioTime<s.audioTime||t.lang!=='en')throw Error('Language interrupted audio');
 await p.locator('#mute').click();if(!(await state()).muted)throw Error('Mute');await p.locator('#mute').click();if((await state()).muted)throw Error('Unmute');
