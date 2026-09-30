@@ -26,6 +26,8 @@
 <script>
 const text={no:{heading:'En liten smak av Italia.',intro:'20 sekunder gjennom kartet, historiene og maten. Et separat utkast du kan spille av, stoppe og bla i.',note:'Ekte skjermbilder fra kurset. Ingen endringer i selve kurset. Musikk legges til når en egnet innspilling av «’O sole mio» er klar.',play:'Spill av',pause:'Pause',replay:'Fra starten',status:'FORHÅNDSVISNING · UTEN MUSIKK',titles:['Reis gjennom Italia','Mat, vin og historier','Test det du har lært','Lag bistecca hjemme','Ta med deg lydboken','Over 100 oppskrifter'],tags:['20 regioner','Artikler med bilder','Quizer med forklaringer','Oppskrifter trinn for trinn','Lytt i ditt eget tempo','Til ditt eget kjøkken'],end:'Norsk og engelsk.<br>Hele Italia ved bordet.'},en:{heading:'A little taste of Italy.',intro:'20 seconds through the map, the stories and the food. A separate draft to play, pause and explore.',note:'Real screens from the course. The course itself is unchanged. Music will follow once a suitable recording of “’O sole mio” is ready.',play:'Play',pause:'Pause',replay:'Replay',status:'REVIEW PREVIEW · NO MUSIC',titles:['Explore Italy','Food, wine and stories','Test what you’ve learned','Cook bistecca at home','Take the audiobook along','Over 100 recipes'],tags:['20 regions','Illustrated articles','Quizzes with explanations','Step-by-step recipes','Listen at your own pace','For your own kitchen'],end:'English and Norwegian.<br>Italy, at your table.'}};
 const names=['map','article','quiz','recipe','audio','recipes'];let lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'no',position=0,playing=false,last=0;
+const sceneStarts=[0,5,7.6,10.2,12.8,15.4,18,20];
+const smooth=x=>{x=Math.max(0,Math.min(1,x));return x*x*(3-2*x);};
 const splash = !new URLSearchParams(location.search).has('review');
 let splashDone = false;
 function finishSplash(){
@@ -42,20 +44,23 @@ text.no.note='Ekte skjermbilder lagt som en kortstokk. Kortene ligger rett over 
 text.en.note='Real course screens in a deck of cards. Upright cards share the same position; only the outgoing card slides. Music: “Bushwick Tarantella” by Kevin MacLeod, used with attribution under CC BY 4.0.';
 text.no.status='KORTSTOKK · BUSHWICK TARANTELLA';text.en.status='CARD DECK · BUSHWICK TARANTELLA';
 document.getElementById('enter').addEventListener('click',()=>{try{localStorage.setItem('iit-seen','1')}catch(e){}});
-const music=new Audio('bushwick-tarantella-20s.mp3');music.preload='auto';music.volume=.32;let playRequest=0;
+const music=new Audio('bushwick-tarantella-20s.mp3');music.preload='auto';music.volume=.32;music.muted=false;let playRequest=0;
 const $=id=>document.getElementById(id);const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function render(){const t=text[lang];$('enter').textContent=lang==='no'?'Åpne kartet →':'Open the map →';$('enter').href='../../'+(location.hostname==='127.0.0.1'&&!location.pathname.startsWith('/site/')?'italia-course.html':'')+'?lang='+lang+'#/';document.documentElement.lang=lang==='no'?'nb':'en';$('introHeading').textContent=t.heading;$('introText').textContent=t.intro;$('note').textContent=t.note;$('replay').textContent=t.replay;$('status').textContent=t.status;$('seek').setAttribute('aria-label',lang==='no'?'Tidslinje':'Timeline');document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));
 $('scenes').innerHTML=names.map((name,i)=>`<div class="scene" data-scene="${i}"><div class="copy"><span class="n">${t.tags[i]}</span><h2>${t.titles[i]}</h2></div><div class="screen"><img src="screens/${lang}-${name}.jpg" alt="${t.titles[i]}" draggable="false">${name==='quiz'?`<img class="answer" src="screens/${lang}-answer.jpg" alt="${lang==='no'?'Svaret forklart':'Answer explained'}">`:''}</div></div>`).join('')+`<div class="scene end" data-scene="6"><div class="eyebrow">20 regioni · Una tavola</div><h2>Italia<br><em>in Tavola</em></h2><div class="line"></div><p>${t.end}</p></div>`;draw();}
-function draw(){const index=Math.min(6,Math.floor(position/3));const u=Math.max(0,Math.min(1,(position-index*3-1.65)/1.35)),slide=reduced?0:u*u*(3-2*u);
-document.querySelectorAll('.scene').forEach((s,i)=>{const depth=i-index,visible=i===6?index===6:depth>=0&&depth<=1;
-s.classList.toggle('active',i===index);s.style.opacity=visible?'1':'0';s.style.zIndex=i===6?'11':String(8-i);s.setAttribute('aria-hidden',String(i!==index));
+function draw(){let index=0;while(index<6&&position>=sceneStarts[index+1])index++;
+const phase=smooth((position-(sceneStarts[index+1]-1.35))/1.35),slide=reduced?0:phase;
+const outgoing=1-smooth(phase/.55),incoming=smooth((phase-.55)/.45);
+document.querySelectorAll('.scene').forEach((s,i)=>{const depth=i-index,visible=depth>=0&&depth<=1;
+s.classList.toggle('active',i===index);s.style.opacity=visible?(i===6&&index===5?String(incoming):'1'):'0';s.style.zIndex=i===6?'11':String(8-i);s.setAttribute('aria-hidden',String(i!==index));
+const copy=s.querySelector('.copy');if(copy)copy.style.opacity=String(depth===0?(reduced?1:outgoing*(index===0?smooth(position/.5):1)):depth===1?(reduced?0:incoming):0);
 const card=s.querySelector('.screen');if(card){const direction=index%2?-1:1;card.style.transform=depth===0?`translateX(${direction*slide*150}%)`:`translateX(0)`;}
-});const answer=document.querySelector('.answer');if(answer)answer.style.opacity=position>=7.1?'1':'0';$('time').textContent=`0:${String(Math.floor(position)).padStart(2,'0')} / 0:20`;$('seek').value=position;$('play').textContent=playing?text[lang].pause:text[lang].play;}
+});const answer=document.querySelector('.answer');if(answer)answer.style.opacity=position>=sceneStarts[2]+1.1?'1':'0';$('time').textContent=`0:${String(Math.floor(position)).padStart(2,'0')} / 0:20`;$('seek').value=position;$('play').textContent=playing?text[lang].pause:text[lang].play;}
 function soundLabel(){$('mute').textContent=music.muted?(lang==='no'?'Slå på lyd':'Unmute'):(lang==='no'?'Demp lyd':'Mute');$('mute').setAttribute('aria-pressed',String(music.muted));$('editCredit').textContent=lang==='no'?'Redigert til et utdrag på 20 sekunder med inn- og uttoning.':'Edited to a 20-second excerpt with fades.';}
 function pause(){playRequest++;music.pause();playing=false;draw();}
 function seek(seconds){pause();position=Math.max(0,Math.min(20,seconds));music.currentTime=position;draw();}
 async function play(){const request=++playRequest;if(position>=20)position=0;music.currentTime=position;try{await music.play();if(request!==playRequest)return;playing=true;$('status').textContent=text[lang].status;draw();}catch(e){if(request!==playRequest)return;playing=false;$('status').textContent=lang==='no'?'Lyden kunne ikke startes. Prøv igjen.':'Audio could not start. Please try again.';draw();}}
-function frame(now){if(playing){position=Math.min(20,splash?position+(last?Math.min((now-last)/1000,.1):0):music.currentTime);draw();if(splash&&position>=20)finishSplash();}last=now;requestAnimationFrame(frame);}
+function frame(now){if(playing){position=Math.min(20,splash?position+(last?(now-last)/1000:0):music.currentTime);draw();if(splash&&position>=20)finishSplash();}last=now;requestAnimationFrame(frame);}
 music.addEventListener('ended',()=>{if(splash){finishSplash();return;}playing=false;position=20;draw();});
 $('play').onclick=()=>playing?pause():play();$('replay').onclick=()=>{seek(0);play();};$('seek').oninput=e=>seek(+e.target.value);$('mute').onclick=()=>{music.muted=!music.muted;soundLabel();};document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{lang=b.dataset.lang;render();soundLabel();});document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});render();soundLabel();requestAnimationFrame(frame);
 window.introPreview={seek,get state(){return {lang,position,playing,audioTime:music.currentTime,muted:music.muted,duration:music.duration,volume:music.volume}}};
@@ -72,6 +77,7 @@ if(splash){
  playing=true;music.play().then(splashLabels).catch(splashLabels);splashLabels();
 }
 </script></body></html>
+
 
 
 
